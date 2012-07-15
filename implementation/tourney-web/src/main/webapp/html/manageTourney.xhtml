@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+    
+    <ui:composition template="/html/common/layout.xhtml">
+
+        <ui:param name="bodyId" value="tourney"/>
+        
+        <ui:define name="content">
+
+            <h:panelGroup id="pgpTourney" layout="block" style="margin-bottom: 48px; float:left;">
+                <h:outputLabel id="name" value="#{tourneyMgmt.tourney.name}"/>
+                <h:outputLabel id="category" value="(#{tourneyMgmt.tourney.category})"/>
+                <h:panelGroup id="pgpNotStarted" layout="block" rendered="#{not tourneyMgmt.tourney.started}">
+                    <h:outputText id="otNotStarted" value="Not started yet"/> 
+                    <h:form id="frmStartTourney" >
+                        <a4j:commandButton id="btnStartTourney" value="Start" actionListener="#{tourneyMgmt.startTourney}" render="pgpWaitingGamesInner,pgpOngoingGamesInner,pgpTourney" />
+                    </h:form>
+                </h:panelGroup>
+            </h:panelGroup>
+
+            <h:panelGroup id="pgpInfo" layout="block" style="float:left; margin-right: 72px; clear: both;">
+                <h:panelGroup id="pgpTables" layout="block" style="margin-bottom: 24px">
+                    <h:outputLabel id="lblTables" value="Tables" for="pgpTables">
+                        <ui:repeat id="repTables" value="#{tourneyMgmt.tourney.tables}" var="table">
+                            <h:panelGroup id="pgpTable" layout="block" style="margin-bottom: 10px">
+                                <h:outputLabel id="lblTableName" value="Name">
+                                    <h:outputText id="otTableName" value="#{table.name}"/>
+                                </h:outputLabel>
+                            </h:panelGroup>
+                        </ui:repeat>
+                    </h:outputLabel>
+                </h:panelGroup>    
+
+
+                <h:panelGroup id="pgpTeams" layout="block">
+                    <h:outputLabel id="lblTeams" value="Teams" for="pgpTeams">
+                        <ui:repeat id="repTeams" value="#{tourneyMgmt.tourney.teams}" var="team">
+                            <h:panelGroup id="pgpTeam" layout="block" style="margin-bottom: 10px">
+                                <h:outputText id="otTeam" value="#{team.seed}. #{team.name} (#{team.points})"/>
+                            </h:panelGroup>
+                        </ui:repeat>
+                    </h:outputLabel>
+                </h:panelGroup>
+            </h:panelGroup>
+
+
+            <h:panelGroup id="pgpManagement" layout="block" style="float:left; margin-right: 72px; width: 600px">
+                <h:panelGroup id="pgpWaitingGames" layout="block" style="margin-bottom: 24px">
+                    <h:form id="frmWaitingGames">
+                        <h:panelGroup id="pgpWaitingGamesInner" layout="block">
+                            <rich:dataTable value="#{tourneyMgmt.tourney.waitingGames}" var="item"
+                                            id="dtWaitingGames" rowClasses="odd-row, even-row" styleClass="stable"
+                                            style="width: 100%" noDataLabel="No waiting games">
+                                <f:facet name="caption">
+                                    <h:outputText value="Waiting games" />
+                                </f:facet>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Id" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.id}" />
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Home" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.teamHome.members[0].fullName}" />
+                                    <h:outputText value="#{empty item.teamHome.members[1] ? '' : ', '}" />
+                                    <h:outputText value="#{empty item.teamHome.members[1] ? '' : item.teamHome.members[1].fullName}" />
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Away" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.teamAway.members[0].fullName}" />
+                                    <h:outputText value="#{empty item.teamAway.members[1] ? '' : ', '}" />
+                                    <h:outputText value="#{empty item.teamAway.members[1] ? '' : item.teamAway.members[1].fullName}" />
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Actions" />
+                                    </f:facet>
+                                    <a4j:commandLink id="clStartGame" actionListener="#{tourneyMgmt.startGame}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
+                                        <f:attribute name="game" value="#{item.id}"/>
+                                        Start
+                                    </a4j:commandLink>
+
+                                </rich:column>
+                            </rich:dataTable>
+                        </h:panelGroup>
+                    </h:form>
+                </h:panelGroup>    
+
+                <h:panelGroup id="pgpOngoingGames" layout="block" style="margin-bottom: 24px;">
+                    <h:form id="frmOngoingGames">
+                        <h:panelGroup id="pgpOngoingGamesInner" layout="block">
+                            <rich:dataTable value="#{tourneyMgmt.tourney.ongoingGames}" var="item"
+                                            id="dtOngoingGames" rowClasses="odd-row, even-row" styleClass="stable"
+                                            style="width: 100%" noDataLabel="No ongoing games">
+                                <f:facet name="caption">
+                                    <h:outputText value="Ongoing games" />
+                                </f:facet>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Id" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.id}" />
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Home" />
+                                    </f:facet>
+                                    <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
+                                        <f:attribute name="game" value="#{item.id}"/>
+                                        <f:attribute name="seed" value="#{item.teamHome.seed}"/>
+                                        <h:outputText value="#{item.teamHome.members[0].fullName}" />
+                                        <h:outputText value="#{empty item.teamHome.members[1] ? '' : ', '}" />
+                                        <h:outputText value="#{empty item.teamHome.members[1] ? '' : item.teamHome.members[1].fullName}" />
+                                    </a4j:commandLink>
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Away" />
+                                    </f:facet>
+                                    <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
+                                        <f:attribute name="game" value="#{item.id}"/>
+                                        <f:attribute name="seed" value="#{item.teamAway.seed}"/>
+
+                                        <h:outputText value="#{item.teamAway.members[0].fullName}" />
+                                        <h:outputText value="#{empty item.teamAway.members[1] ? '' : ', '}" />
+                                        <h:outputText value="#{empty item.teamAway.members[1] ? '' : item.teamAway.members[1].fullName}" />
+                                    </a4j:commandLink>
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Started" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.startDate}">
+                                        <f:convertDateTime  pattern="#{app.datePattern}"/>
+                                    </h:outputText>
+                                </rich:column>                                    
+                            </rich:dataTable>
+                        </h:panelGroup>
+                    </h:form>
+                </h:panelGroup>
+            </h:panelGroup>
+
+            <a4j:outputPanel id="pgpStandings" layout="block" ajaxRendered="true" style="float: left; width: 400px; white-space: pre-wrap">
+                <h:outputText id="otStandings" value="#{tourneyMgmt.standings}"/>
+            </a4j:outputPanel>
+
+
+            <div style="clear: both;"/>
+
+        </ui:define>
+    </ui:composition>
+</html>

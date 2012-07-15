@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <title>Tourney Manager</title>
+
+        <style>
+
+            body {
+                overflow: hidden;
+                font-family: Arial;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: 8px 8px 0 8px;
+            }
+            
+            body > div {
+                padding-bottom: 8px;
+            }
+
+            div.clearFloats {
+                clear: both;
+            }
+
+
+
+
+
+            #divFooter {
+                text-align: center;
+                margin-top: 4em;
+            }
+
+            #otCopyrights {
+                font-size: 0.8em;
+            }
+
+
+
+
+
+
+
+            #pgpHeader {
+                position: relative;
+            }
+
+            #pgpHeaderLeft {
+                float: left;
+            }
+
+            #pgpLogo {
+                float: left;
+                margin-right: 6px;
+            }
+
+            #pgpApp {
+                float: left;
+            }
+
+            #pgpHeaderRight {
+                float: right;
+                margin-right: 100px;
+            }
+
+            #pgpQr {
+                position: absolute;
+                right: 0px;
+            }
+
+            #otAppName {
+                font-size: 20px;
+            }
+
+            ul.actions {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            ul.actions li {
+                float: left;
+            }
+
+            ul.actions a {
+                border: 1px solid transparent;
+                display: block;
+                color: black;
+                padding: 5px 15px 5px 15p;
+                margin-right: 18px;
+                text-align: center;
+                text-decoration: none;
+            }
+
+            ul.actions a:before {
+                content: url('../img/layout/circle-blue-16.png');
+                margin-right: 6px;
+                vertical-align: middle;
+            }
+
+            ul.actions a:hover {
+                border: 1px solid #BFEFFF;
+            }
+
+
+
+
+
+
+            #pgpMenu {
+                margin-right: 100px;
+                margin-bottom: 40px;
+            }
+
+            ul.nav {
+                width: 100%;
+                list-style-type: none;
+                padding-left: 0;
+                margin-left: 0;
+                border-bottom: 1px dashed #000;
+
+                overflow: hidden;
+            }
+
+            ul.nav li {
+                float: left;
+            }
+
+            ul.nav a {
+                display: block;
+                width: 8em;
+                border: 1px dashed #000;
+                border-bottom: none;
+                padding: 5px 15px 5px 15p;
+                margin-right: 5px;
+                background-color: #EAEAEA;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #333;
+                text-align: center;
+            }
+
+            #home #aHome,
+            #creation #aCreation,
+            #ranking #aRanking {
+                background-color: #5CACEE; 
+                padding-right: 15px;
+                padding-left: 30px;
+                font-weight: bold;
+            }
+
+            ul.nav a:hover {
+                background-color: #BFEFFF;  
+            }
+
+
+
+
+
+
+
+            #divMessages {
+                position: fixed;
+                width: 30%;
+                left: 35%;
+                height: 30%;
+                top: 35%;
+                z-index: 100;
+                border: 1px solid black;
+                background-color: #ffdab9;
+                display: none;
+            }
+
+            #divMessagesClose {
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 101;
+                border-bottom: 1px solid #903;
+                border-left: 1px solid #903;
+                background-color: red;
+                color: #903;
+            }                
+
+            #msgs {
+                display: block;
+            }
+
+
+        </style>
+        <link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/brackets2.css" />
+
+
+        <h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/jquery.qrcode.min.js"/>
+        <script>
+            $(document).ready(function() {       
+                $('#msgs').change(function() {           
+                    $('#divMessages').css('display', 'block')
+                });
+               
+            });
+            
+        </script>
+
+        <ui:insert name="meta" />
+
+    </h:head>
+
+    <body id="#{bodyId}">
+
+        
+        <div id="divHeader" style="position:absolute; top:0px; left:0px; height:105px;overflow:hidden; width: 100%"> 
+            <ui:include src="header.xhtml" />
+        </div> 
+
+        <div id="divContent" style="position:absolute; top:105px; bottom:0px; left:0px; overflow:auto; width: 100%;"> 
+            <ui:insert name="content" />
+            <ui:include src="footer.xhtml" />
+            <ui:include src="messages.xhtml" />
+        </div> 
+
+    </body>
+</html>

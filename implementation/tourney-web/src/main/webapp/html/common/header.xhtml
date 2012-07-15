@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <ui:composition>
+
+        <h:panelGroup layout="block" id="pgpHeader">
+            <h:panelGroup layout="block" id="pgpHeaderLeft">
+                <h:panelGroup layout="block" id="pgpLogo">
+                    <a
+                        href="#{facesContext.externalContext.requestContextPath}/html/home.html">
+                        <h:graphicImage id="imgLogo" value="/img/layout/logo.png" />
+                    </a>
+                </h:panelGroup>
+
+                <h:panelGroup layout="block" id="pgpApp">
+                    <h:outputText id="otAppName" value="Tourney Manager" />
+                </h:panelGroup>
+            </h:panelGroup>
+
+
+            <h:panelGroup layout="block" id="pgpHeaderRight">
+                <ul class="actions">
+                    <li><a id="aLogOut" href="/Logout">Log out</a></li>
+                    <li><a id="aAbout" href="/About">About</a></li>
+                </ul>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" id="pgpQr">
+                <script>
+                    $('#pgpQr').qrcode({width: '90', height: '90', text: window.location.href});
+                </script>
+            </h:panelGroup>
+        </h:panelGroup>
+
+        <div class="clearFloats"/>
+        <ui:include src="menu.xhtml" />
+
+    </ui:composition>
+</html>

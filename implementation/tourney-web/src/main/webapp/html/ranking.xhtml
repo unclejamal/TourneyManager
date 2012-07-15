@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+    <ui:composition template="/html/common/layout.xhtml">
+        <ui:param name="bodyId" value="ranking"/>
+        <ui:define name="content">
+
+            <h:panelGroup id="pgpRanking" layout="block" style="margin-bottom: 24px">
+                <h:form id="frmRanking">
+                    <h:panelGroup id="pgpRankingInner" layout="block">
+                        <rich:dataTable value="#{ranking.os.players}" var="item"
+                                        id="dtRanking" rowClasses="odd-row, even-row" styleClass="stable"
+                                        style="width: 100%" sortMode="multi">
+                            <f:facet name="caption">
+                                <h:outputText value="Ranking OS" />
+                            </f:facet>
+                            <f:facet name="noData">
+                                Nothing found
+                            </f:facet>
+                            <f:facet name="header">
+                                <rich:columnGroup>
+                                    <rich:column>                                    
+                                        <h:outputText value="Rank" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="Code" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="Name" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="Gender" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="City" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="Club" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="Pts" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="Pts+" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="Pts-" />
+                                    </rich:column>
+                                    <rich:column>                                    
+                                        <h:outputText value="Class" />
+                                    </rich:column>
+                                </rich:columnGroup>
+                            </f:facet>
+                            <rich:column sortBy="#{item.rank}" sortOrder="ascending"
+                                         filterValue="#{ranking.filter.rank}"
+                                         filterExpression="#{fn:containsIgnoreCase(item.rank,ranking.filter.rank)}">
+                                <f:facet name="header">
+                                    <h:panelGroup>
+                                        <h:inputText value="#{ranking.filter.rank}">
+                                            <a4j:ajax event="keyup" render="dtRanking@body" execute="@this" />
+                                        </h:inputText>
+                                    </h:panelGroup>
+                                </f:facet>
+                                <h:outputText value="#{item.rank}" />
+                            </rich:column>
+                            <rich:column filterValue="#{ranking.filter.code}"
+                                         filterExpression="#{fn:containsIgnoreCase(item.code,ranking.filter.code)}">
+                                <f:facet name="header">
+                                    <h:panelGroup>
+                                        <h:inputText value="#{ranking.filter.code}">
+                                            <a4j:ajax event="keyup" render="dtRanking@body" execute="@this" />
+                                        </h:inputText>
+                                    </h:panelGroup>
+                                </f:facet>
+                                <h:outputText value="#{item.code}" />
+                            </rich:column>
+                            <rich:column sortBy="#{item.fullName}" sortOrder="ascending" filterValue="#{ranking.filter.fullName}"
+                                         filterExpression="#{fn:containsIgnoreCase(item.fullName,ranking.filter.fullName)}">
+                                <f:facet name="header">
+                                    <h:panelGroup>
+                                        <h:inputText value="#{ranking.filter.fullName}">
+                                            <a4j:ajax event="keyup" render="dtRanking@body" execute="@this" />
+                                        </h:inputText>
+                                    </h:panelGroup>
+                                </f:facet>
+                                <h:outputText value="#{item.fullName}" />
+                            </rich:column>
+                            <rich:column filterValue="#{ranking.filter.gender}"
+                                         filterExpression="#{fn:containsIgnoreCase(item.gender,ranking.filter.gender)}">
+                                <f:facet name="header">
+                                    <h:panelGroup>
+                                        <h:inputText value="#{ranking.filter.gender}">
+                                            <a4j:ajax event="keyup" render="dtRanking@body" execute="@this" />
+                                        </h:inputText>
+                                    </h:panelGroup>
+                                </f:facet>
+                                <h:outputText value="#{item.gender}" />
+                            </rich:column>
+                            <rich:column filterValue="#{ranking.filter.city}"
+                                         filterExpression="#{fn:containsIgnoreCase(item.city,ranking.filter.city)}">
+                                <f:facet name="header">
+                                    <h:panelGroup>
+                                        <h:inputText value="#{ranking.filter.city}">
+                                            <a4j:ajax event="keyup" render="dtRanking@body" execute="@this" />
+                                        </h:inputText>
+                                    </h:panelGroup>
+                                </f:facet>
+                                <h:outputText value="#{item.city}" />
+                            </rich:column>
+                            <rich:column filterValue="#{ranking.filter.club}"
+                                         filterExpression="#{fn:containsIgnoreCase(item.club,ranking.filter.club)}">
+                                <f:facet name="header">
+                                    <h:panelGroup>
+                                        <h:inputText value="#{ranking.filter.club}">
+                                            <a4j:ajax event="keyup" render="dtRanking@body" execute="@this" />
+                                        </h:inputText>
+                                    </h:panelGroup>
+                                </f:facet>
+                                <h:outputText value="#{item.club}" />
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:outputText value="#{item.points}" />
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:outputText value="#{item.pointsAdded}" />
+                            </rich:column>                                    
+                            <rich:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:outputText value="#{item.pointsDeleted}" />
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:outputText value="#{item.rankClass}" />
+                            </rich:column>                                    
+                        </rich:dataTable>
+
+                    </h:panelGroup>
+                </h:form>
+            </h:panelGroup>    
+
+
+
+            <div style="clear: both;"/>
+
+
+        </ui:define>
+    </ui:composition>
+</html>

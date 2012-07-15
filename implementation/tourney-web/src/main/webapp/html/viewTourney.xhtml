@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+    <ui:composition template="/html/common/layout.xhtml">
+
+        <ui:param name="bodyId" value="viewTourney"/>
+
+        <ui:define name="meta">
+            <meta http-equiv="refresh" content="630"/>
+            <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/brackets2.js"/>
+        </ui:define>
+
+        <ui:define name="content">
+
+            <h:panelGroup id="pgpTourney" layout="block"  style="width: 3000px">
+
+                <h:panelGroup id="pgpInfo" layout="block" style="text-align: center; margin-bottom: 24px;">
+                    <h:outputLabel id="name" value="#{tourneyView.tourney.name}"/>
+                    <h:outputLabel id="category" value="(#{tourneyView.tourney.category})"/>
+                    <h:panelGroup id="pgpNotStarted" layout="block" rendered="#{not tourneyView.tourney.started}">
+                        <h:outputText id="otNotStarted" value="Not started yet"/> 
+                    </h:panelGroup>
+                </h:panelGroup>
+
+                <script>
+                    var wbrInfo = #{tourneyView.wbrAsJson};
+                    var lbrInfo = #{tourneyView.lbrAsJson};
+                    var fin1Info = #{tourneyView.fin1AsJson};
+                    var fin2Info = #{tourneyView.fin2AsJson};
+                </script>
+
+
+                <div id="2ko">
+                    <div id="lbr" class="tournament" style="float: left; margin-right: 6px"/>
+                    <div id="wbr" class="tournament" style="float: left; margin-right: 48px;"/>
+                    <div id="fin" class="tournament" style="float: left"/>
+                    <div class="clearFloats"/>
+                </div>
+
+            </h:panelGroup>
+
+        </ui:define>
+    </ui:composition>
+</html>

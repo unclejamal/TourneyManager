@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition>
+
+        <h:panelGroup layout="block" id="pgpMenu">
+            <ul class="nav">
+                <li><a id="aHome" href="#{facesContext.externalContext.requestContextPath}/html/home.html">Home</a></li>
+                <li><a id="aCreation" href="#{facesContext.externalContext.requestContextPath}/html/creation.html">Creation</a></li>
+                <li><a id="aRanking" href="#{facesContext.externalContext.requestContextPath}/html/ranking.html">Ranking</a></li>
+            </ul>
+        </h:panelGroup>
+    </ui:composition>
+</html>

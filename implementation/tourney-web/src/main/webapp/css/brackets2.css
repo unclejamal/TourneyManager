@@ -1,0 +1,85 @@
+.tournament .bracket .roundName {
+    text-align: center;
+    margin-bottom: 8px
+}
+
+.tournament {
+    overflow: auto;
+}
+
+.tournament .bracket {
+    min-width: 100px;    
+    vertical-align: top;
+}
+
+.tournament .rightBracket {
+    float: left;
+    margin-right: 6px;
+}
+
+.tournament .leftBracket {
+    float: right;
+    margin-left: 6px;    
+}
+
+.tournament .bracket .match {
+    background-color: #D0D0D0;
+    border: 1px solid;
+    font-size: 12px;
+}
+
+.tournament .rightBracket .match {
+    text-align: right;
+}
+
+.tournament .leftBracket .match {
+    text-align: left;
+}
+
+.tournament .bracket .match .p1 {    
+    height: 14px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+.tournament .bracket .match .p2 {
+    height: 14px;
+    margin-left: 6px;
+    margin-right: 6px;
+}    
+.tournament .bracket .match .spacer {
+    background-color: #DFDFDF;
+    height: 1px;
+}
+.tournament .bracket .spacer {
+    height: 80px;
+}
+.tournament .bracket .half-spacer {
+    height: 40px;
+}
+.tournament .bracket .small-spacer {
+    height: 10px;
+}
+.tournament .bracket .winner {
+    border-bottom: 1px solid;
+    text-align: center;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.left-line {
+    border-left: 1px solid;
+}
+
+.tournament .cell {
+    min-width: 100px;
+    height: 20px;
+    float: left;
+    background-color: #DFDFDF;    
+}   
+.tournament .l2 {
+    background-color: #D0D0D0;
+}     
+.tournament .lmax {
+    width: 0px;
+    clear: both;
+}
