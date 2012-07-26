@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.pduda.tourney.domain.Tournament;
 import com.pduda.tourney.domain.report.FullGamesReport;
-import com.pduda.tourney.domain.service.TournamentHandler;
+import com.pduda.tourney.domain.service.TourneyHandler;
 import java.util.logging.Level;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -26,7 +26,7 @@ public class TourneyViewBean implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final transient Logger log = Logger.getLogger(TourneyViewBean.class.getClass().getName());
     @Inject
-    private TournamentHandler tournamentHandler;
+    private TourneyHandler tournamentHandler;
     private String standingsTextReport;
     private Tournament tourney;
     private String wbrAsJson;

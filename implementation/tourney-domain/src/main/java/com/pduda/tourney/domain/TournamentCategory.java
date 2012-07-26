@@ -2,6 +2,8 @@ package com.pduda.tourney.domain;
 
 public enum TournamentCategory {
 
+    AS(false, false),
+    AD(true, false),
     OS(false, false),
     OD(true, false),
     WS(false, true),

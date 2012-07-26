@@ -20,7 +20,7 @@ public class Player implements Serializable {
     private RankClass rankClass;
     private Long fee;
 
-    public Player(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass, long fee) {
+    public Player(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
         this.rank = rank;
         this.code = code;
         this.fullName = fullName;
@@ -31,15 +31,15 @@ public class Player implements Serializable {
         this.pointsAdded = pointsAdded;
         this.pointsDeleted = pointsDeleted;
         this.rankClass = rankClass;
-        this.fee = fee;
+        this.fee = 0L;
     }
 
     public Player(int points, String fullName) {
-        this(0, NA, fullName, Gender.UNKNOWN, NA, NA, points, 0, 0, RankClass.NOTRANKED, 0);
+        this(0, NA, fullName, Gender.UNKNOWN, NA, NA, points, 0, 0, RankClass.NOTRANKED);
     }
 
     public Player(String fullName, String code) {
-        this(0, code, fullName, Gender.UNKNOWN, NA, NA, 0, 0, 0, RankClass.NOTRANKED, 0);
+        this(0, code, fullName, Gender.UNKNOWN, NA, NA, 0, 0, 0, RankClass.NOTRANKED);
     }
 
     public Player(String fullName) {

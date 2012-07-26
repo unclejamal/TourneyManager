@@ -1,7 +1,6 @@
 package com.pduda.tourney.domain.fee;
 
 import au.com.bytecode.opencsv.CSVReader;
-import com.pduda.tourney.domain.fee.WkpsMembership.MembershipType;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Map;
@@ -9,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 
-public class WkpsMembershipReaderTest {
+public class CsvWkpsMembershipReaderTest {
 
     private CsvWkpsMembershipReader cut;
     private InputStreamReader reader;

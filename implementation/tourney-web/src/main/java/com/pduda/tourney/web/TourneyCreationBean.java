@@ -12,8 +12,9 @@ import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.Player;
 import com.pduda.tourney.domain.TournamentCategory;
 import com.pduda.tourney.domain.ranking.Ranking;
-import com.pduda.tourney.domain.ranking.Rankings;
-import com.pduda.tourney.domain.service.TournamentHandler;
+import com.pduda.tourney.domain.service.TourneyHandler;
+import com.pduda.tourney.domain.service.DefaultFeeHandler;
+import com.pduda.tourney.domain.service.RankingHandler;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,9 +33,11 @@ public class TourneyCreationBean implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final transient Logger log = Logger.getLogger(TourneyCreationBean.class.getClass().getName());
     @Inject
-    private TournamentHandler tournamentHandler;
+    private TourneyHandler tournamentHandler;
     @Inject
-    private Rankings rankings;
+    private DefaultFeeHandler feeHandler;
+    @Inject
+    private RankingHandler rankingHandler;
     private Ranking ranking;
     private List<Team> teams = new ArrayList<Team>();
     @Size(min = 3, max = 40)
@@ -101,26 +104,35 @@ public class TourneyCreationBean implements Serializable {
         String cat = (String) event.getComponent().getAttributes().get("cat");
         log.log(Level.INFO, "User has chosen tourney category " + cat);
         switch (cat) {
+            case "as":
+                category = TournamentCategory.AS;
+                ranking = rankingHandler.getOpenSingle();
+                break;
             case "os":
                 category = TournamentCategory.OS;
-                ranking = rankings.getOpenSingle();
+                ranking = rankingHandler.getOpenSingle();
+                break;
+            case "ad":
+                category = TournamentCategory.AD;
+                ranking = rankingHandler.getOpenDouble();
                 break;
             case "od":
                 category = TournamentCategory.OD;
-                ranking = rankings.getOpenDouble();
+                ranking = rankingHandler.getOpenDouble();
                 break;
             case "ws":
                 category = TournamentCategory.WS;
-                ranking = rankings.getWomenSingle();
+                ranking = rankingHandler.getWomenSingle();
                 break;
             case "wd":
                 category = TournamentCategory.WD;
-                ranking = rankings.getWomenDouble();
+                ranking = rankingHandler.getWomenDouble();
                 break;
             default:
                 throw new RuntimeException("Not existing type");
         }
 
+        // TODO should be limited to ama players, when ad as
         rankingSuggestions = createRankingSuggestions(ranking);
     }
 
@@ -140,28 +152,32 @@ public class TourneyCreationBean implements Serializable {
         List<Team> toReturn = new ArrayList<Team>();
 
         for (Team team : prototypes) {
-            String code1 = team.getMembers().get(0).getCode();
-            Player player1 = ranking.getPlayersByCode(code1);
-            if (player1 == null) {
-                player1 = team.getMembers().get(0);
-            }
+            Player player1 = createPlayerFromPrototype(team.getMembers().get(0), ranking);
 
             Team enhancedTeam = null;
             if (team.isDouble()) {
-                String code2 = team.getMembers().get(1).getCode();
-                Player player2 = ranking.getPlayersByCode(code2);
-                if (player2 == null) {
-                    player2 = team.getMembers().get(1);
-                }
+                Player player2 = createPlayerFromPrototype(team.getMembers().get(1), ranking);
+
                 enhancedTeam = new Team(player1, player2);
             } else {
                 enhancedTeam = new Team(player1);
             }
 
+
             toReturn.add(enhancedTeam);
         }
 
         return toReturn;
+    }
+
+    private Player createPlayerFromPrototype(Player prototype, Ranking ranking) {
+        String code = prototype.getCode();
+        Player player = ranking.getPlayersByCode(code);
+        if (player == null) {
+            player = prototype;
+        }
+        player.setFee(player.getFee());
+        return player;
     }
 
     private List<String> createRankingSuggestions(Ranking r) {
@@ -183,6 +199,8 @@ public class TourneyCreationBean implements Serializable {
         } else {
             player = new Player(fullName);
         }
+
+        player.setFee(feeHandler.getDefaultFee(player, category));
         return player;
     }
 

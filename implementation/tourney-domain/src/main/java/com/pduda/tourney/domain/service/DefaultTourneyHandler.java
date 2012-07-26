@@ -9,12 +9,13 @@ import java.util.logging.Logger;
 import javax.inject.Named;
 
 @Named
-public class TournamentHandler implements Serializable {
+public class DefaultTourneyHandler implements TourneyHandler, Serializable {
 
     private static final long serialVersionUID = 1L;
-    private transient Logger log = Logger.getLogger(TournamentHandler.class.getName());
+    private transient Logger log = Logger.getLogger(DefaultTourneyHandler.class.getName());
     private List<Tournament> tournaments = new ArrayList<Tournament>();
 
+    @Override
     public int createTournament(TournamentCategory category, String tourneyName, List<Team> teams) {
         log.log(Level.INFO, "System is creating a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
 
@@ -35,10 +36,12 @@ public class TournamentHandler implements Serializable {
         return tournament.getId();
     }
 
+    @Override
     public List<Tournament> getTournaments() {
         return tournaments;
     }
 
+    @Override
     public Tournament getTournament(int id) {
         for (Tournament tournament : tournaments) {
             if (id == tournament.getId()) {
@@ -49,14 +52,17 @@ public class TournamentHandler implements Serializable {
         throw new RuntimeException("No tourney found with id: " + id);
     }
 
+    @Override
     public void startTourney(int id) {
         getTournament(id).startTournament();
     }
 
+    @Override
     public void reportWinner(int tourneyId, GameId gameId, int seed) {
         getTournament(tourneyId).reportWinner(gameId, seed);
     }
 
+    @Override
     public void startGame(int tourneyId, GameId gameId) {
         getTournament(tourneyId).startGame(gameId);
     }

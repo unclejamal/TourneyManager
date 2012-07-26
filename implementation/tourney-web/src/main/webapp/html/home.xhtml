@@ -34,7 +34,7 @@
                             <f:facet name="header">
                                 <h:outputText value="Category" />
                             </f:facet>
-                            <h:outputText value="#{item.category}" />
+                            <h:outputText value="#{item.tournamentCategory}" />
                         </rich:column>
                         <rich:column>
                             <f:facet name="header">
@@ -47,7 +47,7 @@
                                 <h:outputText value="Start" />
                             </f:facet>
                             <h:outputText value="#{item.startDate}">
-                                <f:convertDateTime  pattern="#{app.datePattern}"/>
+                                <f:convertDateTime pattern="#{app.datePattern}"/>
                             </h:outputText>
                         </rich:column>
                         <rich:column>

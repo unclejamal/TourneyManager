@@ -15,7 +15,7 @@
 
             <h:panelGroup id="pgpTourney" layout="block" style="margin-bottom: 48px; float:left;">
                 <h:outputLabel id="name" value="#{tourneyMgmt.tourney.name}"/>
-                <h:outputLabel id="category" value="(#{tourneyMgmt.tourney.category})"/>
+                <h:outputLabel id="category" value="(#{tourneyMgmt.tourney.tournamentCategory})"/>
                 <h:panelGroup id="pgpNotStarted" layout="block" rendered="#{not tourneyMgmt.tourney.started}">
                     <h:outputText id="otNotStarted" value="Not started yet"/> 
                     <h:form id="frmStartTourney" >

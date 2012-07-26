@@ -7,10 +7,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 @Named
-@Singleton
 public class RankingCsvLoader {
 
     public static final String FILE_ENCODING = "UTF-8";

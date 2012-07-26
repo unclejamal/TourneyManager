@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.context.annotation.Scope;
 
 import com.pduda.tourney.domain.ranking.Ranking;
-import com.pduda.tourney.domain.ranking.Rankings;
+import com.pduda.tourney.domain.service.RankingHandler;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -22,7 +22,7 @@ public class RankingBean implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final transient Logger log = Logger.getLogger(RankingBean.class.getClass().getName());
     @Inject
-    private Rankings rankings;
+    private RankingHandler rankingHandler;
     private Ranking shown;
     private Ranking os;
     private Ranking od;
@@ -43,7 +43,7 @@ public class RankingBean implements Serializable {
     }
 
     private void loadOpenSingle() {
-        os = rankings.getOpenSingle();
+        os = rankingHandler.getOpenSingle();
 
         for (Player player : os.getPlayers()) {
             osSuggestions.add(player.getFullName());
@@ -51,7 +51,7 @@ public class RankingBean implements Serializable {
     }
 
     private void loadOpenDouble() {
-        od = rankings.getOpenDouble();
+        od = rankingHandler.getOpenDouble();
 
         for (Player player : od.getPlayers()) {
             odSuggestions.add(player.getFullName());
@@ -59,7 +59,7 @@ public class RankingBean implements Serializable {
     }
 
     private void loadWomenSingle() {
-        ws = rankings.getWomenSingle();
+        ws = rankingHandler.getWomenSingle();
 
         for (Player player : ws.getPlayers()) {
             wsSuggestions.add(player.getFullName());
@@ -67,7 +67,7 @@ public class RankingBean implements Serializable {
     }
 
     private void loadWomenDouble() {
-        wd = rankings.getWomenDouble();
+        wd = rankingHandler.getWomenDouble();
 
         for (Player player : wd.getPlayers()) {
             wdSuggestions.add(player.getFullName());

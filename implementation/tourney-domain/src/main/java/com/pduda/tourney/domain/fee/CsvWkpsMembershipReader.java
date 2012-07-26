@@ -1,10 +1,11 @@
 package com.pduda.tourney.domain.fee;
 
 import au.com.bytecode.opencsv.CSVReader;
-import com.pduda.tourney.domain.fee.WkpsMembership.MembershipType;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import javax.inject.Named;
@@ -13,17 +14,6 @@ import javax.inject.Named;
 public class CsvWkpsMembershipReader implements WkpsMembershipReader {
 
     public static final String FILE_ENCODING = "UTF-8";
-
-    @Override
-    public Map<String, MembershipType> loadFromFile(String filepath) {
-        CSVReader reader = null;
-        try {
-            reader = new CSVReader(new InputStreamReader(new FileInputStream(filepath), FILE_ENCODING));
-            return loadFromCsvReader(reader);
-        } catch (IOException e) {
-            throw new RuntimeException("shite csv", e);
-        }
-    }
 
     @Override
     public Map<String, MembershipType> loadFromCsvReader(CSVReader reader) throws IOException {
@@ -47,6 +37,29 @@ public class CsvWkpsMembershipReader implements WkpsMembershipReader {
         return members;
     }
 
+    @Override
+    public Map<String, MembershipType> loadFromUrl(URL url) {
+         CSVReader reader = null;
+        try {
+            reader = new CSVReader(new InputStreamReader(url.openStream(), FILE_ENCODING));
+            return loadFromCsvReader(reader);
+            
+        } catch (IOException e) {
+            throw new RuntimeException("shite csv", e);
+        }
+    }
+
+    @Override
+    public Map<String, MembershipType> loadFromFile(String filepath) {
+        CSVReader reader = null;
+        try {
+            reader = new CSVReader(new InputStreamReader(new FileInputStream(filepath), FILE_ENCODING));
+            return loadFromCsvReader(reader);
+        } catch (IOException e) {
+            throw new RuntimeException("shite csv", e);
+        }
+    }
+
     private boolean arrivedAtFirstPlayer(String[] nextLine) {
         return "1".equals(nextLine[0]);
     }
@@ -60,6 +73,4 @@ public class CsvWkpsMembershipReader implements WkpsMembershipReader {
 
         return MembershipType.NOT_MEMBER;
     }
-
-
 }

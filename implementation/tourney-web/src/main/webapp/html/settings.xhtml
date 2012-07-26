@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+    <ui:composition template="/html/common/layout.xhtml">
+        <ui:param name="bodyId" value="settings"/>
+        <ui:define name="content">
+            <h:panelGroup id="pgpWkpsPayments" layout="block">
+                <h:form id="frmWkpsPayments">
+                    <h:outputLabel id="lblLastUpdate" value="Wkps payments last update:">
+                        <h:outputText id="otLastUpdate" value="#{settings.membershipPaymentsLastUpdate}">
+                            <f:convertDateTime pattern="#{app.datePattern}"/>
+                        </h:outputText>
+                    </h:outputLabel>
+                    <a4j:commandButton id="btnReorder" value="Update" actionListener="#{settings.updateMembershipPayments}" 
+                                       render="lblLastUpdate"/>
+                </h:form>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+</html>

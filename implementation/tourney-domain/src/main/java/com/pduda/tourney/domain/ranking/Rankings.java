@@ -3,10 +3,8 @@ package com.pduda.tourney.domain.ranking;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 @Named
-@Singleton
 public class Rankings {
     
     @Inject

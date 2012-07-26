@@ -99,6 +99,12 @@
                                 </f:facet>
                                 <h:outputText value="#{item.members[0].rankClass}" />
                             </rich:column>
+                            <rich:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Fee" />
+                                </f:facet>
+                                <h:outputText value="#{item.members[0].fee}" />
+                            </rich:column>                            
                             <rich:column rendered="#{tourneyCreation.double}">
                                 <f:facet name="header">
                                     <h:outputText value="Member 2" />
@@ -127,6 +133,13 @@
                                 <h:outputText value="#{item.members[1].rankClass}" rendered="#{not empty item.members[1]}"/>
                                 <h:outputText value="-" rendered="#{empty item.members[1]}"/>
                             </rich:column>
+                            <rich:column rendered="#{tourneyCreation.double}">
+                                <f:facet name="header">
+                                    <h:outputText value="Fee" />
+                                </f:facet>
+                                <h:outputText value="#{item.members[1].fee}" rendered="#{not empty item.members[1]}"/>
+                                <h:outputText value="-" rendered="#{empty item.members[1]}"/>
+                            </rich:column>                            
                             <rich:column>
                                 <f:facet name="header">
                                     <h:outputText value="Actions" />
@@ -193,31 +206,45 @@
 
             <rich:popupPanel id="popupCategory" modal="true" autosized="true" show="true">
                 <f:facet name="header">
-                    <h:outputText value="Choose tourney type" />
+                    <h:outputText value="Choose tourney category" />
                 </f:facet>
                 <f:facet name="controls">
                     <h:graphicImage value="/pages/close.png" style="cursor:pointer" onclick="#{rich:component('popupCategory')}.hide()" />
                 </f:facet>
                 <h:form id="frmPopupCategory">
                     <h:panelGroup id="pgpPopupCategory" layout="block">
-                        <a4j:commandButton id="btnOs" value="Open Singles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                           render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                            <f:attribute name="cat" value="os"/>
-                        </a4j:commandButton>
-                        <a4j:commandButton id="btnOd" value="Open Doubles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                           render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                            <f:attribute name="cat" value="od"/>
-                        </a4j:commandButton>
+                        <h:panelGroup id="pgpPopupCategoryAma" layout="block">
+                            <a4j:commandButton id="btnAs" value="Amateur Singles" actionListener="#{tourneyCreation.chooseCategory}" 
+                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
+                                <f:attribute name="cat" value="as"/>
+                            </a4j:commandButton>
+                            <a4j:commandButton id="btnAd" value="Amateur Doubles" actionListener="#{tourneyCreation.chooseCategory}" 
+                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
+                                <f:attribute name="cat" value="ad"/>
+                            </a4j:commandButton>
+                        </h:panelGroup>
 
-                        <a4j:commandButton id="btnWs" value="Women Singles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                           render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                            <f:attribute name="cat" value="ws"/>
-                        </a4j:commandButton>
+                        <h:panelGroup id="pgpPopupCategoryOpen" layout="block">
+                            <a4j:commandButton id="btnOs" value="Open Singles" actionListener="#{tourneyCreation.chooseCategory}" 
+                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
+                                <f:attribute name="cat" value="os"/>
+                            </a4j:commandButton>
+                            <a4j:commandButton id="btnOd" value="Open Doubles" actionListener="#{tourneyCreation.chooseCategory}" 
+                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
+                                <f:attribute name="cat" value="od"/>
+                            </a4j:commandButton>
+                        </h:panelGroup>                            
 
-                        <a4j:commandButton id="btnWd" value="Women Doubles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                           render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                            <f:attribute name="cat" value="wd"/>
-                        </a4j:commandButton>
+                        <h:panelGroup id="pgpPopupCategoryWomen" layout="block">
+                            <a4j:commandButton id="btnWs" value="Women Singles" actionListener="#{tourneyCreation.chooseCategory}" 
+                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
+                                <f:attribute name="cat" value="ws"/>
+                            </a4j:commandButton>
+                            <a4j:commandButton id="btnWd" value="Women Doubles" actionListener="#{tourneyCreation.chooseCategory}" 
+                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
+                                <f:attribute name="cat" value="wd"/>
+                            </a4j:commandButton>
+                        </h:panelGroup>
                     </h:panelGroup>
                 </h:form> 
             </rich:popupPanel>

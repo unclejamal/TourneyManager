@@ -37,7 +37,7 @@ public class Tournament implements Serializable {
     private List<Table> tables = new ArrayList<Table>();
     private List<Team> teams = new ArrayList<Team>();
     private Fixture fixture;
-    private TournamentCategory category;
+    private TournamentCategory tournamentCategory;
 
     public Tournament() {
     }
@@ -45,7 +45,7 @@ public class Tournament implements Serializable {
     public Tournament(int id, TournamentCategory category, String name) {
         super();
         this.id = id;
-        this.category = category;
+        this.tournamentCategory = category;
         this.name = name;
     }
 
@@ -178,12 +178,12 @@ public class Tournament implements Serializable {
         return teams;
     }
 
-    public TournamentCategory getCategory() {
-        return category;
+    public TournamentCategory getTournamentCategory() {
+        return tournamentCategory;
     }
 
-    public void setCategory(TournamentCategory category) {
-        this.category = category;
+    public void setTournamentCategory(TournamentCategory tournamentCategory) {
+        this.tournamentCategory = tournamentCategory;
     }
 
     @Override
