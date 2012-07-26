@@ -11,15 +11,16 @@ public class Player implements Serializable {
     private Integer rank;
     private String code;
     private String fullName;
-    private String gender;
+    private Gender gender;
     private String city;
     private String club;
     private Integer points;
     private Integer pointsAdded;
     private Integer pointsDeleted;
-    private String rankClass;
+    private RankClass rankClass;
+    private Long fee;
 
-    public Player(int rank, String code, String fullName, String gender, String city, String club, int points, int pointsAdded, int pointsDeleted, String rankClass) {
+    public Player(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass, long fee) {
         this.rank = rank;
         this.code = code;
         this.fullName = fullName;
@@ -30,15 +31,16 @@ public class Player implements Serializable {
         this.pointsAdded = pointsAdded;
         this.pointsDeleted = pointsDeleted;
         this.rankClass = rankClass;
+        this.fee = fee;
     }
 
     public Player(int points, String fullName) {
-        this(0, NA, fullName, NA, NA, NA, points, 0, 0, NA);
+        this(0, NA, fullName, Gender.UNKNOWN, NA, NA, points, 0, 0, RankClass.NOTRANKED, 0);
     }
-    
+
     public Player(String fullName, String code) {
-        this(0, code, fullName, NA, NA, NA, 0, 0, 0, NA);
-    }    
+        this(0, code, fullName, Gender.UNKNOWN, NA, NA, 0, 0, 0, RankClass.NOTRANKED, 0);
+    }
 
     public Player(String fullName) {
         this(0, fullName);
@@ -50,7 +52,7 @@ public class Player implements Serializable {
     public String getShortName() {
         StringBuilder sb = new StringBuilder();
         String[] splitFullName = fullName.split(SPACE);
-        for (int i=0; i<splitFullName.length -1 ; i++) {
+        for (int i = 0; i < splitFullName.length - 1; i++) {
             sb.append(splitFullName[i].substring(0, 1));
             sb.append(". ");
         }
@@ -91,11 +93,11 @@ public class Player implements Serializable {
         this.fullName = fullName;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -131,12 +133,20 @@ public class Player implements Serializable {
         this.rank = rank;
     }
 
-    public String getRankClass() {
+    public RankClass getRankClass() {
         return rankClass;
     }
 
-    public void setRankClass(String rankClass) {
+    public void setRankClass(RankClass rankClass) {
         this.rankClass = rankClass;
+    }
+
+    public long getFee() {
+        return fee;
+    }
+
+    public void setFee(long fee) {
+        this.fee = fee;
     }
 
     @Override

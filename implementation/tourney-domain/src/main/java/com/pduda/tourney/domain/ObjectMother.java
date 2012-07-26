@@ -8,7 +8,7 @@ public class ObjectMother {
     public static Table upperTable = new Table("Upper");
 
     public static Player createPlayer() {
-        return new Player(69, "WKPS69", "Pawel Adam Duda", "M", "Wroclaw", "WKPS", 1000, 20, 15, "MASTER");
+        return new Player(69, "WKPS69", "Pawel Adam Duda", Gender.MALE, "Wroclaw", "WKPS", 1000, 20, 15, RankClass.MASTER);
     }
 
     public static Tournament createTournament(String name, int teamsTotal) {

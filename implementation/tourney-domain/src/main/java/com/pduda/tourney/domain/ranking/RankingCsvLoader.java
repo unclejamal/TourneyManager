@@ -1,6 +1,8 @@
 package com.pduda.tourney.domain.ranking;
 
 import au.com.bytecode.opencsv.CSVReader;
+import com.pduda.tourney.domain.Gender;
+import com.pduda.tourney.domain.RankClass;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,7 +47,7 @@ public class RankingCsvLoader {
                 String pointsDeleted = nextLine[9];
                 String rankClass = nextLine[10];
 
-                ranking.addPlayer(Integer.valueOf(rank), code, fullName, gender, city, club, Integer.valueOf(points), Integer.valueOf(pointsAdded), Integer.valueOf(pointsDeleted), rankClass);
+                ranking.addPlayer(Integer.valueOf(rank), code, fullName, gender(gender), city, club, Integer.valueOf(points), Integer.valueOf(pointsAdded), Integer.valueOf(pointsDeleted), rankClass(rankClass));
             }
         }
 
@@ -54,5 +56,31 @@ public class RankingCsvLoader {
 
     private boolean arrivedAtFirstPlayer(String[] nextLine) {
         return "1".equals(nextLine[1]);
+    }
+
+    private RankClass rankClass(String rankClass) {
+        if ("NOVICE".equals(rankClass)) {
+            return RankClass.NOVICE;
+        } else if ("AMATOR".equals(rankClass)) {
+            return RankClass.AMATOR;
+        } else if (("SEMIPRO".equals(rankClass)) || ("SEMI PRO".equals(rankClass)) || ("SEMI-PRO".equals(rankClass))) {
+            return RankClass.SEMIPRO;
+        } else if ("PRO".equals(rankClass)) {
+            return RankClass.PRO;
+        } else if ("MASTER".equals(rankClass)) {
+            return RankClass.MASTER;
+        }
+
+        return RankClass.NOTRANKED;
+    }
+
+    private Gender gender(String gender) {
+        if ("M".equals(gender)) {
+            return Gender.MALE;
+        } else if ("K".equals(gender)) {
+            return Gender.FEMALE;
+        }
+
+        return Gender.UNKNOWN;
     }
 }

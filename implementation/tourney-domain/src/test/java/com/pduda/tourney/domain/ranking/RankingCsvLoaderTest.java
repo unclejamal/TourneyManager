@@ -2,6 +2,8 @@ package com.pduda.tourney.domain.ranking;
 
 import com.pduda.tourney.domain.Player;
 import au.com.bytecode.opencsv.CSVReader;
+import com.pduda.tourney.domain.Gender;
+import com.pduda.tourney.domain.RankClass;
 import java.io.InputStreamReader;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,13 +27,13 @@ public class RankingCsvLoaderTest {
         assertTrue(1 == playerZiencik.getRank());
         assertEquals("WKPS44", playerZiencik.getCode());
         assertEquals("Jakub Ziencikiewicz", playerZiencik.getFullName());
-        assertEquals("M", playerZiencik.getGender());
+        assertEquals(Gender.MALE, playerZiencik.getGender());
         assertEquals("Łódź", playerZiencik.getCity());
         assertEquals("WKPS", playerZiencik.getClub());
         assertTrue(759 == playerZiencik.getPoints());
         assertTrue(0 == playerZiencik.getPointsAdded());
         assertTrue(0 == playerZiencik.getPointsDeleted());
-        assertEquals("MASTER", playerZiencik.getRankClass());
+        assertEquals(RankClass.MASTER, playerZiencik.getRankClass());
         
         assertEquals(101, ranking.getPlayers().size());
     }

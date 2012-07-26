@@ -1,13 +1,14 @@
 package com.pduda.tourney.domain.fee;
 
+import com.pduda.tourney.domain.RankClass;
 import java.util.Objects;
 
 public class FeeCalculatorKey {
 
-    private String rankClass;
+    private RankClass rankClass;
     private Licensed licenseType;
 
-    public FeeCalculatorKey(String rankClass, Licensed licenseType) {
+    public FeeCalculatorKey(RankClass rankClass, Licensed licenseType) {
         this.rankClass = rankClass;
         this.licenseType = licenseType;
     }
@@ -20,11 +21,11 @@ public class FeeCalculatorKey {
         this.licenseType = licenseType;
     }
 
-    public String getRankClass() {
+    public RankClass getRankClass() {
         return rankClass;
     }
 
-    public void setRankClass(String rankClass) {
+    public void setRankClass(RankClass rankClass) {
         this.rankClass = rankClass;
     }
 

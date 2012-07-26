@@ -1,13 +1,15 @@
 package com.pduda.tourney.domain.ranking;
 
+import com.pduda.tourney.domain.Gender;
 import com.pduda.tourney.domain.Player;
+import com.pduda.tourney.domain.RankClass;
 import java.util.*;
 
 public class Ranking {
 
     private Map<Integer, Set<Player>> ranking = new HashMap<Integer, Set<Player>>();
 
-    public void addPlayer(int rank, String code, String fullName, String gender, String city, String club, int points, int pointsAdded, int pointsDeleted, String rankClass) {
+    public void addPlayer(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
         Player player = new Player(rank, code, fullName, gender, city, club, points, pointsAdded, pointsDeleted, rankClass);
         putPlayerToRanking(player);
     }

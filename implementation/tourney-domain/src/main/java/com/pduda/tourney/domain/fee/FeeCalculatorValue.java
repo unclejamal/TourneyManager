@@ -4,9 +4,9 @@ public class FeeCalculatorValue {
 
     public static final int NO_LIMIT = Integer.MAX_VALUE;
     private int pointsLimit;
-    private int fee;
+    private long fee;
 
-    public FeeCalculatorValue(int pointsLimit, int fee) {
+    public FeeCalculatorValue(int pointsLimit, long fee) {
         this.pointsLimit = pointsLimit;
         this.fee = fee;
     }
@@ -15,7 +15,7 @@ public class FeeCalculatorValue {
         return pointsLimit;
     }
 
-    public int getFee() {
+    public long getFee() {
         return fee;
     }
 }
