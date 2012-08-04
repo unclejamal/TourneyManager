@@ -24,7 +24,6 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
         tournament.setName(tourneyName);
         for (int i = 0; i < teams.size(); i++) {
             Team team = teams.get(i);
-            team.setSeed(i + 1);
             tournament.addTeam(team);
         }
 

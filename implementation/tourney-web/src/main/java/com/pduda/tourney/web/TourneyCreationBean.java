@@ -1,5 +1,6 @@
 package com.pduda.tourney.web;
 
+import com.pduda.tourney.web.creation.Seeding;
 import java.io.Serializable;
 import java.util.logging.Logger;
 
@@ -48,15 +49,17 @@ public class TourneyCreationBean implements Serializable {
     private String tourneyName;
     private TournamentCategory category = TournamentCategory.OS;
     private List<String> rankingSuggestions = new ArrayList<String>();
+    private Seeding seeding = new Seeding(Seeding.Type.RANDOM);
 
     @PostConstruct
     public void init() {
-        log.info("Tournament Creation Bean: Post Construct");
         this.tourneyName = "Tourney " + (tournamentHandler.getTournaments().size() + 1);
     }
 
     public String createTourney() {
         log.log(Level.INFO, "User wants to create a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
+
+        seeding.seed(teams);
         int tourneyId = tournamentHandler.createTournament(category, tourneyName, teams);
 
         try {
@@ -131,6 +134,8 @@ public class TourneyCreationBean implements Serializable {
             default:
                 throw new RuntimeException("Not existing type");
         }
+
+        // TODO add dyp (and specials)
 
         // TODO should be limited to ama players, when ad as
         rankingSuggestions = createRankingSuggestions(ranking);

@@ -5,7 +5,7 @@ import com.pduda.tourney.domain.util.MyMath;
 import java.io.Serializable;
 import java.util.List;
 
-public class FullySeededTeamAssigner implements TeamAssigner, Serializable {
+public class PartiallySeededTeamAssigner implements TeamAssigner, Serializable {
 
     private static final long serialVersionUID = 1L;
     private TeamAssignerDirections directions = new TeamAssignerDirections();

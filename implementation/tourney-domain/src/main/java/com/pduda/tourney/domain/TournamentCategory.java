@@ -7,7 +7,8 @@ public enum TournamentCategory {
     OS(false, false),
     OD(true, false),
     WS(false, true),
-    WD(true, true);
+    WD(true, true),
+    DYP(true, false);
     private boolean doub;
     private boolean women;
 

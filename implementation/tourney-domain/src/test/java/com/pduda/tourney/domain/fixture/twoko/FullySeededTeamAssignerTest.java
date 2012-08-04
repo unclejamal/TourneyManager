@@ -9,14 +9,14 @@ import org.junit.Test;
 import org.junit.Ignore;
 import static com.pduda.tourney.domain.TourneyAssert.*;
 
-public class FullySeededTeamAssignerTest {
+public class PartiallySeededTeamAssignerTest {
 
-    private FullySeededTeamAssigner cut;
+    private PartiallySeededTeamAssigner cut;
     private WinnerBracketFactory wbrFactory;
 
     @Before
     public void setUp() {
-        cut = new FullySeededTeamAssigner();
+        cut = new PartiallySeededTeamAssigner();
         wbrFactory = new WinnerBracketFactory();
     }
 
