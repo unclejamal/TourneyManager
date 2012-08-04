@@ -54,4 +54,8 @@ public class WkpsMembership {
     public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
+
+    public Map<String, MembershipType> getPayroll() {
+        return members;
+    }
 }

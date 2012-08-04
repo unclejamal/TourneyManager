@@ -108,6 +108,10 @@ public class Game implements Serializable {
     public boolean isOccupied() {
         return (teamHome != null) && (teamAway != null);
     }
+    
+    public boolean isOrphan() {
+        return (teamHome == null) && (teamAway == null);
+    }
 
     @Override
     public String toString() {

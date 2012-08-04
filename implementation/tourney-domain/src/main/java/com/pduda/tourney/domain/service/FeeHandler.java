@@ -2,7 +2,9 @@ package com.pduda.tourney.domain.service;
 
 import com.pduda.tourney.domain.Player;
 import com.pduda.tourney.domain.TournamentCategory;
+import com.pduda.tourney.domain.fee.MembershipType;
 import java.util.Date;
+import java.util.Map;
 
 
 public interface FeeHandler {
@@ -12,5 +14,7 @@ public interface FeeHandler {
     Date getMembershipPaymentsLastUpdate();
 
     void updateMembershipPayments();
+
+    Map<String, MembershipType> getPayroll();
 
 }

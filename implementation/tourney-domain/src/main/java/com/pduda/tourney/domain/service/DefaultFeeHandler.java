@@ -7,6 +7,7 @@ import com.pduda.tourney.domain.fee.WkpsFeeCalculator;
 import com.pduda.tourney.domain.fee.WkpsMembership;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -44,5 +45,10 @@ public class DefaultFeeHandler implements FeeHandler, Serializable {
     @Override
     public void updateMembershipPayments() {
         membership.loadMembershipData();
+    }
+
+    @Override
+    public Map<String, MembershipType> getPayroll() {
+        return membership.getPayroll();
     }
 }

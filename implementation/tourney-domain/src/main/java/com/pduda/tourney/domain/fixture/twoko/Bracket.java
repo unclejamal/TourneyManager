@@ -149,7 +149,7 @@ public class Bracket implements Serializable {
     }
 
     /**
-     * Leave - 1, next game - 2, etc.
+     * Leaf - 1, next game - 2, etc.
      */
     public int getBracketOrder() {
         int bracketOrder = 1;

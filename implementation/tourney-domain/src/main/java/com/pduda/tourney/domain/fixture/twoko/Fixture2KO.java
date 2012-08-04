@@ -20,7 +20,7 @@ public class Fixture2KO implements Fixture {
     private WinnerBracketFactory winnerBracketFactory = new WinnerBracketFactory();
     private Bracket loserBracket;
     private LoserBracketFactory loserBracketFactory = new LoserBracketFactory();
-    private TeamAssigner teamAssigner = new TeamAssigner();
+    private FullySeededTeamAssigner teamAssigner = new FullySeededTeamAssigner();
     private final static PotentialRivalDirections potentialRivalDirections = new PotentialRivalDirections();
     private Bracket finalBracketOne = new Bracket(FIN1, 1, 1);
     private Bracket finalBracketTwo = new Bracket(FIN2, 1, 1);

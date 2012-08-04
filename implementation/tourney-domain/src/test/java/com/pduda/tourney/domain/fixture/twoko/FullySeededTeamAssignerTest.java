@@ -9,19 +9,18 @@ import org.junit.Test;
 import org.junit.Ignore;
 import static com.pduda.tourney.domain.TourneyAssert.*;
 
-public class TeamAssignerTest {
+public class FullySeededTeamAssignerTest {
 
-    private TeamAssigner cut;
+    private FullySeededTeamAssigner cut;
     private WinnerBracketFactory wbrFactory;
 
     @Before
     public void setUp() {
-        cut = new TeamAssigner();
+        cut = new FullySeededTeamAssigner();
         wbrFactory = new WinnerBracketFactory();
     }
 
     @Test
-    @Ignore
     public void assignTeams_8() {
         Bracket wbr = wbrFactory.createWinnerBracket(8);
         List<Team> teams = ObjectMother.createTeams(8);
@@ -48,7 +47,7 @@ public class TeamAssignerTest {
         assertGame(7, 10, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 8, 7)).getGame());
         assertGame(15, 2, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 8, 8)).getGame());
     }
-    
+
     @Test
     public void assignTeams_32() {
         Bracket wbr = wbrFactory.createWinnerBracket(32);
@@ -71,7 +70,5 @@ public class TeamAssignerTest {
         assertGame(23, 10, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 16, 14)).getGame());
         assertGame(15, 18, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 16, 15)).getGame());
         assertGame(31, 2, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 16, 16)).getGame());
-    }    
-
- 
+    }
 }

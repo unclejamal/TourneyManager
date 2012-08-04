@@ -8,7 +8,6 @@ public class WinnerBracketFactory implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private NumberedWbrFactory winnerBracketNbf = new NumberedWbrFactory();
-    private PotentialRivalDirections lbrDirections = new PotentialRivalDirections();
 
     public Bracket createWinnerBracket(int teamsTotal) {
         Bracket winnerBracket = winnerBracketNbf.createNextBracket();
