@@ -27,9 +27,10 @@ public class ThreeTeamsTournamentTest {
 
         cut.setName(TOURNEY_NAME);
         cut.addTable(upperTable);
+        cut.addTeam(teamMafia);
         cut.addTeam(teamQuaquaraqua);
         cut.addTeam(teamTosty);
-        cut.addTeam(teamMafia);
+        
 
         cut.startTournament();
     }
@@ -47,7 +48,7 @@ public class ThreeTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -55,7 +56,7 @@ public class ThreeTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -63,7 +64,7 @@ public class ThreeTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamTosty.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamTosty.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -71,7 +72,7 @@ public class ThreeTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamTosty.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamTosty.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -79,7 +80,7 @@ public class ThreeTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
 
         assertEquals(TOURNEY_NAME, cut.getName());
         assertTrue(cut.getStartDate() != null);

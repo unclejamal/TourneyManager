@@ -83,8 +83,8 @@ public class Fixture2KO implements Fixture {
     }
 
     @Override
-    public void reportWinner(GameId gameId, int teamSeed) {
-        Team winner = findTeam(teamSeed);
+    public void reportWinner(GameId gameId, int teamId) {
+        Team winner = findTeam(teamId);
 
         // game in WBR
         Bracket gameBracket = winnerBracket.findBracket(gameId);
@@ -132,9 +132,9 @@ public class Fixture2KO implements Fixture {
         }
     }
 
-    private Team findTeam(int teamSeed) {
+    private Team findTeam(int teamId) {
         for (Team team : teams) {
-            if (team.getSeed() == teamSeed) {
+            if (team.getId() == teamId) {
                 return team;
             }
         }

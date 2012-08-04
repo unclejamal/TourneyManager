@@ -155,9 +155,17 @@
                         <div class="clearFloats"/>
                     </h:panelGroup>
 
+                    <h:panelGroup id="pgpSeeding" layout="block" style="margin-bottom: 24px;">
+                        <h:outputLabel id="lblSeeding" value="Seeding">
+                            <rich:select id="selSeeding" value="#{tourneyCreation.seedingType}" defaultLabel="Select...">
+                                <f:selectItems value="#{tourneyCreation.seedingSuggestions}" />
+                            </rich:select>
+                        </h:outputLabel>
+                    </h:panelGroup>
+                    
                     <h:panelGroup id="pgpOthers" layout="block" style="margin-bottom: 24px;">
                         <h:outputLabel id="lblTourneyName" value="Tourney name">
-                            <h:inputText id="itTourneyName" value="#{tourneyCreation.tourneyName}" maxlength="50"/>
+                            <h:inputText id="itTourneyName" value="#{tourneyCreation.tourneyName}"/>
                         </h:outputLabel>
                     </h:panelGroup>
 

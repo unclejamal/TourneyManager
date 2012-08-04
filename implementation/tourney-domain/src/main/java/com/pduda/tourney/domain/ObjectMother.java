@@ -21,13 +21,23 @@ public class ObjectMother {
         return toReturn;
     }
 
-    public static List<Team> createTeams(int teamsTotal) {
+    public static List<Team> createSeededTeams(int teamsTotal) {
+        return createTeams(teamsTotal, true);
+    }
+    
+    public static List<Team> createUnseededTeams(int teamsTotal) {
+        return createTeams(teamsTotal, false);
+    }
+
+    private static List<Team> createTeams(int teamsTotal, boolean seeded) {
         List<Team> toReturn = new ArrayList<Team>();
 
         for (int i = 0; i < teamsTotal; i++) {
             String seed = String.valueOf(i + 1);
             Team team = new Team(new Player(seed + "A"), new Player(seed + "B"));
-            team.setSeed(Integer.valueOf(seed));
+            if (seeded) {
+                team.setSeed(Integer.valueOf(seed));
+            }
             toReturn.add(team);
         }
 
@@ -35,7 +45,7 @@ public class ObjectMother {
     }
 
     private static void addTeams(Tournament tournament, int teamsTotal) throws NumberFormatException {
-        List<Team> teams = createTeams(teamsTotal);
+        List<Team> teams = createSeededTeams(teamsTotal);
         for (Team team : teams) {
             tournament.addTeam(team);
         }
@@ -49,9 +59,9 @@ public class ObjectMother {
             tournament.startGame(game.getId());
 
             if (game.getTeamHome().getSeed() < game.getTeamAway().getSeed()) {
-                tournament.reportWinner(game.getId(), game.getTeamHome().getSeed());
+                tournament.reportWinner(game.getId(), game.getTeamHome().getId());
             } else {
-                tournament.reportWinner(game.getId(), game.getTeamAway().getSeed());
+                tournament.reportWinner(game.getId(), game.getTeamAway().getId());
             }
 
             i++;

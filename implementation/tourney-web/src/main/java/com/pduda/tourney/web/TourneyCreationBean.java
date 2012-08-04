@@ -1,6 +1,5 @@
 package com.pduda.tourney.web;
 
-import com.pduda.tourney.web.creation.Seeding;
 import java.io.Serializable;
 import java.util.logging.Logger;
 
@@ -16,6 +15,8 @@ import com.pduda.tourney.domain.ranking.Ranking;
 import com.pduda.tourney.domain.service.TourneyHandler;
 import com.pduda.tourney.domain.service.DefaultFeeHandler;
 import com.pduda.tourney.domain.service.RankingHandler;
+import com.pduda.tourney.web.creation.SeedingStrategyFactory;
+import com.pduda.tourney.web.creation.SeedingType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.Size;
@@ -49,17 +51,31 @@ public class TourneyCreationBean implements Serializable {
     private String tourneyName;
     private TournamentCategory category = TournamentCategory.OS;
     private List<String> rankingSuggestions = new ArrayList<String>();
-    private Seeding seeding = new Seeding(Seeding.Type.RANDOM);
+    private SeedingType seedingType = SeedingType.FULLY;
+    @Inject
+    private SeedingStrategyFactory seedingStrategyFactory;
+    private SelectItem[] seedingSuggestions;
 
     @PostConstruct
     public void init() {
         this.tourneyName = "Tourney " + (tournamentHandler.getTournaments().size() + 1);
+        this.seedingSuggestions = createSeedingSuggestions();
+    }
+
+    private SelectItem[] createSeedingSuggestions() {
+        SelectItem[] suggestions = new SelectItem[SeedingType.values().length];
+        int i = 0;
+        for (SeedingType type : SeedingType.values()) {
+            suggestions[i++] = new SelectItem(type, type.name());
+        }
+
+        return suggestions;
     }
 
     public String createTourney() {
         log.log(Level.INFO, "User wants to create a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
 
-        seeding.seed(teams);
+        seedingStrategyFactory.getSeedingStrategy(seedingType).seed(teams);
         int tourneyId = tournamentHandler.createTournament(category, tourneyName, teams);
 
         try {
@@ -105,7 +121,7 @@ public class TourneyCreationBean implements Serializable {
 
     public void chooseCategory(ActionEvent event) {
         String cat = (String) event.getComponent().getAttributes().get("cat");
-        log.log(Level.INFO, "User has chosen tourney category " + cat);
+        log.log(Level.INFO, "User has chosen tourney category {0}", cat);
         switch (cat) {
             case "as":
                 category = TournamentCategory.AS;
@@ -248,6 +264,19 @@ public class TourneyCreationBean implements Serializable {
     public void setCategory(TournamentCategory category) {
         this.category = category;
     }
+
+    public SelectItem[] getSeedingSuggestions() {
+        return seedingSuggestions;
+    }
+
+    public SeedingType getSeedingType() {
+        return seedingType;
+    }
+
+    public void setSeedingType(SeedingType seedingType) {
+        this.seedingType = seedingType;
+    }
+}
 //
 //    private TopologyDataModel topology;
 //
@@ -278,4 +307,3 @@ public class TourneyCreationBean implements Serializable {
 //    log.info("Topology is: " + list);
 //    topology = new TopologyDataModel(list);
 //  }
-}

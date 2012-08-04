@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface Fixture extends Serializable {
 
-    void reportWinner(GameId gameId, int teamSeed);
+    void reportWinner(GameId gameId, int teamId);
 
     Standings getStandings();
 

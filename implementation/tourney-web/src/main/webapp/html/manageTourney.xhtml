@@ -6,11 +6,11 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:rich="http://richfaces.org/rich">
-    
+
     <ui:composition template="/html/common/layout.xhtml">
 
         <ui:param name="bodyId" value="tourney"/>
-        
+
         <ui:define name="content">
 
             <h:panelGroup id="pgpTourney" layout="block" style="margin-bottom: 48px; float:left;">
@@ -42,7 +42,10 @@
                     <h:outputLabel id="lblTeams" value="Teams" for="pgpTeams">
                         <ui:repeat id="repTeams" value="#{tourneyMgmt.tourney.teams}" var="team">
                             <h:panelGroup id="pgpTeam" layout="block" style="margin-bottom: 10px">
-                                <h:outputText id="otTeam" value="#{team.seed}. #{team.name} (#{team.points})"/>
+                                <h:outputFormat id="ofTeam" value="{0}#{team.seeded ? '{1}' : ''}">
+                                    <f:param value="#{team.name}"/>
+                                    <f:param value=" (#{team.seed})"/>
+                                </h:outputFormat>
                             </h:panelGroup>
                         </ui:repeat>
                     </h:outputLabel>

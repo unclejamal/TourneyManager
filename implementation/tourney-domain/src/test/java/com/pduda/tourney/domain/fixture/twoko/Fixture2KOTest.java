@@ -1,9 +1,8 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
 import com.pduda.tourney.domain.GameId;
-import com.pduda.tourney.domain.Player;
+import com.pduda.tourney.domain.ObjectMother;
 import com.pduda.tourney.domain.Team;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -19,7 +18,7 @@ public class Fixture2KOTest {
 
     @Test
     public void threeTeams() {
-        List<Team> teams = createNumberOfTeams(3);
+        List<Team> teams = ObjectMother.createSeededTeams(3);
 
         cut = new Fixture2KO(teams);
         assertGame(1, 0, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 2, 1)));
@@ -32,7 +31,7 @@ public class Fixture2KOTest {
 
     @Test
     public void fourTeams() {
-        List<Team> teams = createNumberOfTeams(4);
+        List<Team> teams = ObjectMother.createSeededTeams(4);
 
         cut = new Fixture2KO(teams);
         assertGame(1, 4, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 2, 1)));
@@ -41,7 +40,7 @@ public class Fixture2KOTest {
 
     @Test
     public void fiveTeams() {
-        List<Team> teams = createNumberOfTeams(5);
+        List<Team> teams = ObjectMother.createSeededTeams(5);
 
         cut = new Fixture2KO(teams);
         assertGame(1, 0, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 4, 1)));
@@ -56,30 +55,5 @@ public class Fixture2KOTest {
         assertEquals("preprocessed bye", 3, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 4, 3)).getWinner().getSeed());
         assertEquals("preprocessed bye", 2, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 4, 4)).getWinner().getSeed());
         assertGame(3, 2, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 2, 2)));
-    }
-
-    @Test
-    public void reportingWins() {
-        List<Team> teams = createNumberOfTeams(3);
-
-        cut = new Fixture2KO(teams);
-
-        cut.reportWinner(new GameId(NumberedWbrFactory.PREFIX, 2, 2), 2);
-
-        assertGame(1, 2, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 1, 1)));
-        assertGame(0, 3, cut.findGame(new GameId(NumberedLbrFactory.PREFIX, 4, 1)));
-        assertEquals("preprocessed bye", 3, cut.findGame(new GameId(NumberedLbrFactory.PREFIX, 4, 1)).getWinner().getSeed());
-        assertGame(0, 3, cut.findGame(new GameId(NumberedLbrFactory.PREFIX, 4, 1)));
-    }
-
-    private List<Team> createNumberOfTeams(int numberOfTeams) {
-        List<Team> teams = new ArrayList<Team>();
-        for (int i = 0; i < numberOfTeams; i++) {
-            Team team = new Team(new Player("Team " + String.valueOf(i + 1)));
-            team.setSeed(i + 1);
-            teams.add(team);
-        }
-
-        return teams;
     }
 }

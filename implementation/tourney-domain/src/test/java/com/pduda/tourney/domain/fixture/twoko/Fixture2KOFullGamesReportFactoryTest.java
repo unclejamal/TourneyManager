@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class FullGamesReportFixture2KoFactoryTest {
+public class Fixture2KOFullGamesReportFactoryTest {
 
     private Fixture2KOFullGamesReportFactory cut;
  

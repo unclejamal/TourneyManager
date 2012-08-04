@@ -100,7 +100,7 @@ public class ManyTeamsTournamentTest {
     }
 
     private void addTeams(int teamsTotal) throws NumberFormatException {
-        List<Team> teams = ObjectMother.createTeams(teamsTotal);
+        List<Team> teams = ObjectMother.createSeededTeams(teamsTotal);
         for (Team team : teams) {
             cut.addTeam(team);
         }
@@ -114,30 +114,30 @@ public class ManyTeamsTournamentTest {
 
             if (WhoWins.BETTER_WINS.equals(whoWins)) {
                 if (game.getTeamHome().getSeed() < game.getTeamAway().getSeed()) {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getSeed());
+                    cut.reportWinner(game.getId(), game.getTeamHome().getId());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getSeed());
+                    cut.reportWinner(game.getId(), game.getTeamAway().getId());
                 }
 
 
             } else if (WhoWins.HOME.equals(whoWins)) {
-                cut.reportWinner(game.getId(), game.getTeamHome().getSeed());
+                cut.reportWinner(game.getId(), game.getTeamHome().getId());
 
             } else if (WhoWins.AWAY.equals(whoWins)) {
-                cut.reportWinner(game.getId(), game.getTeamAway().getSeed());
+                cut.reportWinner(game.getId(), game.getTeamAway().getId());
 
             } else if (WhoWins.HOMEAWAY.equals(whoWins)) {
                 if (i % 2 == 0) {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getSeed());
+                    cut.reportWinner(game.getId(), game.getTeamHome().getId());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getSeed());
+                    cut.reportWinner(game.getId(), game.getTeamAway().getId());
                 }
 
             } else if (WhoWins.AWAYHOME.equals(whoWins)) {
                 if (i % 2 == 1) {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getSeed());
+                    cut.reportWinner(game.getId(), game.getTeamAway().getId());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getSeed());
+                    cut.reportWinner(game.getId(), game.getTeamHome().getId());
                 }
             }
 

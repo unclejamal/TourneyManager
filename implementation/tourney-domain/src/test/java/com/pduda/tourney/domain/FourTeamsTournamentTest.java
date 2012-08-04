@@ -52,7 +52,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamMaly, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamMafia.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamMafia.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -60,7 +60,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamTosty.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamTosty.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -68,7 +68,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMaly, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
         
         cut.getStandings();
 
@@ -78,7 +78,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamMafia.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamMafia.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -86,7 +86,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -94,7 +94,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -102,7 +102,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getSeed());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
 
         assertEquals(TOURNEY_NAME, cut.getName());
         assertTrue(cut.getStartDate() != null);

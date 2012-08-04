@@ -52,12 +52,21 @@ public class Tournament implements Serializable {
     public void startTournament() {
         log.log(Level.INFO, "{0} started ", this);
         this.startDate = new Date();
+
+        assignIdsToTeams(teams);
         this.fixture = new Fixture2KO(teams);
     }
 
-    public void reportWinner(GameId gameId, int teamSeed) {
-        fixture.reportWinner(gameId, teamSeed);
-        log.log(Level.INFO, "{0} has reported winner of game {1} - team {2}", new Object[]{this, gameId, teamSeed});
+    private void assignIdsToTeams(List<Team> teams) {
+        for (int i = 0; i < teams.size(); i++) {
+            Team team = teams.get(i);
+            team.setId(i);
+        }
+    }
+
+    public void reportWinner(GameId gameId, int winnerId) {
+        fixture.reportWinner(gameId, winnerId);
+        log.log(Level.INFO, "{0} has reported winner of game {1} - team {2}", new Object[]{this, gameId, winnerId});
 
         if (getWaitingGames().isEmpty()) {
             endTournament();

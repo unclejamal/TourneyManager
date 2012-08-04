@@ -9,9 +9,10 @@ import java.util.Objects;
 public class Team implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private int seed;
+    private int id;
+    private int seed = Integer.MAX_VALUE;
     private String name;
-    private List<Player> members = new ArrayList<Player>();    
+    private List<Player> members = new ArrayList<Player>();
 
     public Team(Player... memberz) {
         Collections.addAll(members, memberz);
@@ -31,8 +32,20 @@ public class Team implements Serializable {
         return sb.toString();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getSeed() {
         return seed;
+    }
+
+    public boolean isSeeded() {
+        return seed != Integer.MAX_VALUE;
     }
 
     public void setSeed(int seed) {

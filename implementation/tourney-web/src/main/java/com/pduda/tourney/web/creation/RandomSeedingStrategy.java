@@ -2,7 +2,9 @@ package com.pduda.tourney.web.creation;
 
 import com.pduda.tourney.domain.Team;
 import java.util.List;
+import javax.inject.Named;
 
+@Named
 public class RandomSeedingStrategy implements SeedingStrategy {
 
     @Override
