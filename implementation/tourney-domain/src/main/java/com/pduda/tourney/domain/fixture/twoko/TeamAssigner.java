@@ -1,9 +1,9 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
 import com.pduda.tourney.domain.Team;
-import java.util.List;
+import java.util.Collection;
 
 public interface TeamAssigner {
 
-    void assignTeams(Bracket bracket, List<Team> teams);
+    void assignTeams(Bracket bracket, Collection<Team> teams);
 }

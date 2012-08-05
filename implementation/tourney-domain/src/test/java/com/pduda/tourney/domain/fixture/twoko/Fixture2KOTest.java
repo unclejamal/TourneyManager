@@ -3,10 +3,10 @@ package com.pduda.tourney.domain.fixture.twoko;
 import com.pduda.tourney.domain.GameId;
 import com.pduda.tourney.domain.ObjectMother;
 import com.pduda.tourney.domain.Team;
-import java.util.List;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static com.pduda.tourney.domain.TourneyAssert.*;
+import java.util.Set;
 
 public class Fixture2KOTest {
 
@@ -18,7 +18,7 @@ public class Fixture2KOTest {
 
     @Test
     public void threeTeams() {
-        List<Team> teams = ObjectMother.createSeededTeams(3);
+        Set<Team> teams = ObjectMother.createSeededTeams(3);
 
         cut = new Fixture2KO(teams);
         assertGame(1, 0, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 2, 1)));
@@ -31,7 +31,7 @@ public class Fixture2KOTest {
 
     @Test
     public void fourTeams() {
-        List<Team> teams = ObjectMother.createSeededTeams(4);
+        Set<Team> teams = ObjectMother.createSeededTeams(4);
 
         cut = new Fixture2KO(teams);
         assertGame(1, 4, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 2, 1)));
@@ -40,7 +40,7 @@ public class Fixture2KOTest {
 
     @Test
     public void fiveTeams() {
-        List<Team> teams = ObjectMother.createSeededTeams(5);
+        Set<Team> teams = ObjectMother.createSeededTeams(5);
 
         cut = new Fixture2KO(teams);
         assertGame(1, 0, cut.findGame(new GameId(NumberedWbrFactory.PREFIX, 4, 1)));

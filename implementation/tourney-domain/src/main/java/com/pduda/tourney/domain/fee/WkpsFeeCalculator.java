@@ -1,7 +1,7 @@
 package com.pduda.tourney.domain.fee;
 
 import com.pduda.tourney.domain.RankClass;
-import com.pduda.tourney.domain.TournamentCategory;
+import com.pduda.tourney.domain.TourneyCategory;
 import javax.inject.Named;
 
 @Named
@@ -17,12 +17,12 @@ public class WkpsFeeCalculator {
         initSpecialCalc(specialCalc);
     }
 
-    public long getFee(TournamentCategory tourneyCategory, FeeCalculatorKey.Licensed licensed, int points, RankClass rankClass) {
+    public long getFee(TourneyCategory tourneyCategory, FeeCalculatorKey.Licensed licensed, int points, RankClass rankClass) {
         FeeCalculator calculator = chooseCalculator(tourneyCategory);
         return calculator.getFee(licensed, points, rankClass);
     }
 
-    private FeeCalculator chooseCalculator(TournamentCategory tourneyCategory) {
+    private FeeCalculator chooseCalculator(TourneyCategory tourneyCategory) {
         // TODO
         switch (tourneyCategory) {
             case AD:

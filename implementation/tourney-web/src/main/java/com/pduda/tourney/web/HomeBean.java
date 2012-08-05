@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.context.annotation.Scope;
 
-import com.pduda.tourney.domain.Tournament;
+import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.service.TourneyHandler;
 import java.util.List;
 import javax.inject.Inject;
@@ -21,7 +21,7 @@ public class HomeBean implements Serializable {
     private static final transient Logger log = Logger.getLogger(HomeBean.class.getClass().getName());
     @Inject
     private TourneyHandler tournamentHandler;
-    private List<Tournament> tournaments;
+    private List<Tourney> tournaments;
 
     @PostConstruct
     public void init() {
@@ -29,11 +29,11 @@ public class HomeBean implements Serializable {
         this.tournaments = tournamentHandler.getTournaments();
     }
 
-    public List<Tournament> getTournaments() {
+    public List<Tourney> getTournaments() {
         return tournaments;
     }
 
-    public void setTournaments(List<Tournament> tournaments) {
+    public void setTournaments(List<Tourney> tournaments) {
         this.tournaments = tournaments;
     }
 }

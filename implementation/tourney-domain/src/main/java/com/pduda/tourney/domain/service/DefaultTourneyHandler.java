@@ -8,8 +8,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.springframework.transaction.annotation.Transactional;
 
 @Named
+@Transactional
 public class DefaultTourneyHandler implements TourneyHandler, Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,10 +20,10 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
     private TourneyRepo tourneyRepo;
 
     @Override
-    public int createTournament(TournamentCategory category, String tourneyName, List<Team> teams) {
+    public int createTournament(TourneyCategory category, String tourneyName, List<Team> teams) {
         log.log(Level.INFO, "System is creating a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
 
-        Tournament tournament = new Tournament(tourneyRepo.getEntitiesCount(), category, tourneyName);
+        Tourney tournament = new Tourney(tourneyRepo.getEntitiesCount(), category, tourneyName);
 
         tournament.setName(tourneyName);
         for (int i = 0; i < teams.size(); i++) {
@@ -38,14 +40,16 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
     }
 
     @Override
-    public List<Tournament> getTournaments() {
+    public List<Tourney> getTournaments() {
         return tourneyRepo.findEntities();
     }
 
     @Override
-    public Tournament getTournament(int id) {
-        return tourneyRepo.findEntity(id);
-
+    public Tourney getTournament(int id) {
+        log.info("System is getting tourney " + id);
+        Tourney tourney = tourneyRepo.findEntity(id);
+        log.info("System found " + tourney);
+        return tourney;
     }
 
     @Override

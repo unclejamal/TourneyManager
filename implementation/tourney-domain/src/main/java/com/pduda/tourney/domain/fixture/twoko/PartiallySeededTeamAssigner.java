@@ -4,6 +4,7 @@ import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.util.MyMath;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class PartiallySeededTeamAssigner implements TeamAssigner, Serializable {
     private TeamAssignerDirections directions = new TeamAssignerDirections();
 
     @Override
-    public void assignTeams(Bracket bracket, List<Team> teams) {
+    public void assignTeams(Bracket bracket, Collection<Team> teams) {
         directions.createDirections((int) (Math.ceil(MyMath.log2(teams.size()))));
 
 

@@ -2,22 +2,43 @@ package com.pduda.tourney.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.*;
+import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.annotation.Configurable;
 
+@Entity
+@javax.persistence.Table(name = "PLAYER")
+@Configurable(autowire = Autowire.BY_TYPE)
 public class Player implements Serializable {
 
     private static final long serialVersionUID = 1L;
     public static final String SPACE = " ";
     public static final String NA = "n/a";
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private long id;
+    @Column(name = "RANK")
     private Integer rank;
+    @Column(name = "CODE")
     private String code;
+    @Column(name = "FULL_NAME")
     private String fullName;
+    @Column(name = "GENDER")
     private Gender gender;
+    @Column(name = "CITY")
     private String city;
+    @Column(name = "CLUB")
     private String club;
+    @Column(name = "POINTS")
     private Integer points;
+    @Column(name = "POINTS_ADDED")
     private Integer pointsAdded;
+    @Column(name = "POINTS_DELETED")
     private Integer pointsDeleted;
+    @Column(name = "RANK_CLASS")
     private RankClass rankClass;
+    @Column(name = "FEE")
     private Long fee;
 
     public Player(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
@@ -59,6 +80,14 @@ public class Player implements Serializable {
         sb.append(splitFullName[splitFullName.length - 1]);
 
         return sb.toString();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getCity() {

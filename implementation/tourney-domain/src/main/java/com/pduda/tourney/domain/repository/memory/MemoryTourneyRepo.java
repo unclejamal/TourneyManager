@@ -1,45 +1,42 @@
 package com.pduda.tourney.domain.repository.memory;
 
-import com.pduda.tourney.domain.Tournament;
+import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.repository.RepoException;
 import com.pduda.tourney.domain.repository.TourneyRepo;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.inject.Named;
-import javax.inject.Singleton;
-import org.springframework.context.annotation.Primary;
 
-@Named
-@Singleton
-@Primary
+//@Named
+//@Singleton
+//@Primary
 public class MemoryTourneyRepo implements TourneyRepo {
 
-    private List<Tournament> tourneys = new ArrayList<Tournament>();
+    private List<Tourney> tourneys = new ArrayList<Tourney>();
 
     @Override
-    public void create(Tournament object) {
+    public void create(Tourney object) {
         tourneys.add(object);
     }
 
     @Override
-    public Tournament createAndReturn(Tournament object) {
+    public Tourney createAndReturn(Tourney object) {
         tourneys.add(object);
         return object;
     }
 
     @Override
-    public void refresh(Tournament object) {
+    public void refresh(Tourney object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void merge(Tournament object) {
+    public void merge(Tourney object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void edit(Tournament entity) throws RepoException {
+    public void edit(Tourney entity) throws RepoException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -54,8 +51,8 @@ public class MemoryTourneyRepo implements TourneyRepo {
     }
 
     @Override
-    public Tournament findEntity(Integer id) {
-        for (Tournament tourney : tourneys) {
+    public Tourney findEntity(Integer id) {
+        for (Tourney tourney : tourneys) {
             if (id.equals(tourney.getId())) {
                 return tourney;
             }
@@ -64,7 +61,7 @@ public class MemoryTourneyRepo implements TourneyRepo {
     }
 
     @Override
-    public List<Tournament> findEntitiesByIds(Collection<Integer> ids) {
+    public List<Tourney> findEntitiesByIds(Collection<Integer> ids) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

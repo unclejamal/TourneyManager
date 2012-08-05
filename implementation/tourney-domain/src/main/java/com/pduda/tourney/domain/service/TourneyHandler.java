@@ -2,17 +2,17 @@ package com.pduda.tourney.domain.service;
 
 import com.pduda.tourney.domain.GameId;
 import com.pduda.tourney.domain.Team;
-import com.pduda.tourney.domain.Tournament;
-import com.pduda.tourney.domain.TournamentCategory;
+import com.pduda.tourney.domain.Tourney;
+import com.pduda.tourney.domain.TourneyCategory;
 import java.util.List;
 
 public interface TourneyHandler {
 
-    int createTournament(TournamentCategory category, String tourneyName, List<Team> teams);
+    int createTournament(TourneyCategory category, String tourneyName, List<Team> teams);
 
-    Tournament getTournament(int id);
+    Tourney getTournament(int id);
 
-    List<Tournament> getTournaments();
+    List<Tourney> getTournaments();
 
     void reportWinner(int tourneyId, GameId gameId, int seed);
 

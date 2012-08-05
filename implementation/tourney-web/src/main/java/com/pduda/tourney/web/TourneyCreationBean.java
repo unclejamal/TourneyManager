@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.Player;
-import com.pduda.tourney.domain.TournamentCategory;
+import com.pduda.tourney.domain.TourneyCategory;
 import com.pduda.tourney.domain.ranking.Ranking;
 import com.pduda.tourney.domain.service.TourneyHandler;
 import com.pduda.tourney.domain.service.DefaultFeeHandler;
@@ -49,7 +49,7 @@ public class TourneyCreationBean implements Serializable {
     private String newPlayerName2;
     @Size(min = 3, max = 40)
     private String tourneyName;
-    private TournamentCategory category = TournamentCategory.OS;
+    private TourneyCategory category = TourneyCategory.OS;
     private List<String> rankingSuggestions = new ArrayList<String>();
     private SeedingType seedingType = SeedingType.FULLY;
     @Inject
@@ -124,27 +124,27 @@ public class TourneyCreationBean implements Serializable {
         log.log(Level.INFO, "User has chosen tourney category {0}", cat);
         switch (cat) {
             case "as":
-                category = TournamentCategory.AS;
+                category = TourneyCategory.AS;
                 ranking = rankingHandler.getOpenSingle();
                 break;
             case "os":
-                category = TournamentCategory.OS;
+                category = TourneyCategory.OS;
                 ranking = rankingHandler.getOpenSingle();
                 break;
             case "ad":
-                category = TournamentCategory.AD;
+                category = TourneyCategory.AD;
                 ranking = rankingHandler.getOpenDouble();
                 break;
             case "od":
-                category = TournamentCategory.OD;
+                category = TourneyCategory.OD;
                 ranking = rankingHandler.getOpenDouble();
                 break;
             case "ws":
-                category = TournamentCategory.WS;
+                category = TourneyCategory.WS;
                 ranking = rankingHandler.getWomenSingle();
                 break;
             case "wd":
-                category = TournamentCategory.WD;
+                category = TourneyCategory.WD;
                 ranking = rankingHandler.getWomenDouble();
                 break;
             default:
@@ -257,11 +257,11 @@ public class TourneyCreationBean implements Serializable {
         this.tourneyName = tourneyName;
     }
 
-    public TournamentCategory getCategory() {
+    public TourneyCategory getCategory() {
         return category;
     }
 
-    public void setCategory(TournamentCategory category) {
+    public void setCategory(TourneyCategory category) {
         this.category = category;
     }
 

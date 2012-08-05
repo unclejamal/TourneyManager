@@ -1,6 +1,6 @@
 package com.pduda.tourney.domain;
 
-public enum TournamentCategory {
+public enum TourneyCategory {
 
     AS(false, false),
     AD(true, false),
@@ -12,7 +12,7 @@ public enum TournamentCategory {
     private boolean doub;
     private boolean women;
 
-    TournamentCategory(boolean doub, boolean women) {
+    TourneyCategory(boolean doub, boolean women) {
         this.doub = doub;
         this.women = women;
     }

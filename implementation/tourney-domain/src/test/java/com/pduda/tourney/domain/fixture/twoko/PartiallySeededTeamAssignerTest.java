@@ -4,7 +4,6 @@ import com.pduda.tourney.domain.Game;
 import com.pduda.tourney.domain.GameId;
 import com.pduda.tourney.domain.ObjectMother;
 import com.pduda.tourney.domain.Team;
-import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static com.pduda.tourney.domain.TourneyAssert.*;
@@ -13,33 +12,33 @@ import java.util.Set;
 import static org.junit.Assert.*;
 
 public class PartiallySeededTeamAssignerTest {
-
+    
     private PartiallySeededTeamAssigner cut;
     private WinnerBracketFactory wbrFactory;
-
+    
     @Before
     public void setUp() {
         cut = new PartiallySeededTeamAssigner();
         wbrFactory = new WinnerBracketFactory();
     }
-
+    
     @Test
     public void assignSeededTeams_8() {
         Bracket wbr = wbrFactory.createWinnerBracket(8);
-        List<Team> teams = ObjectMother.createSeededTeams(8);
-
+        Set<Team> teams = ObjectMother.createSeededTeams(8);
+        
         cut.assignTeams(wbr, teams);
         assertGame(1, 8, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 4, 1)).getGame());
         assertGame(5, 4, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 4, 2)).getGame());
         assertGame(3, 6, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 4, 3)).getGame());
         assertGame(7, 2, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 4, 4)).getGame());
     }
-
+    
     @Test
     public void assignSeededTeams_32() {
         Bracket wbr = wbrFactory.createWinnerBracket(32);
-        List<Team> teams = ObjectMother.createSeededTeams(32);
-
+        Set<Team> teams = ObjectMother.createSeededTeams(32);
+        
         cut.assignTeams(wbr, teams);
         assertGame(1, 32, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 16, 1)).getGame());
         assertGame(17, 16, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 16, 2)).getGame());
@@ -58,12 +57,12 @@ public class PartiallySeededTeamAssignerTest {
         assertGame(15, 18, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 16, 15)).getGame());
         assertGame(31, 2, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 16, 16)).getGame());
     }
-
+    
     @Test
     public void assignUnseededTeams_8() {
         Bracket wbr = wbrFactory.createWinnerBracket(8);
-        List<Team> teams = ObjectMother.createUnseededTeams(8);
-
+        Set<Team> teams = ObjectMother.createUnseededTeams(8);
+        
         cut.assignTeams(wbr, teams);
         
         Set<Team> assignedTeams = new HashSet<Team>();
@@ -79,10 +78,9 @@ public class PartiallySeededTeamAssignerTest {
     @Test
     public void assignPartiallySeededTeams_8() {
         Bracket wbr = wbrFactory.createWinnerBracket(8);
-        List<Team> teams = ObjectMother.createUnseededTeams(8);
-        teams.get(0).setSeed(1);
-        teams.get(1).setSeed(2);
-
+        Set<Team> teams = ObjectMother.createUnseededTeams(8);
+        makeTwoTeamsSeeded(teams);
+        
         cut.assignTeams(wbr, teams);
         
         Set<Team> assignedTeams = new HashSet<Team>();
@@ -96,5 +94,15 @@ public class PartiallySeededTeamAssignerTest {
         
         assertEquals(1, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 4, 1)).getGame().getTeamHome().getSeed());
         assertEquals(2, wbr.findBracket(new GameId(NumberedWbrFactory.PREFIX, 4, 4)).getGame().getTeamAway().getSeed());
+    }
+    
+    private void makeTwoTeamsSeeded(Set<Team> teams) {
+        int i = 1;
+        for (Team team : teams) {
+            team.setSeed(i);
+            if (i++ > 2) {
+                break;
+            }
+        }
     }
 }

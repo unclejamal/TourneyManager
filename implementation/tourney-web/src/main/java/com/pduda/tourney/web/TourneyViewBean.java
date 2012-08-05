@@ -11,7 +11,7 @@ import javax.faces.event.ActionEvent;
 
 import org.springframework.context.annotation.Scope;
 
-import com.pduda.tourney.domain.Tournament;
+import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.report.FullGamesReport;
 import com.pduda.tourney.domain.service.TourneyHandler;
 import java.util.logging.Level;
@@ -28,7 +28,7 @@ public class TourneyViewBean implements Serializable {
     @Inject
     private TourneyHandler tournamentHandler;
     private String standingsTextReport;
-    private Tournament tourney;
+    private Tourney tourney;
     private String wbrAsJson;
     private String lbrAsJson;
     private String fin1AsJson;
@@ -39,7 +39,7 @@ public class TourneyViewBean implements Serializable {
         return gson.toJson(fullReport.getPartialReport(partial));
     }
 
-    private String fetchStandingsReport(Tournament tournament) {
+    private String fetchStandingsReport(Tourney tournament) {
         return new StandingsTextReport().report(tournament.getStandings());
 
     }
@@ -92,11 +92,11 @@ public class TourneyViewBean implements Serializable {
         return standingsTextReport;
     }
 
-    public Tournament getTourney() {
+    public Tourney getTourney() {
         return tourney;
     }
 
-    public void setTourney(Tournament tourney) {
+    public void setTourney(Tourney tourney) {
         this.tourney = tourney;
     }
 

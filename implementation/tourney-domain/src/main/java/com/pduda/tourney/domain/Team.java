@@ -5,19 +5,37 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.*;
+import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.annotation.Configurable;
 
+@Entity
+@javax.persistence.Table(name = "TEAM")
+@Configurable(autowire = Autowire.BY_TYPE)
 public class Team implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private long id;
+    @Column(name = "TEAM_CODE")
+    private int teamCode;
+    @Column(name = "SEED")
     private int seed = Integer.MAX_VALUE;
+    @Column(name = "NAME")
     private String name;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID")
     private List<Player> members = new ArrayList<Player>();
 
     public Team(Player... memberz) {
         Collections.addAll(members, memberz);
         Collections.sort(this.members, new PlayersByPointsComparator());
         this.name = computeName(members);
+    }
+
+    public Team() {
     }
 
     private String computeName(List<Player> members) {
@@ -32,12 +50,12 @@ public class Team implements Serializable {
         return sb.toString();
     }
 
-    public int getId() {
-        return id;
+    public int getTeamCode() {
+        return teamCode;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTeamCode(int teamCode) {
+        this.teamCode = teamCode;
     }
 
     public int getSeed() {

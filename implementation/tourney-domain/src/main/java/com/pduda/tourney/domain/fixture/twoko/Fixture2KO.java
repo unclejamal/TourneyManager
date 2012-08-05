@@ -7,7 +7,9 @@ import com.pduda.tourney.domain.report.Standings;
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.report.FullGamesReport;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Fixture2KO implements Fixture {
 
@@ -15,7 +17,7 @@ public class Fixture2KO implements Fixture {
     public static final String FIN2 = GameId.PREFIX_FINAL + "2";
     
     private static final long serialVersionUID = 1L;
-    private List<Team> teams = new ArrayList<Team>();
+    private Set<Team> teams = new LinkedHashSet<Team>();
     private Bracket winnerBracket;
     private WinnerBracketFactory winnerBracketFactory = new WinnerBracketFactory();
     private Bracket loserBracket;
@@ -26,7 +28,7 @@ public class Fixture2KO implements Fixture {
     private Bracket finalBracketTwo = new Bracket(FIN2, 1, 1);
     private Fixture2KOFullGamesReportFactory gamesReportFactory = new Fixture2KOFullGamesReportFactory();
 
-    public Fixture2KO(List<Team> teams) {
+    public Fixture2KO(Set<Team> teams) {
         this.teams = teams;
         this.winnerBracket = winnerBracketFactory.createWinnerBracket(teams.size());
         this.loserBracket = loserBracketFactory.createLoserBracket(teams.size());
@@ -134,7 +136,7 @@ public class Fixture2KO implements Fixture {
 
     private Team findTeam(int teamId) {
         for (Team team : teams) {
-            if (team.getId() == teamId) {
+            if (team.getTeamCode() == teamId) {
                 return team;
             }
         }

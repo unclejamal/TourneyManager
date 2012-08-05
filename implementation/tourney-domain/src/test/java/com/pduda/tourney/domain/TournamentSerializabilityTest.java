@@ -11,8 +11,8 @@ public class TournamentSerializabilityTest extends SerializabilityTestCase {
 
     @Override
     protected void checkThawedObject(Serializable expected, Serializable actual) throws Exception {
-        Tournament expectedTourney = (Tournament) expected;
-        Tournament actualTourney = (Tournament) actual;
+        Tourney expectedTourney = (Tourney) expected;
+        Tourney actualTourney = (Tourney) actual;
         assertEquals(expectedTourney.getId(), actualTourney.getId());
         assertEquals(expectedTourney.getName(), actualTourney.getName());
         assertEquals(expectedTourney.getWaitingGames().size(), actualTourney.getWaitingGames().size());
@@ -26,7 +26,7 @@ public class TournamentSerializabilityTest extends SerializabilityTestCase {
 
     @Override
     protected Serializable createInstance() throws Exception {
-        Tournament tourney = new Tournament(1, TournamentCategory.OD, "Liga Weekendowa");
+        Tourney tourney = new Tourney(1, TourneyCategory.OD, "Liga Weekendowa");
         Team teama = new Team(new Player("a"));
         teama.setSeed(1);
         tourney.addTeam(teama);

@@ -24,7 +24,7 @@ public class DefaultFeeHandler implements FeeHandler, Serializable {
     private WkpsMembership membership;
 
     @Override
-    public long getDefaultFee(Player player, TournamentCategory tourneyCategory) {
+    public long getDefaultFee(Player player, TourneyCategory tourneyCategory) {
         log.log(Level.INFO, "System is checking the fee for the player {0}", new Object[]{player});
         return wkpsCalc.getFee(tourneyCategory, membership(membership.getMembershipType(player.getFullName())), player.getPoints(), player.getRankClass());
     }

@@ -5,6 +5,7 @@ import static com.pduda.tourney.domain.TourneyAssert.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
@@ -15,7 +16,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class ManyTeamsTournamentTest {
 
     public static final String TOURNEY_NAME = "Liga Weekendowa Wroclaw";
-    private Tournament cut = new Tournament();
+    private Tourney cut = new Tourney();
     public static Table upperTable = new Table("Upper");
     private final int teamsTotal;
     private final int expWaitingGames;
@@ -100,7 +101,7 @@ public class ManyTeamsTournamentTest {
     }
 
     private void addTeams(int teamsTotal) throws NumberFormatException {
-        List<Team> teams = ObjectMother.createSeededTeams(teamsTotal);
+        Set<Team> teams = ObjectMother.createSeededTeams(teamsTotal);
         for (Team team : teams) {
             cut.addTeam(team);
         }
@@ -114,30 +115,30 @@ public class ManyTeamsTournamentTest {
 
             if (WhoWins.BETTER_WINS.equals(whoWins)) {
                 if (game.getTeamHome().getSeed() < game.getTeamAway().getSeed()) {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getId());
+                    cut.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getId());
+                    cut.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
                 }
 
 
             } else if (WhoWins.HOME.equals(whoWins)) {
-                cut.reportWinner(game.getId(), game.getTeamHome().getId());
+                cut.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
 
             } else if (WhoWins.AWAY.equals(whoWins)) {
-                cut.reportWinner(game.getId(), game.getTeamAway().getId());
+                cut.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
 
             } else if (WhoWins.HOMEAWAY.equals(whoWins)) {
                 if (i % 2 == 0) {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getId());
+                    cut.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getId());
+                    cut.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
                 }
 
             } else if (WhoWins.AWAYHOME.equals(whoWins)) {
                 if (i % 2 == 1) {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getId());
+                    cut.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getId());
+                    cut.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
                 }
             }
 

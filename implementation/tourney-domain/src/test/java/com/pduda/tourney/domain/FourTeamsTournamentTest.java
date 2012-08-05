@@ -14,7 +14,7 @@ public class FourTeamsTournamentTest {
     public static Team teamTosty;
     public static Team teamMafia;
     public static Team teamMaly;
-    private Tournament cut = new Tournament();
+    private Tourney cut = new Tourney();
 
     @Before
     public void setUp() {
@@ -52,7 +52,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamMaly, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamMafia.getId());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamMafia.getTeamCode());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -60,7 +60,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamTosty.getId());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamTosty.getTeamCode());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -68,7 +68,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMaly, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getTeamCode());
         
         cut.getStandings();
 
@@ -78,7 +78,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamMafia.getId());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamMafia.getTeamCode());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -86,7 +86,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamTosty, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getTeamCode());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -94,7 +94,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getTeamCode());
 
         cut.startGame(cut.getWaitingGames().get(0).getId());
         assertEquals(1, cut.getOngoingGames().size());
@@ -102,7 +102,7 @@ public class FourTeamsTournamentTest {
         assertEquals(upperTable, cut.getOngoingGames().get(0).getTable());
         assertEquals(teamMafia, cut.getOngoingGames().get(0).getTeamHome());
         assertEquals(teamQuaquaraqua, cut.getOngoingGames().get(0).getTeamAway());
-        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getId());
+        cut.reportWinner(cut.getOngoingGames().get(0).getId(), teamQuaquaraqua.getTeamCode());
 
         assertEquals(TOURNEY_NAME, cut.getName());
         assertTrue(cut.getStartDate() != null);

@@ -10,7 +10,7 @@ import javax.faces.event.ActionEvent;
 
 import org.springframework.context.annotation.Scope;
 
-import com.pduda.tourney.domain.Tournament;
+import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.service.TourneyHandler;
 import java.util.logging.Level;
 import javax.faces.context.FacesContext;
@@ -27,7 +27,7 @@ public class TourneyManagementBean implements Serializable {
     private TourneyHandler tournamentHandler;
     @Inject
     private StandingsTextReport report;
-    private Tournament tourney;
+    private Tourney tourney;
 
     @PostConstruct
     public void init() {
@@ -57,11 +57,11 @@ public class TourneyManagementBean implements Serializable {
         return report.report(tourney.getStandings());
     }
 
-    public Tournament getTourney() {
+    public Tourney getTourney() {
         return tourney;
     }
 
-    public void setTourney(Tournament tourney) {
+    public void setTourney(Tourney tourney) {
         this.tourney = tourney;
     }
 
