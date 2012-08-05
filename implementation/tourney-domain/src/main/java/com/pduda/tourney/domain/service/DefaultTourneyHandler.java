@@ -1,11 +1,12 @@
 package com.pduda.tourney.domain.service;
 
 import com.pduda.tourney.domain.*;
+import com.pduda.tourney.domain.repository.TourneyRepo;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
@@ -13,13 +14,14 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
 
     private static final long serialVersionUID = 1L;
     private transient Logger log = Logger.getLogger(DefaultTourneyHandler.class.getName());
-    private List<Tournament> tournaments = new ArrayList<Tournament>();
+    @Inject
+    private TourneyRepo tourneyRepo;
 
     @Override
     public int createTournament(TournamentCategory category, String tourneyName, List<Team> teams) {
         log.log(Level.INFO, "System is creating a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
 
-        Tournament tournament = new Tournament(tournaments.size(), category, tourneyName);
+        Tournament tournament = new Tournament(tourneyRepo.getEntitiesCount(), category, tourneyName);
 
         tournament.setName(tourneyName);
         for (int i = 0; i < teams.size(); i++) {
@@ -30,25 +32,20 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
         tournament.addTable(new Table("upper"));
         tournament.addTable(new Table("lower"));
 
-        tournaments.add(tournament);
+        tourneyRepo.create(tournament);
 
         return tournament.getId();
     }
 
     @Override
     public List<Tournament> getTournaments() {
-        return tournaments;
+        return tourneyRepo.findEntities();
     }
 
     @Override
     public Tournament getTournament(int id) {
-        for (Tournament tournament : tournaments) {
-            if (id == tournament.getId()) {
-                return tournament;
-            }
-        }
+        return tourneyRepo.findEntity(id);
 
-        throw new RuntimeException("No tourney found with id: " + id);
     }
 
     @Override

@@ -28,15 +28,11 @@ public class TourneyManagementBean implements Serializable {
     @Inject
     private StandingsTextReport report;
     private Tournament tourney;
-    
 
     @PostConstruct
     public void init() {
-        log.info("Intentando a crear tourneyMgmt");
         int tourneyId = getTourneyId();
-        log.log(Level.INFO, "Obteniendo el puto {0}", tourneyId);
         this.tourney = tournamentHandler.getTournament(tourneyId);
-        log.info("Acabado de crear tourneyMgmt");
     }
 
     public void startTourney(ActionEvent event) {
@@ -52,11 +48,11 @@ public class TourneyManagementBean implements Serializable {
 
     public void reportWinner(ActionEvent event) {
         String attrGame = event.getComponent().getAttributes().get("game").toString();
-        String attrSeed = event.getComponent().getAttributes().get("seed").toString();
-        log.log(Level.INFO, "User wants to report winner of {0} - {1}", new Object[]{attrGame, attrSeed});
-        tournamentHandler.reportWinner(tourney.getId(), new GameId(attrGame), Integer.valueOf(attrSeed));
+        String attrWinnerId = event.getComponent().getAttributes().get("winnerId").toString();
+        log.log(Level.INFO, "User wants to report winner of {0} - {1}", new Object[]{attrGame, attrWinnerId});
+        tournamentHandler.reportWinner(tourney.getId(), new GameId(attrGame), Integer.valueOf(attrWinnerId));
     }
-    
+
     public String getStandings() {
         return report.report(tourney.getStandings());
     }
@@ -69,36 +65,6 @@ public class TourneyManagementBean implements Serializable {
         this.tourney = tourney;
     }
 
-//
-//    private TopologyDataModel topology;
-//
-//    public TopologyDataModel getTopology() {
-//        log.info("Getting topology");
-//        return topology;
-//    }
-//  public void upload(ActionEvent event) {
-//    Long actionNetworkElement = (Long) event.getComponent().getAttributes().get("actionNetworkElement");
-//    log.info("User is starting an upload for gid: " + actionNetworkElement);
-//
-//    taskHandler.upload(actionNetworkElement);
-//    getTopologyFromHibernate();
-//  }
-//
-//  public void refreshTopology(ActionEvent event) {
-//    getTopologyFromHibernate();
-//  }
-//
-//  public void populateDatabase(ActionEvent event) {
-//    networkElementRepo.createDummyNetworkElements();
-//    getTopologyFromHibernate();
-//
-//  }
-//
-//  private void getTopologyFromHibernate() {
-//    List<NetworkElement> list = networkElementRepo.findAll();
-//    log.info("Topology is: " + list);
-//    topology = new TopologyDataModel(list);
-//  }
     protected int getTourneyId() {
         return Integer.valueOf(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id"));
     }

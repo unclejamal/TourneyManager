@@ -121,7 +121,7 @@
                                     </f:facet>
                                     <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
                                         <f:attribute name="game" value="#{item.id}"/>
-                                        <f:attribute name="seed" value="#{item.teamHome.seed}"/>
+                                        <f:attribute name="winnerId" value="#{item.teamHome.id}"/>
                                         <h:outputText value="#{item.teamHome.members[0].fullName}" />
                                         <h:outputText value="#{empty item.teamHome.members[1] ? '' : ', '}" />
                                         <h:outputText value="#{empty item.teamHome.members[1] ? '' : item.teamHome.members[1].fullName}" />
@@ -133,7 +133,7 @@
                                     </f:facet>
                                     <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
                                         <f:attribute name="game" value="#{item.id}"/>
-                                        <f:attribute name="seed" value="#{item.teamAway.seed}"/>
+                                        <f:attribute name="winnerId" value="#{item.teamAway.id}"/>
 
                                         <h:outputText value="#{item.teamAway.members[0].fullName}" />
                                         <h:outputText value="#{empty item.teamAway.members[1] ? '' : ', '}" />
