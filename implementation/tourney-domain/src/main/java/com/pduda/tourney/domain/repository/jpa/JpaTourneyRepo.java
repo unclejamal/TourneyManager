@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Named
-public class JpaTourneyRepo extends BaseJpaRepo<Tourney, Integer> implements TourneyRepo {
+public class JpaTourneyRepo extends BaseJpaRepo<Tourney, Long> implements TourneyRepo {
 
     @PersistenceContext(name = "tourney-PU")
     private EntityManager em;

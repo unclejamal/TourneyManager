@@ -5,13 +5,22 @@ import java.util.Set;
 
 public class ObjectMother {
 
-    public static Table upperTable = new Table("Upper");
+    public static FoosballTable upperTable = new FoosballTable("Upper");
 
     public static Player createPlayer() {
         return new Player(69, "WKPS69", "Pawel Adam Duda", Gender.MALE, "Wroclaw", "WKPS", 1000, 20, 15, RankClass.MASTER);
     }
 
-    public static Tourney createTournament(String name, int teamsTotal) {
+    public static Tourney createTourneyNotPlayed(String name, int teamsTotal) {
+        Tourney toReturn = new Tourney(1, TourneyCategory.OD, name);
+        toReturn.addTable(upperTable);
+        addTeams(toReturn, teamsTotal);
+        toReturn.startTournament();
+
+        return toReturn;
+    }
+
+    public static Tourney createTourneyPlayed(String name, int teamsTotal) {
         Tourney toReturn = new Tourney(1, TourneyCategory.OD, name);
         toReturn.addTable(upperTable);
         addTeams(toReturn, teamsTotal);
@@ -55,12 +64,12 @@ public class ObjectMother {
         int i = 0;
         while (tournament.getEndDate() == null) {
             Game game = tournament.getWaitingGames().get(0);
-            tournament.startGame(game.getId());
+            tournament.startGame(game.getGameCode());
 
             if (game.getTeamHome().getSeed() < game.getTeamAway().getSeed()) {
-                tournament.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
+                tournament.reportWinner(game.getGameCode(), game.getTeamHome().getTeamCode());
             } else {
-                tournament.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
+                tournament.reportWinner(game.getGameCode(), game.getTeamAway().getTeamCode());
             }
 
             i++;

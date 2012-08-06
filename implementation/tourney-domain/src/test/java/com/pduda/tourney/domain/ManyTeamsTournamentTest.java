@@ -17,7 +17,7 @@ public class ManyTeamsTournamentTest {
 
     public static final String TOURNEY_NAME = "Liga Weekendowa Wroclaw";
     private Tourney cut = new Tourney();
-    public static Table upperTable = new Table("Upper");
+    public static FoosballTable upperTable = new FoosballTable("Upper");
     private final int teamsTotal;
     private final int expWaitingGames;
     private final int expGamesTotal;
@@ -111,34 +111,34 @@ public class ManyTeamsTournamentTest {
         int i = 0;
         while (cut.getEndDate() == null) {
             Game game = cut.getWaitingGames().get(0);
-            cut.startGame(game.getId());
+            cut.startGame(game.getGameCode());
 
             if (WhoWins.BETTER_WINS.equals(whoWins)) {
                 if (game.getTeamHome().getSeed() < game.getTeamAway().getSeed()) {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
+                    cut.reportWinner(game.getGameCode(), game.getTeamHome().getTeamCode());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
+                    cut.reportWinner(game.getGameCode(), game.getTeamAway().getTeamCode());
                 }
 
 
             } else if (WhoWins.HOME.equals(whoWins)) {
-                cut.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
+                cut.reportWinner(game.getGameCode(), game.getTeamHome().getTeamCode());
 
             } else if (WhoWins.AWAY.equals(whoWins)) {
-                cut.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
+                cut.reportWinner(game.getGameCode(), game.getTeamAway().getTeamCode());
 
             } else if (WhoWins.HOMEAWAY.equals(whoWins)) {
                 if (i % 2 == 0) {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
+                    cut.reportWinner(game.getGameCode(), game.getTeamHome().getTeamCode());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
+                    cut.reportWinner(game.getGameCode(), game.getTeamAway().getTeamCode());
                 }
 
             } else if (WhoWins.AWAYHOME.equals(whoWins)) {
                 if (i % 2 == 1) {
-                    cut.reportWinner(game.getId(), game.getTeamAway().getTeamCode());
+                    cut.reportWinner(game.getGameCode(), game.getTeamAway().getTeamCode());
                 } else {
-                    cut.reportWinner(game.getId(), game.getTeamHome().getTeamCode());
+                    cut.reportWinner(game.getGameCode(), game.getTeamHome().getTeamCode());
                 }
             }
 

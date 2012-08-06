@@ -1,54 +1,93 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
-import com.pduda.tourney.domain.GameId;
+import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.Fixture;
 import com.pduda.tourney.domain.Game;
+import com.pduda.tourney.domain.GameState;
 import com.pduda.tourney.domain.report.Standings;
 import com.pduda.tourney.domain.Team;
+import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.report.FullGamesReport;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
+import javax.persistence.*;
+import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.annotation.Configurable;
 
+@Entity
+@javax.persistence.Table(name = "FIXTURE_2KO")
+@Configurable(autowire = Autowire.BY_TYPE)
 public class Fixture2KO implements Fixture {
 
-    public static final String FIN1 = GameId.PREFIX_FINAL + "1";
-    public static final String FIN2 = GameId.PREFIX_FINAL + "2";
-    
     private static final long serialVersionUID = 1L;
-    private Set<Team> teams = new LinkedHashSet<Team>();
+    public static final String FIN1 = GameCode.PREFIX_FINAL + "1";
+    public static final String FIN2 = GameCode.PREFIX_FINAL + "2";
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "FIXTURE_2KO_ID")
+    private long id;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Bracket winnerBracket;
-    private WinnerBracketFactory winnerBracketFactory = new WinnerBracketFactory();
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Bracket loserBracket;
-    private LoserBracketFactory loserBracketFactory = new LoserBracketFactory();
-    private TeamAssigner teamAssigner = new PartiallySeededTeamAssigner();
-    private final static PotentialRivalDirections potentialRivalDirections = new PotentialRivalDirections();
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Bracket finalBracketOne = new Bracket(FIN1, 1, 1);
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Bracket finalBracketTwo = new Bracket(FIN2, 1, 1);
-    private Fixture2KOFullGamesReportFactory gamesReportFactory = new Fixture2KOFullGamesReportFactory();
+    @Transient
+    private PotentialRivalDirections potentialRivalDirections = new PotentialRivalDirections();
+    @Transient
+    private TeamAssigner teamAssigner = new PartiallySeededTeamAssigner();
+    @Transient
+    private WinnerBracketFactory winnerBracketFactory = new WinnerBracketFactory();
+    @Transient
+    private LoserBracketFactory loserBracketFactory = new LoserBracketFactory();
+    @Transient
+    private GamesReportFactory gamesReportFactory = new Fixture2KOFullGamesReportFactory();
+    @OneToOne
+    private Tourney tourney;
 
-    public Fixture2KO(Set<Team> teams) {
-        this.teams = teams;
-        this.winnerBracket = winnerBracketFactory.createWinnerBracket(teams.size());
-        this.loserBracket = loserBracketFactory.createLoserBracket(teams.size());
-        teamAssigner.assignTeams(winnerBracket, teams);
+    public Fixture2KO(Tourney tourney) {
+        init();
+        this.tourney = tourney;
+        this.winnerBracket = winnerBracketFactory.createWinnerBracket(tourney.getTeams().size());
+        this.loserBracket = loserBracketFactory.createLoserBracket(tourney.getTeams().size());
+        teamAssigner.assignTeams(winnerBracket, tourney.getTeams());
         processByes(winnerBracket);
+    }
+
+    /**
+     * JPA only.
+     */
+    public Fixture2KO() {
+        init();
+    }
+
+    private void init() {
+        potentialRivalDirections = new PotentialRivalDirections();
+        teamAssigner = new PartiallySeededTeamAssigner();
+        winnerBracketFactory = new WinnerBracketFactory();
+        loserBracketFactory = new LoserBracketFactory();
+        gamesReportFactory = new Fixture2KOFullGamesReportFactory();
     }
 
     @Override
     public Standings getStandings() {
         // TODO
         Standings standings = new Standings();
-        if (finalBracketTwo.getGame().isInState(Game.GameState.Finished)) {
+        if (finalBracketTwo.getGame().isInGameState(GameState.Finished)) {
             standings.addPlace("1", finalBracketTwo.getGame().getWinner());
             standings.addPlace("2", finalBracketTwo.getGame().getLoser());
-        } else if (finalBracketOne.getGame().isInState(Game.GameState.Finished) && (!finalBracketTwo.getGame().isOccupied())) {
+        } else if (finalBracketOne.getGame().isInGameState(GameState.Finished) && (!finalBracketTwo.getGame().isOccupied())) {
             standings.addPlace("1", finalBracketOne.getGame().getWinner());
             standings.addPlace("2", finalBracketOne.getGame().getLoser());
         }
 
-        if (teams.size() < 3) {
+        if (tourney.getTeams().size() < 3) {
             return standings;
         }
 
@@ -74,10 +113,10 @@ public class Fixture2KO implements Fixture {
         List<Game> toReturn = new ArrayList<Game>();
         toReturn.addAll(winnerBracket.findOngoingGames());
         toReturn.addAll(loserBracket.findOngoingGames());
-        if (finalBracketOne.getGame().isInState(Game.GameState.Ongoing)) {
+        if (finalBracketOne.getGame().isInGameState(GameState.Ongoing)) {
             toReturn.add(finalBracketOne.getGame());
         }
-        if (finalBracketTwo.getGame().isInState(Game.GameState.Ongoing)) {
+        if (finalBracketTwo.getGame().isInGameState(GameState.Ongoing)) {
             toReturn.add(finalBracketTwo.getGame());
         }
 
@@ -85,11 +124,11 @@ public class Fixture2KO implements Fixture {
     }
 
     @Override
-    public void reportWinner(GameId gameId, int teamId) {
-        Team winner = findTeam(teamId);
+    public void reportWinner(GameCode gameCode, long winnerTeamCode) {
+        Team winner = findTeam(winnerTeamCode);
 
         // game in WBR
-        Bracket gameBracket = winnerBracket.findBracket(gameId);
+        Bracket gameBracket = winnerBracket.findBracket(gameCode);
         if (gameBracket != null) {
             if (!gameBracket.isFinal()) {
                 advanceWinnerToNextStage(gameBracket, winner);
@@ -98,13 +137,13 @@ public class Fixture2KO implements Fixture {
                 finalBracketOne.getGame().setTeamHome(winner);
             }
 
-            moveLoserToLosersBracket(gameBracket.getGame().getLoser(), gameId);
+            moveLoserToLosersBracket(gameBracket.getGame().getLoser(), gameCode);
 
             return;
         }
 
         // game in LBR
-        gameBracket = loserBracket.findBracket(gameId);
+        gameBracket = loserBracket.findBracket(gameCode);
         if (gameBracket != null) {
             if (!gameBracket.isFinal()) {
                 advanceWinnerToNextStage(gameBracket, winner);
@@ -117,7 +156,7 @@ public class Fixture2KO implements Fixture {
         }
 
         // game in FIN1
-        if (gameId.equals(finalBracketOne.getId())) {
+        if (gameCode.equals(finalBracketOne.getGameCode())) {
             finalBracketOne.setWinner(winner);
 
             if (winner.equals(finalBracketOne.getGame().getTeamAway())) {
@@ -129,13 +168,13 @@ public class Fixture2KO implements Fixture {
         }
 
         // game in FIN2
-        if (gameId.equals(finalBracketTwo.getId())) {
+        if (gameCode.equals(finalBracketTwo.getGameCode())) {
             finalBracketTwo.setWinner(winner);
         }
     }
 
-    private Team findTeam(int teamId) {
-        for (Team team : teams) {
+    private Team findTeam(long teamId) {
+        for (Team team : tourney.getTeams()) {
             if (team.getTeamCode() == teamId) {
                 return team;
             }
@@ -155,7 +194,7 @@ public class Fixture2KO implements Fixture {
         }
     }
 
-    private void moveLoserToLosersBracket(Team loser, GameId lostGameId) {
+    private void moveLoserToLosersBracket(Team loser, GameCode lostGameId) {
         Bracket lostGameBracket = winnerBracket.findBracket(lostGameId);
         PotentialRivalDirections.Direction direction = potentialRivalDirections.getDegradedTo(lostGameId, lostGameBracket.getBracketOrder());
         Bracket degradedToBracket = loserBracket.findBracket(direction.gameId);
@@ -181,14 +220,14 @@ public class Fixture2KO implements Fixture {
     }
 
     private boolean isBracketDecided(Bracket bracket) {
-        if (bracket.getGame().isInState(Game.GameState.Finished)) {
+        if (bracket.getGame().isInGameState(GameState.Finished)) {
             return true;
         } else {
             if (bracket.getGame().isOccupied()) {
                 return false;
             }
 
-            List<GameId> sourceBracketIds = potentialRivalDirections.getPotentialRivalGames(bracket.getId(), bracket.getBracketOrder());
+            List<GameCode> sourceBracketIds = potentialRivalDirections.getPotentialRivalGames(bracket.getGameCode(), bracket.getBracketOrder());
 
             Bracket sourceBracketOne = findBracket(sourceBracketIds.get(0));
             Bracket sourceBracketTwo = findBracket(sourceBracketIds.get(1));
@@ -199,9 +238,9 @@ public class Fixture2KO implements Fixture {
         }
     }
 
-    private Bracket findPotentialRivalBracket(GameId gameId) {
+    private Bracket findPotentialRivalBracket(GameCode gameId) {
         Bracket lostGameBracket = winnerBracket.findBracket(gameId);
-        GameId potentialRival = potentialRivalDirections.getPotentialRivalGame(gameId, lostGameBracket.getBracketOrder());
+        GameCode potentialRival = potentialRivalDirections.getPotentialRivalGame(gameId, lostGameBracket.getBracketOrder());
         if (potentialRival == null) {
             PotentialRivalDirections.Direction direction = potentialRivalDirections.getDegradedTo(gameId, lostGameBracket.getBracketOrder());
             Bracket degradedTo = loserBracket.findBracket(direction.gameId);
@@ -235,7 +274,7 @@ public class Fixture2KO implements Fixture {
     }
 
     @Override
-    public Game findGame(GameId gameId) {
+    public Game findGame(GameCode gameId) {
         return findBracket(gameId).getGame();
     }
 
@@ -244,7 +283,7 @@ public class Fixture2KO implements Fixture {
         return gamesReportFactory.create(this);
     }
 
-    private Bracket findBracket(GameId gameId) {
+    private Bracket findBracket(GameCode gameId) {
         Bracket wbrBracket = this.winnerBracket.findBracket(gameId);
         if (wbrBracket != null) {
             return wbrBracket;
@@ -255,11 +294,11 @@ public class Fixture2KO implements Fixture {
             return lbrBracket;
         }
 
-        if (gameId.equals(finalBracketOne.getId())) {
+        if (gameId.equals(finalBracketOne.getGameCode())) {
             return finalBracketOne;
         }
 
-        if (gameId.equals(finalBracketTwo.getId())) {
+        if (gameId.equals(finalBracketTwo.getGameCode())) {
             return finalBracketTwo;
         }
 
@@ -296,5 +335,21 @@ public class Fixture2KO implements Fixture {
 
     public void setFinalBracketTwo(Bracket finalBracketTwo) {
         this.finalBracketTwo = finalBracketTwo;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Tourney getTourney() {
+        return tourney;
+    }
+
+    public void setTourney(Tourney tourney) {
+        this.tourney = tourney;
     }
 }

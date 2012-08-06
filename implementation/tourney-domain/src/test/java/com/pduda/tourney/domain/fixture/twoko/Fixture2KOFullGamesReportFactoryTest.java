@@ -1,7 +1,7 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
 import com.google.gson.Gson;
-import com.pduda.tourney.domain.GameId;
+import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.ObjectMother;
 import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.report.PartialGamesReport;
@@ -21,17 +21,17 @@ public class Fixture2KOFullGamesReportFactoryTest {
 
     @Test
     public void createTournament() {
-        Tourney tournament = ObjectMother.createTournament("Liga Weekendowa", 16);
+        Tourney tournament = ObjectMother.createTourneyPlayed("Liga Weekendowa", 16);
         FullGamesReport full = cut.create(tournament.getFixture());
         PartialGamesReport t = full.getPartialReport("wbr");
-        assertEquals(new GameId(NumberedWbrFactory.PREFIX, 8, 1), t.getRounds().get(0).getGames().get(0).getId());
-        assertEquals(new GameId(NumberedWbrFactory.PREFIX, 8, 2), t.getRounds().get(0).getGames().get(1).getId());
-        assertEquals(new GameId(NumberedWbrFactory.PREFIX, 8, 8), t.getRounds().get(0).getGames().get(7).getId());
-        assertEquals(new GameId(NumberedWbrFactory.PREFIX, 4, 1), t.getRounds().get(1).getGames().get(0).getId());
-        assertEquals(new GameId(NumberedWbrFactory.PREFIX, 4, 4), t.getRounds().get(1).getGames().get(3).getId());
-        assertEquals(new GameId(NumberedWbrFactory.PREFIX, 2, 1), t.getRounds().get(2).getGames().get(0).getId());
-        assertEquals(new GameId(NumberedWbrFactory.PREFIX, 2, 2), t.getRounds().get(2).getGames().get(1).getId());
-        assertEquals(new GameId(NumberedWbrFactory.PREFIX, 1, 1), t.getRounds().get(3).getGames().get(0).getId());
+        assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 8, 1), t.getRounds().get(0).getGames().get(0).getGameCode());
+        assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 8, 2), t.getRounds().get(0).getGames().get(1).getGameCode());
+        assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 8, 8), t.getRounds().get(0).getGames().get(7).getGameCode());
+        assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 4, 1), t.getRounds().get(1).getGames().get(0).getGameCode());
+        assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 4, 4), t.getRounds().get(1).getGames().get(3).getGameCode());
+        assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 2, 1), t.getRounds().get(2).getGames().get(0).getGameCode());
+        assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 2, 2), t.getRounds().get(2).getGames().get(1).getGameCode());
+        assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 1, 1), t.getRounds().get(3).getGames().get(0).getGameCode());
         assertEquals("1A, 1B", t.getRounds().get(3).getGames().get(0).getWinner().getName());
        
         // extra

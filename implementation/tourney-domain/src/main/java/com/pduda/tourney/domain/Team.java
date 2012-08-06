@@ -17,7 +17,7 @@ public class Team implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @Column(name = "TEAM_ID")
     private long id;
     @Column(name = "TEAM_CODE")
     private int teamCode;
@@ -26,7 +26,7 @@ public class Team implements Serializable {
     @Column(name = "NAME")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID")
+    @PrimaryKeyJoinColumn
     private List<Player> members = new ArrayList<Player>();
 
     public Team(Player... memberz) {
@@ -48,6 +48,14 @@ public class Team implements Serializable {
         }
 
         return sb.toString();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public int getTeamCode() {

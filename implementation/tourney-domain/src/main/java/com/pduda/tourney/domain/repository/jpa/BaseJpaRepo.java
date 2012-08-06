@@ -39,8 +39,8 @@ public abstract class BaseJpaRepo<T, ID extends Serializable> implements BaseRep
         getEntityManager().refresh(object);
     }
 
-    public void merge(T object) {
-        getEntityManager().merge(object); // shouldn't we return the result?
+    public T merge(T object) {
+        return getEntityManager().merge(object);
     }
 
     protected List findEntities(boolean all, int maxResults, int firstResult) {

@@ -2,44 +2,82 @@ package com.pduda.tourney.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.annotation.Configurable;
 
+@Entity
+@javax.persistence.Table(name = "GAME")
+@Configurable(autowire = Autowire.BY_TYPE)
 public class Game implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    public enum GameState {
-
-        NotStartedYet, Ongoing, Finished
-    };
-    private GameId id;
-    private Table table;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "GAME_ID")
+    private long id;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
+    private GameCode gameCode;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
+    private FoosballTable table;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Team teamHome;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Team teamAway;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Team winner;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "START_DATE")
     private Date startDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "END_DATE")
     private Date endDate;
-    private GameState state = GameState.NotStartedYet;
+    @Column(name = "GAME_STATE")
+    private GameState gameState = GameState.NotStartedYet;
 
     public Game(String prefix, int round, int match) {
-        this.id = new GameId(prefix, round, match);
+        this.gameCode = new GameCode(prefix, round, match);
     }
 
-    public Game(Table table, Team teamHome, Team teamAway) {
+    public Game(FoosballTable table, Team teamHome, Team teamAway) {
         this.table = table;
         this.teamHome = teamHome;
         this.teamAway = teamAway;
     }
 
-    public boolean isInState(GameState state) {
-        return state.equals(this.state);
+    /**
+     * Just for JPA.
+     *
+     * @deprecated
+     */
+    public Game() {
     }
 
-    public GameId getId() {
-        return id;
+    public boolean isInGameState(GameState state) {
+        return state.equals(this.gameState);
     }
 
-    public void setId(GameId id) {
-        this.id = id;
+    public GameCode getGameCode() {
+        return gameCode;
+    }
+
+    public void setGameCode(GameCode gameCode) {
+        this.gameCode = gameCode;
     }
 
     public Team getTeamAway() {
@@ -58,11 +96,11 @@ public class Game implements Serializable {
         this.teamHome = teamHome;
     }
 
-    public Table getTable() {
+    public FoosballTable getTable() {
         return table;
     }
 
-    public void setTable(Table table) {
+    public void setTable(FoosballTable table) {
         this.table = table;
     }
 
@@ -83,7 +121,7 @@ public class Game implements Serializable {
     }
 
     public void setWinner(Team winner) {
-        this.state = GameState.Finished;
+        this.gameState = GameState.Finished;
         this.winner = winner;
         this.endDate = new Date();
     }
@@ -97,24 +135,32 @@ public class Game implements Serializable {
     }
 
     public void startGame() {
-        this.state = GameState.Ongoing;
+        this.gameState = GameState.Ongoing;
         this.startDate = new Date();
     }
 
     public boolean isWaiting() {
-        return ((isInState(GameState.NotStartedYet)) && (teamHome != null) && (teamAway != null) && (winner == null));
+        return ((isInGameState(GameState.NotStartedYet)) && (teamHome != null) && (teamAway != null) && (winner == null));
     }
 
     public boolean isOccupied() {
         return (teamHome != null) && (teamAway != null);
     }
-    
+
     public boolean isOrphan() {
         return (teamHome == null) && (teamAway == null);
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Game{" + "id=" + id + ", table=" + table + ", teamHome=" + teamHome + ", teamAway=" + teamAway + ", winner=" + winner + ", state=" + state + '}';
+        return "Game{" + "gameCode=" + gameCode + ", table=" + table + ", teamHome=" + teamHome + ", teamAway=" + teamAway + ", winner=" + winner + ", state=" + gameState + '}';
     }
 }

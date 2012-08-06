@@ -1,23 +1,48 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
-import com.pduda.tourney.domain.GameId;
+import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.Game;
+import com.pduda.tourney.domain.GameState;
 import com.pduda.tourney.domain.Team;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
+import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.annotation.Configurable;
 
+@Entity
+@javax.persistence.Table(name = "FIXTURE_2KO_BRACKET")
+@Configurable(autowire = Autowire.BY_TYPE)
 public class Bracket implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "FIXTURE_2KO_BRACKET_ID")
+    private long id;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Game game;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy="winBracket")
     private Bracket homeBracket;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy="winBracket")
     private Bracket awayBracket;
+    @ManyToOne()
+    @PrimaryKeyJoinColumn
     private Bracket winBracket;
+    @Column(name = "place")
     private String place;
 
     public Bracket(String prefix, int round, int match) {
         this.game = new Game(prefix, round, match);
+    }
+
+    /**
+     * Just for JPA.
+     */
+    public Bracket() {
+        // nothing to do
     }
 
     public List<Game> findWaitingGames() {
@@ -43,7 +68,7 @@ public class Bracket implements Serializable {
     }
 
     public List<Game> findOngoingGames() {
-        if (game.isInState(Game.GameState.Ongoing)) {
+        if (game.isInGameState(GameState.Ongoing)) {
             List<Game> toReturn = new ArrayList<Game>();
             toReturn.add(game);
 
@@ -65,8 +90,8 @@ public class Bracket implements Serializable {
         return toReturn;
     }
 
-    public Bracket findBracket(GameId findMe) {
-        if (findMe.equals(this.game.getId())) {
+    public Bracket findBracket(GameCode findMe) {
+        if (findMe.equals(game.getGameCode())) {
             return this;
         }
 
@@ -132,7 +157,7 @@ public class Bracket implements Serializable {
 
     // FIXME remove
     public String getRoundName() {
-        return game.getId().getPrefixedRound();
+        return game.getGameCode().getPrefixedRound();
     }
 
     /**
@@ -169,8 +194,8 @@ public class Bracket implements Serializable {
         this.game = game;
     }
 
-    public GameId getId() {
-        return game.getId();
+    public GameCode getGameCode() {
+        return game.getGameCode();
     }
 
     public Bracket getAwayBracket() {
@@ -215,5 +240,13 @@ public class Bracket implements Serializable {
 
     public void setPlace(String place) {
         this.place = place;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

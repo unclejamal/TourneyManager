@@ -31,7 +31,7 @@ public class MemoryTourneyRepo implements TourneyRepo {
     }
 
     @Override
-    public void merge(Tourney object) {
+    public Tourney merge(Tourney object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -51,7 +51,7 @@ public class MemoryTourneyRepo implements TourneyRepo {
     }
 
     @Override
-    public Tourney findEntity(Integer id) {
+    public Tourney findEntity(Long id) {
         for (Tourney tourney : tourneys) {
             if (id.equals(tourney.getId())) {
                 return tourney;
@@ -61,7 +61,7 @@ public class MemoryTourneyRepo implements TourneyRepo {
     }
 
     @Override
-    public List<Tourney> findEntitiesByIds(Collection<Integer> ids) {
+    public List<Tourney> findEntitiesByIds(Collection<Long> ids) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -71,7 +71,7 @@ public class MemoryTourneyRepo implements TourneyRepo {
     }
 
     @Override
-    public void destroy(Integer id) throws RepoException {
+    public void destroy(Long id) throws RepoException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

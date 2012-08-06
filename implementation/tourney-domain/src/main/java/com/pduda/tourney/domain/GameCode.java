@@ -2,27 +2,59 @@ package com.pduda.tourney.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.annotation.Configurable;
 
-public class GameId implements Serializable {
+@Entity
+@javax.persistence.Table(name = "GAME_CODE")
+@Configurable(autowire = Autowire.BY_TYPE)
+public class GameCode implements Serializable {
 
     private static final long serialVersionUID = 1L;
     public static final String PREFIX_FINAL = "FIN";
     public static final String SEPARATOR = "-";
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "GAME_CODE_ID")
+    private long id;
+    @Column(name = "PREFIX")
     private String prefix;
+    @Column(name = "ROUND")
     private int round;
+    @Column(name = "MATCH")
     private int match;
 
-    public GameId(String prefix, int round, int match) {
+    public GameCode(String prefix, int round, int match) {
         this.prefix = prefix;
         this.round = round;
         this.match = match;
     }
 
-    public GameId(String stringifiedId) {
-        String[] parts = stringifiedId.split(SEPARATOR);
+    public GameCode(String stringifiedCode) {
+        String[] parts = stringifiedCode.split(SEPARATOR);
         this.prefix = parts[0];
         this.round = Integer.valueOf(parts[1]);
         this.match = Integer.valueOf(parts[2]);
+    }
+
+    /**
+     * Just for JPA.
+     */
+    public GameCode() {
+        // nothing to do
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public int getMatch() {
@@ -65,7 +97,7 @@ public class GameId implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final GameId other = (GameId) obj;
+        final GameCode other = (GameCode) obj;
         if (!Objects.equals(this.prefix, other.prefix)) {
             return false;
         }

@@ -16,7 +16,7 @@ public class Player implements Serializable {
     public static final String NA = "n/a";
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @Column(name = "PLAYER_ID")
     private long id;
     @Column(name = "RANK")
     private Integer rank;

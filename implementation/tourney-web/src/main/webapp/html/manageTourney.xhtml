@@ -15,7 +15,7 @@
 
             <h:panelGroup id="pgpTourney" layout="block" style="margin-bottom: 48px; float:left;">
                 <h:outputLabel id="name" value="#{tourneyMgmt.tourney.name}"/>
-                <h:outputLabel id="category" value="(#{tourneyMgmt.tourney.tournamentCategory})"/>
+                <h:outputLabel id="category" value="(#{tourneyMgmt.tourney.tourneyCategory})"/>
                 <h:panelGroup id="pgpNotStarted" layout="block" rendered="#{not tourneyMgmt.tourney.started}">
                     <h:outputText id="otNotStarted" value="Not started yet"/> 
                     <h:form id="frmStartTourney" >
@@ -40,14 +40,14 @@
 
                 <h:panelGroup id="pgpTeams" layout="block">
                     <h:outputLabel id="lblTeams" value="Teams" for="pgpTeams">
-                        <ui:repeat id="repTeams" value="#{tourneyMgmt.tourney.teams}" var="team">
+                        <a4j:repeat id="repTeams" value="#{tourneyMgmt.tourney.teams}" var="team">
                             <h:panelGroup id="pgpTeam" layout="block" style="margin-bottom: 10px">
                                 <h:outputFormat id="ofTeam" value="{0}#{team.seeded ? '{1}' : ''}">
                                     <f:param value="#{team.name}"/>
                                     <f:param value=" (#{team.seed})"/>
                                 </h:outputFormat>
                             </h:panelGroup>
-                        </ui:repeat>
+                        </a4j:repeat>
                     </h:outputLabel>
                 </h:panelGroup>
             </h:panelGroup>
@@ -121,7 +121,7 @@
                                     </f:facet>
                                     <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
                                         <f:attribute name="game" value="#{item.id}"/>
-                                        <f:attribute name="winnerId" value="#{item.teamHome.id}"/>
+                                        <f:attribute name="winnerTeamCode" value="#{item.teamHome.teamCode}"/>
                                         <h:outputText value="#{item.teamHome.members[0].fullName}" />
                                         <h:outputText value="#{empty item.teamHome.members[1] ? '' : ', '}" />
                                         <h:outputText value="#{empty item.teamHome.members[1] ? '' : item.teamHome.members[1].fullName}" />
@@ -133,7 +133,7 @@
                                     </f:facet>
                                     <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
                                         <f:attribute name="game" value="#{item.id}"/>
-                                        <f:attribute name="winnerId" value="#{item.teamAway.id}"/>
+                                        <f:attribute name="winnerTeamCode" value="#{item.teamAway.teamCode}"/>
 
                                         <h:outputText value="#{item.teamAway.members[0].fullName}" />
                                         <h:outputText value="#{empty item.teamAway.members[1] ? '' : ', '}" />
@@ -155,7 +155,7 @@
             </h:panelGroup>
 
             <a4j:outputPanel id="pgpStandings" layout="block" ajaxRendered="true" style="float: left; width: 400px; white-space: pre-wrap">
-                <h:outputText id="otStandings" value="#{tourneyMgmt.standings}"/>
+                <h:outputText id="otStandings" value="#{tourneyMgmt.tourney.standings}"/>
             </a4j:outputPanel>
 
 

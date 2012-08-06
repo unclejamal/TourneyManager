@@ -37,7 +37,7 @@ public class TournamentSerializabilityTest extends SerializabilityTestCase {
         teamc.setSeed(3);
         tourney.addTeam(teamc);
 
-        tourney.addTable(new Table("upper"));
+        tourney.addTable(new FoosballTable("upper"));
 
         tourney.startTournament();
 

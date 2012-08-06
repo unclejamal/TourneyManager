@@ -5,10 +5,9 @@ import com.pduda.tourney.domain.report.Standings;
 import java.io.Serializable;
 import java.util.List;
 
-
 public interface Fixture extends Serializable {
 
-    void reportWinner(GameId gameId, int teamId);
+    void reportWinner(GameCode gameCode, long winnerTeamCode);
 
     Standings getStandings();
 
@@ -16,8 +15,11 @@ public interface Fixture extends Serializable {
 
     List<Game> getWaitingGames();
 
-    Game findGame(GameId gameId);
+    Game findGame(GameCode gameCode);
 
     FullGamesReport getGamesReports();
 
+    Tourney getTourney();
+    
+    void setTourney(Tourney tourney);
 }

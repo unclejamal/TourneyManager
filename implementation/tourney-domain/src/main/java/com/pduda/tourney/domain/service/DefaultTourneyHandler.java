@@ -4,6 +4,7 @@ import com.pduda.tourney.domain.*;
 import com.pduda.tourney.domain.repository.TourneyRepo;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -20,23 +21,21 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
     private TourneyRepo tourneyRepo;
 
     @Override
-    public int createTournament(TourneyCategory category, String tourneyName, List<Team> teams) {
+    public long createTournament(TourneyCategory category, String tourneyName, Set<Team> teams) {
         log.log(Level.INFO, "System is creating a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
 
-        Tourney tournament = new Tourney(tourneyRepo.getEntitiesCount(), category, tourneyName);
+        Tourney tourney = new Tourney(tourneyRepo.getEntitiesCount(), category, tourneyName);
 
-        tournament.setName(tourneyName);
-        for (int i = 0; i < teams.size(); i++) {
-            Team team = teams.get(i);
-            tournament.addTeam(team);
+        tourney.setName(tourneyName);
+        for (Team team : teams) {
+            tourney.addTeam(team);
         }
 
-        tournament.addTable(new Table("upper"));
-        tournament.addTable(new Table("lower"));
+        tourney.addTable(new FoosballTable("upper"));
+        tourney.addTable(new FoosballTable("lower"));
 
-        tourneyRepo.create(tournament);
-
-        return tournament.getId();
+        Tourney persisted = tourneyRepo.merge(tourney);
+        return persisted.getId();
     }
 
     @Override
@@ -45,7 +44,7 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
     }
 
     @Override
-    public Tourney getTournament(int id) {
+    public Tourney getTournament(long id) {
         log.info("System is getting tourney " + id);
         Tourney tourney = tourneyRepo.findEntity(id);
         log.info("System found " + tourney);
@@ -53,17 +52,20 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
     }
 
     @Override
-    public void startTourney(int id) {
-        getTournament(id).startTournament();
+    public void startTourney(long id) {
+        Tourney tourney = getTournament(id);
+        System.out.println("Waitz0rage before start: " + tourney.getWaitingGames());
+        tourney.startTournament();
+        System.out.println("Waitz0rage after start: " + tourney.getWaitingGames());
     }
 
     @Override
-    public void reportWinner(int tourneyId, GameId gameId, int seed) {
-        getTournament(tourneyId).reportWinner(gameId, seed);
+    public void reportWinner(long tourneyId, GameCode gameId, long teamCode) {
+        getTournament(tourneyId).reportWinner(gameId, teamCode);
     }
 
     @Override
-    public void startGame(int tourneyId, GameId gameId) {
+    public void startGame(long tourneyId, GameCode gameId) {
         getTournament(tourneyId).startGame(gameId);
     }
 }

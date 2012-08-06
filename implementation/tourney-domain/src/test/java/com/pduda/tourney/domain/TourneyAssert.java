@@ -21,15 +21,15 @@ public class TourneyAssert {
 
     public static void assertGame(String prefix, int homeSeed, int awaySeed, Game game) {
         if (homeSeed != 0) {
-            assertEquals(prefix + " " + game.getId() + " home should be " + homeSeed, homeSeed, game.getTeamHome().getSeed());
+            assertEquals(prefix + " " + game.getGameCode() + " home should be " + homeSeed, homeSeed, game.getTeamHome().getSeed());
         } else {
-            assertNull(prefix + " " + game.getId() + " home should be empty (bye)", game.getTeamHome());
+            assertNull(prefix + " " + game.getGameCode() + " home should be empty (bye)", game.getTeamHome());
         }
 
         if (awaySeed != 0) {
-            assertEquals(prefix + " " + game.getId() + " away should be " + awaySeed, awaySeed, game.getTeamAway().getSeed());
+            assertEquals(prefix + " " + game.getGameCode() + " away should be " + awaySeed, awaySeed, game.getTeamAway().getSeed());
         } else {
-            assertNull(prefix + " " + game.getId() + " away should be empty (bye)", game.getTeamAway());
+            assertNull(prefix + " " + game.getGameCode() + " away should be empty (bye)", game.getTeamAway());
         }
     }
 

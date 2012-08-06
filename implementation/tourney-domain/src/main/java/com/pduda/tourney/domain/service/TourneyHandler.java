@@ -1,22 +1,23 @@
 package com.pduda.tourney.domain.service;
 
-import com.pduda.tourney.domain.GameId;
+import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.TourneyCategory;
 import java.util.List;
+import java.util.Set;
 
 public interface TourneyHandler {
 
-    int createTournament(TourneyCategory category, String tourneyName, List<Team> teams);
+    long createTournament(TourneyCategory category, String tourneyName, Set<Team> teams);
 
-    Tourney getTournament(int id);
+    Tourney getTournament(long id);
 
     List<Tourney> getTournaments();
 
-    void reportWinner(int tourneyId, GameId gameId, int seed);
+    void reportWinner(long tourneyId, GameCode gameId, long teamCode);
 
-    void startGame(int tourneyId, GameId gameId);
+    void startGame(long tourneyId, GameCode gameId);
 
-    void startTourney(int id);
+    void startTourney(long tourneyId);
 }

@@ -12,7 +12,7 @@ public interface BaseRepo<T, ID extends Serializable> {
     
     void refresh(T object);
 
-    void merge(T object);
+    T merge(T object);
 
     void edit(T entity) throws RepoException;
 

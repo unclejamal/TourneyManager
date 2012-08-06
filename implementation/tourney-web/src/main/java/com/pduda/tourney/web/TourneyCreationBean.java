@@ -20,6 +20,7 @@ import com.pduda.tourney.web.creation.SeedingType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -76,7 +77,7 @@ public class TourneyCreationBean implements Serializable {
         log.log(Level.INFO, "User wants to create a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
 
         seedingStrategyFactory.getSeedingStrategy(seedingType).seed(teams);
-        int tourneyId = tournamentHandler.createTournament(category, tourneyName, teams);
+        long tourneyId = tournamentHandler.createTournament(category, tourneyName, new HashSet<Team>(teams));
 
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect("manageTourney.html?id=" + tourneyId);

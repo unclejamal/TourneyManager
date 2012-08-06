@@ -1,6 +1,6 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
-import com.pduda.tourney.domain.GameId;
+import com.pduda.tourney.domain.GameCode;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ public class PotentialRivalDirections implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Direction getDegradedTo(GameId id, int roundOrder) {
+    public Direction getDegradedTo(GameCode id, int roundOrder) {
         int gameIdRound = id.getRound();
         int gameIdMatch = id.getMatch();
 
@@ -17,7 +17,7 @@ public class PotentialRivalDirections implements Serializable {
             // first game
             int degradedToGameIdRound = gameIdRound * 2;
             int degradedToGameIdMatch = ((int) (gameIdMatch - 1) / 2) + 1;
-            GameId degradedToGameId = new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
+            GameCode degradedToGameId = new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
             boolean degradedToAsHome = (gameIdMatch % 2 == 1);
             return new Direction(degradedToGameId, degradedToAsHome);
         } else {
@@ -27,19 +27,19 @@ public class PotentialRivalDirections implements Serializable {
                 // no crossing
                 int degradedToGameIdRound = gameIdRound * 3;
                 int degradedToGameIdMatch = gameIdMatch;
-                GameId degradedToGameId = new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
+                GameCode degradedToGameId = new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
                 return new Direction(degradedToGameId, degradedToAsHome);
             } else {
                 // crossing
                 int degradedToGameIdRound = gameIdRound * 3;
                 int degradedToGameIdMatch = (gameIdRound - gameIdMatch + 1);
-                GameId degradedToGameId = new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
+                GameCode degradedToGameId = new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
                 return new Direction(degradedToGameId, degradedToAsHome);
             }
         }
     }
 
-    public GameId getPotentialRivalGame(GameId id, int roundOrder) {
+    public GameCode getPotentialRivalGame(GameCode id, int roundOrder) {
         int gameIdRound = id.getRound();
         int gameIdMatch = id.getMatch();
 
@@ -52,7 +52,7 @@ public class PotentialRivalDirections implements Serializable {
             } else {
                 degradedToGameIdMatch++;
             }
-            return new GameId(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
+            return new GameCode(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
 
         } else {
             // further games
@@ -60,18 +60,18 @@ public class PotentialRivalDirections implements Serializable {
                 // no crossing
                 int degradedToGameIdRound = gameIdRound * 4;
                 int degradedToGameIdMatch = gameIdMatch;
-                return new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
+                return new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
             } else {
                 // crossing
                 int degradedToGameIdRound = gameIdRound * 4;
                 int degradedToGameIdMatch = (gameIdRound - gameIdMatch + 1);
-                return new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
+                return new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch);
             }
         }
     }
 
-    public List<GameId> getPotentialRivalGames(GameId id, int roundOrder) {
-        List<GameId> toReturn = new ArrayList<GameId>();
+    public List<GameCode> getPotentialRivalGames(GameCode id, int roundOrder) {
+        List<GameCode> toReturn = new ArrayList<GameCode>();
 
         int gameIdRound = id.getRound();
         int gameIdMatch = id.getMatch();
@@ -83,8 +83,8 @@ public class PotentialRivalDirections implements Serializable {
                 int degradedToGameIdRound = gameIdRound * 2;
                 int degradedToGameIdMatch1 = gameIdMatch * 2 - 1;
                 int degradedToGameIdMatch2 = gameIdMatch * 2;
-                toReturn.add(new GameId(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch1));
-                toReturn.add(new GameId(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch2));
+                toReturn.add(new GameCode(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch1));
+                toReturn.add(new GameCode(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch2));
             } else {
                 // no potential rivals 
             }
@@ -96,8 +96,8 @@ public class PotentialRivalDirections implements Serializable {
                 int degradedToGameIdRound = (int) (gameIdRound / 2);
                 int degradedToGameIdMatch1 = gameIdMatch * 2 - 1;
                 int degradedToGameIdMatch2 = gameIdMatch * 2;
-                toReturn.add(new GameId(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch1));
-                toReturn.add(new GameId(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch2));
+                toReturn.add(new GameCode(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch1));
+                toReturn.add(new GameCode(NumberedWbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch2));
 
             } else {
                 // further games
@@ -109,21 +109,21 @@ public class PotentialRivalDirections implements Serializable {
                     if (roundOrder % 4 == 0) {
                         // no crossing
                         int degradedToGameIdMatch1 = gameIdMatch;
-                        toReturn.add(new GameId(NumberedWbrFactory.PREFIX, degradedToGameIdRound1, degradedToGameIdMatch1));
-                        toReturn.add(new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound2, degradedToGameIdMatch2));
+                        toReturn.add(new GameCode(NumberedWbrFactory.PREFIX, degradedToGameIdRound1, degradedToGameIdMatch1));
+                        toReturn.add(new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound2, degradedToGameIdMatch2));
                     } else {
                         // crossing
                         int degradedToGameIdMatch1 = (((int) (gameIdRound / 3)) - gameIdMatch + 1);
-                        toReturn.add(new GameId(NumberedWbrFactory.PREFIX, degradedToGameIdRound1, degradedToGameIdMatch1));
-                        toReturn.add(new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound2, degradedToGameIdMatch2));
+                        toReturn.add(new GameCode(NumberedWbrFactory.PREFIX, degradedToGameIdRound1, degradedToGameIdMatch1));
+                        toReturn.add(new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound2, degradedToGameIdMatch2));
                     }
                 } else {
                     // game without wbr loser
                     int degradedToGameIdRound = ((int) (gameIdRound / 2) + gameIdRound);
                     int degradedToGameIdMatch1 = (gameIdMatch - 1) * 2 + 1;
                     int degradedToGameIdMatch2 = (gameIdMatch - 1) * 2 + 2;
-                    toReturn.add(new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch1));
-                    toReturn.add(new GameId(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch2));
+                    toReturn.add(new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch1));
+                    toReturn.add(new GameCode(NumberedLbrFactory.PREFIX, degradedToGameIdRound, degradedToGameIdMatch2));
 
                 }
             }
@@ -135,10 +135,10 @@ public class PotentialRivalDirections implements Serializable {
     public static class Direction implements Serializable {
 
         private static final long serialVersionUID = 1L;
-        public GameId gameId;
+        public GameCode gameId;
         public boolean isHomeTeam;
 
-        public Direction(GameId gameId, boolean isHomeTeam) {
+        public Direction(GameCode gameId, boolean isHomeTeam) {
             this.gameId = gameId;
             this.isHomeTeam = isHomeTeam;
         }
