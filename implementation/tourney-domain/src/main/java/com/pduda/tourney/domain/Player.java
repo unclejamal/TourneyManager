@@ -24,6 +24,7 @@ public class Player implements Serializable {
     private String code;
     @Column(name = "FULL_NAME")
     private String fullName;
+    @Enumerated
     @Column(name = "GENDER")
     private Gender gender;
     @Column(name = "CITY")
@@ -36,6 +37,7 @@ public class Player implements Serializable {
     private Integer pointsAdded;
     @Column(name = "POINTS_DELETED")
     private Integer pointsDeleted;
+    @Enumerated
     @Column(name = "RANK_CLASS")
     private RankClass rankClass;
     @Column(name = "FEE")

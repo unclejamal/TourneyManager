@@ -2,19 +2,16 @@ package com.pduda.tourney.web;
 
 import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.report.StandingsTextReport;
-import java.io.Serializable;
-import java.util.logging.Logger;
-
-import javax.annotation.PostConstruct;
-import javax.faces.event.ActionEvent;
-
-import org.springframework.context.annotation.Scope;
-
 import com.pduda.tourney.domain.service.TourneyHandler;
+import java.io.Serializable;
 import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.springframework.context.annotation.Scope;
 
 @Named("tourneyMgmt")
 @Scope("view")
@@ -42,17 +39,17 @@ public class TourneyManagementBean implements Serializable {
     }
 
     public void startGame(ActionEvent event) {
-        String attrGame = event.getComponent().getAttributes().get("game").toString();
-        log.log(Level.INFO, "User wants to start game {0}", new Object[]{attrGame});
-        tournamentHandler.startGame(tourneyId, new GameCode(attrGame));
+        String attrGameCode = event.getComponent().getAttributes().get("gameCode").toString();
+        log.log(Level.INFO, "User wants to start game {0}", new Object[]{attrGameCode});
+        tournamentHandler.startGame(tourneyId, new GameCode(attrGameCode));
         refreshPo();
     }
 
     public void reportWinner(ActionEvent event) {
-        String attrGame = event.getComponent().getAttributes().get("game").toString();
-        String attrWinnerId = event.getComponent().getAttributes().get("winnerTeamCode").toString();
-        log.log(Level.INFO, "User wants to report winner of {0} - {1}", new Object[]{attrGame, attrWinnerId});
-        tournamentHandler.reportWinner(tourneyId, new GameCode(attrGame), Long.valueOf(attrWinnerId));
+        String attrGameCode = event.getComponent().getAttributes().get("gameCode").toString();
+        String attrWinnerTeamCode = event.getComponent().getAttributes().get("winnerTeamCode").toString();
+        log.log(Level.INFO, "User wants to report winner of {0} - {1}", new Object[]{attrGameCode, attrWinnerTeamCode});
+        tournamentHandler.reportWinner(tourneyId, new GameCode(attrGameCode), Long.valueOf(attrWinnerTeamCode));
         refreshPo();
     }
 

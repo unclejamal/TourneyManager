@@ -32,7 +32,7 @@ public class ThreeTeamsTournamentTest {
         cut.addTeam(teamTosty);
         
 
-        cut.startTournament();
+        cut.startTourney();
     }
 
     /**

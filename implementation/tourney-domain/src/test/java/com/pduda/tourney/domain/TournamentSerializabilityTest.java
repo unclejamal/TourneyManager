@@ -39,7 +39,7 @@ public class TournamentSerializabilityTest extends SerializabilityTestCase {
 
         tourney.addTable(new FoosballTable("upper"));
 
-        tourney.startTournament();
+        tourney.startTourney();
 
         return tourney;
     }

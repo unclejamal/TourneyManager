@@ -24,12 +24,14 @@ public class Bracket implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
     private Game game;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy="winBracket")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="BRACKET_HOME")
     private Bracket homeBracket;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy="winBracket")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="BRACKET_AWAY")
     private Bracket awayBracket;
-    @ManyToOne()
-    @PrimaryKeyJoinColumn
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
+    @JoinColumn(name="BRACKET_WIN", insertable=false, updatable=false)
     private Bracket winBracket;
     @Column(name = "place")
     private String place;

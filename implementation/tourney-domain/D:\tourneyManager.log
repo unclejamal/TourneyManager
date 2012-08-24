@@ -1,0 +1,142 @@
+13:49:46,928  INFO TestContextManager:185 - @TestExecutionListeners is not present for class [class com.pduda.tourney.domain.service.DefaultTourneyHandlerTest]: using defaults.
+13:49:47,122  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [com/pduda/tourney/persistence-context.xml]
+13:49:47,828  INFO ClassPathBeanDefinitionScanner:210 - JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+13:49:48,127  INFO GenericApplicationContext:500 - Refreshing org.springframework.context.support.GenericApplicationContext@2fb1a4cc: startup date [Thu Aug 16 13:49:48 CEST 2012]; root of context hierarchy
+13:49:48,412  INFO PropertyPlaceholderConfigurer:177 - Loading properties file from file [/home/unclejamal/dev/projects/TourneyManager/implementation/tourney-domain/target/classes/com/pduda/tourney/persistence.properties]
+13:49:48,425  INFO AutowiredAnnotationBeanPostProcessor:139 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+13:49:48,449  INFO DefaultListableBeanFactory:581 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3acd9e86: defining beans [org.springframework.context.config.internalBeanConfigurerAspect,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.transaction.config.internalTransactionAspect,rankingCsvLoader,rankings,jpaTourneyRepo,standingsTextReport,wkpsMembership,csvWkpsMembershipReader,wkpsFeeCalculator,defaultFeeHandler,defaultRankingHandler,defaultTourneyHandler,org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,entityManagerFactory,transactionManager,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+13:49:49,555  INFO LocalContainerEntityManagerFactoryBean:264 - Building JPA container EntityManagerFactory for persistence unit 'tourney-PU'
+13:49:51,897 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko drop constraint FKCD7C5E09217DA82
+13:49:51,898 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO
+13:49:51,900 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko drop constraint FKCD7C5E0A8F61092
+13:49:51,901 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO
+13:49:51,902 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko drop constraint FKCD7C5E09A327799
+13:49:51,902 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO
+13:49:51,903 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko drop constraint FKCD7C5E09A32779A
+13:49:51,903 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO
+13:49:51,906 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko_bracket drop constraint FK3FE439499A3376F2
+13:49:51,907 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO_BRACKET
+13:49:51,907 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko_bracket drop constraint FK3FE439499A306501
+13:49:51,908 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO_BRACKET
+13:49:51,909 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko_bracket drop constraint FK3FE439495025E0A1
+13:49:51,909 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO_BRACKET
+13:49:51,910 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table game drop constraint FK304BF2CD6AF676
+13:49:51,910 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.GAME
+13:49:51,911 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table game drop constraint FK304BF2CD6E0867
+13:49:51,911 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.GAME
+13:49:51,912 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table game drop constraint FK304BF2A8F8AB25
+13:49:51,913 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.GAME
+13:49:51,913 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table team_members drop constraint FKB0CF0537D822ED43
+13:49:51,914 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TEAM_MEMBERS
+13:49:51,915 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table team_members drop constraint FKB0CF0537C18BCE43
+13:49:51,915 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TEAM_MEMBERS
+13:49:51,916 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney drop constraint FKBC63004AF0601FC2
+13:49:51,916 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY
+13:49:51,917 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney_tables drop constraint FK923B33FA2CD4DF6B
+13:49:51,918 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY_TABLES
+13:49:51,918 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney_tables drop constraint FK923B33FAA8E42B3E
+13:49:51,919 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY_TABLES
+13:49:51,919 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney_teams drop constraint FK995E8D81DE7EB49C
+13:49:51,920 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY_TEAMS
+13:49:51,921 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney_teams drop constraint FK995E8D812CD4DF6B
+13:49:51,921 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY_TEAMS
+13:49:58,225 DEBUG AnnotationTransactionAttributeSource:106 - Adding transactional method 'createTournament' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+13:49:58,320 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@1ab9f189] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] to thread [main]
+13:49:58,321 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+13:49:58,322 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.createTournament]
+13:49:58,333 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1ab9f189] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] bound to thread [main]
+13:49:58,519 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1ab9f189] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] bound to thread [main]
+13:49:58,629 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1ab9f189] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] bound to thread [main]
+13:49:58,771 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.createTournament]
+13:49:58,823 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+13:49:58,824 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@1ab9f189] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] from thread [main]
+13:49:58,827 DEBUG AnnotationTransactionAttributeSource:106 - Adding transactional method 'startTourney' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+13:49:58,828 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3cb0545] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] to thread [main]
+13:49:58,828 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+13:49:58,828 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.startTourney]
+13:49:58,829 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3cb0545] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] bound to thread [main]
+13:49:58,901 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.startTourney]
+13:49:58,994 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+13:49:58,995 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3cb0545] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] from thread [main]
+13:49:58,996 DEBUG AnnotationTransactionAttributeSource:106 - Adding transactional method 'getTournament' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+13:49:58,997 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@a5843f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] to thread [main]
+13:49:58,998 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+13:49:58,998 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.getTournament]
+13:49:59,000 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@a5843f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] bound to thread [main]
+13:49:59,149 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.getTournament]
+13:49:59,159 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+13:49:59,160 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@a5843f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@25a06714] from thread [main]
+13:49:59,166  INFO GenericApplicationContext:1025 - Closing org.springframework.context.support.GenericApplicationContext@2fb1a4cc: startup date [Thu Aug 16 13:49:48 CEST 2012]; root of context hierarchy
+13:49:59,169  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3acd9e86: defining beans [org.springframework.context.config.internalBeanConfigurerAspect,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.transaction.config.internalTransactionAspect,rankingCsvLoader,rankings,jpaTourneyRepo,standingsTextReport,wkpsMembership,csvWkpsMembershipReader,wkpsFeeCalculator,defaultFeeHandler,defaultRankingHandler,defaultTourneyHandler,org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,entityManagerFactory,transactionManager,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+13:49:59,178  INFO LocalContainerEntityManagerFactoryBean:441 - Closing JPA EntityManagerFactory for persistence unit 'tourney-PU'
+15:24:39,075  INFO TestContextManager:185 - @TestExecutionListeners is not present for class [class com.pduda.tourney.domain.service.DefaultTourneyHandlerTest]: using defaults.
+15:24:39,155  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [com/pduda/tourney/persistence-context.xml]
+15:24:39,417  INFO ClassPathBeanDefinitionScanner:210 - JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+15:24:39,528  INFO GenericApplicationContext:500 - Refreshing org.springframework.context.support.GenericApplicationContext@49cf882: startup date [Thu Aug 16 15:24:39 CEST 2012]; root of context hierarchy
+15:24:39,637  INFO PropertyPlaceholderConfigurer:177 - Loading properties file from file [/home/unclejamal/dev/projects/TourneyManager/implementation/tourney-domain/target/classes/com/pduda/tourney/persistence.properties]
+15:24:39,642  INFO AutowiredAnnotationBeanPostProcessor:139 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+15:24:39,653  INFO DefaultListableBeanFactory:581 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@384df951: defining beans [org.springframework.context.config.internalBeanConfigurerAspect,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.transaction.config.internalTransactionAspect,rankingCsvLoader,rankings,jpaTourneyRepo,standingsTextReport,wkpsMembership,csvWkpsMembershipReader,wkpsFeeCalculator,defaultFeeHandler,defaultRankingHandler,defaultTourneyHandler,org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,entityManagerFactory,transactionManager,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+15:24:40,068  INFO LocalContainerEntityManagerFactoryBean:264 - Building JPA container EntityManagerFactory for persistence unit 'tourney-PU'
+15:24:41,006 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko drop constraint FKCD7C5E09217DA82
+15:24:41,007 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO
+15:24:41,007 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko drop constraint FKCD7C5E0A8F61092
+15:24:41,007 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO
+15:24:41,008 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko drop constraint FKCD7C5E09A327799
+15:24:41,008 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO
+15:24:41,008 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko drop constraint FKCD7C5E09A32779A
+15:24:41,008 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO
+15:24:41,009 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko_bracket drop constraint FK3FE439499A3376F2
+15:24:41,009 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO_BRACKET
+15:24:41,010 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko_bracket drop constraint FK3FE439499A306501
+15:24:41,010 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO_BRACKET
+15:24:41,010 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table fixture_2ko_bracket drop constraint FK3FE439495025E0A1
+15:24:41,010 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.FIXTURE_2KO_BRACKET
+15:24:41,011 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table game drop constraint FK304BF2CD6AF676
+15:24:41,011 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.GAME
+15:24:41,011 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table game drop constraint FK304BF2CD6E0867
+15:24:41,011 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.GAME
+15:24:41,011 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table game drop constraint FK304BF2A8F8AB25
+15:24:41,011 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.GAME
+15:24:41,012 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table team_members drop constraint FKB0CF0537D822ED43
+15:24:41,012 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TEAM_MEMBERS
+15:24:41,012 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table team_members drop constraint FKB0CF0537C18BCE43
+15:24:41,012 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TEAM_MEMBERS
+15:24:41,013 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney drop constraint FKBC63004AF0601FC2
+15:24:41,013 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY
+15:24:41,013 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney_tables drop constraint FK923B33FA2CD4DF6B
+15:24:41,013 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY_TABLES
+15:24:41,013 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney_tables drop constraint FK923B33FAA8E42B3E
+15:24:41,013 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY_TABLES
+15:24:41,014 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney_teams drop constraint FK995E8D81DE7EB49C
+15:24:41,014 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY_TEAMS
+15:24:41,014 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table tourney_teams drop constraint FK995E8D812CD4DF6B
+15:24:41,014 ERROR SchemaExport:426 - user lacks privilege or object not found: PUBLIC.TOURNEY_TEAMS
+15:24:43,448 DEBUG AnnotationTransactionAttributeSource:106 - Adding transactional method 'createTournament' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+15:24:43,481 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@603c56d2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] to thread [main]
+15:24:43,482 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:24:43,482 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.createTournament]
+15:24:43,486 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@603c56d2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] bound to thread [main]
+15:24:43,559 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@603c56d2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] bound to thread [main]
+15:24:43,601 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@603c56d2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] bound to thread [main]
+15:24:43,653 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.createTournament]
+15:24:43,671 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:24:43,671 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@603c56d2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] from thread [main]
+15:24:43,672 DEBUG AnnotationTransactionAttributeSource:106 - Adding transactional method 'startTourney' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+15:24:43,673 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@66eedc04] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] to thread [main]
+15:24:43,673 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:24:43,673 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.startTourney]
+15:24:43,673 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@66eedc04] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] bound to thread [main]
+15:24:43,701 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.startTourney]
+15:24:43,736 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:24:43,736 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@66eedc04] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] from thread [main]
+15:24:43,737 DEBUG AnnotationTransactionAttributeSource:106 - Adding transactional method 'getTournament' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+15:24:43,737 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@478ad77d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] to thread [main]
+15:24:43,738 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:24:43,738 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.getTournament]
+15:24:43,738 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@478ad77d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] bound to thread [main]
+15:24:43,795 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.DefaultTourneyHandler.getTournament]
+15:24:43,799 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:24:43,799 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@478ad77d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@1968265a] from thread [main]
+15:24:43,801  INFO GenericApplicationContext:1025 - Closing org.springframework.context.support.GenericApplicationContext@49cf882: startup date [Thu Aug 16 15:24:39 CEST 2012]; root of context hierarchy
+15:24:43,802  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@384df951: defining beans [org.springframework.context.config.internalBeanConfigurerAspect,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.transaction.config.internalTransactionAspect,rankingCsvLoader,rankings,jpaTourneyRepo,standingsTextReport,wkpsMembership,csvWkpsMembershipReader,wkpsFeeCalculator,defaultFeeHandler,defaultRankingHandler,defaultTourneyHandler,org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,entityManagerFactory,transactionManager,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+15:24:43,803  INFO LocalContainerEntityManagerFactoryBean:441 - Closing JPA EntityManagerFactory for persistence unit 'tourney-PU'

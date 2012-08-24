@@ -67,7 +67,7 @@
                                     <f:facet name="header">
                                         <h:outputText value="Id" />
                                     </f:facet>
-                                    <h:outputText value="#{item.id}" />
+                                    <h:outputText value="#{item.gameCode}" />
                                 </rich:column>
                                 <rich:column>
                                     <f:facet name="header">
@@ -90,7 +90,7 @@
                                         <h:outputText value="Actions" />
                                     </f:facet>
                                     <a4j:commandLink id="clStartGame" actionListener="#{tourneyMgmt.startGame}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
-                                        <f:attribute name="game" value="#{item.id}"/>
+                                        <f:attribute name="gameCode" value="#{item.gameCode}"/>
                                         Start
                                     </a4j:commandLink>
 
@@ -113,14 +113,14 @@
                                     <f:facet name="header">
                                         <h:outputText value="Id" />
                                     </f:facet>
-                                    <h:outputText value="#{item.id}" />
+                                    <h:outputText value="#{item.gameCode}" />
                                 </rich:column>
                                 <rich:column>
                                     <f:facet name="header">
                                         <h:outputText value="Home" />
                                     </f:facet>
                                     <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
-                                        <f:attribute name="game" value="#{item.id}"/>
+                                        <f:attribute name="gameCode" value="#{item.gameCode}"/>
                                         <f:attribute name="winnerTeamCode" value="#{item.teamHome.teamCode}"/>
                                         <h:outputText value="#{item.teamHome.members[0].fullName}" />
                                         <h:outputText value="#{empty item.teamHome.members[1] ? '' : ', '}" />
@@ -132,7 +132,7 @@
                                         <h:outputText value="Away" />
                                     </f:facet>
                                     <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
-                                        <f:attribute name="game" value="#{item.id}"/>
+                                        <f:attribute name="gameCode" value="#{item.gameCode}"/>
                                         <f:attribute name="winnerTeamCode" value="#{item.teamAway.teamCode}"/>
 
                                         <h:outputText value="#{item.teamAway.members[0].fullName}" />

@@ -34,7 +34,7 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
         tourney.addTable(new FoosballTable("upper"));
         tourney.addTable(new FoosballTable("lower"));
 
-        Tourney persisted = tourneyRepo.merge(tourney);
+        Tourney persisted = tourneyRepo.createAndReturn(tourney);
         return persisted.getId();
     }
 
@@ -53,19 +53,23 @@ public class DefaultTourneyHandler implements TourneyHandler, Serializable {
 
     @Override
     public void startTourney(long id) {
-        Tourney tourney = getTournament(id);
+//        Tourney tourney = getTournament(id);
+        Tourney tourney = tourneyRepo.findEntity(id);
         System.out.println("Waitz0rage before start: " + tourney.getWaitingGames());
-        tourney.startTournament();
+        tourney.startTourney();
+//        tourneyRepo.merge(tourney);
         System.out.println("Waitz0rage after start: " + tourney.getWaitingGames());
     }
 
     @Override
-    public void reportWinner(long tourneyId, GameCode gameId, long teamCode) {
-        getTournament(tourneyId).reportWinner(gameId, teamCode);
+    public void reportWinner(long tourneyId, GameCode gameCode, long teamCode) {
+        Tourney tourney = tourneyRepo.findEntity(tourneyId);
+        tourney.reportWinner(gameCode, teamCode);
     }
 
     @Override
-    public void startGame(long tourneyId, GameCode gameId) {
-        getTournament(tourneyId).startGame(gameId);
+    public void startGame(long tourneyId, GameCode gameCode) {
+        Tourney tourney = tourneyRepo.findEntity(tourneyId);
+        tourney.startGame(gameCode);
     }
 }

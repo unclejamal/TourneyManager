@@ -6,21 +6,21 @@ import javax.inject.Named;
 
 @Named
 public class Rankings {
-    
+
+    public static final String HOME = System.getProperty("user.home");
     @Inject
     private RankingCsvLoader loader;
-    
     private Ranking openSingle;
     private Ranking openDouble;
     private Ranking womenSingle;
     private Ranking womenDouble;
-    
+
     @PostConstruct
     public void loadRankings() {
-        openSingle = loader.loadFromFile("D:\\lipiec-os.csv");
-        openDouble = loader.loadFromFile("D:\\lipiec-od.csv");
-        womenSingle = loader.loadFromFile("D:\\lipiec-ws.csv");        
-        womenDouble = loader.loadFromFile("D:\\lipiec-wd.csv");        
+        openSingle = loader.loadFromFile(HOME + "/progs/tourneyManager/os.csv");
+        openDouble = loader.loadFromFile(HOME + "/progs/tourneyManager/od.csv");
+        womenSingle = loader.loadFromFile(HOME + "/progs/tourneyManager/ws.csv");
+        womenDouble = loader.loadFromFile(HOME + "/progs/tourneyManager/wd.csv");
     }
 
     public Ranking getOpenDouble() {
@@ -38,5 +38,4 @@ public class Rankings {
     public Ranking getWomenDouble() {
         return womenDouble;
     }
-
 }

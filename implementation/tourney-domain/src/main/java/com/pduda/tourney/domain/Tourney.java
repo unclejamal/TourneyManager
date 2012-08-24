@@ -40,9 +40,11 @@ public class Tourney implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
     private Set<Team> teams = new HashSet<Team>();
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "tourney")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="FIXTURE")
     // TODO use interface
     private Fixture2KO fixture;
+    @Enumerated
     @Column(name = "TOURNEY_CATEGORY")
     private TourneyCategory tourneyCategory;
 
@@ -56,7 +58,7 @@ public class Tourney implements Serializable {
         this.name = name;
     }
 
-    public void startTournament() {
+    public void startTourney() {
         log.log(Level.INFO, "{0} started ", this);
         this.startDate = new Date();
 

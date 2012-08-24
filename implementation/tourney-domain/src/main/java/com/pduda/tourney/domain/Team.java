@@ -26,7 +26,6 @@ public class Team implements Serializable {
     @Column(name = "NAME")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
     private List<Player> members = new ArrayList<Player>();
 
     public Team(Player... memberz) {

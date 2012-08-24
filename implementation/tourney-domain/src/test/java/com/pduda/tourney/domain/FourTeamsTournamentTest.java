@@ -36,7 +36,7 @@ public class FourTeamsTournamentTest {
         cut.addTeam(teamTosty);
         cut.addTeam(teamMaly);
 
-        cut.startTournament();
+        cut.startTourney();
     }
 
     /**

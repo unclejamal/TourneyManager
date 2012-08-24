@@ -2,17 +2,7 @@ package com.pduda.tourney.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Configurable;
 
@@ -33,13 +23,13 @@ public class Game implements Serializable {
     @PrimaryKeyJoinColumn
     private FoosballTable table;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="TEAM_HOME")
     private Team teamHome;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="TEAM_AWAY")
     private Team teamAway;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="WINNER")
     private Team winner;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "START_DATE")
@@ -47,6 +37,7 @@ public class Game implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "END_DATE")
     private Date endDate;
+    @Enumerated
     @Column(name = "GAME_STATE")
     private GameState gameState = GameState.NotStartedYet;
 

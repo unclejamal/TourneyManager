@@ -56,7 +56,7 @@ public class ManyTeamsTournamentTest {
     @Test
     public void manyTeams_betterWins() {
         addTeams(teamsTotal);
-        cut.startTournament();
+        cut.startTourney();
         assertEquals("[" + teamsTotal + "] wait", expWaitingGames, cut.getWaitingGames().size());
         int gamesTotal = playTournament(WhoWins.BETTER_WINS);
         assertEquals("[" + teamsTotal + "] total", expGamesTotal, gamesTotal);
@@ -68,36 +68,6 @@ public class ManyTeamsTournamentTest {
         // it is now 3vs6, 4vs5
         assertGamesContain("[" + teamsTotal + "] lbr6", 3, 5, l6);
         assertGamesContain("[" + teamsTotal + "] lbr6", 4, 6, l6);
-    }
-
-    @Test
-    @Ignore
-    public void manyTeams_awayWins() {
-        addTeams(teamsTotal);
-        cut.startTournament();
-        assertEquals("[" + teamsTotal + "] wait", expWaitingGames, cut.getWaitingGames().size());
-        int gamesTotal = playTournament(WhoWins.AWAY);
-        assertEquals("[" + teamsTotal + "] total", expGamesTotal + 1, gamesTotal);
-    }
-
-    @Test
-    @Ignore
-    public void manyTeams_homeAwayWins() {
-        addTeams(teamsTotal);
-        cut.startTournament();
-        assertEquals("[" + teamsTotal + "] wait", expWaitingGames, cut.getWaitingGames().size());
-        int gamesTotal = playTournament(WhoWins.HOMEAWAY);
-        assertEquals("[" + teamsTotal + "] total", expGamesTotal + 1, gamesTotal);
-    }
-
-    @Test
-    @Ignore
-    public void manyTeams_awayHomeWins() {
-        addTeams(teamsTotal);
-        cut.startTournament();
-        assertEquals("[" + teamsTotal + "] wait", expWaitingGames, cut.getWaitingGames().size());
-        int gamesTotal = playTournament(WhoWins.AWAYHOME);
-        assertEquals("[" + teamsTotal + "] total", expGamesTotal + 1, gamesTotal);
     }
 
     private void addTeams(int teamsTotal) throws NumberFormatException {

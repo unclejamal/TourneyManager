@@ -15,7 +15,7 @@ public class ObjectMother {
         Tourney toReturn = new Tourney(1, TourneyCategory.OD, name);
         toReturn.addTable(upperTable);
         addTeams(toReturn, teamsTotal);
-        toReturn.startTournament();
+        toReturn.startTourney();
 
         return toReturn;
     }
@@ -24,7 +24,7 @@ public class ObjectMother {
         Tourney toReturn = new Tourney(1, TourneyCategory.OD, name);
         toReturn.addTable(upperTable);
         addTeams(toReturn, teamsTotal);
-        toReturn.startTournament();
+        toReturn.startTourney();
         playTournament(toReturn);
 
         return toReturn;

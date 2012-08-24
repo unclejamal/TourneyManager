@@ -27,16 +27,16 @@ public class Fixture2KO implements Fixture {
     @Column(name = "FIXTURE_2KO_ID")
     private long id;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="BRACKET_WINNER")
     private Bracket winnerBracket;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="BRACKET_LOSER")
     private Bracket loserBracket;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="BRACKET_FIN1")
     private Bracket finalBracketOne = new Bracket(FIN1, 1, 1);
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="BRACKET_FIN2")
     private Bracket finalBracketTwo = new Bracket(FIN2, 1, 1);
     @Transient
     private PotentialRivalDirections potentialRivalDirections = new PotentialRivalDirections();
@@ -48,7 +48,7 @@ public class Fixture2KO implements Fixture {
     private LoserBracketFactory loserBracketFactory = new LoserBracketFactory();
     @Transient
     private GamesReportFactory gamesReportFactory = new Fixture2KOFullGamesReportFactory();
-    @OneToOne
+    @OneToOne(mappedBy="fixture")
     private Tourney tourney;
 
     public Fixture2KO(Tourney tourney) {

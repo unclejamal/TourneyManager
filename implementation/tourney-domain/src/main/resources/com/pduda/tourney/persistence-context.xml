@@ -10,11 +10,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
     <!-- Turns Spring DI for objects created with "new" on -->
-    <context:spring-configured />
-	
-    <context:annotation-config/>
+    <context:spring-configured/>
+    <context:annotation-config/>    
+    <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
+
     <context:component-scan base-package="com.pduda.tourney.domain"/>
-    	    
+
+       	    
     <context:property-placeholder location="classpath*:com/pduda/tourney/**/persistence.properties"/>
      
     <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource">
@@ -29,16 +31,15 @@
         <property name="numTestsPerEvictionRun" value="3"/>
         <property name="minEvictableIdleTimeMillis" value="1800000"/>
     </bean>
-    
-    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
-    
-    <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
-    
-    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+ 
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="tourney-PU"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
+          
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    
+    
 </beans>
