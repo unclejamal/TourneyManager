@@ -1,19 +1,16 @@
 package com.pduda.tourney.web;
 
 import com.pduda.tourney.domain.Player;
-import java.io.Serializable;
-import java.util.logging.Logger;
-
-import javax.annotation.PostConstruct;
-
-import org.springframework.context.annotation.Scope;
-
 import com.pduda.tourney.domain.ranking.Ranking;
 import com.pduda.tourney.domain.service.RankingHandler;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.springframework.context.annotation.Scope;
 
 @Named("ranking")
 @Scope("session")
@@ -43,7 +40,7 @@ public class RankingBean implements Serializable {
     }
 
     private void loadOpenSingle() {
-        os = rankingHandler.getOpenSingle();
+        os = rankingHandler.getPzfsRanking().getOpenSingle();
 
         for (Player player : os.getPlayers()) {
             osSuggestions.add(player.getFullName());
@@ -51,7 +48,7 @@ public class RankingBean implements Serializable {
     }
 
     private void loadOpenDouble() {
-        od = rankingHandler.getOpenDouble();
+        od = rankingHandler.getPzfsRanking().getOpenDouble();
 
         for (Player player : od.getPlayers()) {
             odSuggestions.add(player.getFullName());
@@ -59,7 +56,7 @@ public class RankingBean implements Serializable {
     }
 
     private void loadWomenSingle() {
-        ws = rankingHandler.getWomenSingle();
+        ws = rankingHandler.getPzfsRanking().getWomenSingle();
 
         for (Player player : ws.getPlayers()) {
             wsSuggestions.add(player.getFullName());
@@ -67,7 +64,7 @@ public class RankingBean implements Serializable {
     }
 
     private void loadWomenDouble() {
-        wd = rankingHandler.getWomenDouble();
+        wd = rankingHandler.getPzfsRanking().getWomenDouble();
 
         for (Player player : wd.getPlayers()) {
             wdSuggestions.add(player.getFullName());
@@ -89,7 +86,7 @@ public class RankingBean implements Serializable {
     public Ranking getWs() {
         return ws;
     }
-    
+
     public List<String> getOdSuggestions() {
         return odSuggestions;
     }

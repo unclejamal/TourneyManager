@@ -1,8 +1,8 @@
 package com.pduda.tourney.domain;
 
-import com.pduda.tourney.domain.report.Standings;
 import com.pduda.tourney.domain.fixture.twoko.Fixture2KO;
 import com.pduda.tourney.domain.report.FullGamesReport;
+import com.pduda.tourney.domain.report.Standings;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;

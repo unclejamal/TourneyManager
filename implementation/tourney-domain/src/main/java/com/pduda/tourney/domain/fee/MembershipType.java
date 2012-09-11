@@ -2,5 +2,5 @@ package com.pduda.tourney.domain.fee;
 
 public enum MembershipType {
 
-    MEMBER_PAID, MEMBER_UNPAID, NOT_MEMBER;
+    MEMBER_WITH_PAYMENT, MEMBER_WITHOUT_PAYMENT, NOT_MEMBER;
 }

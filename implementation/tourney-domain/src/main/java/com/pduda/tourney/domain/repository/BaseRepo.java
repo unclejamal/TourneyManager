@@ -18,7 +18,7 @@ public interface BaseRepo<T, ID extends Serializable> {
 
     List findEntities();
 
-    List findEntities(int maxResults, int firstResult);
+    List<T> findEntities(int maxResults, int firstResult);
 
     T findEntity(ID id);
 

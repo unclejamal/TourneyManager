@@ -1,34 +1,31 @@
 package com.pduda.tourney.web;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
-
-import javax.annotation.PostConstruct;
-import javax.faces.event.ActionEvent;
-
-import org.springframework.context.annotation.Scope;
-
-import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.Player;
+import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.TourneyCategory;
 import com.pduda.tourney.domain.ranking.Ranking;
-import com.pduda.tourney.domain.service.TourneyHandler;
-import com.pduda.tourney.domain.service.DefaultFeeHandler;
+import com.pduda.tourney.domain.service.PersistentPaymentsHandler;
 import com.pduda.tourney.domain.service.RankingHandler;
+import com.pduda.tourney.domain.service.TourneyHandler;
 import com.pduda.tourney.web.creation.SeedingStrategyFactory;
 import com.pduda.tourney.web.creation.SeedingType;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.Size;
+import org.springframework.context.annotation.Scope;
 
 @Named("tourneyCreation")
 @Scope("view")
@@ -39,7 +36,7 @@ public class TourneyCreationBean implements Serializable {
     @Inject
     private TourneyHandler tournamentHandler;
     @Inject
-    private DefaultFeeHandler feeHandler;
+    private PersistentPaymentsHandler feeHandler;
     @Inject
     private RankingHandler rankingHandler;
     private Ranking ranking;
@@ -112,11 +109,11 @@ public class TourneyCreationBean implements Serializable {
         return rankingSuggestions;
     }
 
-    public boolean getDouble() {
+    public boolean getDoubleGame() {
         return category.isDouble();
     }
 
-    public boolean getWomen() {
+    public boolean getWomenGame() {
         return category.isWomen();
     }
 
@@ -126,27 +123,27 @@ public class TourneyCreationBean implements Serializable {
         switch (cat) {
             case "as":
                 category = TourneyCategory.AS;
-                ranking = rankingHandler.getOpenSingle();
+                ranking = rankingHandler.getPzfsRanking().getOpenSingle();
                 break;
             case "os":
                 category = TourneyCategory.OS;
-                ranking = rankingHandler.getOpenSingle();
+                ranking = rankingHandler.getPzfsRanking().getOpenSingle();
                 break;
             case "ad":
                 category = TourneyCategory.AD;
-                ranking = rankingHandler.getOpenDouble();
+                ranking = rankingHandler.getPzfsRanking().getOpenDouble();
                 break;
             case "od":
                 category = TourneyCategory.OD;
-                ranking = rankingHandler.getOpenDouble();
+                ranking = rankingHandler.getPzfsRanking().getOpenDouble();
                 break;
             case "ws":
                 category = TourneyCategory.WS;
-                ranking = rankingHandler.getWomenSingle();
+                ranking = rankingHandler.getPzfsRanking().getWomenSingle();
                 break;
             case "wd":
                 category = TourneyCategory.WD;
-                ranking = rankingHandler.getWomenDouble();
+                ranking = rankingHandler.getPzfsRanking().getWomenDouble();
                 break;
             default:
                 throw new RuntimeException("Not existing type");

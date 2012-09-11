@@ -1,14 +1,8 @@
 package com.pduda.tourney.domain.service;
 
-import com.pduda.tourney.domain.ranking.Ranking;
+import com.pduda.tourney.domain.ranking.PzfsRanking;
 
 public interface RankingHandler {
 
-    Ranking getOpenSingle();
-
-    Ranking getOpenDouble();
-
-    Ranking getWomenSingle();
-
-    Ranking getWomenDouble();
+    PzfsRanking getPzfsRanking();
 }

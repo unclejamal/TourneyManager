@@ -18,19 +18,12 @@ public class Player implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "PLAYER_ID")
     private long id;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private PlayerDescription playerDescription = new PlayerDescription();
     @Column(name = "RANK")
     private Integer rank;
     @Column(name = "CODE")
     private String code;
-    @Column(name = "FULL_NAME")
-    private String fullName;
-    @Enumerated
-    @Column(name = "GENDER")
-    private Gender gender;
-    @Column(name = "CITY")
-    private String city;
-    @Column(name = "CLUB")
-    private String club;
     @Column(name = "POINTS")
     private Integer points;
     @Column(name = "POINTS_ADDED")
@@ -44,12 +37,9 @@ public class Player implements Serializable {
     private Long fee;
 
     public Player(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
+        this.playerDescription = new PlayerDescription(fullName, gender, city, club);
         this.rank = rank;
         this.code = code;
-        this.fullName = fullName;
-        this.gender = gender;
-        this.city = city;
-        this.club = club;
         this.points = points;
         this.pointsAdded = pointsAdded;
         this.pointsDeleted = pointsDeleted;
@@ -70,18 +60,11 @@ public class Player implements Serializable {
     }
 
     public Player() {
+        // JPA
     }
 
     public String getShortName() {
-        StringBuilder sb = new StringBuilder();
-        String[] splitFullName = fullName.split(SPACE);
-        for (int i = 0; i < splitFullName.length - 1; i++) {
-            sb.append(splitFullName[i].substring(0, 1));
-            sb.append(". ");
-        }
-        sb.append(splitFullName[splitFullName.length - 1]);
-
-        return sb.toString();
+        return playerDescription.getShortName();
     }
 
     public long getId() {
@@ -92,44 +75,24 @@ public class Player implements Serializable {
         this.id = id;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getClub() {
-        return club;
-    }
-
-    public void setClub(String club) {
-        this.club = club;
-    }
-
     public String getCode() {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public String getCity() {
+        return playerDescription.getCity();
+    }
+
+    public String getClub() {
+        return playerDescription.getClub();
     }
 
     public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+        return playerDescription.getFullName();
     }
 
     public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
+        return playerDescription.getGender();
     }
 
     public Integer getPoints() {
@@ -189,7 +152,7 @@ public class Player implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
-        if (!Objects.equals(this.fullName, other.fullName)) {
+        if (!Objects.equals(this.getFullName(), other.getFullName())) {
             return false;
         }
         return true;
@@ -198,12 +161,12 @@ public class Player implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 43 * hash + Objects.hashCode(this.fullName);
+        hash = 43 * hash + Objects.hashCode(this.getFullName());
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "code=" + code + ", fullName=" + fullName + '}';
+        return "Player{" + "code=" + code + ", fullName=" + getFullName() + '}';
     }
 }

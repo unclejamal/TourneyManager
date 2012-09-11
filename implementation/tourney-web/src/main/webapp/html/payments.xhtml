@@ -11,13 +11,13 @@
     <ui:composition template="/html/common/layout.xhtml">
         <ui:param name="bodyId" value="payments"/>
         <ui:define name="content">
-            <h:panelGroup id="pgpWkpsPayments" layout="block">
-                <h:form id="frmWkpsPayments">
+
+            <h:form id="frmWkpsPayments">
 
 
-
-                    <rich:dataTable value="#{payments.payroll}" var="item"
-                                    id="dtPayroll" rowClasses="odd-row, even-row" styleClass="stable" style="width: 400px"
+                <h:panelGroup id="pgpWkpsPayroll" layout="block">
+                    <rich:dataTable value="#{payments.membersWithoutPayment}" var="item"
+                                    id="dtMembersWithout" rowClasses="odd-row, even-row" styleClass="stable" style="width: 400px"
                                     sortMode="multi">
                         <f:facet name="caption">
                             <h:outputText id="otLastUpdateLabel" value="WKPS members: updated on ">
@@ -54,11 +54,49 @@
                     </rich:dataTable>
 
 
+                    <rich:dataTable value="#{payments.membersWithPayment}" var="item"
+                                    id="dtMembersWith" rowClasses="odd-row, even-row" styleClass="stable" style="width: 400px"
+                                    sortMode="multi">
+                        <f:facet name="caption">
+                            <h:outputText id="otLastUpdateLabel" value="WKPS members: updated on ">
+                            </h:outputText>
+                            <h:outputText id="otLastUpdate" value="#{payments.membershipPaymentsLastUpdate}">
+                                <f:convertDateTime pattern="#{app.datePattern}"/>
+                            </h:outputText>
+                        </f:facet>
+                        <f:facet name="noData">
+                            No members found
+                        </f:facet>
+                        <f:facet name="header">
+                            <rich:columnGroup>
+                                <rich:column>                                    
+                                    <h:outputText value="Name" />
+                                </rich:column>
+                                <rich:column>                                    
+                                    <h:outputText value="WKPS membership" />
+                                </rich:column>
+                            </rich:columnGroup>
+                        </f:facet>
+                        <rich:column id="colFn" sortBy="#{item.fullName}" sortOrder="ascending">
+                            <f:facet name="header">
 
-                    <a4j:commandButton id="btnReorder" value="Update" actionListener="#{payments.updateMembershipPayments}" 
-                                       render="lblLastUpdate"/>
-                </h:form>
-            </h:panelGroup>
+                            </f:facet>
+                            <h:outputText value="#{item.fullName}" />
+                        </rich:column>
+                        <rich:column id="colMt">
+                            <f:facet name="header">
+
+                            </f:facet>
+                            <h:outputText value="#{item.membershipType}" />
+                        </rich:column>                                    
+                    </rich:dataTable>
+                </h:panelGroup>
+
+
+
+                <a4j:commandButton id="btnReorder" value="Update" actionListener="#{payments.updateMembershipPayments}" 
+                                   render="pgpWkpsPayroll"/>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>

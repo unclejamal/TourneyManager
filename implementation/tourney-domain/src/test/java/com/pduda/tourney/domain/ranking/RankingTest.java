@@ -2,9 +2,9 @@ package com.pduda.tourney.domain.ranking;
 
 import com.pduda.tourney.domain.Gender;
 import com.pduda.tourney.domain.RankClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class RankingTest {
 

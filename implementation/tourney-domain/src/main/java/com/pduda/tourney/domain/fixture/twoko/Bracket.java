@@ -31,7 +31,7 @@ public class Bracket implements Serializable {
     @JoinColumn(name="BRACKET_AWAY")
     private Bracket awayBracket;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
-    @JoinColumn(name="BRACKET_WIN", insertable=false, updatable=false)
+    @JoinColumn(name="BRACKET_WIN")
     private Bracket winBracket;
     @Column(name = "place")
     private String place;

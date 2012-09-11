@@ -45,7 +45,7 @@
                                                mode="client" minChars="2" autocompleteList ="#{tourneyCreation.rankingSuggestions}"
                                                autofill="true" clientFilterFunction="contains" />
                         </h:outputLabel>
-                        <h:outputLabel id="olNewPlayer2" value="Player 2" rendered="#{tourneyCreation.double}">
+                        <h:outputLabel id="olNewPlayer2" value="Player 2" rendered="#{tourneyCreation.doubleGame}">
                             <rich:autocomplete id="acNewPlayer2" value="#{tourneyCreation.newPlayer2}"
                                                mode="client" minChars="2" autocompleteList ="#{tourneyCreation.rankingSuggestions}"
                                                autofill="true" clientFilterFunction="contains"/>
@@ -87,7 +87,7 @@
                                 </f:facet>
                                 <h:outputText value="#{item.members[0].club}" />
                             </rich:column>   
-                            <rich:column rendered="#{tourneyCreation.double}">
+                            <rich:column rendered="#{tourneyCreation.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Points" />
                                 </f:facet>
@@ -105,35 +105,35 @@
                                 </f:facet>
                                 <h:outputText value="#{item.members[0].fee}" />
                             </rich:column>                            
-                            <rich:column rendered="#{tourneyCreation.double}">
+                            <rich:column rendered="#{tourneyCreation.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Member 2" />
                                 </f:facet>
                                 <h:outputText value="#{item.members[1].fullName}" rendered="#{not empty item.members[1]}"/>
                                 <h:outputText value="-" rendered="#{empty item.members[1]}"/>
                             </rich:column>
-                            <rich:column rendered="#{tourneyCreation.double}">
+                            <rich:column rendered="#{tourneyCreation.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Club" />
                                 </f:facet>
                                 <h:outputText value="#{item.members[1].club}" rendered="#{not empty item.members[1]}"/>
                                 <h:outputText value="-" rendered="#{empty item.members[1]}"/>
                             </rich:column>
-                            <rich:column rendered="#{tourneyCreation.double}">
+                            <rich:column rendered="#{tourneyCreation.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Points" />
                                 </f:facet>
                                 <h:outputText value="#{item.members[1].points}" rendered="#{not empty item.members[1]}"/>
                                 <h:outputText value="-" rendered="#{empty item.members[1]}"/>
                             </rich:column>
-                            <rich:column rendered="#{tourneyCreation.double}">
+                            <rich:column rendered="#{tourneyCreation.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Class" />
                                 </f:facet>
                                 <h:outputText value="#{item.members[1].rankClass}" rendered="#{not empty item.members[1]}"/>
                                 <h:outputText value="-" rendered="#{empty item.members[1]}"/>
                             </rich:column>
-                            <rich:column rendered="#{tourneyCreation.double}">
+                            <rich:column rendered="#{tourneyCreation.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Fee" />
                                 </f:facet>
