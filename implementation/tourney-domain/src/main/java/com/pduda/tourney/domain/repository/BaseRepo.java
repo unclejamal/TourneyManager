@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface BaseRepo<T, ID extends Serializable> {
 
-    void create(T object);
+    void persist(T object);
     
-    T createAndReturn(T object);
+    T persistAndReturn(T object);
     
     void refresh(T object);
 
@@ -24,7 +24,7 @@ public interface BaseRepo<T, ID extends Serializable> {
 
     List<T> findEntitiesByIds(Collection<ID> ids);
 
-    int getEntitiesCount();
+    int getCount();
 
-    void destroy(ID id) throws RepoException;
+    void remove(ID id) throws RepoException;
 }

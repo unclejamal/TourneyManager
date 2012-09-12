@@ -12,7 +12,7 @@ public class ObjectMother {
     }
 
     public static Tourney createTourneyNotPlayed(String name, int teamsTotal) {
-        Tourney toReturn = new Tourney(1, TourneyCategory.OD, name);
+        Tourney toReturn = new Tourney(TourneyCategory.OD, name);
         toReturn.addTable(upperTable);
         addTeams(toReturn, teamsTotal);
         toReturn.startTourney();
@@ -21,7 +21,7 @@ public class ObjectMother {
     }
 
     public static Tourney createTourneyPlayed(String name, int teamsTotal) {
-        Tourney toReturn = new Tourney(1, TourneyCategory.OD, name);
+        Tourney toReturn = new Tourney(TourneyCategory.OD, name);
         toReturn.addTable(upperTable);
         addTeams(toReturn, teamsTotal);
         toReturn.startTourney();
@@ -43,7 +43,7 @@ public class ObjectMother {
 
         for (int i = 0; i < teamsTotal; i++) {
             String seed = String.valueOf(i + 1);
-            Team team = new Team(new Player(seed + "A"), new Player(seed + "B"));
+            Team team = new Team(new TourneyPlayer(seed + "A"), new TourneyPlayer(seed + "B"));
             if (seeded) {
                 team.setSeed(Integer.valueOf(seed));
             }

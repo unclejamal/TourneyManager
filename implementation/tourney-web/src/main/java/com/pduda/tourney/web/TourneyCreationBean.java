@@ -3,6 +3,7 @@ package com.pduda.tourney.web;
 import com.pduda.tourney.domain.Player;
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.TourneyCategory;
+import com.pduda.tourney.domain.TourneyPlayer;
 import com.pduda.tourney.domain.ranking.Ranking;
 import com.pduda.tourney.domain.service.PersistentPaymentsHandler;
 import com.pduda.tourney.domain.service.RankingHandler;
@@ -87,10 +88,10 @@ public class TourneyCreationBean implements Serializable {
     public void addTeam(ActionEvent event) {
         log.log(Level.INFO, "User wants to add a team {0}, {1}", new Object[]{newPlayerName1, newPlayerName2});
 
-        Team team = null;
-        Player newPlayer1 = createPlayer(newPlayerName1);
+        Team team;
+        TourneyPlayer newPlayer1 = createTourneyPlayer(newPlayerName1);
         if ((newPlayerName2 != null) && (!newPlayerName2.isEmpty())) {
-            Player newPlayer2 = createPlayer(newPlayerName2);
+            TourneyPlayer newPlayer2 = createTourneyPlayer(newPlayerName2);
             team = new Team(newPlayer1, newPlayer2);
         } else {
             team = new Team(newPlayer1);
@@ -171,11 +172,11 @@ public class TourneyCreationBean implements Serializable {
         List<Team> toReturn = new ArrayList<Team>();
 
         for (Team team : prototypes) {
-            Player player1 = createPlayerFromPrototype(team.getMembers().get(0), ranking);
+            TourneyPlayer player1 = createTourneyPlayerFromPrototype(team.getMembers().get(0), ranking);
 
             Team enhancedTeam = null;
             if (team.isDouble()) {
-                Player player2 = createPlayerFromPrototype(team.getMembers().get(1), ranking);
+                TourneyPlayer player2 = createTourneyPlayerFromPrototype(team.getMembers().get(1), ranking);
 
                 enhancedTeam = new Team(player1, player2);
             } else {
@@ -189,14 +190,15 @@ public class TourneyCreationBean implements Serializable {
         return toReturn;
     }
 
-    private Player createPlayerFromPrototype(Player prototype, Ranking ranking) {
+    private TourneyPlayer createTourneyPlayerFromPrototype(TourneyPlayer prototype, Ranking ranking) {
         String code = prototype.getCode();
         Player player = ranking.getPlayersByCode(code);
         if (player == null) {
-            player = prototype;
+            return prototype;
         }
-        player.setFee(player.getFee());
-        return player;
+
+//        player.setFee(player.getFee());
+        return new TourneyPlayer(player);
     }
 
     private List<String> createRankingSuggestions(Ranking r) {
@@ -204,12 +206,12 @@ public class TourneyCreationBean implements Serializable {
 
         for (Player player : r.getPlayers()) {
             toReturn.add(player.getFullName());
-        };
+        }
 
         return toReturn;
     }
 
-    private Player createPlayer(String fullName) {
+    private TourneyPlayer createTourneyPlayer(String fullName) {
         List<Player> rankedPlayersWithThisName = ranking.getPlayersByFullName(fullName);
         Player player = null;
         // TODO many players with same name
@@ -219,8 +221,9 @@ public class TourneyCreationBean implements Serializable {
             player = new Player(fullName);
         }
 
-        player.setFee(feeHandler.getDefaultFee(player, category));
-        return player;
+        TourneyPlayer tourneyPlayer = new TourneyPlayer(player);
+        tourneyPlayer.setFee(feeHandler.getDefaultFee(player, category));
+        return tourneyPlayer;
     }
 
     public List<Team> getTeams() {
@@ -275,33 +278,3 @@ public class TourneyCreationBean implements Serializable {
         this.seedingType = seedingType;
     }
 }
-//
-//    private TopologyDataModel topology;
-//
-//    public TopologyDataModel getTopology() {
-//        log.info("Getting topology");
-//        return topology;
-//    }
-//  public void upload(ActionEvent event) {
-//    Long actionNetworkElement = (Long) event.getComponent().getAttributes().get("actionNetworkElement");
-//    log.info("User is starting an upload for gid: " + actionNetworkElement);
-//
-//    taskHandler.upload(actionNetworkElement);
-//    getTopologyFromHibernate();
-//  }
-//
-//  public void refreshTopology(ActionEvent event) {
-//    getTopologyFromHibernate();
-//  }
-//
-//  public void populateDatabase(ActionEvent event) {
-//    networkElementRepo.createDummyNetworkElements();
-//    getTopologyFromHibernate();
-//
-//  }
-//
-//  private void getTopologyFromHibernate() {
-//    List<NetworkElement> list = networkElementRepo.findAll();
-//    log.info("Topology is: " + list);
-//    topology = new TopologyDataModel(list);
-//  }

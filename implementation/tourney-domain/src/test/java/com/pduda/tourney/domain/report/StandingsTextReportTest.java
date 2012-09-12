@@ -2,8 +2,7 @@ package com.pduda.tourney.domain.report;
 
 import com.pduda.tourney.domain.Player;
 import com.pduda.tourney.domain.Team;
-import com.pduda.tourney.domain.report.Standings;
-import com.pduda.tourney.domain.report.StandingsTextReport;
+import com.pduda.tourney.domain.TourneyPlayer;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -53,7 +52,7 @@ public class StandingsTextReportTest {
         standings.addPlace("2", createDoubleTeam(2));
         standings.addPlace("2", createDoubleTeam(4));
         standings.addPlace("4", createDoubleTeam(5));
-        standings.addPlace("4", createDoubleTeam(3));        
+        standings.addPlace("4", createDoubleTeam(3));
 
         String report = cut.report(standings);
         System.out.println(report);
@@ -65,7 +64,7 @@ public class StandingsTextReportTest {
                 + "4. 5A, 5B (5)";
         assertEquals(expected, report);
     }
-    
+
     public void report_nobody() {
         String report = cut.report(standings);
 
@@ -76,7 +75,7 @@ public class StandingsTextReportTest {
     private Team createDoubleTeam(int teamId) {
         String teamIdStr = String.valueOf(teamId);
 
-        Team team = new Team(new Player(teamIdStr + "A"), new Player(teamIdStr + "B"));
+        Team team = new Team(new TourneyPlayer(teamIdStr + "A"), new TourneyPlayer(teamIdStr + "B"));
         team.setSeed(teamId);
 
         return team;
@@ -85,7 +84,7 @@ public class StandingsTextReportTest {
     private Team createSingleTeam(int teamId) {
         String teamIdStr = String.valueOf(teamId);
 
-        Team team = new Team(new Player(teamIdStr + "A"));
+        Team team = new Team(new TourneyPlayer(teamIdStr + "A"));
         team.setSeed(teamId);
 
         return team;

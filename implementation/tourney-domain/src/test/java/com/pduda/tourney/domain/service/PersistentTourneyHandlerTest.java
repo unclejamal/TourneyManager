@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/com/pduda/tourney/persistence-context.xml"})
+@ContextConfiguration(locations = {"classpath:/com/pduda/tourney/persistence-test-context.xml"})
 public class PersistentTourneyHandlerTest {
 
     @Inject
@@ -57,6 +57,6 @@ public class PersistentTourneyHandlerTest {
 
     private void playGame(long tourneyId, Game game) {
         cut.startGame(tourneyId, game.getGameCode());
-        cut.reportWinner(tourneyId, game.getGameCode(), game.getTeamHome().getId());
+        cut.reportWinner(tourneyId, game.getGameCode(), game.getTeamHome().getTeamCode());
     }
 }

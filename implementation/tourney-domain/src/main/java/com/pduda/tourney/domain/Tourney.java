@@ -41,21 +41,21 @@ public class Tourney implements Serializable {
     @PrimaryKeyJoinColumn
     private Set<Team> teams = new HashSet<Team>();
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="FIXTURE")
+    @JoinColumn(name = "FIXTURE")
     // TODO use interface
     private Fixture2KO fixture;
     @Enumerated
     @Column(name = "TOURNEY_CATEGORY")
     private TourneyCategory tourneyCategory;
 
-    public Tourney() {
-    }
-
-    public Tourney(long id, TourneyCategory category, String name) {
+    public Tourney(TourneyCategory category, String name) {
         super();
-        this.id = id;
         this.tourneyCategory = category;
         this.name = name;
+    }
+
+    public Tourney() {
+        //JPA
     }
 
     public void startTourney() {
@@ -169,9 +169,6 @@ public class Tourney implements Serializable {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
 
     public String getName() {
         return name;

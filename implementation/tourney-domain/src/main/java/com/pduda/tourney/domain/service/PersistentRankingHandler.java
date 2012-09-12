@@ -22,10 +22,10 @@ public class PersistentRankingHandler implements RankingHandler, Serializable {
 
     @Override
     public PzfsRanking getPzfsRanking() {
-        int count = pzfsRankingRepo.getEntitiesCount();
+        int count = pzfsRankingRepo.getCount();
         if (0 == count) {
             PzfsRanking pzfsRanking = pzfsRankingReader.loadPzfsRanking();
-            return pzfsRankingRepo.createAndReturn(pzfsRanking);
+            return pzfsRankingRepo.persistAndReturn(pzfsRanking);
         }
 
         return pzfsRankingRepo.getNewestPzfsRanking();

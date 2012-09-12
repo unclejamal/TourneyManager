@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/com/pduda/tourney/persistence-context.xml"})
+@ContextConfiguration(locations = {"classpath:/com/pduda/tourney/persistence-test-context.xml"})
 @Transactional
 public class JpaPayrollRepoTest {
 
@@ -26,7 +26,7 @@ public class JpaPayrollRepoTest {
         payroll.add("Edek Unpaid", MembershipType.MEMBER_WITHOUT_PAYMENT);
         payroll.add("Edek Not", MembershipType.NOT_MEMBER);
 
-        cut.createAndReturn(payroll);
+        cut.persistAndReturn(payroll);
         Payroll persisted = cut.getNewestPayroll();
 
         assertEquals(MembershipType.MEMBER_WITH_PAYMENT, persisted.getMembershipType("Edek Paid"));

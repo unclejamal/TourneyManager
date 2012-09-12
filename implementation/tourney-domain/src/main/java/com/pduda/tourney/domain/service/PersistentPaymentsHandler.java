@@ -56,7 +56,7 @@ public class PersistentPaymentsHandler implements PaymentsHandler, Serializable 
     public void updatePayroll() {
         System.out.println("pduda updatePayroll");
         Payroll newPayroll = payrollReader.loadPayroll();
-        Payroll persisted = payrollRepo.createAndReturn(newPayroll);
+        Payroll persisted = payrollRepo.persistAndReturn(newPayroll);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class PersistentPaymentsHandler implements PaymentsHandler, Serializable 
 
     private Payroll getPayrollFromRepo() {
 //        initPayroll();
-        System.out.println("pduda getpayrollfromrepo count " + payrollRepo.getEntitiesCount());
+        System.out.println("pduda getpayrollfromrepo count " + payrollRepo.getCount());
 
         List<Payroll> findEntities = payrollRepo.findEntities();
 
@@ -81,13 +81,13 @@ public class PersistentPaymentsHandler implements PaymentsHandler, Serializable 
     }
 
     private void initPayroll() {
-        if (0 == payrollRepo.getEntitiesCount()) {
+        if (0 == payrollRepo.getCount()) {
             System.out.println("pduda kant");
             Payroll nullPayroll = new Payroll();
-            payrollRepo.createAndReturn(nullPayroll);
+            payrollRepo.persistAndReturn(nullPayroll);
             System.out.println("pduda created nullpayroll");
 
-            System.out.println("pduda kant2 " + payrollRepo.getEntitiesCount());
+            System.out.println("pduda kant2 " + payrollRepo.getCount());
         }
     }
 }

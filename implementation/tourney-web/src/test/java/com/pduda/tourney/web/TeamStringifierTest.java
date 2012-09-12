@@ -1,7 +1,7 @@
 package com.pduda.tourney.web;
 
-import com.pduda.tourney.domain.Player;
 import com.pduda.tourney.domain.Team;
+import com.pduda.tourney.domain.TourneyPlayer;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -16,13 +16,13 @@ public class TeamStringifierTest {
 
     @Test
     public void objectToString_full() {
-        Team team = new Team(new Player("Pawel", "WKPS69"), new Player("Tomek", "WKPS13"));
+        Team team = new Team(new TourneyPlayer("Pawel", "WKPS69"), new TourneyPlayer("Tomek", "WKPS13"));
         assertEquals("Pawel:::WKPS69:::Tomek:::WKPS13", cut.objectToString(team));
     }
 
     @Test
     public void objectToString_onlyOneMember() {
-        Team team = new Team(new Player("Pawel", "WKPS69"));
+        Team team = new Team(new TourneyPlayer("Pawel", "WKPS69"));
         assertEquals("Pawel:::WKPS69", cut.objectToString(team));
     }
 

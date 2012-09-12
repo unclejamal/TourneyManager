@@ -24,7 +24,7 @@ public class PersistentTourneyHandler implements TourneyHandler, Serializable {
     public long createTournament(TourneyCategory category, String tourneyName, Set<Team> teams) {
         log.log(Level.INFO, "System is creating a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
 
-        Tourney tourney = new Tourney(tourneyRepo.getEntitiesCount(), category, tourneyName);
+        Tourney tourney = new Tourney(category, tourneyName);
 
         tourney.setName(tourneyName);
         for (Team team : teams) {
@@ -34,7 +34,7 @@ public class PersistentTourneyHandler implements TourneyHandler, Serializable {
         tourney.addTable(new FoosballTable("upper"));
         tourney.addTable(new FoosballTable("lower"));
 
-        Tourney persisted = tourneyRepo.createAndReturn(tourney);
+        Tourney persisted = tourneyRepo.merge(tourney);
         return persisted.getId();
     }
 

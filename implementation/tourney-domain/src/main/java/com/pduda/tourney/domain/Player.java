@@ -33,8 +33,6 @@ public class Player implements Serializable {
     @Enumerated
     @Column(name = "RANK_CLASS")
     private RankClass rankClass;
-    @Column(name = "FEE")
-    private Long fee;
 
     public Player(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
         this.playerDescription = new PlayerDescription(fullName, gender, city, club);
@@ -44,7 +42,6 @@ public class Player implements Serializable {
         this.pointsAdded = pointsAdded;
         this.pointsDeleted = pointsDeleted;
         this.rankClass = rankClass;
-        this.fee = 0L;
     }
 
     public Player(int points, String fullName) {
@@ -133,14 +130,6 @@ public class Player implements Serializable {
 
     public void setRankClass(RankClass rankClass) {
         this.rankClass = rankClass;
-    }
-
-    public long getFee() {
-        return fee;
-    }
-
-    public void setFee(long fee) {
-        this.fee = fee;
     }
 
     @Override

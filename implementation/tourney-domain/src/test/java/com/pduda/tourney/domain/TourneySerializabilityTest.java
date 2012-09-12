@@ -26,14 +26,14 @@ public class TourneySerializabilityTest extends SerializabilityTestCase {
 
     @Override
     protected Serializable createInstance() throws Exception {
-        Tourney tourney = new Tourney(1, TourneyCategory.OD, "Liga Weekendowa");
-        Team teama = new Team(new Player("a"));
+        Tourney tourney = new Tourney(TourneyCategory.OD, "Liga Weekendowa");
+        Team teama = new Team(new TourneyPlayer("a"));
         teama.setSeed(1);
         tourney.addTeam(teama);
-        Team teamb = new Team(new Player("b"));
+        Team teamb = new Team(new TourneyPlayer("b"));
         teamb.setSeed(2);
         tourney.addTeam(teamb);
-        Team teamc = new Team(new Player("c"));
+        Team teamc = new Team(new TourneyPlayer("c"));
         teamc.setSeed(3);
         tourney.addTeam(teamc);
 

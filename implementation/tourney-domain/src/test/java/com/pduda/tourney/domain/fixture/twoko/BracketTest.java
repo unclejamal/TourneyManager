@@ -2,6 +2,7 @@ package com.pduda.tourney.domain.fixture.twoko;
 
 import com.pduda.tourney.domain.Player;
 import com.pduda.tourney.domain.Team;
+import com.pduda.tourney.domain.TourneyPlayer;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -17,8 +18,8 @@ public class BracketTest {
     @Test
     public void onlyFinal() {
 
-        Team homeTeam = new Team(new Player("home"));
-        Team awayTeam = new Team(new Player("away"));
+        Team homeTeam = new Team(new TourneyPlayer("home"));
+        Team awayTeam = new Team(new TourneyPlayer("away"));
 
         cut.getGame().setTeamHome(homeTeam);
         cut.getGame().setTeamAway(awayTeam);
@@ -30,9 +31,9 @@ public class BracketTest {
 
     @Test
     public void threeTeams() {
-        Team homeTeam = new Team(new Player("home"));
-        Team awayHomeTeam = new Team(new Player("awayhome"));
-        Team awayAwayTeam = new Team(new Player("awayaway"));
+        Team homeTeam = new Team(new TourneyPlayer("home"));
+        Team awayHomeTeam = new Team(new TourneyPlayer("awayhome"));
+        Team awayAwayTeam = new Team(new TourneyPlayer("awayaway"));
 
         Bracket homeBracket = new Bracket(NumberedWbrFactory.PREFIX, 2, 1);
         homeBracket.getGame().setTeamHome(homeTeam);

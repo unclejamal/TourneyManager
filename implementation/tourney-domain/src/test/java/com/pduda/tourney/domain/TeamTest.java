@@ -1,6 +1,5 @@
 package com.pduda.tourney.domain;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -8,8 +7,8 @@ public class TeamTest {
 
     private static final int PLAYER1_POINTS = 50;
     private static final int PLAYER2_POINTS = 30;
-    private static final Player PLAYER1 = new Player(PLAYER1_POINTS, "adam");
-    private static final Player PLAYER2 = new Player(PLAYER2_POINTS, "bartek");
+    private static final TourneyPlayer PLAYER1 = new TourneyPlayer(PLAYER1_POINTS, "adam");
+    private static final TourneyPlayer PLAYER2 = new TourneyPlayer(PLAYER2_POINTS, "bartek");
 
     @Test
     public void getRank_single() {

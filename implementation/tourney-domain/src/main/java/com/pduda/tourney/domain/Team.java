@@ -26,9 +26,9 @@ public class Team implements Serializable {
     @Column(name = "NAME")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Player> members = new ArrayList<Player>();
+    private List<TourneyPlayer> members = new ArrayList<TourneyPlayer>();
 
-    public Team(Player... memberz) {
+    public Team(TourneyPlayer... memberz) {
         Collections.addAll(members, memberz);
         Collections.sort(this.members, new PlayersByPointsComparator());
         this.name = computeName(members);
@@ -37,7 +37,7 @@ public class Team implements Serializable {
     public Team() {
     }
 
-    private String computeName(List<Player> members) {
+    private String computeName(List<TourneyPlayer> members) {
         StringBuilder sb = new StringBuilder();
         sb.append(members.get(0).getShortName());
 
@@ -77,7 +77,7 @@ public class Team implements Serializable {
         this.seed = seed;
     }
 
-    public List<Player> getMembers() {
+    public List<TourneyPlayer> getMembers() {
         return members;
     }
 

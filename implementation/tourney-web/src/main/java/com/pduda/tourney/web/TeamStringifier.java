@@ -1,7 +1,7 @@
 package com.pduda.tourney.web;
 
-import com.pduda.tourney.domain.Player;
 import com.pduda.tourney.domain.Team;
+import com.pduda.tourney.domain.TourneyPlayer;
 
 /**
  * Remember to adapt equals+hashCode of Team, Player etc to the fields used in
@@ -39,9 +39,9 @@ public class TeamStringifier {
         if (params.length == 4) {
             String member2name = params[2];
             String member2code = params[3];
-            team = new Team(new Player(member1name, member1code), new Player(member2name, member2code));
+            team = new Team(new TourneyPlayer(member1name, member1code), new TourneyPlayer(member2name, member2code));
         } else {
-            team = new Team(new Player(member1name, member1code));
+            team = new Team(new TourneyPlayer(member1name, member1code));
         }
 
         return team;

@@ -27,12 +27,12 @@ public abstract class JpaBaseRepo<T, ID extends Serializable> implements BaseRep
     protected abstract EntityManager getEntityManager();
 
     @Override
-    public void create(T object) {
+    public void persist(T object) {
         getEntityManager().persist(object);
     }
 
     @Override
-    public T createAndReturn(T object) {
+    public T persistAndReturn(T object) {
         getEntityManager().persist(object);
         return object;
     }
@@ -81,12 +81,12 @@ public abstract class JpaBaseRepo<T, ID extends Serializable> implements BaseRep
     }
 
     @Override
-    public int getEntitiesCount() {
+    public int getCount() {
         return ((Long) getEntityManager().createQuery("select count(o) from " + persistentClass.getSimpleName() + " as o").getSingleResult()).intValue();
     }
 
     @Override
-    public void destroy(ID id) throws RepoException {
+    public void remove(ID id) throws RepoException {
         EntityManager em = getEntityManager();
 
         try {

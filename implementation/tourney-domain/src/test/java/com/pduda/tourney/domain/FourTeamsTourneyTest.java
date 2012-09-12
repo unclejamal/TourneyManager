@@ -19,13 +19,13 @@ public class FourTeamsTourneyTest {
     @Before
     public void setUp() {
         upperTable = new FoosballTable("Upper");
-        teamMafia = new Team(new Player("Casd"), new Player("Krzysiek"));
+        teamMafia = new Team(new TourneyPlayer("Casd"), new TourneyPlayer("Krzysiek"));
         teamMafia.setSeed(1);
-        teamQuaquaraqua = new Team(new Player("Czarek"), new Player("Darek"));
+        teamQuaquaraqua = new Team(new TourneyPlayer("Czarek"), new TourneyPlayer("Darek"));
         teamQuaquaraqua.setSeed(2);
-        teamTosty = new Team(new Player("Kacper"), new Player("Seba"));
+        teamTosty = new Team(new TourneyPlayer("Kacper"), new TourneyPlayer("Seba"));
         teamTosty.setSeed(3);
-        teamMaly = new Team(new Player("Gracjan"), new Player("Patol"));
+        teamMaly = new Team(new TourneyPlayer("Gracjan"), new TourneyPlayer("Patol"));
         teamMaly.setSeed(4);
 
 
