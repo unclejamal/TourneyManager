@@ -1,6 +1,6 @@
 package com.pduda.tourney.web;
 
-import com.pduda.tourney.domain.Player;
+import com.pduda.tourney.domain.RankingPlayer;
 import com.pduda.tourney.domain.ranking.Ranking;
 import com.pduda.tourney.domain.service.RankingHandler;
 import java.io.Serializable;
@@ -25,7 +25,7 @@ public class RankingBean implements Serializable {
     private Ranking od;
     private Ranking ws;
     private Ranking wd;
-    private Player filter = new Player();
+    private RankingPlayer filter = new RankingPlayer();
     private List<String> osSuggestions = new ArrayList<String>();
     private List<String> odSuggestions = new ArrayList<String>();
     private List<String> wsSuggestions = new ArrayList<String>();
@@ -42,7 +42,7 @@ public class RankingBean implements Serializable {
     private void loadOpenSingle() {
         os = rankingHandler.getPzfsRanking().getOpenSingle();
 
-        for (Player player : os.getPlayers()) {
+        for (RankingPlayer player : os.getPlayers()) {
             osSuggestions.add(player.getFullName());
         }
     }
@@ -50,7 +50,7 @@ public class RankingBean implements Serializable {
     private void loadOpenDouble() {
         od = rankingHandler.getPzfsRanking().getOpenDouble();
 
-        for (Player player : od.getPlayers()) {
+        for (RankingPlayer player : od.getPlayers()) {
             odSuggestions.add(player.getFullName());
         }
     }
@@ -58,7 +58,7 @@ public class RankingBean implements Serializable {
     private void loadWomenSingle() {
         ws = rankingHandler.getPzfsRanking().getWomenSingle();
 
-        for (Player player : ws.getPlayers()) {
+        for (RankingPlayer player : ws.getPlayers()) {
             wsSuggestions.add(player.getFullName());
         }
     }
@@ -66,7 +66,7 @@ public class RankingBean implements Serializable {
     private void loadWomenDouble() {
         wd = rankingHandler.getPzfsRanking().getWomenDouble();
 
-        for (Player player : wd.getPlayers()) {
+        for (RankingPlayer player : wd.getPlayers()) {
             wdSuggestions.add(player.getFullName());
         }
     }
@@ -103,11 +103,11 @@ public class RankingBean implements Serializable {
         return wdSuggestions;
     }
 
-    public Player getFilter() {
+    public RankingPlayer getFilter() {
         return filter;
     }
 
-    public void setFilter(Player filter) {
+    public void setFilter(RankingPlayer filter) {
         this.filter = filter;
     }
 }

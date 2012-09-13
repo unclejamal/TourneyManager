@@ -30,7 +30,7 @@ public class ThreeTeamsTourneyTest {
         cut.addTeam(teamMafia);
         cut.addTeam(teamQuaquaraqua);
         cut.addTeam(teamTosty);
-        
+
 
         cut.startTourney();
     }

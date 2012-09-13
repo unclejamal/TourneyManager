@@ -20,6 +20,8 @@ public interface Fixture extends Serializable {
     FullGamesReport getGamesReports();
 
     Tourney getTourney();
-    
+
     void setTourney(Tourney tourney);
+
+    boolean anyGameLeft();
 }

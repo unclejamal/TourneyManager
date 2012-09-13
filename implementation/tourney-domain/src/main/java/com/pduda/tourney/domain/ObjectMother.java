@@ -7,8 +7,10 @@ public class ObjectMother {
 
     public static FoosballTable upperTable = new FoosballTable("Upper");
 
-    public static Player createPlayer() {
-        return new Player(69, "WKPS69", "Pawel Adam Duda", Gender.MALE, "Wroclaw", "WKPS", 1000, 20, 15, RankClass.MASTER);
+    public static RankingPlayer createRankingPlayer() {
+        PlayerDescription playerDescription = new PlayerDescription("Pawel Adam Duda", Gender.MALE, "Wroclaw", "WKPS");
+        return new RankingPlayer(playerDescription, 69, "WKPS69", 1000, 20, 15, RankClass.MASTER);
+
     }
 
     public static Tourney createTourneyNotPlayed(String name, int teamsTotal) {
@@ -43,7 +45,7 @@ public class ObjectMother {
 
         for (int i = 0; i < teamsTotal; i++) {
             String seed = String.valueOf(i + 1);
-            Team team = new Team(new TourneyPlayer(seed + "A"), new TourneyPlayer(seed + "B"));
+            Team team = new Team(tourneyPlayer(seed + "A"), tourneyPlayer(seed + "B"));
             if (seeded) {
                 team.setSeed(Integer.valueOf(seed));
             }
@@ -76,5 +78,9 @@ public class ObjectMother {
         }
 
         return i;
+    }
+
+    private static TourneyPlayer tourneyPlayer(String code) {
+        return new TourneyPlayer(code, code);
     }
 }

@@ -5,23 +5,23 @@ import static org.junit.Assert.*;
 
 public class PlayerTest {
 
-    private Player cut;
+    private RankingPlayer cut;
 
     @Test
     public void getShortName_onlyLastName() {
-        cut = new Player("Duda");
+        cut = new RankingPlayer("Duda");
         assertEquals("Duda", cut.getShortName());
     }
 
     @Test
     public void getShortName_firstAndLastName() {
-        cut = new Player("Pawel Duda");
+        cut = new RankingPlayer("Pawel Duda");
         assertEquals("P. Duda", cut.getShortName());
     }
 
     @Test
     public void getShortName_complexFirstName() {
-        cut = new Player("Pawel Adam Duda");
+        cut = new RankingPlayer("Pawel Adam Duda");
         assertEquals("P. A. Duda", cut.getShortName());
     }
 }

@@ -35,18 +35,12 @@ public class PlayerDescription implements Serializable {
         this.club = club;
     }
 
-//    public PlayerDescription(int points, String fullName) {
-//        this(0, NA, fullName, Gender.UNKNOWN, NA, NA, points, 0, 0, RankClass.NOTRANKED);
-//    }
-//
-//    public PlayerDescription(String fullName, String code) {
-//        this(0, code, fullName, Gender.UNKNOWN, NA, NA, 0, 0, 0, RankClass.NOTRANKED);
-//    }
-//
-//    public PlayerDescription(String fullName) {
-//        this(0, fullName);
-//    }
+    public PlayerDescription(String fullName) {
+        this(fullName, Gender.UNKNOWN, NA, NA);
+    }
+
     public PlayerDescription() {
+        // JPA
     }
 
     public String getShortName() {

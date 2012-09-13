@@ -3,11 +3,11 @@ package com.pduda.tourney.domain.adapters.ranking;
 import au.com.bytecode.opencsv.CSVReader;
 import com.pduda.tourney.domain.Gender;
 import com.pduda.tourney.domain.RankClass;
-import com.pduda.tourney.domain.ranking.Ranking;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Named;
 
 @Named
@@ -15,7 +15,7 @@ public class CsvRankingReader {
 
     public static final String FILE_ENCODING = "UTF-8";
 
-    public Ranking loadFromFile(String filepath) {
+    public List<RankingEntry> loadFromFile(String filepath) {
         CSVReader reader = null;
         try {
             reader = new CSVReader(new InputStreamReader(new FileInputStream(filepath), FILE_ENCODING));
@@ -25,8 +25,8 @@ public class CsvRankingReader {
         }
     }
 
-    public Ranking loadFromCsvReader(CSVReader reader) throws IOException {
-        Ranking ranking = new Ranking(new Date());
+    public List<RankingEntry> loadFromCsvReader(CSVReader reader) throws IOException {
+        List<RankingEntry> rankingEntries = new ArrayList<RankingEntry>();
 
         String[] nextLine;
         boolean startProcessing = false;
@@ -47,11 +47,12 @@ public class CsvRankingReader {
                 String pointsDeleted = nextLine[9];
                 String rankClass = nextLine[10];
 
-                ranking.addPlayer(Integer.valueOf(rank), code, fullName, gender(gender), city, club, Integer.valueOf(points), Integer.valueOf(pointsAdded), Integer.valueOf(pointsDeleted), rankClass(rankClass));
+                RankingEntry newEntry = new RankingEntry(Integer.valueOf(rank), code, fullName, gender, city, club, Integer.valueOf(points), Integer.valueOf(pointsAdded), Integer.valueOf(pointsDeleted), rankClass);
+                rankingEntries.add(newEntry);
             }
         }
 
-        return ranking;
+        return rankingEntries;
     }
 
     private boolean arrivedAtFirstPlayer(String[] nextLine) {

@@ -3,8 +3,9 @@ $(document).ready(function($) {
     var wbrMatchDivsByRound = createBracket($('#wbr'), wbrInfo, alignWbrRound, 'right', null);
     createBracket($('#lbr'), lbrInfo, alignLbrRound, 'left', wbrMatchDivsByRound);
     createBracket($('#fin1'), fin1Info, alignFinalRound, 'right', wbrMatchDivsByRound);
-    createBracket($('#fin2'), fin2Info, alignFinalRound, 'right', wbrMatchDivsByRound);
-                        
+    if (fin2Info.rounds[0].games[0].gameState != 'NotStartedYet') {
+        createBracket($('#fin2'), fin2Info, alignFinalRound, 'right', wbrMatchDivsByRound);
+    }                    
     setContainerDivsWidth('#pgpTourney');
     setBlinkingForOngoing();
 });
@@ -108,7 +109,7 @@ function addWinnerBox(base, matchInfo, finalMatchDiv){
 function buildMatchHtml(match) {
     var matchDivId = 'match' + buildMatchId(match.id);
     var matchDivClass='match';
-    if (match.state == 'Ongoing') {
+    if (match.gameState == 'Ongoing') {
         matchDivClass= 'match ongoing';
     }
           

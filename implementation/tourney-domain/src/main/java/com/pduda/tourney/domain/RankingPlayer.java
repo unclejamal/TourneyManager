@@ -7,16 +7,16 @@ import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Configurable;
 
 @Entity
-@javax.persistence.Table(name = "PLAYER")
+@javax.persistence.Table(name = "RANKING_PLAYER")
 @Configurable(autowire = Autowire.BY_TYPE)
-public class Player implements Serializable {
+public class RankingPlayer implements Serializable {
 
     private static final long serialVersionUID = 1L;
     public static final String SPACE = " ";
     public static final String NA = "n/a";
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PLAYER_ID")
+    @Column(name = "RANKING_PLAYER_ID")
     private long id;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private PlayerDescription playerDescription = new PlayerDescription();
@@ -34,8 +34,8 @@ public class Player implements Serializable {
     @Column(name = "RANK_CLASS")
     private RankClass rankClass;
 
-    public Player(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
-        this.playerDescription = new PlayerDescription(fullName, gender, city, club);
+    public RankingPlayer(PlayerDescription playerDescription, int rank, String code, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
+        this.playerDescription = playerDescription;
         this.rank = rank;
         this.code = code;
         this.points = points;
@@ -44,20 +44,24 @@ public class Player implements Serializable {
         this.rankClass = rankClass;
     }
 
-    public Player(int points, String fullName) {
-        this(0, NA, fullName, Gender.UNKNOWN, NA, NA, points, 0, 0, RankClass.NOTRANKED);
+    public RankingPlayer(String fullName) {
+        this(new PlayerDescription(fullName), 0, NA, 0, 0, 0, RankClass.NOTRANKED);
     }
 
-    public Player(String fullName, String code) {
-        this(0, code, fullName, Gender.UNKNOWN, NA, NA, 0, 0, 0, RankClass.NOTRANKED);
+    public RankingPlayer(String fullName, String code) {
+        this(new PlayerDescription(fullName), 0, code, 0, 0, 0, RankClass.NOTRANKED);
     }
 
-    public Player(String fullName) {
-        this(0, fullName);
+    public RankingPlayer(int points, String fullName) {
+        this(new PlayerDescription(fullName), 0, NA, points, 0, 0, RankClass.NOTRANKED);
     }
 
-    public Player() {
+    public RankingPlayer() {
         // JPA
+    }
+
+    public boolean isSharingPlayerDescription(RankingPlayer other) {
+        return playerDescription == other.getPlayerDescription();
     }
 
     public String getShortName() {
@@ -140,7 +144,7 @@ public class Player implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Player other = (Player) obj;
+        final RankingPlayer other = (RankingPlayer) obj;
         if (!Objects.equals(this.getFullName(), other.getFullName())) {
             return false;
         }
@@ -157,5 +161,9 @@ public class Player implements Serializable {
     @Override
     public String toString() {
         return "Player{" + "code=" + code + ", fullName=" + getFullName() + '}';
+    }
+
+    private PlayerDescription getPlayerDescription() {
+        return playerDescription;
     }
 }

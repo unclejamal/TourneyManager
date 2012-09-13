@@ -1,6 +1,6 @@
 package com.pduda.tourney.domain.report;
 
-import com.pduda.tourney.domain.Player;
+import com.pduda.tourney.domain.RankingPlayer;
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.TourneyPlayer;
 import org.junit.*;

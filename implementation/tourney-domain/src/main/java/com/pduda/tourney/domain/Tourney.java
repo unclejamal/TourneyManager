@@ -78,7 +78,7 @@ public class Tourney implements Serializable {
         fixture.reportWinner(gameCode, winnerTeamCode);
         log.log(Level.INFO, "{0} has reported winner of game {1} - team {2}", new Object[]{this, gameCode, winnerTeamCode});
 
-        if (getWaitingGames().isEmpty()) {
+        if (!fixture.anyGameLeft()) {
             endTournament();
         }
     }
@@ -168,7 +168,6 @@ public class Tourney implements Serializable {
     public Date getEndDate() {
         return endDate;
     }
-
 
     public String getName() {
         return name;

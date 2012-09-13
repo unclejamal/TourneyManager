@@ -1,17 +1,14 @@
 package com.pduda.tourney.web;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
-
-import javax.annotation.PostConstruct;
-
-import org.springframework.context.annotation.Scope;
-
 import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.service.TourneyHandler;
+import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.springframework.context.annotation.Scope;
 
 @Named("home")
 @Scope("view")
@@ -25,7 +22,6 @@ public class HomeBean implements Serializable {
 
     @PostConstruct
     public void init() {
-        log.info("Home Bean: Post Construct");
         this.tournaments = tournamentHandler.getTournaments();
     }
 

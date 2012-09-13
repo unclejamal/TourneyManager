@@ -16,7 +16,6 @@
             <!-- property name="hibernate.validator.autoregister_listeners" value="false" /-->
             <!-- Logging -->
             <property name="hibernate.show_sql" value="false"/>
-            org.hibernate.type
         </properties>
     </persistence-unit>
 </persistence>

@@ -19,25 +19,25 @@ public class TourneyPlayer implements Serializable {
     @Column(name = "TOURNEY_PLAYER_ID")
     private long id;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Player player;
+    private RankingPlayer player;
     @Column(name = "FEE")
     private Long fee;
 
-    public TourneyPlayer(Player player) {
+    public TourneyPlayer(RankingPlayer player) {
         this.player = player;
         this.fee = 0L;
     }
 
     public TourneyPlayer(String fullName, String code) {
-        this(new Player(fullName, code));
+        this(new RankingPlayer(fullName, code));
     }
 
     public TourneyPlayer(int points, String fullName) {
-        this(new Player(points, fullName));
+        this(new RankingPlayer(points, fullName));
     }
 
     public TourneyPlayer(String fullName) {
-        this(new Player(fullName));
+        this(new RankingPlayer(fullName));
     }
 
     public TourneyPlayer() {

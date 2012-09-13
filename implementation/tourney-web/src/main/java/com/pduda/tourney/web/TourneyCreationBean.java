@@ -1,6 +1,6 @@
 package com.pduda.tourney.web;
 
-import com.pduda.tourney.domain.Player;
+import com.pduda.tourney.domain.RankingPlayer;
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.TourneyCategory;
 import com.pduda.tourney.domain.TourneyPlayer;
@@ -192,7 +192,7 @@ public class TourneyCreationBean implements Serializable {
 
     private TourneyPlayer createTourneyPlayerFromPrototype(TourneyPlayer prototype, Ranking ranking) {
         String code = prototype.getCode();
-        Player player = ranking.getPlayersByCode(code);
+        RankingPlayer player = ranking.getPlayersByCode(code);
         if (player == null) {
             return prototype;
         }
@@ -204,7 +204,7 @@ public class TourneyCreationBean implements Serializable {
     private List<String> createRankingSuggestions(Ranking r) {
         List<String> toReturn = new ArrayList<String>();
 
-        for (Player player : r.getPlayers()) {
+        for (RankingPlayer player : r.getPlayers()) {
             toReturn.add(player.getFullName());
         }
 
@@ -212,13 +212,13 @@ public class TourneyCreationBean implements Serializable {
     }
 
     private TourneyPlayer createTourneyPlayer(String fullName) {
-        List<Player> rankedPlayersWithThisName = ranking.getPlayersByFullName(fullName);
-        Player player = null;
+        List<RankingPlayer> rankedPlayersWithThisName = ranking.getPlayersByFullName(fullName);
+        RankingPlayer player = null;
         // TODO many players with same name
         if (rankedPlayersWithThisName.size() > 0) {
             player = rankedPlayersWithThisName.get(0);
         } else {
-            player = new Player(fullName);
+            player = new RankingPlayer(fullName);
         }
 
         TourneyPlayer tourneyPlayer = new TourneyPlayer(player);
