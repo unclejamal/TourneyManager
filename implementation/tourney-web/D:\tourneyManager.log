@@ -3995,3 +3995,1018 @@ Caused by: java.net.ConnectException: Connection refused
 17:00:31,737 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
 17:00:31,739 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
 17:00:31,740 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@49d77e6c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2031291732@qtp-1676556748-64]
+17:11:01,867 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@23849224] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2031291732@qtp-1676556748-64]
+17:11:01,868 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:11:01,868 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:11:01,869 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@23849224] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2031291732@qtp-1676556748-64]
+17:11:01,908 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:11:01,911 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:11:01,911 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@23849224] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2031291732@qtp-1676556748-64]
+17:21:32,042 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3bcac31f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2129161615@qtp-1676556748-78]
+17:21:32,043 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:21:32,043 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:21:32,044 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3bcac31f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2129161615@qtp-1676556748-78]
+17:21:32,067 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:21:32,068 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:21:32,068 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3bcac31f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2129161615@qtp-1676556748-78]
+17:32:02,187 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5f65403d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [935916151@qtp-1676556748-80]
+17:32:02,188 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:32:02,188 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:32:02,189 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5f65403d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [935916151@qtp-1676556748-80]
+17:32:02,225 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:32:02,228 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:32:02,229 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5f65403d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [935916151@qtp-1676556748-80]
+17:42:32,347 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6a8da35e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1167415808@qtp-1676556748-86]
+17:42:32,348 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:42:32,348 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:42:32,348 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6a8da35e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1167415808@qtp-1676556748-86]
+17:42:32,369 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:42:32,370 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:42:32,371 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6a8da35e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1167415808@qtp-1676556748-86]
+17:53:02,486 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7fe15733] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [652395793@qtp-1676556748-89]
+17:53:02,487 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:53:02,487 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:53:02,487 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7fe15733] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [652395793@qtp-1676556748-89]
+17:53:02,507 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:53:02,508 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:53:02,509 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7fe15733] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [652395793@qtp-1676556748-89]
+18:03:32,620 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@31dcbf7d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2060332390@qtp-1676556748-96]
+18:03:32,620 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:03:32,620 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:03:32,621 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@31dcbf7d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2060332390@qtp-1676556748-96]
+18:03:32,660 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:03:32,663 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:03:32,664 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@31dcbf7d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2060332390@qtp-1676556748-96]
+18:14:02,786 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@21039bc4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2060332390@qtp-1676556748-96]
+18:14:02,787 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:14:02,787 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:14:02,787 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@21039bc4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2060332390@qtp-1676556748-96]
+18:14:02,815 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:14:02,818 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:14:02,818 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@21039bc4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2060332390@qtp-1676556748-96]
+18:24:32,941 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@1da39115] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1635313118@qtp-1676556748-102]
+18:24:32,942 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:24:32,942 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:24:32,943 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1da39115] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1635313118@qtp-1676556748-102]
+18:24:32,980 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:24:32,983 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:24:32,983 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@1da39115] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1635313118@qtp-1676556748-102]
+18:35:03,102 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@50f3d011] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1204688974@qtp-1676556748-107]
+18:35:03,102 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:35:03,102 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:35:03,103 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@50f3d011] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1204688974@qtp-1676556748-107]
+18:35:03,133 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:35:03,134 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:35:03,134 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@50f3d011] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1204688974@qtp-1676556748-107]
+18:45:33,235 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@64b8e6f2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [90901259@qtp-1676556748-110]
+18:45:33,235 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:45:33,236 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:45:33,236 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@64b8e6f2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [90901259@qtp-1676556748-110]
+18:45:33,272 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:45:33,273 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:45:33,274 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@64b8e6f2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [90901259@qtp-1676556748-110]
+18:56:03,389 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@79a5a4e5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [846990772@qtp-1676556748-115]
+18:56:03,390 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:56:03,390 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:56:03,391 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@79a5a4e5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [846990772@qtp-1676556748-115]
+18:56:03,431 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:56:03,434 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:56:03,434 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@79a5a4e5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [846990772@qtp-1676556748-115]
+19:06:33,584 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@781ad35b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1676880364@qtp-1676556748-122]
+19:06:33,584 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+19:06:33,585 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:06:33,586 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@781ad35b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1676880364@qtp-1676556748-122]
+19:06:33,622 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:06:33,625 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+19:06:33,626 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@781ad35b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1676880364@qtp-1676556748-122]
+19:17:03,744 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@75819091] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [108628439@qtp-1676556748-125]
+19:17:03,745 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+19:17:03,745 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:17:03,746 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@75819091] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [108628439@qtp-1676556748-125]
+19:17:03,781 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:17:03,784 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+19:17:03,784 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@75819091] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [108628439@qtp-1676556748-125]
+19:27:33,951 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@9a688ab] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1417219385@qtp-1676556748-131]
+19:27:33,952 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+19:27:33,952 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:27:33,953 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@9a688ab] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1417219385@qtp-1676556748-131]
+19:27:33,991 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:27:33,994 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+19:27:33,994 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@9a688ab] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1417219385@qtp-1676556748-131]
+19:38:04,119 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@e9ce649] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1417219385@qtp-1676556748-131]
+19:38:04,119 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+19:38:04,120 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:38:04,121 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@e9ce649] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1417219385@qtp-1676556748-131]
+19:38:04,162 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:38:04,164 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+19:38:04,165 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@e9ce649] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1417219385@qtp-1676556748-131]
+19:48:34,303 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@2a7631c0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2027845255@qtp-1676556748-138]
+19:48:34,304 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+19:48:34,304 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:48:34,305 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@2a7631c0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2027845255@qtp-1676556748-138]
+19:48:34,340 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:48:34,343 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+19:48:34,343 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@2a7631c0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2027845255@qtp-1676556748-138]
+19:59:04,490 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@181d0871] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [99663103@qtp-1676556748-144]
+19:59:04,491 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+19:59:04,491 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:59:04,491 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@181d0871] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [99663103@qtp-1676556748-144]
+19:59:04,527 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+19:59:04,530 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+19:59:04,530 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@181d0871] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [99663103@qtp-1676556748-144]
+20:09:34,660 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@2f9c967e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [762128565@qtp-1676556748-148]
+20:09:34,661 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+20:09:34,661 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:09:34,662 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@2f9c967e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [762128565@qtp-1676556748-148]
+20:09:34,698 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:09:34,700 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+20:09:34,701 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@2f9c967e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [762128565@qtp-1676556748-148]
+20:20:04,819 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@32b2a137] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1294392394@qtp-1676556748-154]
+20:20:04,820 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+20:20:04,820 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:20:04,821 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@32b2a137] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1294392394@qtp-1676556748-154]
+20:20:04,859 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:20:04,862 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+20:20:04,862 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@32b2a137] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1294392394@qtp-1676556748-154]
+20:30:35,004 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6f616a56] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1857264639@qtp-1676556748-157]
+20:30:35,005 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+20:30:35,005 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:30:35,006 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6f616a56] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1857264639@qtp-1676556748-157]
+20:30:35,043 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:30:35,046 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+20:30:35,046 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6f616a56] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1857264639@qtp-1676556748-157]
+20:41:05,164 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5f516886] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1437803877@qtp-1676556748-160]
+20:41:05,165 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+20:41:05,165 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:41:05,165 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5f516886] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1437803877@qtp-1676556748-160]
+20:41:05,200 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:41:05,202 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+20:41:05,202 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5f516886] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1437803877@qtp-1676556748-160]
+20:51:35,310 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@48c359ed] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1437803877@qtp-1676556748-160]
+20:51:35,310 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+20:51:35,310 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:51:35,311 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@48c359ed] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1437803877@qtp-1676556748-160]
+20:51:35,343 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+20:51:35,346 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+20:51:35,346 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@48c359ed] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1437803877@qtp-1676556748-160]
+21:02:05,455 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@69283109] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1437803877@qtp-1676556748-160]
+21:02:05,455 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+21:02:05,455 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:02:05,456 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@69283109] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1437803877@qtp-1676556748-160]
+21:02:05,486 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:02:05,488 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+21:02:05,489 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@69283109] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1437803877@qtp-1676556748-160]
+21:12:35,608 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3cb571fb] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [993151590@qtp-1676556748-175]
+21:12:35,609 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+21:12:35,609 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:12:35,610 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3cb571fb] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [993151590@qtp-1676556748-175]
+21:12:35,647 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:12:35,650 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+21:12:35,651 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3cb571fb] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [993151590@qtp-1676556748-175]
+21:23:05,765 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5e055f74] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [702847478@qtp-1676556748-178]
+21:23:05,765 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+21:23:05,765 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:23:05,766 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5e055f74] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [702847478@qtp-1676556748-178]
+21:23:05,791 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:23:05,793 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+21:23:05,794 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5e055f74] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [702847478@qtp-1676556748-178]
+21:33:35,866 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5f25823b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [282537903@qtp-1676556748-184]
+21:33:35,866 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+21:33:35,866 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:33:35,867 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5f25823b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [282537903@qtp-1676556748-184]
+21:33:35,884 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:33:35,885 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+21:33:35,886 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5f25823b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [282537903@qtp-1676556748-184]
+21:44:05,992 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7b5abf90] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [465655997@qtp-1676556748-188]
+21:44:05,993 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+21:44:05,993 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:44:05,993 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7b5abf90] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [465655997@qtp-1676556748-188]
+21:44:06,012 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:44:06,013 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+21:44:06,013 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7b5abf90] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [465655997@qtp-1676556748-188]
+21:54:36,118 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@33160dd0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [130872984@qtp-1676556748-191]
+21:54:36,118 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+21:54:36,118 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:54:36,119 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@33160dd0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [130872984@qtp-1676556748-191]
+21:54:36,135 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+21:54:36,137 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+21:54:36,137 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@33160dd0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [130872984@qtp-1676556748-191]
+22:05:06,235 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6a3ef5d0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1415395224@qtp-1676556748-195]
+22:05:06,235 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+22:05:06,235 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:05:06,236 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6a3ef5d0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1415395224@qtp-1676556748-195]
+22:05:06,254 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:05:06,255 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+22:05:06,255 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6a3ef5d0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1415395224@qtp-1676556748-195]
+22:15:36,356 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@187797d9] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [21929025@qtp-1676556748-200]
+22:15:36,357 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+22:15:36,357 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:15:36,358 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@187797d9] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [21929025@qtp-1676556748-200]
+22:15:36,375 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:15:36,377 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+22:15:36,377 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@187797d9] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [21929025@qtp-1676556748-200]
+22:26:06,472 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@8df2c5e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1642915541@qtp-1676556748-204]
+22:26:06,472 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+22:26:06,473 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:26:06,473 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@8df2c5e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1642915541@qtp-1676556748-204]
+22:26:06,492 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:26:06,493 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+22:26:06,493 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@8df2c5e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1642915541@qtp-1676556748-204]
+22:36:36,597 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@19d5723] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1014312936@qtp-1676556748-209]
+22:36:36,597 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+22:36:36,598 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:36:36,598 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@19d5723] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1014312936@qtp-1676556748-209]
+22:36:36,617 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:36:36,618 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+22:36:36,618 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@19d5723] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1014312936@qtp-1676556748-209]
+22:47:06,712 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@212d0d4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [587440720@qtp-1676556748-213]
+22:47:06,713 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+22:47:06,713 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:47:06,713 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@212d0d4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [587440720@qtp-1676556748-213]
+22:47:06,730 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:47:06,732 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+22:47:06,732 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@212d0d4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [587440720@qtp-1676556748-213]
+22:57:36,847 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@366f5f43] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [346386948@qtp-1676556748-218]
+22:57:36,847 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+22:57:36,847 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:57:36,848 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@366f5f43] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [346386948@qtp-1676556748-218]
+22:57:36,875 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+22:57:36,878 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+22:57:36,878 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@366f5f43] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [346386948@qtp-1676556748-218]
+23:08:06,975 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3eeb3633] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1348542370@qtp-1676556748-223]
+23:08:06,975 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+23:08:06,975 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:08:06,976 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3eeb3633] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1348542370@qtp-1676556748-223]
+23:08:06,996 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:08:06,997 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+23:08:06,998 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3eeb3633] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1348542370@qtp-1676556748-223]
+23:18:37,100 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@1177349] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2146088972@qtp-1676556748-227]
+23:18:37,100 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+23:18:37,100 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:18:37,101 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1177349] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2146088972@qtp-1676556748-227]
+23:18:37,119 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:18:37,120 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+23:18:37,120 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@1177349] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2146088972@qtp-1676556748-227]
+23:29:07,229 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@4f9435c2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1545887706@qtp-1676556748-230]
+23:29:07,230 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+23:29:07,230 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:29:07,231 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@4f9435c2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1545887706@qtp-1676556748-230]
+23:29:07,268 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:29:07,270 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+23:29:07,270 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@4f9435c2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1545887706@qtp-1676556748-230]
+23:39:37,410 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@4f82ff8d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1378551749@qtp-1676556748-236]
+23:39:37,411 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+23:39:37,411 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:39:37,412 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@4f82ff8d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1378551749@qtp-1676556748-236]
+23:39:37,444 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:39:37,445 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+23:39:37,445 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@4f82ff8d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1378551749@qtp-1676556748-236]
+23:50:07,575 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@28a148cd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1830963755@qtp-1676556748-243]
+23:50:07,575 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+23:50:07,575 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:50:07,576 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@28a148cd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1830963755@qtp-1676556748-243]
+23:50:07,593 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+23:50:07,594 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+23:50:07,595 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@28a148cd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1830963755@qtp-1676556748-243]
+00:00:37,716 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7b5ec6dd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1830963755@qtp-1676556748-243]
+00:00:37,716 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+00:00:37,716 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:00:37,717 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7b5ec6dd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1830963755@qtp-1676556748-243]
+00:00:37,735 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:00:37,736 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+00:00:37,737 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7b5ec6dd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1830963755@qtp-1676556748-243]
+00:11:07,835 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@24d07ab0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1549163093@qtp-1676556748-250]
+00:11:07,836 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+00:11:07,836 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:11:07,836 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@24d07ab0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1549163093@qtp-1676556748-250]
+00:11:07,854 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:11:07,855 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+00:11:07,856 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@24d07ab0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1549163093@qtp-1676556748-250]
+00:21:37,972 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3310abb2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1549163093@qtp-1676556748-250]
+00:21:37,973 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+00:21:37,973 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:21:37,973 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3310abb2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1549163093@qtp-1676556748-250]
+00:21:37,992 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:21:37,993 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+00:21:37,993 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3310abb2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1549163093@qtp-1676556748-250]
+00:32:08,105 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@17505797] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [263915920@qtp-1676556748-257]
+00:32:08,106 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+00:32:08,106 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:32:08,106 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@17505797] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [263915920@qtp-1676556748-257]
+00:32:08,125 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:32:08,126 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+00:32:08,127 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@17505797] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [263915920@qtp-1676556748-257]
+00:42:38,244 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@1f178618] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [303122721@qtp-1676556748-262]
+00:42:38,245 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+00:42:38,245 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:42:38,246 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1f178618] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [303122721@qtp-1676556748-262]
+00:42:38,265 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:42:38,266 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+00:42:38,266 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@1f178618] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [303122721@qtp-1676556748-262]
+00:53:08,374 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5d43a4e9] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [915523396@qtp-1676556748-268]
+00:53:08,374 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+00:53:08,374 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:53:08,375 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5d43a4e9] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [915523396@qtp-1676556748-268]
+00:53:08,393 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+00:53:08,394 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+00:53:08,395 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5d43a4e9] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [915523396@qtp-1676556748-268]
+01:03:38,500 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@58930831] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [953207077@qtp-1676556748-269]
+01:03:38,501 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+01:03:38,501 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:03:38,501 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@58930831] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [953207077@qtp-1676556748-269]
+01:03:38,522 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:03:38,523 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+01:03:38,523 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@58930831] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [953207077@qtp-1676556748-269]
+01:14:08,633 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5a454c02] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [803748918@qtp-1676556748-274]
+01:14:08,634 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+01:14:08,634 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:14:08,634 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5a454c02] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [803748918@qtp-1676556748-274]
+01:14:08,652 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:14:08,653 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+01:14:08,653 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5a454c02] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [803748918@qtp-1676556748-274]
+01:24:38,765 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@f2be640] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [250327317@qtp-1676556748-278]
+01:24:38,766 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+01:24:38,766 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:24:38,767 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@f2be640] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [250327317@qtp-1676556748-278]
+01:24:38,793 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:24:38,795 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+01:24:38,795 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@f2be640] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [250327317@qtp-1676556748-278]
+01:35:08,931 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@488f1f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1037817752@qtp-1676556748-282]
+01:35:08,932 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+01:35:08,933 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:35:08,934 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@488f1f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1037817752@qtp-1676556748-282]
+01:35:08,968 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:35:08,969 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+01:35:08,969 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@488f1f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1037817752@qtp-1676556748-282]
+01:45:39,077 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5b5caf] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [870723925@qtp-1676556748-286]
+01:45:39,078 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+01:45:39,078 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:45:39,078 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5b5caf] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [870723925@qtp-1676556748-286]
+01:45:39,096 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:45:39,097 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+01:45:39,097 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5b5caf] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [870723925@qtp-1676556748-286]
+01:56:09,222 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@43fa2906] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1048189353@qtp-1676556748-289]
+01:56:09,222 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+01:56:09,223 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:56:09,224 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@43fa2906] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1048189353@qtp-1676556748-289]
+01:56:09,240 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+01:56:09,242 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+01:56:09,242 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@43fa2906] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1048189353@qtp-1676556748-289]
+02:06:39,360 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@15f502e3] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1190092482@qtp-1676556748-294]
+02:06:39,361 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+02:06:39,362 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:06:39,363 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@15f502e3] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1190092482@qtp-1676556748-294]
+02:06:39,400 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:06:39,403 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+02:06:39,403 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@15f502e3] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1190092482@qtp-1676556748-294]
+02:17:09,521 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@77e4898] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1190092482@qtp-1676556748-294]
+02:17:09,522 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+02:17:09,522 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:17:09,522 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@77e4898] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1190092482@qtp-1676556748-294]
+02:17:09,550 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:17:09,552 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+02:17:09,553 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@77e4898] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1190092482@qtp-1676556748-294]
+02:27:39,690 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@2aa2e914] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1556848488@qtp-1676556748-303]
+02:27:39,691 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+02:27:39,691 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:27:39,692 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@2aa2e914] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1556848488@qtp-1676556748-303]
+02:27:39,725 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:27:39,728 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+02:27:39,729 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@2aa2e914] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1556848488@qtp-1676556748-303]
+02:38:09,855 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@303163f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1842169386@qtp-1676556748-307]
+02:38:09,856 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+02:38:09,856 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:38:09,856 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@303163f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1842169386@qtp-1676556748-307]
+02:38:09,883 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:38:09,886 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+02:38:09,887 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@303163f5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1842169386@qtp-1676556748-307]
+02:48:40,000 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@51e250e2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1842169386@qtp-1676556748-307]
+02:48:40,001 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+02:48:40,001 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:48:40,002 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@51e250e2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1842169386@qtp-1676556748-307]
+02:48:40,037 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:48:40,040 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+02:48:40,041 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@51e250e2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1842169386@qtp-1676556748-307]
+02:59:10,142 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@39b95d2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1842169386@qtp-1676556748-307]
+02:59:10,142 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+02:59:10,142 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:59:10,143 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@39b95d2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1842169386@qtp-1676556748-307]
+02:59:10,171 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+02:59:10,174 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+02:59:10,174 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@39b95d2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1842169386@qtp-1676556748-307]
+03:09:40,311 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@31dbd216] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1554349230@qtp-1676556748-318]
+03:09:40,312 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+03:09:40,312 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:09:40,313 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@31dbd216] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1554349230@qtp-1676556748-318]
+03:09:40,349 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:09:40,352 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+03:09:40,353 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@31dbd216] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1554349230@qtp-1676556748-318]
+03:20:10,480 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@70eb3cf4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1207062125@qtp-1676556748-322]
+03:20:10,481 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+03:20:10,481 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:20:10,482 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@70eb3cf4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1207062125@qtp-1676556748-322]
+03:20:10,518 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:20:10,520 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+03:20:10,521 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@70eb3cf4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1207062125@qtp-1676556748-322]
+03:30:40,638 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@14ee0c1d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1013369862@qtp-1676556748-326]
+03:30:40,638 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+03:30:40,639 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:30:40,639 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@14ee0c1d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1013369862@qtp-1676556748-326]
+03:30:40,667 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:30:40,669 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+03:30:40,670 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@14ee0c1d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1013369862@qtp-1676556748-326]
+03:41:10,812 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@34b90e29] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [933717644@qtp-1676556748-332]
+03:41:10,813 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+03:41:10,813 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:41:10,814 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@34b90e29] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [933717644@qtp-1676556748-332]
+03:41:10,849 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:41:10,852 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+03:41:10,853 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@34b90e29] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [933717644@qtp-1676556748-332]
+03:51:40,977 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3d8bb21a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [933717644@qtp-1676556748-332]
+03:51:40,978 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+03:51:40,978 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:51:40,979 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3d8bb21a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [933717644@qtp-1676556748-332]
+03:51:41,008 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+03:51:41,011 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+03:51:41,011 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3d8bb21a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [933717644@qtp-1676556748-332]
+04:02:11,170 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5974b6e6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [889141977@qtp-1676556748-340]
+04:02:11,171 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+04:02:11,171 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:02:11,172 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5974b6e6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [889141977@qtp-1676556748-340]
+04:02:11,197 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:02:11,199 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+04:02:11,200 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5974b6e6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [889141977@qtp-1676556748-340]
+04:12:41,326 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7c3d1e2a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [890434902@qtp-1676556748-343]
+04:12:41,327 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+04:12:41,327 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:12:41,328 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7c3d1e2a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [890434902@qtp-1676556748-343]
+04:12:41,356 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:12:41,357 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+04:12:41,358 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7c3d1e2a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [890434902@qtp-1676556748-343]
+04:23:11,512 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@2bbaee] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1833142963@qtp-1676556748-346]
+04:23:11,513 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+04:23:11,513 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:23:11,514 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@2bbaee] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1833142963@qtp-1676556748-346]
+04:23:11,558 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:23:11,559 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+04:23:11,560 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@2bbaee] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1833142963@qtp-1676556748-346]
+04:33:41,681 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6d3b41c5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [661443001@qtp-1676556748-350]
+04:33:41,682 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+04:33:41,683 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:33:41,684 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6d3b41c5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [661443001@qtp-1676556748-350]
+04:33:41,718 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:33:41,721 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+04:33:41,722 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6d3b41c5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [661443001@qtp-1676556748-350]
+04:44:11,869 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@64e82aba] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [396656869@qtp-1676556748-355]
+04:44:11,870 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+04:44:11,870 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:44:11,871 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@64e82aba] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [396656869@qtp-1676556748-355]
+04:44:11,904 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:44:11,907 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+04:44:11,907 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@64e82aba] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [396656869@qtp-1676556748-355]
+04:54:42,031 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7755c27a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1281516017@qtp-1676556748-358]
+04:54:42,031 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+04:54:42,032 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:54:42,033 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7755c27a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1281516017@qtp-1676556748-358]
+04:54:42,068 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+04:54:42,071 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+04:54:42,071 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7755c27a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1281516017@qtp-1676556748-358]
+05:05:12,228 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7b3ecf3e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [143824431@qtp-1676556748-363]
+05:05:12,229 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+05:05:12,229 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:05:12,229 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7b3ecf3e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [143824431@qtp-1676556748-363]
+05:05:12,258 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:05:12,261 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+05:05:12,262 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7b3ecf3e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [143824431@qtp-1676556748-363]
+05:15:42,401 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@53cf557f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [195157376@qtp-1676556748-370]
+05:15:42,401 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+05:15:42,402 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:15:42,403 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@53cf557f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [195157376@qtp-1676556748-370]
+05:15:42,439 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:15:42,441 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+05:15:42,442 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@53cf557f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [195157376@qtp-1676556748-370]
+05:26:12,589 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3c89f97c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1387791288@qtp-1676556748-372]
+05:26:12,589 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+05:26:12,590 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:26:12,590 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3c89f97c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1387791288@qtp-1676556748-372]
+05:26:12,617 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:26:12,619 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+05:26:12,620 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3c89f97c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1387791288@qtp-1676556748-372]
+05:36:42,762 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3d7b9a78] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2125139772@qtp-1676556748-376]
+05:36:42,763 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+05:36:42,763 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:36:42,764 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3d7b9a78] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2125139772@qtp-1676556748-376]
+05:36:42,798 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:36:42,801 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+05:36:42,802 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3d7b9a78] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2125139772@qtp-1676556748-376]
+05:47:12,906 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@2f92fb7a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1779827065@qtp-1676556748-381]
+05:47:12,906 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+05:47:12,907 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:47:12,908 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@2f92fb7a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1779827065@qtp-1676556748-381]
+05:47:12,941 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:47:12,944 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+05:47:12,944 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@2f92fb7a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1779827065@qtp-1676556748-381]
+05:57:43,062 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@125d848e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1632039088@qtp-1676556748-387]
+05:57:43,063 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+05:57:43,063 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:57:43,064 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@125d848e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1632039088@qtp-1676556748-387]
+05:57:43,089 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+05:57:43,092 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+05:57:43,092 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@125d848e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1632039088@qtp-1676556748-387]
+06:08:13,236 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@782cbbfa] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1704518295@qtp-1676556748-390]
+06:08:13,236 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+06:08:13,236 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:08:13,237 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@782cbbfa] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1704518295@qtp-1676556748-390]
+06:08:13,262 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:08:13,265 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+06:08:13,265 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@782cbbfa] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1704518295@qtp-1676556748-390]
+06:18:43,393 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@587f7ac0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1704518295@qtp-1676556748-390]
+06:18:43,393 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+06:18:43,394 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:18:43,395 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@587f7ac0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1704518295@qtp-1676556748-390]
+06:18:43,420 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:18:43,423 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+06:18:43,423 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@587f7ac0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1704518295@qtp-1676556748-390]
+06:29:13,564 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@25d4b7fb] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [192015692@qtp-1676556748-399]
+06:29:13,564 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+06:29:13,565 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:29:13,566 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@25d4b7fb] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [192015692@qtp-1676556748-399]
+06:29:13,601 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:29:13,603 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+06:29:13,604 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@25d4b7fb] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [192015692@qtp-1676556748-399]
+06:39:43,705 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@19ffbb6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [192015692@qtp-1676556748-399]
+06:39:43,706 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+06:39:43,706 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:39:43,707 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@19ffbb6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [192015692@qtp-1676556748-399]
+06:39:43,733 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:39:43,736 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+06:39:43,737 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@19ffbb6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [192015692@qtp-1676556748-399]
+06:50:13,875 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@117af399] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [796803954@qtp-1676556748-408]
+06:50:13,875 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+06:50:13,876 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:50:13,876 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@117af399] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [796803954@qtp-1676556748-408]
+06:50:13,904 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+06:50:13,907 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+06:50:13,908 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@117af399] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [796803954@qtp-1676556748-408]
+07:00:44,032 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@23fe0168] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1450955513@qtp-1676556748-412]
+07:00:44,033 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+07:00:44,033 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:00:44,034 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@23fe0168] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1450955513@qtp-1676556748-412]
+07:00:44,067 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:00:44,070 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+07:00:44,070 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@23fe0168] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1450955513@qtp-1676556748-412]
+07:11:14,198 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7db1f51c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [153837709@qtp-1676556748-416]
+07:11:14,198 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+07:11:14,199 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:11:14,200 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7db1f51c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [153837709@qtp-1676556748-416]
+07:11:14,235 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:11:14,237 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+07:11:14,238 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7db1f51c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [153837709@qtp-1676556748-416]
+07:21:44,351 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@36e48597] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [452260466@qtp-1676556748-421]
+07:21:44,352 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+07:21:44,352 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:21:44,353 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@36e48597] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [452260466@qtp-1676556748-421]
+07:21:44,389 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:21:44,392 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+07:21:44,392 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@36e48597] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [452260466@qtp-1676556748-421]
+07:32:14,525 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@45022aea] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [151642519@qtp-1676556748-424]
+07:32:14,526 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+07:32:14,526 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:32:14,527 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@45022aea] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [151642519@qtp-1676556748-424]
+07:32:14,563 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:32:14,565 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+07:32:14,566 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@45022aea] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [151642519@qtp-1676556748-424]
+07:42:44,692 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@58b97fbd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1878978661@qtp-1676556748-427]
+07:42:44,693 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+07:42:44,693 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:42:44,694 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@58b97fbd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1878978661@qtp-1676556748-427]
+07:42:44,728 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:42:44,731 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+07:42:44,731 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@58b97fbd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1878978661@qtp-1676556748-427]
+07:53:14,868 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7bad520] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [138306972@qtp-1676556748-434]
+07:53:14,869 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+07:53:14,869 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:53:14,870 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7bad520] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [138306972@qtp-1676556748-434]
+07:53:14,903 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+07:53:14,905 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+07:53:14,906 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7bad520] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [138306972@qtp-1676556748-434]
+08:03:45,041 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@36b4be30] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [138306972@qtp-1676556748-434]
+08:03:45,041 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+08:03:45,041 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:03:45,042 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@36b4be30] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [138306972@qtp-1676556748-434]
+08:03:45,068 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:03:45,070 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+08:03:45,071 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@36b4be30] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [138306972@qtp-1676556748-434]
+08:14:15,171 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6614d352] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [138306972@qtp-1676556748-434]
+08:14:15,172 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+08:14:15,172 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:14:15,172 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6614d352] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [138306972@qtp-1676556748-434]
+08:14:15,200 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:14:15,203 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+08:14:15,203 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6614d352] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [138306972@qtp-1676556748-434]
+08:24:45,329 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@14b20ff5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1752176922@qtp-1676556748-446]
+08:24:45,330 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+08:24:45,330 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:24:45,331 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@14b20ff5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1752176922@qtp-1676556748-446]
+08:24:45,356 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:24:45,357 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+08:24:45,358 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@14b20ff5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1752176922@qtp-1676556748-446]
+08:35:15,483 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7d296660] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1798404325@qtp-1676556748-450]
+08:35:15,483 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+08:35:15,484 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:35:15,484 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7d296660] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1798404325@qtp-1676556748-450]
+08:35:15,502 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:35:15,503 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+08:35:15,503 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7d296660] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1798404325@qtp-1676556748-450]
+08:45:45,629 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@604b2b52] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1798404325@qtp-1676556748-450]
+08:45:45,629 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+08:45:45,629 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:45:45,630 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@604b2b52] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1798404325@qtp-1676556748-450]
+08:45:45,662 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:45:45,664 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+08:45:45,665 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@604b2b52] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1798404325@qtp-1676556748-450]
+08:56:15,781 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@98c442e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1402428014@qtp-1676556748-460]
+08:56:15,781 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+08:56:15,782 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:56:15,783 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@98c442e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1402428014@qtp-1676556748-460]
+08:56:15,813 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+08:56:15,816 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+08:56:15,816 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@98c442e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1402428014@qtp-1676556748-460]
+09:06:45,947 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3628d06d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1402428014@qtp-1676556748-460]
+09:06:45,948 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+09:06:45,948 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:06:45,949 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3628d06d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1402428014@qtp-1676556748-460]
+09:06:45,985 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:06:45,988 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+09:06:45,988 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3628d06d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1402428014@qtp-1676556748-460]
+09:17:16,130 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@68514fec] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1402428014@qtp-1676556748-460]
+09:17:16,130 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+09:17:16,130 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:17:16,131 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@68514fec] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1402428014@qtp-1676556748-460]
+09:17:16,164 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:17:16,166 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+09:17:16,166 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@68514fec] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1402428014@qtp-1676556748-460]
+09:27:46,308 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@11788dec] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [949767987@qtp-1676556748-474]
+09:27:46,308 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+09:27:46,309 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:27:46,310 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@11788dec] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [949767987@qtp-1676556748-474]
+09:27:46,344 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:27:46,346 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+09:27:46,347 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@11788dec] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [949767987@qtp-1676556748-474]
+09:38:16,470 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3a746155] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1287459562@qtp-1676556748-475]
+09:38:16,471 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+09:38:16,471 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:38:16,472 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3a746155] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1287459562@qtp-1676556748-475]
+09:38:16,501 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:38:16,503 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+09:38:16,503 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3a746155] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1287459562@qtp-1676556748-475]
+09:48:46,618 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@283b17c6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [146248132@qtp-1676556748-480]
+09:48:46,618 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+09:48:46,619 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:48:46,620 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@283b17c6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [146248132@qtp-1676556748-480]
+09:48:46,654 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:48:46,656 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+09:48:46,657 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@283b17c6] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [146248132@qtp-1676556748-480]
+09:59:16,766 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7a0b20ae] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1432195013@qtp-1676556748-486]
+09:59:16,766 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+09:59:16,767 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:59:16,768 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7a0b20ae] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1432195013@qtp-1676556748-486]
+09:59:16,801 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+09:59:16,803 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+09:59:16,804 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7a0b20ae] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1432195013@qtp-1676556748-486]
+10:09:46,936 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@57fa1f1b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [694066731@qtp-1676556748-490]
+10:09:46,936 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+10:09:46,937 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:09:46,938 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@57fa1f1b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [694066731@qtp-1676556748-490]
+10:09:46,972 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:09:46,974 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+10:09:46,975 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@57fa1f1b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [694066731@qtp-1676556748-490]
+10:20:17,105 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@79da77ad] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [805020005@qtp-1676556748-494]
+10:20:17,105 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+10:20:17,105 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:20:17,106 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@79da77ad] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [805020005@qtp-1676556748-494]
+10:20:17,132 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:20:17,135 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+10:20:17,135 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@79da77ad] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [805020005@qtp-1676556748-494]
+10:30:47,260 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@2910f310] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [553533506@qtp-1676556748-500]
+10:30:47,260 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+10:30:47,261 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:30:47,262 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@2910f310] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [553533506@qtp-1676556748-500]
+10:30:47,295 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:30:47,298 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+10:30:47,298 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@2910f310] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [553533506@qtp-1676556748-500]
+10:41:17,430 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@26a50a0b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2006027439@qtp-1676556748-501]
+10:41:17,431 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+10:41:17,431 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:41:17,432 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@26a50a0b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2006027439@qtp-1676556748-501]
+10:41:17,474 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:41:17,477 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+10:41:17,478 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@26a50a0b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2006027439@qtp-1676556748-501]
+10:51:47,592 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@79ad6cc1] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1647869091@qtp-1676556748-507]
+10:51:47,593 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+10:51:47,593 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:51:47,594 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@79ad6cc1] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1647869091@qtp-1676556748-507]
+10:51:47,627 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+10:51:47,629 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+10:51:47,630 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@79ad6cc1] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1647869091@qtp-1676556748-507]
+11:02:17,765 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6e70506d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [742277621@qtp-1676556748-509]
+11:02:17,765 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+11:02:17,765 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:02:17,766 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6e70506d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [742277621@qtp-1676556748-509]
+11:02:17,789 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:02:17,792 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+11:02:17,792 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6e70506d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [742277621@qtp-1676556748-509]
+11:12:47,909 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@1ded8dc5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1584432053@qtp-1676556748-513]
+11:12:47,909 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+11:12:47,910 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:12:47,911 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1ded8dc5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1584432053@qtp-1676556748-513]
+11:12:47,945 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:12:47,947 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+11:12:47,948 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@1ded8dc5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1584432053@qtp-1676556748-513]
+11:23:18,087 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@effe4e8] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1809468840@qtp-1676556748-517]
+11:23:18,087 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+11:23:18,088 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:23:18,089 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@effe4e8] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1809468840@qtp-1676556748-517]
+11:23:18,123 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:23:18,126 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+11:23:18,126 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@effe4e8] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1809468840@qtp-1676556748-517]
+11:33:48,246 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@1ca9cb6d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [134717147@qtp-1676556748-521]
+11:33:48,246 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+11:33:48,247 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:33:48,248 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1ca9cb6d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [134717147@qtp-1676556748-521]
+11:33:48,280 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:33:48,283 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+11:33:48,283 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@1ca9cb6d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [134717147@qtp-1676556748-521]
+11:44:18,413 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@45019b90] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [494254293@qtp-1676556748-526]
+11:44:18,414 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+11:44:18,414 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:44:18,415 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@45019b90] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [494254293@qtp-1676556748-526]
+11:44:18,435 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:44:18,436 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+11:44:18,436 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@45019b90] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [494254293@qtp-1676556748-526]
+11:54:48,567 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@393a9a18] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1625319483@qtp-1676556748-530]
+11:54:48,568 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+11:54:48,568 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:54:48,569 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@393a9a18] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1625319483@qtp-1676556748-530]
+11:54:48,604 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+11:54:48,607 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+11:54:48,607 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@393a9a18] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1625319483@qtp-1676556748-530]
+12:05:18,731 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6c08ae6f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [434667667@qtp-1676556748-538]
+12:05:18,731 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+12:05:18,732 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:05:18,733 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6c08ae6f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [434667667@qtp-1676556748-538]
+12:05:18,767 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:05:18,769 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+12:05:18,770 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6c08ae6f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [434667667@qtp-1676556748-538]
+12:15:48,902 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@1ff27f11] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [931442513@qtp-1676556748-541]
+12:15:48,902 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+12:15:48,902 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:15:48,903 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1ff27f11] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [931442513@qtp-1676556748-541]
+12:15:48,931 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:15:48,933 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+12:15:48,933 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@1ff27f11] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [931442513@qtp-1676556748-541]
+12:26:19,036 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6415f8f1] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [869902775@qtp-1676556748-545]
+12:26:19,036 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+12:26:19,036 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:26:19,037 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6415f8f1] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [869902775@qtp-1676556748-545]
+12:26:19,059 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:26:19,062 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+12:26:19,062 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6415f8f1] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [869902775@qtp-1676556748-545]
+12:36:49,187 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@4cb4dff] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1568043831@qtp-1676556748-552]
+12:36:49,187 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+12:36:49,188 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:36:49,189 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@4cb4dff] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1568043831@qtp-1676556748-552]
+12:36:49,222 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:36:49,225 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+12:36:49,226 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@4cb4dff] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1568043831@qtp-1676556748-552]
+12:47:19,347 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@565da00b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1017235219@qtp-1676556748-554]
+12:47:19,348 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+12:47:19,348 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:47:19,349 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@565da00b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1017235219@qtp-1676556748-554]
+12:47:19,380 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:47:19,383 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+12:47:19,383 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@565da00b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1017235219@qtp-1676556748-554]
+12:57:49,505 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3c95de7a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1405939001@qtp-1676556748-558]
+12:57:49,506 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+12:57:49,506 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:57:49,506 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3c95de7a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1405939001@qtp-1676556748-558]
+12:57:49,536 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+12:57:49,539 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+12:57:49,540 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3c95de7a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1405939001@qtp-1676556748-558]
+13:08:19,660 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6331dfe5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [538032215@qtp-1676556748-563]
+13:08:19,661 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+13:08:19,661 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:08:19,662 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6331dfe5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [538032215@qtp-1676556748-563]
+13:08:19,696 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:08:19,699 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+13:08:19,699 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6331dfe5] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [538032215@qtp-1676556748-563]
+13:18:49,836 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@4ae7cb91] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1856643818@qtp-1676556748-567]
+13:18:49,837 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+13:18:49,837 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:18:49,838 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@4ae7cb91] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1856643818@qtp-1676556748-567]
+13:18:49,876 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:18:49,878 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+13:18:49,879 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@4ae7cb91] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1856643818@qtp-1676556748-567]
+13:29:20,028 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6363756a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [212198249@qtp-1676556748-573]
+13:29:20,029 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+13:29:20,030 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:29:20,031 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6363756a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [212198249@qtp-1676556748-573]
+13:29:20,068 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:29:20,071 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+13:29:20,072 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6363756a] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [212198249@qtp-1676556748-573]
+13:39:50,223 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@14196455] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1307861999@qtp-1676556748-576]
+13:39:50,223 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+13:39:50,223 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:39:50,224 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@14196455] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1307861999@qtp-1676556748-576]
+13:39:50,256 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:39:50,259 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+13:39:50,259 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@14196455] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1307861999@qtp-1676556748-576]
+13:50:20,393 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@2a5d1d5f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1307861999@qtp-1676556748-576]
+13:50:20,393 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+13:50:20,393 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:50:20,395 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@2a5d1d5f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1307861999@qtp-1676556748-576]
+13:50:20,428 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+13:50:20,431 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+13:50:20,432 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@2a5d1d5f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1307861999@qtp-1676556748-576]
+14:00:50,560 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@c19de7] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1343060990@qtp-1676556748-584]
+14:00:50,561 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+14:00:50,561 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:00:50,561 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@c19de7] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1343060990@qtp-1676556748-584]
+14:00:50,589 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:00:50,592 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+14:00:50,592 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@c19de7] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1343060990@qtp-1676556748-584]
+14:11:20,730 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@cbd2e9d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [495882469@qtp-1676556748-592]
+14:11:20,731 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+14:11:20,731 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:11:20,731 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@cbd2e9d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [495882469@qtp-1676556748-592]
+14:11:20,762 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:11:20,764 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+14:11:20,765 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@cbd2e9d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [495882469@qtp-1676556748-592]
+14:21:50,908 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@2ca4fb19] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1109961707@qtp-1676556748-595]
+14:21:50,908 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+14:21:50,909 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:21:50,909 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@2ca4fb19] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1109961707@qtp-1676556748-595]
+14:21:50,946 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:21:50,948 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+14:21:50,949 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@2ca4fb19] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1109961707@qtp-1676556748-595]
+14:32:21,101 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6b8cb405] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1371217888@qtp-1676556748-601]
+14:32:21,102 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+14:32:21,102 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:32:21,103 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6b8cb405] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1371217888@qtp-1676556748-601]
+14:32:21,140 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:32:21,143 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+14:32:21,143 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6b8cb405] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1371217888@qtp-1676556748-601]
+14:42:51,280 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@606c5ee2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1015296369@qtp-1676556748-605]
+14:42:51,281 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+14:42:51,281 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:42:51,282 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@606c5ee2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1015296369@qtp-1676556748-605]
+14:42:51,318 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:42:51,321 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+14:42:51,321 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@606c5ee2] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1015296369@qtp-1676556748-605]
+14:53:21,448 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5a9f43cd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1525183528@qtp-1676556748-608]
+14:53:21,448 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+14:53:21,449 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:53:21,449 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5a9f43cd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1525183528@qtp-1676556748-608]
+14:53:21,479 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+14:53:21,482 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+14:53:21,483 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5a9f43cd] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1525183528@qtp-1676556748-608]
+15:03:51,606 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@21687d88] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1847668238@qtp-1676556748-613]
+15:03:51,607 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:03:51,607 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:03:51,608 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@21687d88] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1847668238@qtp-1676556748-613]
+15:03:51,645 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:03:51,648 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:03:51,648 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@21687d88] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1847668238@qtp-1676556748-613]
+15:14:21,781 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@67e0f920] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [563004893@qtp-1676556748-616]
+15:14:21,781 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:14:21,782 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:14:21,782 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@67e0f920] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [563004893@qtp-1676556748-616]
+15:14:21,817 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:14:21,819 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:14:21,820 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@67e0f920] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [563004893@qtp-1676556748-616]
+15:24:51,941 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@55f148fe] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [662051766@qtp-1676556748-623]
+15:24:51,941 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:24:51,942 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:24:51,943 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@55f148fe] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [662051766@qtp-1676556748-623]
+15:24:51,979 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:24:51,982 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:24:51,983 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@55f148fe] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [662051766@qtp-1676556748-623]
+15:35:22,121 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@ede3a9c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [662051766@qtp-1676556748-623]
+15:35:22,122 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:35:22,122 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:35:22,122 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@ede3a9c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [662051766@qtp-1676556748-623]
+15:35:22,156 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:35:22,159 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:35:22,159 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@ede3a9c] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [662051766@qtp-1676556748-623]
+15:45:52,293 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7fb8ffc0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1302023249@qtp-1676556748-631]
+15:45:52,294 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:45:52,294 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:45:52,295 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7fb8ffc0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1302023249@qtp-1676556748-631]
+15:45:52,333 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:45:52,335 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:45:52,336 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7fb8ffc0] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1302023249@qtp-1676556748-631]
+15:56:22,446 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@5d81dade] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1555209932@qtp-1676556748-636]
+15:56:22,446 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+15:56:22,447 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:56:22,448 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@5d81dade] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1555209932@qtp-1676556748-636]
+15:56:22,486 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+15:56:22,489 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+15:56:22,490 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@5d81dade] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1555209932@qtp-1676556748-636]
+16:06:52,639 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6cb2002e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1951356955@qtp-1676556748-643]
+16:06:52,639 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+16:06:52,640 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:06:52,641 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6cb2002e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1951356955@qtp-1676556748-643]
+16:06:52,679 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:06:52,681 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+16:06:52,682 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6cb2002e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1951356955@qtp-1676556748-643]
+16:17:22,815 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@4af33473] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [964562151@qtp-1676556748-645]
+16:17:22,816 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+16:17:22,816 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:17:22,817 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@4af33473] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [964562151@qtp-1676556748-645]
+16:17:22,850 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:17:22,851 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+16:17:22,851 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@4af33473] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [964562151@qtp-1676556748-645]
+16:27:52,958 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@71defcd8] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [299285164@qtp-1676556748-648]
+16:27:52,959 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+16:27:52,959 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:27:52,960 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@71defcd8] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [299285164@qtp-1676556748-648]
+16:27:52,980 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:27:52,982 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+16:27:52,982 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@71defcd8] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [299285164@qtp-1676556748-648]
+16:38:23,085 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@168c8560] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [299285164@qtp-1676556748-648]
+16:38:23,086 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+16:38:23,086 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:38:23,087 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@168c8560] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [299285164@qtp-1676556748-648]
+16:38:23,124 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:38:23,127 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+16:38:23,127 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@168c8560] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [299285164@qtp-1676556748-648]
+16:48:53,262 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@598cfd1f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1447540715@qtp-1676556748-658]
+16:48:53,263 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+16:48:53,263 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:48:53,264 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@598cfd1f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1447540715@qtp-1676556748-658]
+16:48:53,293 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:48:53,295 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+16:48:53,296 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@598cfd1f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1447540715@qtp-1676556748-658]
+16:59:23,417 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@10388836] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [833745538@qtp-1676556748-663]
+16:59:23,418 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+16:59:23,419 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:59:23,420 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@10388836] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [833745538@qtp-1676556748-663]
+16:59:23,456 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+16:59:23,459 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+16:59:23,460 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@10388836] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [833745538@qtp-1676556748-663]
+17:09:53,604 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@37f6fd9f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2082048045@qtp-1676556748-668]
+17:09:53,605 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:09:53,605 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:09:53,606 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@37f6fd9f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2082048045@qtp-1676556748-668]
+17:09:53,639 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:09:53,641 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:09:53,642 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@37f6fd9f] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2082048045@qtp-1676556748-668]
+17:20:23,774 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@56ce34bf] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [23495555@qtp-1676556748-671]
+17:20:23,774 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:20:23,775 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:20:23,776 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@56ce34bf] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [23495555@qtp-1676556748-671]
+17:20:23,813 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:20:23,816 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:20:23,816 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@56ce34bf] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [23495555@qtp-1676556748-671]
+17:30:53,980 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@22257f97] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [896665437@qtp-1676556748-676]
+17:30:53,981 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:30:53,981 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:30:53,982 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@22257f97] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [896665437@qtp-1676556748-676]
+17:30:54,018 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:30:54,021 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:30:54,022 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@22257f97] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [896665437@qtp-1676556748-676]
+17:41:24,138 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@48789e78] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1930539412@qtp-1676556748-679]
+17:41:24,138 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:41:24,138 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:41:24,139 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@48789e78] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1930539412@qtp-1676556748-679]
+17:41:24,162 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:41:24,164 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:41:24,165 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@48789e78] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1930539412@qtp-1676556748-679]
+17:51:54,336 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3f596a8e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [2142479232@qtp-1676556748-685]
+17:51:54,336 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+17:51:54,337 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:51:54,338 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3f596a8e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [2142479232@qtp-1676556748-685]
+17:51:54,365 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+17:51:54,367 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+17:51:54,368 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3f596a8e] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [2142479232@qtp-1676556748-685]
+18:02:24,486 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@6afe37fa] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [131292523@qtp-1676556748-688]
+18:02:24,486 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:02:24,486 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:02:24,487 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@6afe37fa] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [131292523@qtp-1676556748-688]
+18:02:24,503 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:02:24,504 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:02:24,504 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@6afe37fa] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [131292523@qtp-1676556748-688]
+18:12:54,606 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@7cf44b4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1803216818@qtp-1676556748-692]
+18:12:54,606 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:12:54,606 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:12:54,607 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@7cf44b4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1803216818@qtp-1676556748-692]
+18:12:54,632 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:12:54,635 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:12:54,636 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@7cf44b4] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1803216818@qtp-1676556748-692]
+18:23:24,760 TRACE TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@3eb1d218] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] to thread [1130423427@qtp-1676556748-696]
+18:23:24,761 TRACE TransactionSynchronizationManager:272 - Initializing transaction synchronization
+18:23:24,761 TRACE AnnotationTransactionAspect:363 - Getting transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:23:24,761 TRACE TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@3eb1d218] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] bound to thread [1130423427@qtp-1676556748-696]
+18:23:24,789 TRACE AnnotationTransactionAspect:392 - Completing transaction for [com.pduda.tourney.domain.service.PersistentTourneyHandler.getTournament]
+18:23:24,792 TRACE TransactionSynchronizationManager:331 - Clearing transaction synchronization
+18:23:24,792 TRACE TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@3eb1d218] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@138c3ae8] from thread [1130423427@qtp-1676556748-696]

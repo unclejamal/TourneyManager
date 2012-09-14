@@ -59,29 +59,5 @@ public class CsvRankingReader {
         return "1".equals(nextLine[1]);
     }
 
-    private RankClass rankClass(String rankClass) {
-        if ("NOVICE".equals(rankClass)) {
-            return RankClass.NOVICE;
-        } else if ("AMATOR".equals(rankClass)) {
-            return RankClass.AMATOR;
-        } else if (("SEMIPRO".equals(rankClass)) || ("SEMI PRO".equals(rankClass)) || ("SEMI-PRO".equals(rankClass))) {
-            return RankClass.SEMIPRO;
-        } else if ("PRO".equals(rankClass)) {
-            return RankClass.PRO;
-        } else if ("MASTER".equals(rankClass)) {
-            return RankClass.MASTER;
-        }
-
-        return RankClass.NOTRANKED;
-    }
-
-    private Gender gender(String gender) {
-        if ("M".equals(gender)) {
-            return Gender.MALE;
-        } else if ("K".equals(gender)) {
-            return Gender.FEMALE;
-        }
-
-        return Gender.UNKNOWN;
-    }
+    
 }
