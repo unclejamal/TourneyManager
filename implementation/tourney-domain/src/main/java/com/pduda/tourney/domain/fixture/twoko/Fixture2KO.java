@@ -1,13 +1,13 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
-import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.Fixture;
 import com.pduda.tourney.domain.Game;
+import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.GameState;
-import com.pduda.tourney.domain.report.Standings;
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.report.FullGamesReport;
+import com.pduda.tourney.domain.report.Standings;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
@@ -39,15 +39,17 @@ public class Fixture2KO implements Fixture {
     @JoinColumn(name = "BRACKET_FIN2")
     private Bracket finalBracketTwo = new Bracket(FIN2, 1, 1);
     @Transient
-    private PotentialRivalDirections potentialRivalDirections = new PotentialRivalDirections();
+    private PotentialRivalDirections potentialRivalDirections;
     @Transient
-    private TeamAssigner teamAssigner = new PartiallySeededTeamAssigner();
+    private TeamAssigner teamAssigner;
     @Transient
-    private WinnerBracketFactory winnerBracketFactory = new WinnerBracketFactory();
+    private WinnerBracketFactory winnerBracketFactory;
     @Transient
-    private LoserBracketFactory loserBracketFactory = new LoserBracketFactory();
+    private LoserBracketFactory loserBracketFactory;
     @Transient
-    private GamesReportFactory gamesReportFactory = new Fixture2KOFullGamesReportFactory();
+    private GamesReportFactory gamesReportFactory;
+    @Transient
+    private StandingsCollector standingsCollector;
     @OneToOne(mappedBy = "fixture")
     private Tourney tourney;
 
@@ -60,10 +62,8 @@ public class Fixture2KO implements Fixture {
         processByes(winnerBracket);
     }
 
-    /**
-     * JPA only.
-     */
     public Fixture2KO() {
+        // JPA
         init();
     }
 
@@ -73,39 +73,12 @@ public class Fixture2KO implements Fixture {
         winnerBracketFactory = new WinnerBracketFactory();
         loserBracketFactory = new LoserBracketFactory();
         gamesReportFactory = new Fixture2KOFullGamesReportFactory();
+        standingsCollector = new StandingsCollector();
     }
 
     @Override
     public Standings getStandings() {
-        // TODO
-        Standings standings = new Standings();
-        if (finalBracketTwo.getGame().isInGameState(GameState.Finished)) {
-            standings.addPlace("1", finalBracketTwo.getGame().getWinner());
-            standings.addPlace("2", finalBracketTwo.getGame().getLoser());
-        } else if (finalBracketOne.getGame().isInGameState(GameState.Finished) && (!finalBracketTwo.getGame().isOccupied())) {
-            standings.addPlace("1", finalBracketOne.getGame().getWinner());
-            standings.addPlace("2", finalBracketOne.getGame().getLoser());
-        }
-
-        if (tourney.getTeams().size() < 3) {
-            return standings;
-        }
-
-        collectStandings(loserBracket, standings);
-
-        return standings;
-    }
-
-    private void collectStandings(Bracket bracket, Standings standings) {
-        if (bracket.getGame().getLoser() != null) {
-            standings.addPlace(bracket.getPlace(), bracket.getGame().getLoser());
-        }
-        if (bracket.getHomeBracket() != null) {
-            collectStandings(bracket.getHomeBracket(), standings);
-        }
-        if (bracket.getAwayBracket() != null) {
-            collectStandings(bracket.getAwayBracket(), standings);
-        }
+        return standingsCollector.getStandings(finalBracketTwo, finalBracketOne, loserBracket);
     }
 
     @Override
@@ -173,9 +146,9 @@ public class Fixture2KO implements Fixture {
         }
     }
 
-    private Team findTeam(long teamId) {
+    private Team findTeam(long teamCode) {
         for (Team team : tourney.getTeams()) {
-            if (team.getTeamCode() == teamId) {
+            if (team.getTeamCode() == teamCode) {
                 return team;
             }
         }
@@ -350,11 +323,8 @@ public class Fixture2KO implements Fixture {
         this.id = id;
     }
 
+    @Override
     public Tourney getTourney() {
         return tourney;
-    }
-
-    public void setTourney(Tourney tourney) {
-        this.tourney = tourney;
     }
 }

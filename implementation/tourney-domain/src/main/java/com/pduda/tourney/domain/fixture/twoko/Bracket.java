@@ -40,11 +40,9 @@ public class Bracket implements Serializable {
         this.game = new Game(prefix, round, match);
     }
 
-    /**
-     * Just for JPA.
-     */
+    @Deprecated
     public Bracket() {
-        // nothing to do
+        // JPA
     }
 
     public List<Game> findWaitingGames() {

@@ -47,8 +47,7 @@ public class Ranking implements Serializable {
         // JPA
     }
 
-    public void addPlayer(int rank, String code, String fullName, Gender gender, String city, String club, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
-        PlayerDescription playerDescription = new PlayerDescription(fullName, gender, city, club);
+    public void addPlayer(PlayerDescription playerDescription, int rank, String code, int points, int pointsAdded, int pointsDeleted, RankClass rankClass) {
         RankingPlayer player = new RankingPlayer(playerDescription, rank, code, points, pointsAdded, pointsDeleted, rankClass);
         players.add(player);
     }

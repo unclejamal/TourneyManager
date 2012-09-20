@@ -1,6 +1,7 @@
 package com.pduda.tourney.domain.ranking;
 
 import com.pduda.tourney.domain.Gender;
+import com.pduda.tourney.domain.PlayerDescription;
 import com.pduda.tourney.domain.RankClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -18,7 +19,7 @@ public class RankingTest {
     @Test
     public void addPlayer() {
 
-        cut.addPlayer(1,"WKPS44","Jakub Ziencikiewicz",Gender.MALE,"Łódź","WKPS",759,0,0,RankClass.MASTER);
+        cut.addPlayer(new PlayerDescription("Jakub Ziencikiewicz",Gender.MALE,"Łódź","WKPS"), 1,"WKPS44",759,0,0,RankClass.MASTER);
         
         assertTrue(1 == cut.getPlayersByPlace(1).get(0).getRank());
         assertEquals("WKPS44", cut.getPlayersByPlace(1).get(0).getCode());

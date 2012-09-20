@@ -20,11 +20,11 @@ public class InternetThenFilePzfsRankingReader implements PzfsRankingReader {
     @Override
     public PzfsRanking loadPzfsRanking() {
         List<PlayerDescription> playerDescriptions = new ArrayList<PlayerDescription>();
-        
-        Ranking openSingle = createRanking(reader.loadOs());
-        Ranking openDouble = createRanking(reader.loadOd());
-        Ranking womenSingle = createRanking(reader.loadWs());
-        Ranking womenDouble = createRanking(reader.loadWd());
+
+        Ranking openSingle = convertToRanking(reader.loadOs());
+        Ranking openDouble = convertToRanking(reader.loadOd());
+        Ranking womenSingle = convertToRanking(reader.loadWs());
+        Ranking womenDouble = convertToRanking(reader.loadWd());
 
         PzfsRanking pzfsRanking = new PzfsRanking(openSingle, openDouble, womenSingle, womenDouble);
 
@@ -35,8 +35,8 @@ public class InternetThenFilePzfsRankingReader implements PzfsRankingReader {
         this.reader = reader;
     }
 
-    private Ranking createRanking(List<RankingEntry> entries) {
-        Ranking openSingle = converter.convert(entries);
-        return openSingle;
+    private Ranking convertToRanking(List<RankingEntry> entries) {
+        Ranking ranking = converter.convert(entries);
+        return ranking;
     }
 }

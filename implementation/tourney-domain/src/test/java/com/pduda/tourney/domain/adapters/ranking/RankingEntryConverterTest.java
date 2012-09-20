@@ -31,9 +31,9 @@ public class RankingEntryConverterTest {
 
     @Test
     public void convertsToDomainClasses() {
-        
+
         List<RankingEntry> rankingEntries = MyUtils.asList(new RankingEntry(RANK, CODE, FULL_NAME, GENDER, CITY, CLUB, POINTS, POINTS_ADDED, POINTS_DELETED, RANK_CLASS));
-        
+
         Ranking ranking = cut.convert(rankingEntries);
 
         assertEquals(1, ranking.getPlayers().size());

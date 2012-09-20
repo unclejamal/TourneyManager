@@ -1,6 +1,7 @@
 package com.pduda.tourney.domain.adapters.ranking;
 
 import com.pduda.tourney.domain.Gender;
+import com.pduda.tourney.domain.PlayerDescription;
 import com.pduda.tourney.domain.RankClass;
 import com.pduda.tourney.domain.ranking.Ranking;
 import java.util.List;
@@ -11,7 +12,8 @@ public class RankingEntryConverter {
         Ranking ranking = new Ranking();
 
         for (RankingEntry i : rankingEntries) {
-            ranking.addPlayer(i.rank, i.code, i.fullName, gender(i.gender), i.city, i.club, i.points, i.pointsAdded, i.pointsDeleted, rankClass(i.rankClass));
+            PlayerDescription playerDescription = new PlayerDescription(i.fullName, gender(i.gender), i.city, i.club);
+            ranking.addPlayer(playerDescription, i.rank, i.code, i.points, i.pointsAdded, i.pointsDeleted, rankClass(i.rankClass));
         }
 
         return ranking;

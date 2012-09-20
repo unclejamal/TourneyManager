@@ -21,7 +21,5 @@ public interface Fixture extends Serializable {
 
     Tourney getTourney();
 
-    void setTourney(Tourney tourney);
-
     boolean anyGameLeft();
 }

@@ -1,8 +1,6 @@
 package com.pduda.tourney.domain.adapters.ranking;
 
 import au.com.bytecode.opencsv.CSVReader;
-import com.pduda.tourney.domain.Gender;
-import com.pduda.tourney.domain.RankClass;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -58,6 +56,4 @@ public class CsvRankingReader {
     private boolean arrivedAtFirstPlayer(String[] nextLine) {
         return "1".equals(nextLine[1]);
     }
-
-    
 }

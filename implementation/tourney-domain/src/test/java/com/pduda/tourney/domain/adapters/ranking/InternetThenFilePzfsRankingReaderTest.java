@@ -1,6 +1,10 @@
 package com.pduda.tourney.domain.adapters.ranking;
 
+import com.pduda.tourney.domain.adapters.ranking.PzfsRankingEntriesReader;
+import com.pduda.tourney.domain.adapters.ranking.RankingEntry;
+import com.pduda.tourney.domain.adapters.ranking.InternetThenFilePzfsRankingReader;
 import com.pduda.tourney.domain.RankingPlayer;
+import com.pduda.tourney.domain.ranking.PzfsRanking;
 import com.pduda.tourney.domain.ranking.PzfsRanking;
 import com.pduda.tourney.domain.util.MyUtils;
 import java.util.List;
@@ -14,6 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/com/pduda/tourney/persistence-test-context.xml"})
 public class InternetThenFilePzfsRankingReaderTest {
+    public static final String CODE = "kiczke";
 
     private InternetThenFilePzfsRankingReader cut;
 
@@ -27,24 +32,26 @@ public class InternetThenFilePzfsRankingReaderTest {
         cut.setRankingReader(new PzfsRankingEntriesReader() {
             @Override
             public List<RankingEntry> loadOs() {
-                RankingEntry csvEntry = rankingEntry("zienciu");
+                RankingEntry csvEntry = rankingEntry(CODE);
                 return MyUtils.asList(csvEntry);
             }
 
             @Override
             public List<RankingEntry> loadOd() {
-                RankingEntry csvEntry = rankingEntry("zienciu");
+                RankingEntry csvEntry = rankingEntry(CODE);
                 return MyUtils.asList(csvEntry);
             }
 
             @Override
             public List<RankingEntry> loadWs() {
-                throw new UnsupportedOperationException("Not supported yet.");
+                RankingEntry csvEntry = rankingEntry(CODE);
+                return MyUtils.asList(csvEntry);
             }
 
             @Override
             public List<RankingEntry> loadWd() {
-                throw new UnsupportedOperationException("Not supported yet.");
+                RankingEntry csvEntry = rankingEntry(CODE);
+                return MyUtils.asList(csvEntry);
             }
             
             
@@ -57,8 +64,12 @@ public class InternetThenFilePzfsRankingReaderTest {
         PzfsRanking pzfsRanking = cut.loadPzfsRanking();
 
         assertEquals(1, 1);
-        RankingPlayer zienciuOs = pzfsRanking.getOpenSingle().getPlayersByCode("zienciu");
-        RankingPlayer zienciuOd = pzfsRanking.getOpenDouble().getPlayersByCode("zienciu");
-        assertTrue(zienciuOs.isSharingPlayerDescription(zienciuOd));
+        RankingPlayer playerOs = pzfsRanking.getOpenSingle().getPlayersByCode(CODE);
+        RankingPlayer playerOd = pzfsRanking.getOpenDouble().getPlayersByCode(CODE);
+        RankingPlayer playerWs = pzfsRanking.getWomenSingle().getPlayersByCode(CODE);
+        RankingPlayer playerWd = pzfsRanking.getWomenDouble().getPlayersByCode(CODE);
+//        assertTrue(playerOs.isSharingPlayerDescription(playerOd));
+//        assertTrue(playerOs.isSharingPlayerDescription(playerWs));
+//        assertTrue(playerOs.isSharingPlayerDescription(playerWd));
     }
 }

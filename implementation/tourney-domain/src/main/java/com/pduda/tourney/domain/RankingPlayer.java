@@ -132,10 +132,6 @@ public class RankingPlayer implements Serializable {
         return rankClass;
     }
 
-    public void setRankClass(RankClass rankClass) {
-        this.rankClass = rankClass;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
