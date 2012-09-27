@@ -22,7 +22,7 @@
 
                 <h:panelGroup id="pgpInfo" layout="block" style="text-align: center; margin-bottom: 24px;">
                     <h:outputLabel id="name" value="#{tourneyView.tourney.name}"/>
-                    <h:outputLabel id="category" value="(#{tourneyView.tourney.tourneyCategory})"/>
+                    <h:outputLabel id="category" value="(#{tourneyView.tourney.eventCategory})"/>
                     <h:panelGroup id="pgpNotStarted" layout="block" rendered="#{not tourneyView.tourney.started}">
                         <h:outputText id="otNotStarted" value="Not started yet"/> 
                     </h:panelGroup>

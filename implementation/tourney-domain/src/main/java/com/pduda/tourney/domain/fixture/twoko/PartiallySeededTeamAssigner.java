@@ -14,7 +14,7 @@ public class PartiallySeededTeamAssigner implements TeamAssigner, Serializable {
     private TeamAssignerDirections directions = new TeamAssignerDirections();
 
     @Override
-    public void assignTeams(Bracket bracket, Collection<Team> teams) {
+    public void assignTeams(Bracket wbr, Collection<Team> teams) {
         directions.createDirections((int) (Math.ceil(MyMath.log2(teams.size()))));
 
 
@@ -27,8 +27,8 @@ public class PartiallySeededTeamAssigner implements TeamAssigner, Serializable {
                 unseededTeams.add(team);
             }
         }
-        assignSeededTeams(bracket, seededTeams);
-        randomlyAssignUnseeded(bracket, unseededTeams, seededTeams.size());
+        assignSeededTeams(wbr, seededTeams);
+        randomlyAssignUnseeded(wbr, unseededTeams, seededTeams.size());
     }
 
     private void assignSeededTeams(Bracket bracket, List<Team> seededTeams) {

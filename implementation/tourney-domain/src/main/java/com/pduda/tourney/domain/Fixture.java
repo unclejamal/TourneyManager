@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface Fixture extends Serializable {
 
-    void reportWinner(GameCode gameCode, long winnerTeamCode);
+    void startGame(GameCode gameCode, FoosballTable foosballTable);
+
+    void reportWinner(GameCode gameCode, Team team);
 
     Standings getStandings();
 
@@ -15,11 +17,9 @@ public interface Fixture extends Serializable {
 
     List<Game> getWaitingGames();
 
-    Game findGame(GameCode gameCode);
-
     FullGamesReport getGamesReports();
 
-    Tourney getTourney();
+    TourneyEvent getEvent();
 
     boolean anyGameLeft();
 }

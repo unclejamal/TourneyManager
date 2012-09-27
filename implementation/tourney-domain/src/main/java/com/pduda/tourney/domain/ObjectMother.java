@@ -1,5 +1,6 @@
 package com.pduda.tourney.domain;
 
+import com.pduda.tourney.domain.util.MyUtils;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,22 +15,24 @@ public class ObjectMother {
     }
 
     public static Tourney createTourneyNotPlayed(String name, int teamsTotal) {
-        Tourney toReturn = new Tourney(TourneyCategory.OD, name);
-        toReturn.addTable(upperTable);
-        addTeams(toReturn, teamsTotal);
-        toReturn.startTourney();
+        Tourney tourney = new Tourney(name);
+        tourney.addTable(upperTable);
 
-        return toReturn;
+        TourneyEvent event = new TourneyEvent(tourney, EventCategory.OD);
+        tourney.addEvent(event);
+
+        addTeams(event, teamsTotal);
+        event.startEvent();
+
+        return tourney;
     }
 
     public static Tourney createTourneyPlayed(String name, int teamsTotal) {
-        Tourney toReturn = new Tourney(TourneyCategory.OD, name);
-        toReturn.addTable(upperTable);
-        addTeams(toReturn, teamsTotal);
-        toReturn.startTourney();
-        playTournament(toReturn);
+        Tourney tourney = createTourneyNotPlayed(name, teamsTotal);
 
-        return toReturn;
+        playTournament(MyUtils.any(tourney.getEvents()));
+
+        return tourney;
     }
 
     public static Set<Team> createSeededTeams(int teamsTotal) {
@@ -55,14 +58,14 @@ public class ObjectMother {
         return toReturn;
     }
 
-    private static void addTeams(Tourney tournament, int teamsTotal) throws NumberFormatException {
+    private static void addTeams(TourneyEvent tournament, int teamsTotal) throws NumberFormatException {
         Set<Team> teams = createSeededTeams(teamsTotal);
         for (Team team : teams) {
             tournament.addTeam(team);
         }
     }
 
-    private static int playTournament(Tourney tournament) {
+    private static int playTournament(TourneyEvent tournament) {
         int i = 0;
         while (tournament.getEndDate() == null) {
             Game game = tournament.getWaitingGames().get(0);
@@ -80,7 +83,7 @@ public class ObjectMother {
         return i;
     }
 
-    private static TourneyPlayer tourneyPlayer(String code) {
-        return new TourneyPlayer(code, code);
+    private static EventPlayer tourneyPlayer(String code) {
+        return new EventPlayer(code, code);
     }
 }

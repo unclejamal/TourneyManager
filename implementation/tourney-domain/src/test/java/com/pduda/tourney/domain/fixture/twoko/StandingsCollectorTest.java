@@ -1,8 +1,10 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
+import com.pduda.tourney.domain.TourneyEvent;
 import com.pduda.tourney.domain.ObjectMother;
 import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.report.Standings;
+import com.pduda.tourney.domain.util.MyUtils;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -19,10 +21,12 @@ public class StandingsCollectorTest {
     @Test
     public void sevenTeams() {
         Tourney tourney = ObjectMother.createTourneyPlayed("LW", 7);
-        Fixture2KO fixture = (Fixture2KO) tourney.getFixture();
-        Bracket fin2 = fixture.getFinalBracketTwo();
-        Bracket fin1 = fixture.getFinalBracketOne();
-        Bracket loser = fixture.getLoserBracket();
+        TourneyEvent event = MyUtils.any(tourney.getEvents());
+
+        Fixture2KO fixture = (Fixture2KO) event.getFixture();
+        FinalTwoBracket fin2 = fixture.getFinalTwoBracket();
+        FinalOneBracket fin1 = fixture.getFinalOneBracket();
+        LoserBracket loser = fixture.getLoserBracket();
 
         Standings standings = cut.getStandings(fin2, fin1, loser);
 

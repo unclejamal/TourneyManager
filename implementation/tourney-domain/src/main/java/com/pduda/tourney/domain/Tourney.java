@@ -1,15 +1,12 @@
 package com.pduda.tourney.domain;
 
-import com.pduda.tourney.domain.fixture.twoko.Fixture2KO;
-import com.pduda.tourney.domain.report.FullGamesReport;
-import com.pduda.tourney.domain.report.Standings;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.*;
 import org.springframework.beans.factory.annotation.Autowire;
@@ -39,63 +36,22 @@ public class Tourney implements Serializable {
     private Set<FoosballTable> tables = new HashSet<FoosballTable>();
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
-    private Set<Team> teams = new HashSet<Team>();
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "FIXTURE")
-    // TODO use interface
-    private Fixture2KO fixture;
-    @Enumerated
-    @Column(name = "TOURNEY_CATEGORY")
-    private TourneyCategory tourneyCategory;
+    private Set<TourneyEvent> events = new HashSet<TourneyEvent>();
 
-    public Tourney(TourneyCategory category, String name) {
+    public Tourney(String name) {
         super();
-        this.tourneyCategory = category;
         this.name = name;
     }
 
+    /**
+     * JPA only.
+     *
+     * @deprecated
+     */
     public Tourney() {
-        //JPA
     }
 
-    public void startTourney() {
-        log.log(Level.INFO, "{0} started ", this);
-        this.startDate = new Date();
-
-        assignTeamCodes(teams);
-        this.fixture = new Fixture2KO(this);
-    }
-
-    private void assignTeamCodes(Set<Team> teams) {
-        int i = 0;
-        for (Team team : teams) {
-            team.setTeamCode(i);
-            i++;
-        }
-    }
-
-    public void reportWinner(GameCode gameCode, long winnerTeamCode) {
-        fixture.reportWinner(gameCode, winnerTeamCode);
-        log.log(Level.INFO, "{0} has reported winner of game {1} - team {2}", new Object[]{this, gameCode, winnerTeamCode});
-
-        if (!fixture.anyGameLeft()) {
-            endTournament();
-        }
-    }
-
-    private void endTournament() {
-        this.endDate = new Date();
-        log.log(Level.INFO, "{0} has ended", this);
-    }
-
-    public void startGame(GameCode gameCode) {
-        Game gameToBeStarted = this.fixture.findGame(gameCode);
-        gameToBeStarted.setTable(findFreeTable());
-        gameToBeStarted.startGame();
-        log.log(Level.INFO, "{0} has started the game {1}", new Object[]{this, gameCode});
-    }
-
-    private FoosballTable findFreeTable() {
+    public FoosballTable findFreeTable() {
         // TODO
         FoosballTable freeTable = null;
         for (FoosballTable t : tables) {
@@ -105,110 +61,56 @@ public class Tourney implements Serializable {
         return freeTable;
     }
 
-    public boolean isStarted() {
-        return startDate != null;
-    }
-
     public void addTable(FoosballTable table) {
         tables.add(table);
     }
 
-    public void addTeam(Team team) {
-        teams.add(team);
+    public void addEvent(TourneyEvent event) {
+        events.add(event);
     }
 
-    public Standings getStandings() {
-        if (!isStarted()) {
-            return new Standings();
-        }
-
-        return fixture.getStandings();
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Tourney [id=");
+        builder.append(id);
+        builder.append(", name=");
+        builder.append(name);
+        builder.append("]");
+        return builder.toString();
     }
 
-    public FullGamesReport getGamesReports() {
-        FullGamesReport toReturn = null;
-        if (!isStarted()) {
-            toReturn = new FullGamesReport();
-        } else {
-            toReturn = fixture.getGamesReports();
-        }
-
-        toReturn.setName(this.getName());
-        return toReturn;
-    }
-
-    public List<Game> getOngoingGames() {
-        if (isStarted()) {
-            return fixture.getOngoingGames();
-        } else {
-            return new ArrayList<Game>();
-        }
+    public Set<TourneyEvent> getEvents() {
+        return events;
     }
 
     public List<Game> getWaitingGames() {
-        if (isStarted()) {
-            return fixture.getWaitingGames();
-        } else {
-            return new ArrayList<Game>();
+        List<Game> waitingGames = new ArrayList<Game>();
+        for (TourneyEvent event : events) {
+            waitingGames.addAll(event.getWaitingGames());
         }
+
+        return waitingGames;
     }
 
-    public Fixture getFixture() {
-        return fixture;
-    }
+    public List<Game> getOngoingGames() {
+        List<Game> ongoingGames = new ArrayList<Game>();
+        for (TourneyEvent event : events) {
+            ongoingGames.addAll(event.getOngoingGames());
+        }
 
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        return ongoingGames;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getName() {
+        return name;
     }
 
     public Set<FoosballTable> getTables() {
         return tables;
-    }
-
-    public Set<Team> getTeams() {
-        return teams;
-    }
-
-    public TourneyCategory getTourneyCategory() {
-        return tourneyCategory;
-    }
-
-    public void setTourneyCategory(TourneyCategory tourneyCategory) {
-        this.tourneyCategory = tourneyCategory;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Tournament [id=");
-        builder.append(id);
-        builder.append(", name=");
-        builder.append(name);
-        builder.append("]");
-        return builder.toString();
     }
 }

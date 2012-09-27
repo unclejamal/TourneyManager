@@ -8,17 +8,17 @@ public class StandingsCollector implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Standings getStandings(Bracket finalBracketTwo, Bracket finalBracketOne, Bracket loserBracket) {
+    public Standings getStandings(FinalTwoBracket finalTwoBracket, FinalOneBracket finalOneBracket, LoserBracket loserBracket) {
         Standings standings = new Standings();
-        if (finalBracketTwo.getGame().isInGameState(GameState.Finished)) {
-            standings.addPlace("1", finalBracketTwo.getGame().getWinner());
-            standings.addPlace("2", finalBracketTwo.getGame().getLoser());
-        } else if (finalBracketOne.getGame().isInGameState(GameState.Finished) && (!finalBracketTwo.getGame().isOccupied())) {
-            standings.addPlace("1", finalBracketOne.getGame().getWinner());
-            standings.addPlace("2", finalBracketOne.getGame().getLoser());
+        if (finalTwoBracket.getHead().getGame().isInGameState(GameState.Finished)) {
+            standings.addPlace("1", finalTwoBracket.getHead().getGame().getWinner());
+            standings.addPlace("2", finalTwoBracket.getHead().getGame().getLoser());
+        } else if (finalOneBracket.getHead().getGame().isInGameState(GameState.Finished) && (!finalTwoBracket.getHead().getGame().isOccupied())) {
+            standings.addPlace("1", finalOneBracket.getHead().getGame().getWinner());
+            standings.addPlace("2", finalOneBracket.getHead().getGame().getLoser());
         }
 
-        collectStandings(loserBracket, standings);
+        collectStandings(loserBracket.getHead(), standings);
 
         return standings;
     }

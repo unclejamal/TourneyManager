@@ -1,11 +1,13 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
 import com.google.gson.Gson;
+import com.pduda.tourney.domain.TourneyEvent;
 import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.ObjectMother;
 import com.pduda.tourney.domain.Tourney;
 import com.pduda.tourney.domain.report.PartialGamesReport;
 import com.pduda.tourney.domain.report.FullGamesReport;
+import com.pduda.tourney.domain.util.MyUtils;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -21,8 +23,10 @@ public class Fixture2KOFullGamesReportFactoryTest {
 
     @Test
     public void createTournament() {
-        Tourney tournament = ObjectMother.createTourneyPlayed("Liga Weekendowa", 16);
-        FullGamesReport full = cut.create(tournament.getFixture());
+        Tourney tourney = ObjectMother.createTourneyPlayed("Liga Weekendowa", 16);
+        TourneyEvent event = MyUtils.any(tourney.getEvents());
+        FullGamesReport full = cut.create(event.getFixture());
+        
         PartialGamesReport t = full.getPartialReport("wbr");
         assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 8, 1), t.getRounds().get(0).getGames().get(0).getGameCode());
         assertEquals(new GameCode(NumberedWbrFactory.PREFIX, 8, 2), t.getRounds().get(0).getGames().get(1).getGameCode());

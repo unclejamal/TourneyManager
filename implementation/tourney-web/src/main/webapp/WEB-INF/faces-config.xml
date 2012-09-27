@@ -10,7 +10,7 @@
     
     <converter>
         <converter-id>teamConverter</converter-id>
-        <converter-class>com.pduda.tourney.web.TeamConverter</converter-class>
+        <converter-class>com.pduda.tourney.web.tourneycreation.TeamConverter</converter-class>
     </converter>
         
     

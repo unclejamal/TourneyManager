@@ -3,31 +3,31 @@ package com.pduda.tourney.domain.fixture.twoko;
 import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.ObjectMother;
 import com.pduda.tourney.domain.Team;
-import com.pduda.tourney.domain.Tourney;
+import com.pduda.tourney.domain.TourneyEvent;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static com.pduda.tourney.domain.TourneyAssert.*;
+import static com.pduda.tourney.domain.EventAssert.*;
 import java.util.Set;
 
 public class Fixture2KOTest {
 
     private Fixture2KO cut;
-    private Tourney tourney;
+    private TourneyEvent tourney;
 
     @Before
     public void setUp() {
-        tourney = new Tourney();
+        tourney = new TourneyEvent();
     }
 
     @Test
     public void threeTeams() {
-        Tourney tourney = new Tourney();
+        TourneyEvent event = new TourneyEvent();
         Set<Team> teams = ObjectMother.createSeededTeams(3);
         for (Team team : teams) {
-            tourney.addTeam(team);
+            event.addTeam(team);
         }
 
-        cut = new Fixture2KO(tourney);
+        cut = new Fixture2KO(event);
         assertGame(1, 0, cut.findGame(new GameCode(NumberedWbrFactory.PREFIX, 2, 1)));
         assertGame(3, 2, cut.findGame(new GameCode(NumberedWbrFactory.PREFIX, 2, 2)));
 
@@ -51,7 +51,7 @@ public class Fixture2KOTest {
 
     @Test
     public void fiveTeams() {
-        Tourney tourney = new Tourney();
+        TourneyEvent tourney = new TourneyEvent();
         Set<Team> teams = ObjectMother.createSeededTeams(5);
         for (Team team : teams) {
             tourney.addTeam(team);

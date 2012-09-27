@@ -1,6 +1,7 @@
 package com.pduda.tourney.domain.service;
 
 import com.pduda.tourney.domain.*;
+import com.pduda.tourney.domain.repository.EventRepo;
 import com.pduda.tourney.domain.repository.TourneyRepo;
 import java.io.Serializable;
 import java.util.List;
@@ -18,58 +19,66 @@ public class PersistentTourneyHandler implements TourneyHandler, Serializable {
     private static final long serialVersionUID = 1L;
     private transient Logger log = Logger.getLogger(PersistentTourneyHandler.class.getName());
     @Inject
+    private EventRepo eventRepo;
+    @Inject
     private TourneyRepo tourneyRepo;
 
     @Override
-    public long createTournament(TourneyCategory category, String tourneyName, Set<Team> teams) {
-        log.log(Level.INFO, "System is creating a {0} tourney \"{0}\" for: {1}", new Object[]{category, tourneyName, teams});
+    public long createTournament(EventCategory eventCategory, String tourneyName, Set<Team> teams) {
+        log.log(Level.INFO, "System is creating a {0} tournament \"{0}\" for: {1}", new Object[]{eventCategory, tourneyName, teams});
 
-        Tourney tourney = new Tourney(category, tourneyName);
-
-        tourney.setName(tourneyName);
-        for (Team team : teams) {
-            tourney.addTeam(team);
-        }
-
+        Tourney tourney = new Tourney(tourneyName);
         tourney.addTable(new FoosballTable("upper"));
         tourney.addTable(new FoosballTable("lower"));
+        TourneyEvent event = new TourneyEvent(tourney, eventCategory);
+        tourney.addEvent(event);
+        
+        for (Team team : teams) {
+            event.addTeam(team);
+        }
 
         Tourney persisted = tourneyRepo.merge(tourney);
         return persisted.getId();
     }
 
     @Override
-    public List<Tourney> getTournaments() {
+    public List<Tourney> getTourneys() {
         return tourneyRepo.findEntities();
     }
 
     @Override
-    public Tourney getTournament(long id) {
-        log.info("System is getting tourney " + id);
-        Tourney tourney = tourneyRepo.findEntity(id);
-        log.info("System found " + tourney);
-        return tourney;
-    }
-
-    @Override
-    public void startTourney(long id) {
-//        Tourney tourney = getTournament(id);
-        Tourney tourney = tourneyRepo.findEntity(id);
-//        System.out.println("Waitz0rage before start: " + tourney.getWaitingGames());
-        tourney.startTourney();
-//        tourneyRepo.merge(tourney);
-//        System.out.println("Waitz0rage after start: " + tourney.getWaitingGames());
-    }
-
-    @Override
-    public void reportWinner(long tourneyId, GameCode gameCode, long teamCode) {
+    public Set<TourneyEvent> getEvents(long tourneyId) {
         Tourney tourney = tourneyRepo.findEntity(tourneyId);
-        tourney.reportWinner(gameCode, teamCode);
+        return tourney.getEvents();
     }
 
     @Override
-    public void startGame(long tourneyId, GameCode gameCode) {
-        Tourney tourney = tourneyRepo.findEntity(tourneyId);
-        tourney.startGame(gameCode);
+    public TourneyEvent getEvent(long eventId) {
+        log.info("System is getting event " + eventId);
+        TourneyEvent event = eventRepo.findEntity(eventId);
+        return event;
+    }
+
+    @Override
+    public void startEvent(long eventId) {
+        TourneyEvent event = eventRepo.findEntity(eventId);
+        event.startEvent();
+    }
+
+    @Override
+    public void reportWinner(long eventId, GameCode gameCode, long teamCode) {
+        TourneyEvent event = eventRepo.findEntity(eventId);
+        event.reportWinner(gameCode, teamCode);
+    }
+
+    @Override
+    public void startGame(long eventId, GameCode gameCode) {
+        TourneyEvent event = eventRepo.findEntity(eventId);
+        event.startGame(gameCode);
+    }
+
+    @Override
+    public Tourney getTourney(long tourneyId) {
+        return tourneyRepo.findEntity(tourneyId);
     }
 }

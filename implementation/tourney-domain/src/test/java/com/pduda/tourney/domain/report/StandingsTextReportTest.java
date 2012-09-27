@@ -2,7 +2,7 @@ package com.pduda.tourney.domain.report;
 
 import com.pduda.tourney.domain.RankingPlayer;
 import com.pduda.tourney.domain.Team;
-import com.pduda.tourney.domain.TourneyPlayer;
+import com.pduda.tourney.domain.EventPlayer;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -75,7 +75,7 @@ public class StandingsTextReportTest {
     private Team createDoubleTeam(int teamId) {
         String teamIdStr = String.valueOf(teamId);
 
-        Team team = new Team(new TourneyPlayer(teamIdStr + "A"), new TourneyPlayer(teamIdStr + "B"));
+        Team team = new Team(new EventPlayer(teamIdStr + "A"), new EventPlayer(teamIdStr + "B"));
         team.setSeed(teamId);
 
         return team;
@@ -84,7 +84,7 @@ public class StandingsTextReportTest {
     private Team createSingleTeam(int teamId) {
         String teamIdStr = String.valueOf(teamId);
 
-        Team team = new Team(new TourneyPlayer(teamIdStr + "A"));
+        Team team = new Team(new EventPlayer(teamIdStr + "A"));
         team.setSeed(teamId);
 
         return team;

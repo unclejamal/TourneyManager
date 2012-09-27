@@ -6,15 +6,15 @@ import java.io.Serializable;
 public class WinnerBracketFactory implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
     private NumberedWbrFactory winnerBracketNbf = new NumberedWbrFactory();
 
-    public Bracket createWinnerBracket(int teamsTotal) {
-        Bracket winnerBracket = winnerBracketNbf.createNextBracket();
+    public WinnerBracket createWinnerBracket(int teamsTotal, FinalOneBracket finalOneBracket, LoserBracket loserBracket) {
+        Bracket head = winnerBracketNbf.createNextBracket();
         for (int i = 1; i < MyMath.log2(teamsTotal); i++) {
-            expandWinnerBracket(winnerBracket);
+            expandWinnerBracket(head);
         }
-        
+
+        WinnerBracket winnerBracket = new WinnerBracket(head, finalOneBracket, loserBracket);
         return winnerBracket;
     }
 

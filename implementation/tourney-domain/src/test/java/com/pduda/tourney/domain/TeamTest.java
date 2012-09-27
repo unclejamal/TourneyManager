@@ -7,8 +7,8 @@ public class TeamTest {
 
     private static final int PLAYER1_POINTS = 50;
     private static final int PLAYER2_POINTS = 30;
-    private static final TourneyPlayer PLAYER1 = new TourneyPlayer(PLAYER1_POINTS, "adam");
-    private static final TourneyPlayer PLAYER2 = new TourneyPlayer(PLAYER2_POINTS, "bartek");
+    private static final EventPlayer PLAYER1 = new EventPlayer(PLAYER1_POINTS, "adam");
+    private static final EventPlayer PLAYER2 = new EventPlayer(PLAYER2_POINTS, "bartek");
 
     @Test
     public void getRank_single() {

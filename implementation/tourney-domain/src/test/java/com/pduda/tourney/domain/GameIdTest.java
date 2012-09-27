@@ -1,6 +1,7 @@
 package com.pduda.tourney.domain;
 
-import com.pduda.tourney.domain.fixture.twoko.Fixture2KO;
+import com.pduda.tourney.domain.fixture.twoko.FinalOneBracket;
+import com.pduda.tourney.domain.fixture.twoko.FinalTwoBracket;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -45,10 +46,10 @@ public class GameIdTest {
 
     @Test
     public void getPrefixedRound_final() {
-        cut = new GameCode(Fixture2KO.FIN1, 1, 1);
+        cut = new GameCode(FinalOneBracket.FIN1, 1, 1);
         assertEquals("FIN1", cut.getPrefixedRound());
 
-        cut = new GameCode(Fixture2KO.FIN2, 1, 1);
+        cut = new GameCode(FinalTwoBracket.FIN2, 1, 1);
         assertEquals("FIN2", cut.getPrefixedRound());
     }
 

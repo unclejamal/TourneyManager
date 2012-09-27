@@ -1,9 +1,9 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
 import com.pduda.tourney.domain.Fixture;
-import com.pduda.tourney.domain.report.PartialGamesReport;
-import com.pduda.tourney.domain.report.GamesReportRound;
 import com.pduda.tourney.domain.report.FullGamesReport;
+import com.pduda.tourney.domain.report.GamesReportRound;
+import com.pduda.tourney.domain.report.PartialGamesReport;
 
 public class Fixture2KOFullGamesReportFactory implements GamesReportFactory {
 
@@ -15,10 +15,10 @@ public class Fixture2KOFullGamesReportFactory implements GamesReportFactory {
 
         FullGamesReport full = new FullGamesReport();
 
-        full.addPartialReport(processBracket("wbr", f.getWinnerBracket()));
-        full.addPartialReport(processBracket("lbr", f.getLoserBracket()));
-        full.addPartialReport(processBracket("fin1", f.getFinalBracketOne()));
-        full.addPartialReport(processBracket("fin2", f.getFinalBracketTwo()));
+        full.addPartialReport(processBracket("wbr", f.getWinnerBracket().getHead()));
+        full.addPartialReport(processBracket("lbr", f.getLoserBracket().getHead()));
+        full.addPartialReport(processBracket("fin1", f.getFinalOneBracket().getHead()));
+        full.addPartialReport(processBracket("fin2", f.getFinalTwoBracket().getHead()));
 
         return full;
     }

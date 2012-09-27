@@ -14,6 +14,7 @@ public class InternetThenFilePzfsRankingReader implements PzfsRankingReader {
 
     @Inject
     private CsvRankingReader csvRankingReader;
+    @Inject
     private PzfsRankingEntriesReader reader;
     private RankingEntryConverter converter = new RankingEntryConverter();
 

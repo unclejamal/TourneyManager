@@ -1,11 +1,12 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
 import com.pduda.tourney.domain.Fixture;
+import com.pduda.tourney.domain.FoosballTable;
 import com.pduda.tourney.domain.Game;
 import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.GameState;
 import com.pduda.tourney.domain.Team;
-import com.pduda.tourney.domain.Tourney;
+import com.pduda.tourney.domain.TourneyEvent;
 import com.pduda.tourney.domain.report.FullGamesReport;
 import com.pduda.tourney.domain.report.Standings;
 import java.util.ArrayList;
@@ -20,26 +21,22 @@ import org.springframework.beans.factory.annotation.Configurable;
 public class Fixture2KO implements Fixture {
 
     private static final long serialVersionUID = 1L;
-    public static final String FIN1 = GameCode.PREFIX_FINAL + "1";
-    public static final String FIN2 = GameCode.PREFIX_FINAL + "2";
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "FIXTURE_2KO_ID")
     private long id;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "BRACKET_WINNER")
-    private Bracket winnerBracket;
+    private WinnerBracket winnerBracket;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "BRACKET_LOSER")
-    private Bracket loserBracket;
+    private LoserBracket loserBracket;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "BRACKET_FIN1")
-    private Bracket finalBracketOne = new Bracket(FIN1, 1, 1);
+    private FinalOneBracket finalOneBracket;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "BRACKET_FIN2")
-    private Bracket finalBracketTwo = new Bracket(FIN2, 1, 1);
-    @Transient
-    private PotentialRivalDirections potentialRivalDirections;
+    private FinalTwoBracket finalTwoBracket;
     @Transient
     private TeamAssigner teamAssigner;
     @Transient
@@ -51,14 +48,17 @@ public class Fixture2KO implements Fixture {
     @Transient
     private StandingsCollector standingsCollector;
     @OneToOne(mappedBy = "fixture")
-    private Tourney tourney;
+    private TourneyEvent event;
 
-    public Fixture2KO(Tourney tourney) {
+    public Fixture2KO(TourneyEvent event) {
         init();
-        this.tourney = tourney;
-        this.winnerBracket = winnerBracketFactory.createWinnerBracket(tourney.getTeams().size());
-        this.loserBracket = loserBracketFactory.createLoserBracket(tourney.getTeams().size());
-        teamAssigner.assignTeams(winnerBracket, tourney.getTeams());
+        this.event = event;
+        this.finalTwoBracket = new FinalTwoBracket();
+        this.finalOneBracket = new FinalOneBracket(finalTwoBracket);
+        this.loserBracket = loserBracketFactory.createLoserBracket(event.getTeams().size(), finalOneBracket);
+        this.winnerBracket = winnerBracketFactory.createWinnerBracket(event.getTeams().size(), finalOneBracket, loserBracket);
+
+        teamAssigner.assignTeams(winnerBracket.getHead(), event.getTeams());
         processByes(winnerBracket);
     }
 
@@ -68,7 +68,6 @@ public class Fixture2KO implements Fixture {
     }
 
     private void init() {
-        potentialRivalDirections = new PotentialRivalDirections();
         teamAssigner = new PartiallySeededTeamAssigner();
         winnerBracketFactory = new WinnerBracketFactory();
         loserBracketFactory = new LoserBracketFactory();
@@ -78,7 +77,7 @@ public class Fixture2KO implements Fixture {
 
     @Override
     public Standings getStandings() {
-        return standingsCollector.getStandings(finalBracketTwo, finalBracketOne, loserBracket);
+        return standingsCollector.getStandings(finalTwoBracket, finalOneBracket, loserBracket);
     }
 
     @Override
@@ -86,74 +85,41 @@ public class Fixture2KO implements Fixture {
         List<Game> toReturn = new ArrayList<Game>();
         toReturn.addAll(winnerBracket.findOngoingGames());
         toReturn.addAll(loserBracket.findOngoingGames());
-        if (finalBracketOne.getGame().isInGameState(GameState.Ongoing)) {
-            toReturn.add(finalBracketOne.getGame());
+        if (finalOneBracket.getHead().getGame().isInGameState(GameState.Ongoing)) {
+            toReturn.add(finalOneBracket.getHead().getGame());
         }
-        if (finalBracketTwo.getGame().isInGameState(GameState.Ongoing)) {
-            toReturn.add(finalBracketTwo.getGame());
+        if (finalTwoBracket.getHead().getGame().isInGameState(GameState.Ongoing)) {
+            toReturn.add(finalTwoBracket.getHead().getGame());
         }
 
         return toReturn;
     }
 
     @Override
-    public void reportWinner(GameCode gameCode, long winnerTeamCode) {
-        Team winner = findTeam(winnerTeamCode);
-
-        // game in WBR
-        Bracket gameBracket = winnerBracket.findBracket(gameCode);
-        if (gameBracket != null) {
-            if (!gameBracket.isFinal()) {
-                advanceWinnerToNextStage(gameBracket, winner);
-            } else {
-                gameBracket.setWinner(winner);
-                finalBracketOne.getGame().setTeamHome(winner);
-            }
-
-            moveLoserToLosersBracket(gameBracket.getGame().getLoser(), gameCode);
-
-            return;
-        }
-
-        // game in LBR
-        gameBracket = loserBracket.findBracket(gameCode);
-        if (gameBracket != null) {
-            if (!gameBracket.isFinal()) {
-                advanceWinnerToNextStage(gameBracket, winner);
-            } else {
-                gameBracket.setWinner(winner);
-                finalBracketOne.getGame().setTeamAway(winner);
-            }
-
-            return;
-        }
-
-        // game in FIN1
-        if (gameCode.equals(finalBracketOne.getGameCode())) {
-            finalBracketOne.setWinner(winner);
-
-            if (winner.equals(finalBracketOne.getGame().getTeamAway())) {
-                finalBracketTwo.getGame().setTeamHome(finalBracketOne.getGame().getTeamHome());
-                finalBracketTwo.getGame().setTeamAway(finalBracketOne.getGame().getTeamAway());
-            }
-
-            return;
-        }
-
-        // game in FIN2
-        if (gameCode.equals(finalBracketTwo.getGameCode())) {
-            finalBracketTwo.setWinner(winner);
-        }
+    public void startGame(GameCode gameCode, FoosballTable freeTable) {
+        Game gameToBeStarted = findGame(gameCode);
+        gameToBeStarted.setTable(freeTable);
+        gameToBeStarted.startGame();
     }
 
-    private Team findTeam(long teamCode) {
-        for (Team team : tourney.getTeams()) {
-            if (team.getTeamCode() == teamCode) {
-                return team;
-            }
-        }
+    @Override
+    public void reportWinner(GameCode gameCode, Team winner) {
+        if (winnerBracket.contains(gameCode)) {
+            winnerBracket.reportWinner(gameCode, winner);
 
-        throw new RuntimeException("team not found");
+        } else if (loserBracket.contains(gameCode)) {
+            loserBracket.reportWinner(gameCode, winner);
+
+        } else if (finalOneBracket.contains(gameCode)) {
+            finalOneBracket.reportWinner(winner);
+
+        } else if (finalTwoBracket.contains(gameCode)) {
+            finalTwoBracket.reportWinner(winner);
+
+        } else {
+
+            throw new RuntimeException("Unknown code " + gameCode);
+        }
     }
 
     private void advanceWinnerToNextStage(Bracket gameBracket, Team winner) {
@@ -167,68 +133,8 @@ public class Fixture2KO implements Fixture {
         }
     }
 
-    private void moveLoserToLosersBracket(Team loser, GameCode lostGameId) {
-        Bracket lostGameBracket = winnerBracket.findBracket(lostGameId);
-        PotentialRivalDirections.Direction direction = potentialRivalDirections.getDegradedTo(lostGameId, lostGameBracket.getBracketOrder());
-        Bracket degradedToBracket = loserBracket.findBracket(direction.gameId);
-        Bracket potentialRivalBracket = findPotentialRivalBracket(lostGameId);
-
-        if (direction.isHomeTeam) {
-            degradedToBracket.getGame().setTeamHome(loser);
-
-            if ((degradedToBracket.getGame().getTeamAway() == null) && (isBracketDecided(potentialRivalBracket))) {
-                //bye
-                advanceWinnerToNextStage(degradedToBracket, loser);
-            }
-
-        } else {
-            degradedToBracket.getGame().setTeamAway(loser);
-
-            if ((degradedToBracket.getGame().getTeamHome() == null) && (isBracketDecided(potentialRivalBracket))) {
-                //bye
-                advanceWinnerToNextStage(degradedToBracket, loser);
-            }
-
-        }
-    }
-
-    private boolean isBracketDecided(Bracket bracket) {
-        if (bracket.getGame().isInGameState(GameState.Finished)) {
-            return true;
-        } else {
-            if (bracket.getGame().isOccupied()) {
-                return false;
-            }
-
-            List<GameCode> sourceBracketIds = potentialRivalDirections.getPotentialRivalGames(bracket.getGameCode(), bracket.getBracketOrder());
-
-            Bracket sourceBracketOne = findBracket(sourceBracketIds.get(0));
-            Bracket sourceBracketTwo = findBracket(sourceBracketIds.get(1));
-
-            boolean isBracketOneDecided = isBracketDecided(sourceBracketOne);
-            boolean isBracketTwoDecided = isBracketDecided(sourceBracketTwo);
-            return ((isBracketOneDecided) && (isBracketTwoDecided));
-        }
-    }
-
-    private Bracket findPotentialRivalBracket(GameCode gameId) {
-        Bracket lostGameBracket = winnerBracket.findBracket(gameId);
-        GameCode potentialRival = potentialRivalDirections.getPotentialRivalGame(gameId, lostGameBracket.getBracketOrder());
-        if (potentialRival == null) {
-            PotentialRivalDirections.Direction direction = potentialRivalDirections.getDegradedTo(gameId, lostGameBracket.getBracketOrder());
-            Bracket degradedTo = loserBracket.findBracket(direction.gameId);
-            if (direction.isHomeTeam) {
-                return degradedTo.getAwayBracket();
-            } else {
-                return degradedTo.getHomeBracket();
-            }
-        }
-
-        return findBracket(potentialRival);
-    }
-
-    private void processByes(Bracket bracket) {
-        bracket.processByes();
+    private void processByes(WinnerBracket bracket) {
+        bracket.getHead().processByes();
     }
 
     @Override
@@ -239,21 +145,16 @@ public class Fixture2KO implements Fixture {
     @Override
     public List<Game> getWaitingGames() {
         List<Game> toReturn = new ArrayList<Game>();
-        toReturn.addAll(loserBracket.findWaitingGames());
-        toReturn.addAll(winnerBracket.findWaitingGames());
+        toReturn.addAll(loserBracket.getHead().findWaitingGames());
+        toReturn.addAll(winnerBracket.getHead().findWaitingGames());
 
-        if (finalBracketOne.getGame().isWaiting()) {
-            toReturn.add(finalBracketOne.getGame());
+        if (finalOneBracket.getHead().getGame().isWaiting()) {
+            toReturn.add(finalOneBracket.getHead().getGame());
         }
-        if (finalBracketTwo.getGame().isWaiting()) {
-            toReturn.add(finalBracketTwo.getGame());
+        if (finalTwoBracket.getHead().getGame().isWaiting()) {
+            toReturn.add(finalTwoBracket.getHead().getGame());
         }
         return toReturn;
-    }
-
-    @Override
-    public Game findGame(GameCode gameId) {
-        return findBracket(gameId).getGame();
     }
 
     @Override
@@ -261,58 +162,25 @@ public class Fixture2KO implements Fixture {
         return gamesReportFactory.create(this);
     }
 
-    private Bracket findBracket(GameCode gameId) {
-        Bracket wbrBracket = this.winnerBracket.findBracket(gameId);
-        if (wbrBracket != null) {
-            return wbrBracket;
+    public Game findGame(GameCode gameCode) {
+        return findBracket(gameCode).getGame();
+    }
+
+    private Bracket findBracket(GameCode gameCode) {
+        if (loserBracket.contains(gameCode)) {
+            return loserBracket.findBracket(gameCode);
+
+        } else if (winnerBracket.contains(gameCode)) {
+            return winnerBracket.findBracket(gameCode);
+
+        } else if (finalOneBracket.contains(gameCode)) {
+            return finalOneBracket.getHead();
+
+        } else if (finalTwoBracket.contains(gameCode)) {
+            return finalTwoBracket.getHead();
         }
 
-        Bracket lbrBracket = this.loserBracket.findBracket(gameId);
-        if (lbrBracket != null) {
-            return lbrBracket;
-        }
-
-        if (gameId.equals(finalBracketOne.getGameCode())) {
-            return finalBracketOne;
-        }
-
-        if (gameId.equals(finalBracketTwo.getGameCode())) {
-            return finalBracketTwo;
-        }
-
-        throw new RuntimeException("Bracket " + gameId + " not found");
-    }
-
-    public Bracket getWinnerBracket() {
-        return winnerBracket;
-    }
-
-    public void setWinnerBracket(Bracket winnerBracket) {
-        this.winnerBracket = winnerBracket;
-    }
-
-    public Bracket getLoserBracket() {
-        return loserBracket;
-    }
-
-    public void setLoserBracket(Bracket loserBracket) {
-        this.loserBracket = loserBracket;
-    }
-
-    public Bracket getFinalBracketOne() {
-        return finalBracketOne;
-    }
-
-    public void setFinalBracketOne(Bracket finalBracketOne) {
-        this.finalBracketOne = finalBracketOne;
-    }
-
-    public Bracket getFinalBracketTwo() {
-        return finalBracketTwo;
-    }
-
-    public void setFinalBracketTwo(Bracket finalBracketTwo) {
-        this.finalBracketTwo = finalBracketTwo;
+        throw new RuntimeException("Bracket " + gameCode + " not found");
     }
 
     public long getId() {
@@ -324,7 +192,23 @@ public class Fixture2KO implements Fixture {
     }
 
     @Override
-    public Tourney getTourney() {
-        return tourney;
+    public TourneyEvent getEvent() {
+        return event;
+    }
+
+    public WinnerBracket getWinnerBracket() {
+        return winnerBracket;
+    }
+
+    public LoserBracket getLoserBracket() {
+        return loserBracket;
+    }
+
+    public FinalOneBracket getFinalOneBracket() {
+        return finalOneBracket;
+    }
+
+    public FinalTwoBracket getFinalTwoBracket() {
+        return finalTwoBracket;
     }
 }

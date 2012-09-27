@@ -30,7 +30,7 @@ public class PersistentPaymentsHandler implements PaymentsHandler, Serializable 
     private PayrollRepo payrollRepo;
 
     @Override
-    public long getDefaultFee(RankingPlayer player, TourneyCategory tourneyCategory) {
+    public long getDefaultFee(RankingPlayer player, EventCategory tourneyCategory) {
         log.log(Level.INFO, "System is checking the fee for the player {0}", new Object[]{player});
         Payroll payroll = getPayrollFromRepo();
 

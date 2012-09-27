@@ -2,10 +2,10 @@ package com.pduda.tourney.domain;
 
 import java.util.Comparator;
 
-public class PlayersByPointsComparator implements Comparator<TourneyPlayer> {
+public class PlayersByPointsComparator implements Comparator<EventPlayer> {
 
     @Override
-    public int compare(TourneyPlayer o1, TourneyPlayer o2) {
+    public int compare(EventPlayer o1, EventPlayer o2) {
         if (o1 == o2) {
             return 0;
         }

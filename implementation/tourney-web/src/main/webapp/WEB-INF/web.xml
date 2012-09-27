@@ -57,7 +57,7 @@
         <realm-name>realmTourneyManager</realm-name>
     </login-config>
     
-<!--    <security-constraint>
+    <!--    <security-constraint>
         <web-resource-collection>
             <web-resource-name>payments</web-resource-name>
             <url-pattern>/html/payments.html</url-pattern>

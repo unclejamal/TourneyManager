@@ -11,12 +11,49 @@
     <ui:composition template="/html/common/layout.xhtml">
         <ui:param name="bodyId" value="home"/>
         <ui:define name="content">
-            <h:panelGroup id="pgpTournaments" layout="block">
-                <h:form id="frmTournaments">
-                    <rich:dataTable value="#{home.tournaments}" var="item"
-                                    id="dtTournaments" rowClasses="odd-row, even-row" styleClass="stable">
+            <h:panelGroup id="pgpTourneys" layout="block">
+                <h:form id="frmTourneys">
+                    <rich:dataTable value="#{home.po.tourneys}" var="item"
+                                    id="dtTourneys" rowClasses="odd-row, even-row" styleClass="stable">
                         <f:facet name="caption">
-                            <h:outputText value="Tournaments" />
+                            <h:outputText value="Tourneys" />
+                        </f:facet>
+                        <rich:column>
+                            <f:facet name="header">
+                                <h:outputText value="Id" />
+                            </f:facet>
+                            <h:outputText value="#{item.id}" />
+                        </rich:column>
+                        <rich:column>
+                            <f:facet name="header">
+                                <h:outputText value="Name" />
+                            </f:facet>
+                            <h:outputText value="#{item.name}" />
+                        </rich:column>
+                        <rich:column>
+                            <f:facet name="header">
+                                <h:outputText value="Actions" />
+                            </f:facet>
+                            <h:outputLink value="#{facesContext.externalContext.requestContextPath}/html/manageTourney.html" style="margin-right: 6px;">
+                                <f:param name="id" value="#{item.id}"/>
+                                Manage
+                            </h:outputLink>
+                            <h:outputLink value="#{facesContext.externalContext.requestContextPath}/html/viewTourney.html">
+                                <f:param name="id" value="#{item.id}"/>
+                                View
+                            </h:outputLink>
+
+                        </rich:column>
+                    </rich:dataTable>
+                </h:form>
+            </h:panelGroup>
+
+            <h:panelGroup id="pgpEvents" layout="block">
+                <h:form id="frmEvents">
+                    <rich:dataTable value="#{home.po.events}" var="item"
+                                    id="dtEvents" rowClasses="odd-row, even-row" styleClass="stable">
+                        <f:facet name="caption">
+                            <h:outputText value="Events" />
                         </f:facet>
                         <rich:column>
                             <f:facet name="header">
@@ -34,7 +71,7 @@
                             <f:facet name="header">
                                 <h:outputText value="Category" />
                             </f:facet>
-                            <h:outputText value="#{item.tourneyCategory}" />
+                            <h:outputText value="#{item.eventCategory}" />
                         </rich:column>
                         <rich:column>
                             <f:facet name="header">
