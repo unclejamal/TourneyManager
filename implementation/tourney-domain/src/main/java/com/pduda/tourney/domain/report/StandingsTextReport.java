@@ -31,12 +31,7 @@ public class StandingsTextReport implements Serializable {
                 teamCount++;
                 sb.append(place);
                 sb.append(". ");
-                sb.append(team.getMembers().get(0).getFullName());
-                if (team.getMembers().size() == 2) {
-                    sb.append(", ");
-                    sb.append(team.getMembers().get(1).getFullName());
-                }
-
+                sb.append(team.getName());
                 sb.append(" (");
                 sb.append(team.getSeed());
                 sb.append(")");

@@ -1,5 +1,6 @@
 package com.pduda.tourney.domain.service;
 
+import com.pduda.tourney.domain.service.ranking.PersistentRankingHandler;
 import com.pduda.tourney.domain.ranking.PzfsRanking;
 import javax.inject.Inject;
 import org.junit.Test;

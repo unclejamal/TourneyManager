@@ -3,6 +3,7 @@ package com.pduda.tourney.domain.fixture.twoko;
 import com.pduda.tourney.domain.Game;
 import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.Team;
+import com.pduda.tourney.domain.TourneyEvent;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -32,8 +33,11 @@ public class FinalTwoBracket implements Serializable {
     @JoinColumn(name = "HEAD")
     private Bracket head;
 
+    public FinalTwoBracket(TourneyEvent tourneyEvent) {
+        this.head = new Bracket(tourneyEvent, FIN2, 1, 1);
+    }
+
     public FinalTwoBracket() {
-        this.head = new Bracket(FIN2, 1, 1);
     }
 
     public Bracket getHead() {

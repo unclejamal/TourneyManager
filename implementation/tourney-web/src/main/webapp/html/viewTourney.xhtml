@@ -18,21 +18,31 @@
 
         <ui:define name="content">
 
+
             <h:panelGroup id="pgpTourney" layout="block"  style="width: 3000px">
 
+                <h:outputLabel id="name" value="#{tourneyView.po.name}"/>
+
+                <a4j:repeat value="#{tourneyView.po.selectableEvents}" var="item">
+                    <h:outputLink value="#{facesContext.externalContext.requestContextPath}/html/viewTourney.html" style="margin-right: 6px;">
+                        <f:param name="tourneyId" value="#{tourneyView.po.tourneyId}"/>
+                        <f:param name="eventId" value="#{item.id}"/>
+                        #{item.eventCategory}
+                    </h:outputLink>
+                </a4j:repeat>
+
                 <h:panelGroup id="pgpInfo" layout="block" style="text-align: center; margin-bottom: 24px;">
-                    <h:outputLabel id="name" value="#{tourneyView.tourney.name}"/>
-                    <h:outputLabel id="category" value="(#{tourneyView.tourney.eventCategory})"/>
-                    <h:panelGroup id="pgpNotStarted" layout="block" rendered="#{not tourneyView.tourney.started}">
+                    <h:outputLabel id="category" value="(#{tourneyView.po.selectedEvent.eventCategory})"/>
+                    <h:panelGroup id="pgpNotStarted" layout="block" rendered="#{not tourneyView.po.selectedEvent.started}">
                         <h:outputText id="otNotStarted" value="Not started yet"/> 
                     </h:panelGroup>
                 </h:panelGroup>
 
                 <script>
-                    var wbrInfo = #{tourneyView.wbrAsJson};
-                    var lbrInfo = #{tourneyView.lbrAsJson};
-                    var fin1Info = #{tourneyView.fin1AsJson};
-                    var fin2Info = #{tourneyView.fin2AsJson};
+                    var wbrInfo = #{tourneyView.po.selectedEvent.wbrAsJson};
+                    var lbrInfo = #{tourneyView.po.selectedEvent.lbrAsJson};
+                    var fin1Info = #{tourneyView.po.selectedEvent.fin1AsJson};
+                    var fin2Info = #{tourneyView.po.selectedEvent.fin2AsJson};
                 </script>
 
 

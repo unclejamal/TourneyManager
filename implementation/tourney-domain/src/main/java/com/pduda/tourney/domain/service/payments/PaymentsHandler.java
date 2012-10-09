@@ -1,4 +1,4 @@
-package com.pduda.tourney.domain.service;
+package com.pduda.tourney.domain.service.payments;
 
 import com.pduda.tourney.domain.RankingPlayer;
 import com.pduda.tourney.domain.EventCategory;

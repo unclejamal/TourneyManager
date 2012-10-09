@@ -1,7 +1,7 @@
 package com.pduda.tourney.web.home;
 
 import com.pduda.tourney.domain.Tourney;
-import com.pduda.tourney.domain.service.TourneyHandler;
+import com.pduda.tourney.domain.service.tourney.TourneyHandler;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
@@ -18,13 +18,12 @@ public class HomeBean implements Serializable {
     private static final transient Logger log = Logger.getLogger(HomeBean.class.getClass().getName());
     @Inject
     private TourneyHandler tourneyHandler;
-    private List<Tourney> tourneys;
     private HomePo po;
     private HomePoFactory poFactory = new HomePoFactory();
 
     @PostConstruct
     public void init() {
-        this.tourneys = tourneyHandler.getTourneys();
+        List<Tourney> tourneys = tourneyHandler.getTourneys();
         this.po = poFactory.buildPo(tourneys);
     }
 

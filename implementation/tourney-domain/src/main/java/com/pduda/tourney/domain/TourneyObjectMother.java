@@ -4,9 +4,13 @@ import com.pduda.tourney.domain.util.MyUtils;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ObjectMother {
+public class TourneyObjectMother {
 
     public static FoosballTable upperTable = new FoosballTable("Upper");
+    public static final EventCategory EVENT_CATEGORY = EventCategory.OD;
+    public static final String TOURNEY_NAME = "Liga Weekendowa";
+    public static final long EVENT_ID = 1L;
+    public static final long TOURNEY_ID = 1244L;
 
     public static RankingPlayer createRankingPlayer() {
         PlayerDescription playerDescription = new PlayerDescription("Pawel Adam Duda", Gender.MALE, "Wroclaw", "WKPS");
@@ -14,11 +18,13 @@ public class ObjectMother {
 
     }
 
-    public static Tourney createTourneyNotPlayed(String name, int teamsTotal) {
-        Tourney tourney = new Tourney(name);
+    public static Tourney createTourneyNotPlayed(int teamsTotal) {
+        Tourney tourney = new Tourney(TOURNEY_NAME);
+        tourney.setId(TOURNEY_ID);
         tourney.addTable(upperTable);
 
-        TourneyEvent event = new TourneyEvent(tourney, EventCategory.OD);
+        TourneyEvent event = new TourneyEvent(tourney, EVENT_CATEGORY);
+        event.setId(EVENT_ID);
         tourney.addEvent(event);
 
         addTeams(event, teamsTotal);
@@ -27,10 +33,10 @@ public class ObjectMother {
         return tourney;
     }
 
-    public static Tourney createTourneyPlayed(String name, int teamsTotal) {
-        Tourney tourney = createTourneyNotPlayed(name, teamsTotal);
+    public static Tourney createTourneyPlayed(int teamsTotal) {
+        Tourney tourney = createTourneyNotPlayed(teamsTotal);
 
-        playTournament(MyUtils.any(tourney.getEvents()));
+        playTournament(MyUtils.any(tourney.getTourneyEvents()));
 
         return tourney;
     }

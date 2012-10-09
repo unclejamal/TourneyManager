@@ -1,9 +1,10 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
-import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.Game;
+import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.GameState;
 import com.pduda.tourney.domain.Team;
+import com.pduda.tourney.domain.TourneyEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Bracket implements Serializable {
     @Column(name = "FIXTURE_2KO_BRACKET_ID")
     private long id;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="GAME")
     private Game game;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="BRACKET_HOME")
@@ -33,11 +34,11 @@ public class Bracket implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
     @JoinColumn(name="BRACKET_WIN")
     private Bracket winBracket;
-    @Column(name = "place")
+    @Column(name = "PLACE")
     private String place;
 
-    public Bracket(String prefix, int round, int match) {
-        this.game = new Game(prefix, round, match);
+    public Bracket(TourneyEvent tourneyEvent, String prefix, int round, int match) {
+        this.game = new Game(tourneyEvent, prefix, round, match);
     }
 
     @Deprecated

@@ -1,15 +1,15 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
+import static com.pduda.tourney.domain.EventAssert.*;
 import com.pduda.tourney.domain.Game;
 import com.pduda.tourney.domain.GameCode;
-import com.pduda.tourney.domain.ObjectMother;
 import com.pduda.tourney.domain.Team;
-import org.junit.Before;
-import org.junit.Test;
-import static com.pduda.tourney.domain.EventAssert.*;
+import com.pduda.tourney.domain.TourneyObjectMother;
 import java.util.HashSet;
 import java.util.Set;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 public class PartiallySeededTeamAssignerTest {
 
@@ -19,13 +19,13 @@ public class PartiallySeededTeamAssignerTest {
     @Before
     public void setUp() {
         cut = new PartiallySeededTeamAssigner();
-        wbrFactory = new WinnerBracketFactory();
+        wbrFactory = new WinnerBracketFactory(null);
     }
 
     @Test
     public void assignSeededTeams_8() {
         WinnerBracket winnerBracket = wbrFactory.createWinnerBracket(8, null, null);
-        Set<Team> teams = ObjectMother.createSeededTeams(8);
+        Set<Team> teams = TourneyObjectMother.createSeededTeams(8);
         Bracket wbr = winnerBracket.getHead();
 
         cut.assignTeams(wbr, teams);
@@ -38,7 +38,7 @@ public class PartiallySeededTeamAssignerTest {
     @Test
     public void assignSeededTeams_32() {
         WinnerBracket winnerBracket = wbrFactory.createWinnerBracket(32, null, null);
-        Set<Team> teams = ObjectMother.createSeededTeams(32);
+        Set<Team> teams = TourneyObjectMother.createSeededTeams(32);
         Bracket wbr = winnerBracket.getHead();
 
         cut.assignTeams(wbr, teams);
@@ -63,7 +63,7 @@ public class PartiallySeededTeamAssignerTest {
     @Test
     public void assignUnseededTeams_8() {
         WinnerBracket winnerBracket = wbrFactory.createWinnerBracket(8, null, null);
-        Set<Team> teams = ObjectMother.createUnseededTeams(8);
+        Set<Team> teams = TourneyObjectMother.createUnseededTeams(8);
         Bracket wbr = winnerBracket.getHead();
 
         cut.assignTeams(wbr, teams);
@@ -81,7 +81,7 @@ public class PartiallySeededTeamAssignerTest {
     @Test
     public void assignPartiallySeededTeams_8() {
         WinnerBracket winnerBracket = wbrFactory.createWinnerBracket(8, null, null);
-        Set<Team> teams = ObjectMother.createUnseededTeams(8);
+        Set<Team> teams = TourneyObjectMother.createUnseededTeams(8);
         makeTwoTeamsSeeded(teams);
         Bracket wbr = winnerBracket.getHead();
 

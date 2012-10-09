@@ -1,7 +1,7 @@
 package com.pduda.tourney.web.tourneycreation;
 
-import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.EventPlayer;
+import com.pduda.tourney.domain.Team;
 
 /**
  * Remember to adapt equals+hashCode of Team, Player etc to the fields used in
@@ -16,16 +16,16 @@ public class TeamStringifier {
     public String objectToString(Team team) {
         StringBuilder sb = new StringBuilder();
 
-        if (team.getMembers().get(0).getFullName() != null) {
-            sb.append(team.getMembers().get(0).getFullName());
+        if (team.getEventPlayerOne().getFullName() != null) {
+            sb.append(team.getEventPlayerOne().getFullName());
             sb.append(SEPARATOR);
-            sb.append(team.getMembers().get(0).getCode());
+            sb.append(team.getEventPlayerOne().getCode());
         }
-        if (team.getMembers().size() > 1) {
+        if (team.isDouble()) {
             sb.append(SEPARATOR);
-            sb.append(team.getMembers().get(1).getFullName());
+            sb.append(team.getEventPlayerTwo().getFullName());
             sb.append(SEPARATOR);
-            sb.append(team.getMembers().get(1).getCode());
+            sb.append(team.getEventPlayerTwo().getCode());
         }
         return sb.toString();
     }

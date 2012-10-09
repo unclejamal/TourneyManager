@@ -1,16 +1,18 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
 import com.pduda.tourney.domain.GameCode;
+import com.pduda.tourney.domain.TourneyEvent;
 import org.junit.*;
 import static org.junit.Assert.*;
 
 public class NumberedWinnerBracketFactoryTest {
 
     private NumberedWbrFactory cut;
+    private TourneyEvent tourneyEvent;
     
     @Before
     public void setUp() {
-        cut = new NumberedWbrFactory();
+        cut = new NumberedWbrFactory(tourneyEvent);
     }
 
     @Test

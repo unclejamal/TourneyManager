@@ -30,16 +30,22 @@
                             </f:facet>
                             <h:outputText value="#{item.name}" />
                         </rich:column>
+                         <rich:column>
+                            <f:facet name="header">
+                                <h:outputText value="Events" />
+                            </f:facet>
+                            <h:outputText value="#{item.events}" />
+                        </rich:column>
                         <rich:column>
                             <f:facet name="header">
                                 <h:outputText value="Actions" />
                             </f:facet>
                             <h:outputLink value="#{facesContext.externalContext.requestContextPath}/html/manageTourney.html" style="margin-right: 6px;">
-                                <f:param name="id" value="#{item.id}"/>
+                                <f:param name="tourneyId" value="#{item.id}"/>
                                 Manage
                             </h:outputLink>
                             <h:outputLink value="#{facesContext.externalContext.requestContextPath}/html/viewTourney.html">
-                                <f:param name="id" value="#{item.id}"/>
+                                <f:param name="tourneyId" value="#{item.id}"/>
                                 View
                             </h:outputLink>
 
@@ -48,70 +54,6 @@
                 </h:form>
             </h:panelGroup>
 
-            <h:panelGroup id="pgpEvents" layout="block">
-                <h:form id="frmEvents">
-                    <rich:dataTable value="#{home.po.events}" var="item"
-                                    id="dtEvents" rowClasses="odd-row, even-row" styleClass="stable">
-                        <f:facet name="caption">
-                            <h:outputText value="Events" />
-                        </f:facet>
-                        <rich:column>
-                            <f:facet name="header">
-                                <h:outputText value="Id" />
-                            </f:facet>
-                            <h:outputText value="#{item.id}" />
-                        </rich:column>
-                        <rich:column>
-                            <f:facet name="header">
-                                <h:outputText value="Name" />
-                            </f:facet>
-                            <h:outputText value="#{item.name}" />
-                        </rich:column>
-                        <rich:column>
-                            <f:facet name="header">
-                                <h:outputText value="Category" />
-                            </f:facet>
-                            <h:outputText value="#{item.eventCategory}" />
-                        </rich:column>
-                        <rich:column>
-                            <f:facet name="header">
-                                <h:outputText value="Teams" />
-                            </f:facet>
-                            <h:outputText value="#{fn:length(item.teams)}" />
-                        </rich:column>
-                        <rich:column>
-                            <f:facet name="header">
-                                <h:outputText value="Start" />
-                            </f:facet>
-                            <h:outputText value="#{item.startDate}">
-                                <f:convertDateTime pattern="#{app.datePattern}"/>
-                            </h:outputText>
-                        </rich:column>
-                        <rich:column>
-                            <f:facet name="header">
-                                <h:outputText value="End" />
-                            </f:facet>
-                            <h:outputText value="#{item.endDate}">
-                                <f:convertDateTime  pattern="#{app.datePattern}"/>
-                            </h:outputText>
-                        </rich:column>
-                        <rich:column>
-                            <f:facet name="header">
-                                <h:outputText value="Actions" />
-                            </f:facet>
-                            <h:outputLink value="#{facesContext.externalContext.requestContextPath}/html/manageTourney.html" style="margin-right: 6px;">
-                                <f:param name="id" value="#{item.id}"/>
-                                Manage
-                            </h:outputLink>
-                            <h:outputLink value="#{facesContext.externalContext.requestContextPath}/html/viewTourney.html">
-                                <f:param name="id" value="#{item.id}"/>
-                                View
-                            </h:outputLink>
-
-                        </rich:column>
-                    </rich:dataTable>
-                </h:form>
-            </h:panelGroup>
         </ui:define>
     </ui:composition>
 </html>

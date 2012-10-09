@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:rich="http://richfaces.org/rich">
@@ -14,50 +15,207 @@
         <ui:define name="content">
 
             <h:panelGroup id="pgpTourney" layout="block" style="margin-bottom: 48px; float:left;">
-                <h:outputLabel id="name" value="#{tourneyMgmt.tourney.name}"/>
-                <h:outputLabel id="category" value="(#{tourneyMgmt.tourney.tourneyCategory})"/>
-                <h:panelGroup id="pgpNotStarted" layout="block" rendered="#{not tourneyMgmt.tourney.started}">
-                    <h:outputText id="otNotStarted" value="Not started yet"/> 
-                    <h:form id="frmStartTourney" >
-                        <a4j:commandButton id="btnStartTourney" value="Start" actionListener="#{tourneyMgmt.startTourney}" render="pgpWaitingGamesInner,pgpOngoingGamesInner,pgpTourney" />
+                <h:outputLabel id="name" value="#{tourneyMgmt.po.tourneyName}"/>
+
+                <h:panelGroup id="pgpTables" layout="block" style="margin-bottom: 24px">
+                    <h:form id="frmTablesTotal" >
+                        <h:outputLabel id="lblTablesTotal" value="Tables" for="pgpTables">
+                            <rich:inputNumberSpinner id="insTablesTotal" value="#{tourneyMgmt.po.tablesTotal}"/>
+                        </h:outputLabel>
+                        <h:commandButton id="btnUpdateTablesTotal" value="Update" actionListener="#{tourneyMgmt.updateTablesTotal}"/>
                     </h:form>
                 </h:panelGroup>
+
+                <rich:dataTable value="#{tourneyMgmt.po.events}" var="item"
+                                id="dtEvents" rowClasses="odd-row, even-row" styleClass="stable"
+                                style="width: 100%; margin-bottom: 12px;" noDataLabel="No events">
+                    <f:facet name="caption">
+                        <h:outputText value="Events" />
+                    </f:facet>
+                    <rich:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id" />
+                        </f:facet>
+                        <h:outputText value="#{item.id}" />
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">
+                            <h:outputText value="Category" />
+                        </f:facet>
+                        <h:outputText value="#{item.eventCategory}" />
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">
+                            <h:outputText value="Started" />
+                        </f:facet>
+                        <h:outputText value="#{item.started}" />
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">
+                            <h:outputText value="Teams" />
+                        </f:facet>
+                        <h:outputText value="#{fn:length(item.teams)}" />
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">
+                            <h:outputText value="Actions" />
+                        </f:facet>
+                        <h:form id="frmEvent" >
+                            <h:outputLink value="#{facesContext.externalContext.requestContextPath}/html/registerTeams.html">
+                                <f:param name="eventId" value="#{item.id}"/>
+                                Register Teams
+                            </h:outputLink>
+                            <a4j:commandLink id="btnStartEvent" rendered="#{not item.started}" actionListener="#{tourneyMgmt.startEvent}" render="pgpWaitingGamesInner,pgpOngoingGamesInner,pgpTourney">
+                                <f:attribute name="eventId" value="#{item.id}"/>
+                                Start
+                            </a4j:commandLink>
+                            <a4j:commandLink id="btnPauseEvent" actionListener="#{tourneyMgmt.pauseEvent}" render="pgpWaitingGamesInner,pgpOngoingGamesInner,pgpTourney">
+                                <f:attribute name="eventId" value="#{item.id}"/>
+                                Pause
+                            </a4j:commandLink>
+                            <a4j:commandLink id="btnCancelEvent" actionListener="#{tourneyMgmt.cancelEvent}" render="pgpWaitingGamesInner,pgpOngoingGamesInner,pgpTourney">
+                                <f:attribute name="eventId" value="#{item.id}"/>
+                                Cancel
+                            </a4j:commandLink>
+                        </h:form>
+
+                    </rich:column>
+                </rich:dataTable>
+
+
+
+
+                <a4j:repeat value="#{tourneyMgmt.po.events}" var="tourneyEvent">
+                    <rich:collapsiblePanel header="#{tourneyEvent.eventCategory}" switchType="client" style="margin-bottom: 12px;">
+
+                        <h:panelGroup id="pgpTeams" layout="block">
+                            <h:form id="frmTeams" >
+                                <h:panelGroup id="pgpTeamsInner" layout="block" style="margin-bottom: 12px;">
+
+                                    <rich:dataTable id="dtTeams" value="#{tourneyEvent.teams}" var="team" noDataLabel="No teams added yet">
+                                        <f:facet name="caption">
+                                            <h:outputText value="Registered teams" />
+                                        </f:facet>
+                                        <rich:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Points" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.points}" />
+                                        </rich:column>
+                                        <rich:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Member 1" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[0].fullName}" />
+                                        </rich:column>                
+                                        <rich:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Club" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[0].club}" />
+                                        </rich:column>   
+                                        <rich:column rendered="#{tourneyEvent.doubleGame}">
+                                            <f:facet name="header">
+                                                <h:outputText value="Points" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[0].points}" />
+                                        </rich:column>
+                                        <rich:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Class" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[0].rankClass}" />
+                                        </rich:column>
+                                        <rich:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Fee" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[0].fee}" />
+                                        </rich:column>                            
+                                        <rich:column rendered="#{tourneyEvent.doubleGame}">
+                                            <f:facet name="header">
+                                                <h:outputText value="Member 2" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[1].fullName}" rendered="#{not empty team.members[1]}"/>
+                                            <h:outputText value="-" rendered="#{empty team.members[1]}"/>
+                                        </rich:column>
+                                        <rich:column rendered="#{tourneyEvent.doubleGame}">
+                                            <f:facet name="header">
+                                                <h:outputText value="Club" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[1].club}" rendered="#{not empty team.members[1]}"/>
+                                            <h:outputText value="-" rendered="#{empty team.members[1]}"/>
+                                        </rich:column>
+                                        <rich:column rendered="#{tourneyEvent.doubleGame}">
+                                            <f:facet name="header">
+                                                <h:outputText value="Points" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[1].points}" rendered="#{not empty team.members[1]}"/>
+                                            <h:outputText value="-" rendered="#{empty team.members[1]}"/>
+                                        </rich:column>
+                                        <rich:column rendered="#{tourneyEvent.doubleGame}">
+                                            <f:facet name="header">
+                                                <h:outputText value="Class" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[1].rankClass}" rendered="#{not empty team.members[1]}"/>
+                                            <h:outputText value="-" rendered="#{empty team.members[1]}"/>
+                                        </rich:column>
+                                        <rich:column rendered="#{tourneyEvent.doubleGame}">
+                                            <f:facet name="header">
+                                                <h:outputText value="Fee" />
+                                            </f:facet>
+                                            <h:outputText value="#{team.members[1].fee}" rendered="#{not empty team.members[1]}"/>
+                                            <h:outputText value="-" rendered="#{empty team.members[1]}"/>
+                                        </rich:column>                            
+                                        <rich:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Actions" />
+                                            </f:facet>
+                                            <a4j:commandLink id="clRemoveTeam" actionListener="#{tourneyMgmt.removeTeam}" render="pgpTeamsInner">
+                                                <f:attribute name="name" value="#{team.name}"/>
+                                                Remove
+                                            </a4j:commandLink>
+
+                                        </rich:column>
+                                    </rich:dataTable>
+
+                                    <div class="clearFloats"/>
+
+                                </h:panelGroup>
+                            </h:form>
+
+                        </h:panelGroup>
+                    </rich:collapsiblePanel>
+                </a4j:repeat>
+
             </h:panelGroup>
 
-            <h:panelGroup id="pgpInfo" layout="block" style="float:left; margin-right: 72px; clear: both;">
-                <h:panelGroup id="pgpTables" layout="block" style="margin-bottom: 24px">
-                    <h:outputLabel id="lblTables" value="Tables" for="pgpTables">
-                        <ui:repeat id="repTables" value="#{tourneyMgmt.tourney.tables}" var="table">
-                            <h:panelGroup id="pgpTable" layout="block" style="margin-bottom: 10px">
-                                <h:outputLabel id="lblTableName" value="Name">
-                                    <h:outputText id="otTableName" value="#{table.name}"/>
-                                </h:outputLabel>
-                            </h:panelGroup>
-                        </ui:repeat>
-                    </h:outputLabel>
-                </h:panelGroup>    
 
 
-                <h:panelGroup id="pgpTeams" layout="block">
-                    <h:outputLabel id="lblTeams" value="Teams" for="pgpTeams">
-                        <a4j:repeat id="repTeams" value="#{tourneyMgmt.tourney.teams}" var="team">
-                            <h:panelGroup id="pgpTeam" layout="block" style="margin-bottom: 10px">
-                                <h:outputFormat id="ofTeam" value="{0}#{team.seeded ? '{1}' : ''}">
-                                    <f:param value="#{team.name}"/>
-                                    <f:param value=" (#{team.seed})"/>
-                                </h:outputFormat>
-                            </h:panelGroup>
-                        </a4j:repeat>
-                    </h:outputLabel>
-                </h:panelGroup>
-            </h:panelGroup>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <h:panelGroup id="pgpManagement" layout="block" style="float:left; margin-right: 72px; width: 600px">
                 <h:panelGroup id="pgpWaitingGames" layout="block" style="margin-bottom: 24px">
                     <h:form id="frmWaitingGames">
                         <h:panelGroup id="pgpWaitingGamesInner" layout="block">
-                            <rich:dataTable value="#{tourneyMgmt.tourney.waitingGames}" var="item"
+                            <rich:dataTable value="#{tourneyMgmt.po.waitingGames}" var="item"
                                             id="dtWaitingGames" rowClasses="odd-row, even-row" styleClass="stable"
                                             style="width: 100%" noDataLabel="No waiting games">
                                 <f:facet name="caption">
@@ -65,7 +223,13 @@
                                 </f:facet>
                                 <rich:column>
                                     <f:facet name="header">
-                                        <h:outputText value="Id" />
+                                        <h:outputText value="Event Category" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.eventCategory}" />
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Game" />
                                     </f:facet>
                                     <h:outputText value="#{item.gameCode}" />
                                 </rich:column>
@@ -91,6 +255,7 @@
                                     </f:facet>
                                     <a4j:commandLink id="clStartGame" actionListener="#{tourneyMgmt.startGame}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
                                         <f:attribute name="gameCode" value="#{item.gameCode}"/>
+                                        <f:attribute name="eventId" value="#{item.eventId}"/>
                                         Start
                                     </a4j:commandLink>
 
@@ -103,7 +268,7 @@
                 <h:panelGroup id="pgpOngoingGames" layout="block" style="margin-bottom: 24px;">
                     <h:form id="frmOngoingGames">
                         <h:panelGroup id="pgpOngoingGamesInner" layout="block">
-                            <rich:dataTable value="#{tourneyMgmt.tourney.ongoingGames}" var="item"
+                            <rich:dataTable value="#{tourneyMgmt.po.ongoingGames}" var="item"
                                             id="dtOngoingGames" rowClasses="odd-row, even-row" styleClass="stable"
                                             style="width: 100%" noDataLabel="No ongoing games">
                                 <f:facet name="caption">
@@ -111,7 +276,13 @@
                                 </f:facet>
                                 <rich:column>
                                     <f:facet name="header">
-                                        <h:outputText value="Id" />
+                                        <h:outputText value="Event Category" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.eventCategory}" />
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Game" />
                                     </f:facet>
                                     <h:outputText value="#{item.gameCode}" />
                                 </rich:column>
@@ -122,6 +293,7 @@
                                     <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
                                         <f:attribute name="gameCode" value="#{item.gameCode}"/>
                                         <f:attribute name="winnerTeamCode" value="#{item.teamHome.teamCode}"/>
+                                        <f:attribute name="eventId" value="#{item.eventId}"/>
                                         <h:outputText value="#{item.teamHome.members[0].fullName}" />
                                         <h:outputText value="#{empty item.teamHome.members[1] ? '' : ', '}" />
                                         <h:outputText value="#{empty item.teamHome.members[1] ? '' : item.teamHome.members[1].fullName}" />
@@ -134,7 +306,7 @@
                                     <a4j:commandLink actionListener="#{tourneyMgmt.reportWinner}" render="pgpWaitingGamesInner,pgpOngoingGamesInner">
                                         <f:attribute name="gameCode" value="#{item.gameCode}"/>
                                         <f:attribute name="winnerTeamCode" value="#{item.teamAway.teamCode}"/>
-
+                                        <f:attribute name="eventId" value="#{item.eventId}"/>
                                         <h:outputText value="#{item.teamAway.members[0].fullName}" />
                                         <h:outputText value="#{empty item.teamAway.members[1] ? '' : ', '}" />
                                         <h:outputText value="#{empty item.teamAway.members[1] ? '' : item.teamAway.members[1].fullName}" />
@@ -154,12 +326,10 @@
                 </h:panelGroup>
             </h:panelGroup>
 
-            <a4j:outputPanel id="pgpStandings" layout="block" ajaxRendered="true" style="float: left; width: 400px; white-space: pre-wrap">
-                <h:outputText id="otStandings" value="#{tourneyMgmt.tourney.standings}"/>
-            </a4j:outputPanel>
-
-
             <div style="clear: both;"/>
+
+
+
 
         </ui:define>
     </ui:composition>

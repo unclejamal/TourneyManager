@@ -1,5 +1,6 @@
 package com.pduda.tourney.domain;
 
+import com.pduda.tourney.infrastructure.gson.GsonExclude;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
@@ -19,17 +20,17 @@ public class Game implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
     private GameCode gameCode;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "FOOSBALL_TABLE")
     private FoosballTable table;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="TEAM_HOME")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TEAM_HOME")
     private Team teamHome;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="TEAM_AWAY")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TEAM_AWAY")
     private Team teamAway;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="WINNER")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "WINNER")
     private Team winner;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "START_DATE")
@@ -40,15 +41,14 @@ public class Game implements Serializable {
     @Enumerated
     @Column(name = "GAME_STATE")
     private GameState gameState = GameState.NotStartedYet;
+    @GsonExclude
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="TOURNEY_EVENT")
+    private TourneyEvent tourneyEvent;
 
-    public Game(String prefix, int round, int match) {
+    public Game(TourneyEvent tourneyEvent, String prefix, int round, int match) {
         this.gameCode = new GameCode(prefix, round, match);
-    }
-
-    public Game(FoosballTable table, Team teamHome, Team teamAway) {
-        this.table = table;
-        this.teamHome = teamHome;
-        this.teamAway = teamAway;
+        this.tourneyEvent = tourneyEvent;
     }
 
     /**
@@ -140,6 +140,10 @@ public class Game implements Serializable {
 
     public boolean isOrphan() {
         return (teamHome == null) && (teamAway == null);
+    }
+
+    public TourneyEvent getTourneyEvent() {
+        return tourneyEvent;
     }
 
     public long getId() {

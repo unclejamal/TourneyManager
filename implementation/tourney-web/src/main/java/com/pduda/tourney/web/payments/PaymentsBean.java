@@ -3,7 +3,7 @@ package com.pduda.tourney.web.payments;
 import com.pduda.tourney.domain.fee.MembershipType;
 import com.pduda.tourney.domain.fee.Payroll;
 import com.pduda.tourney.domain.fee.PayrollMember;
-import com.pduda.tourney.domain.service.PaymentsHandler;
+import com.pduda.tourney.domain.service.payments.PaymentsHandler;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;

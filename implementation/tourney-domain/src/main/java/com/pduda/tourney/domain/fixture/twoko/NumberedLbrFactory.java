@@ -1,5 +1,6 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
+import com.pduda.tourney.domain.TourneyEvent;
 import java.io.Serializable;
 
 public class NumberedLbrFactory implements Serializable {
@@ -7,9 +8,14 @@ public class NumberedLbrFactory implements Serializable {
     private static final long serialVersionUID = 1L;
     public static final String PREFIX = "L";
     private int freeBracketId = 0;
+    private final TourneyEvent tourneyEvent;
+
+    public NumberedLbrFactory(TourneyEvent tourneyEvent) {
+        this.tourneyEvent = tourneyEvent;
+    }
 
     public Bracket createNextBracket() {
-        Bracket bracket = new Bracket(PREFIX, round(freeBracketId), gameNumberWithinRound(freeBracketId));
+        Bracket bracket = new Bracket(tourneyEvent, PREFIX, round(freeBracketId), gameNumberWithinRound(freeBracketId));
         bracket.setPlace(place(freeBracketId++));
         return bracket;
     }

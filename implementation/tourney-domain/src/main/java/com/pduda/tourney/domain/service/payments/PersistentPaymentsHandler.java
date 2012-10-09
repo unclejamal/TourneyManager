@@ -1,4 +1,4 @@
-package com.pduda.tourney.domain.service;
+package com.pduda.tourney.domain.service.payments;
 
 import com.pduda.tourney.domain.*;
 import com.pduda.tourney.domain.fee.MembershipType;

@@ -2,6 +2,7 @@ package com.pduda.tourney.domain.fixture.twoko;
 
 import com.pduda.tourney.domain.Fixture;
 import com.pduda.tourney.domain.report.FullGamesReport;
+import com.pduda.tourney.domain.report.GamesReportFactory;
 import com.pduda.tourney.domain.report.GamesReportRound;
 import com.pduda.tourney.domain.report.PartialGamesReport;
 

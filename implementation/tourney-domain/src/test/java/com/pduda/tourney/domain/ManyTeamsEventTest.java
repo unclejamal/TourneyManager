@@ -75,7 +75,7 @@ public class ManyTeamsEventTest {
     }
 
     private void addTeams(int teamsTotal) throws NumberFormatException {
-        Set<Team> teams = ObjectMother.createSeededTeams(teamsTotal);
+        Set<Team> teams = TourneyObjectMother.createSeededTeams(teamsTotal);
         for (Team team : teams) {
             event.addTeam(team);
         }

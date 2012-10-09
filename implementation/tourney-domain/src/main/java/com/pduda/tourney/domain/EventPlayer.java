@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Configurable;
 
 @Entity
-@javax.persistence.Table(name = "TOURNEY_PLAYER")
+@javax.persistence.Table(name = "EVENT_PLAYER")
 @Configurable(autowire = Autowire.BY_TYPE)
 public class EventPlayer implements Serializable {
 
@@ -16,9 +16,9 @@ public class EventPlayer implements Serializable {
     public static final String NA = "n/a";
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "TOURNEY_PLAYER_ID")
+    @Column(name = "EVENT_PLAYER_ID")
     private long id;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private RankingPlayer player;
     @Column(name = "FEE")
     private Long fee;

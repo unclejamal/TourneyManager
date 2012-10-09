@@ -1,12 +1,17 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
+import com.pduda.tourney.domain.TourneyEvent;
 import com.pduda.tourney.domain.util.MyMath;
 import java.io.Serializable;
 
 public class LoserBracketFactory implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private NumberedLbrFactory loserBracketNbf = new NumberedLbrFactory();
+    private NumberedLbrFactory loserBracketNbf;
+
+    public LoserBracketFactory(TourneyEvent tourneyEvent) {
+        this.loserBracketNbf = new NumberedLbrFactory(tourneyEvent);
+    }
 
     public LoserBracket createLoserBracket(int teamsTotal, FinalOneBracket finalOneBracket) {
         Bracket lbr3 = loserBracketNbf.createNextBracket();

@@ -1,5 +1,8 @@
-package com.pduda.tourney.domain.service;
+package com.pduda.tourney.domain.service.tourney;
 
+import com.pduda.tourney.domain.service.tourney.TourneyHandler;
+import com.pduda.tourney.domain.service.tourney.TourneyCreationSo;
+import com.pduda.tourney.domain.service.tourney.TourneyEventSo;
 import com.pduda.tourney.domain.*;
 import com.pduda.tourney.domain.repository.EventRepo;
 import com.pduda.tourney.domain.repository.TourneyRepo;
@@ -24,17 +27,13 @@ public class PersistentTourneyHandler implements TourneyHandler, Serializable {
     private TourneyRepo tourneyRepo;
 
     @Override
-    public long createTournament(EventCategory eventCategory, String tourneyName, Set<Team> teams) {
-        log.log(Level.INFO, "System is creating a {0} tournament \"{0}\" for: {1}", new Object[]{eventCategory, tourneyName, teams});
+    public long createTournament(TourneyCreationSo dto) {
+        log.log(Level.INFO, "System is creating a tournament: {0}", new Object[]{dto.tourneyName});
 
-        Tourney tourney = new Tourney(tourneyName);
-        tourney.addTable(new FoosballTable("upper"));
-        tourney.addTable(new FoosballTable("lower"));
-        TourneyEvent event = new TourneyEvent(tourney, eventCategory);
-        tourney.addEvent(event);
-        
-        for (Team team : teams) {
-            event.addTeam(team);
+        Tourney tourney = new Tourney(dto.tourneyName);
+
+        for (TourneyEventSo tourneyEventDto : dto.events) {
+            tourney.addEvent(new TourneyEvent(tourney, tourneyEventDto.category));
         }
 
         Tourney persisted = tourneyRepo.merge(tourney);
@@ -49,12 +48,12 @@ public class PersistentTourneyHandler implements TourneyHandler, Serializable {
     @Override
     public Set<TourneyEvent> getEvents(long tourneyId) {
         Tourney tourney = tourneyRepo.findEntity(tourneyId);
-        return tourney.getEvents();
+        return tourney.getTourneyEvents();
     }
 
     @Override
     public TourneyEvent getEvent(long eventId) {
-        log.info("System is getting event " + eventId);
+        log.log(Level.INFO, "System is getting event {0}", eventId);
         TourneyEvent event = eventRepo.findEntity(eventId);
         return event;
     }
@@ -73,6 +72,7 @@ public class PersistentTourneyHandler implements TourneyHandler, Serializable {
 
     @Override
     public void startGame(long eventId, GameCode gameCode) {
+        log.log(Level.INFO, "System is starting game {0} for event {1}", new Object[]{gameCode.toString(), eventId});
         TourneyEvent event = eventRepo.findEntity(eventId);
         event.startGame(gameCode);
     }
@@ -80,5 +80,13 @@ public class PersistentTourneyHandler implements TourneyHandler, Serializable {
     @Override
     public Tourney getTourney(long tourneyId) {
         return tourneyRepo.findEntity(tourneyId);
+    }
+
+    @Override
+    public void registerTeams(long eventId, Set<Team> teams) {
+        log.log(Level.INFO, "System is registering teams for event {0}: {1}", new Object[]{eventId, teams});
+        TourneyEvent event = eventRepo.findEntity(eventId);
+        event.updateTeams(teams);
+        eventRepo.merge(event);
     }
 }

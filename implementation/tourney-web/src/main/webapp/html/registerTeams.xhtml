@@ -41,19 +41,19 @@
                 <h:form id="frmNewTeam" >        
                     <h:panelGroup id="pgpNewTeamInner" layout="block">
                         <h:outputLabel id="olNewPlayer1" value="Player 1">
-                            <rich:autocomplete id="acNewPlayer1" value="#{tourneyCreation.newPlayer1}"
-                                               mode="client" minChars="2" autocompleteList ="#{tourneyCreation.rankingSuggestions}"
+                            <rich:autocomplete id="acNewPlayer1" value="#{tourneyRegistration.newPlayer1}"
+                                               mode="client" minChars="2" autocompleteList ="#{tourneyRegistration.rankingSuggestions}"
                                                autofill="true" clientFilterFunction="contains" />
                         </h:outputLabel>
-                        <h:outputLabel id="olNewPlayer2" value="Player 2" rendered="#{tourneyCreation.doubleGame}">
-                            <rich:autocomplete id="acNewPlayer2" value="#{tourneyCreation.newPlayer2}"
-                                               mode="client" minChars="2" autocompleteList ="#{tourneyCreation.rankingSuggestions}"
+                        <h:outputLabel id="olNewPlayer2" value="Player 2" rendered="#{tourneyRegistration.doubleGame}">
+                            <rich:autocomplete id="acNewPlayer2" value="#{tourneyRegistration.newPlayer2}"
+                                               mode="client" minChars="2" autocompleteList ="#{tourneyRegistration.rankingSuggestions}"
                                                autofill="true" clientFilterFunction="contains"/>
                         </h:outputLabel>
 
                         <div class="clearFloats"/>
 
-                        <a4j:commandButton id="btnAddTeam" value="Add team" actionListener="#{tourneyCreation.addTeam}" render="pgpTeamsInner" 
+                        <a4j:commandButton id="btnAddTeam" value="Add team" actionListener="#{tourneyRegistration.addTeam}" render="pgpTeamsInner" 
                                            oncomplete="addNewTeamAfterwork()"/>
                     </h:panelGroup>
                 </h:form>
@@ -65,7 +65,7 @@
                 <h:form id="frmTeams" >
                     <h:panelGroup id="pgpTeamsInner" layout="block" style="margin-bottom: 24px;">
 
-                        <rich:dataTable id="dtTeams" value="#{tourneyCreation.teams}" var="item" noDataLabel="No teams added yet">
+                        <rich:dataTable id="dtTeams" value="#{tourneyRegistration.teams}" var="item" noDataLabel="No teams added yet">
                             <f:facet name="caption">
                                 <h:outputText value="Registered teams" />
                             </f:facet>
@@ -79,72 +79,72 @@
                                 <f:facet name="header">
                                     <h:outputText value="Member 1" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[0].fullName}" />
+                                <h:outputText value="#{item.eventPlayerOne.fullName}" />
                             </rich:column>                
                             <rich:column>
                                 <f:facet name="header">
                                     <h:outputText value="Club" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[0].club}" />
+                                <h:outputText value="#{item.eventPlayerOne.club}" />
                             </rich:column>   
-                            <rich:column rendered="#{tourneyCreation.doubleGame}">
+                            <rich:column rendered="#{tourneyRegistration.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Points" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[0].points}" />
+                                <h:outputText value="#{item.eventPlayerOne.points}" />
                             </rich:column>
                             <rich:column>
                                 <f:facet name="header">
                                     <h:outputText value="Class" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[0].rankClass}" />
+                                <h:outputText value="#{item.eventPlayerOne.rankClass}" />
                             </rich:column>
                             <rich:column>
                                 <f:facet name="header">
                                     <h:outputText value="Fee" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[0].fee}" />
+                                <h:outputText value="#{item.eventPlayerOne.fee}" />
                             </rich:column>                            
-                            <rich:column rendered="#{tourneyCreation.doubleGame}">
+                            <rich:column rendered="#{tourneyRegistration.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Member 2" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[1].fullName}" rendered="#{not empty item.members[1]}"/>
-                                <h:outputText value="-" rendered="#{empty item.members[1]}"/>
+                                <h:outputText value="#{item.eventPlayerTwo.fullName}" rendered="#{not empty item.eventPlayerTwo}"/>
+                                <h:outputText value="-" rendered="#{empty item.eventPlayerTwo}"/>
                             </rich:column>
-                            <rich:column rendered="#{tourneyCreation.doubleGame}">
+                            <rich:column rendered="#{tourneyRegistration.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Club" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[1].club}" rendered="#{not empty item.members[1]}"/>
-                                <h:outputText value="-" rendered="#{empty item.members[1]}"/>
+                                <h:outputText value="#{item.eventPlayerTwo.club}" rendered="#{not empty item.eventPlayerTwo}"/>
+                                <h:outputText value="-" rendered="#{empty item.eventPlayerTwo}"/>
                             </rich:column>
-                            <rich:column rendered="#{tourneyCreation.doubleGame}">
+                            <rich:column rendered="#{tourneyRegistration.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Points" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[1].points}" rendered="#{not empty item.members[1]}"/>
-                                <h:outputText value="-" rendered="#{empty item.members[1]}"/>
+                                <h:outputText value="#{item.eventPlayerTwo.points}" rendered="#{not empty item.eventPlayerTwo}"/>
+                                <h:outputText value="-" rendered="#{empty item.eventPlayerTwo}"/>
                             </rich:column>
-                            <rich:column rendered="#{tourneyCreation.doubleGame}">
+                            <rich:column rendered="#{tourneyRegistration.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Class" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[1].rankClass}" rendered="#{not empty item.members[1]}"/>
-                                <h:outputText value="-" rendered="#{empty item.members[1]}"/>
+                                <h:outputText value="#{item.eventPlayerTwo.rankClass}" rendered="#{not empty item.eventPlayerTwo}"/>
+                                <h:outputText value="-" rendered="#{empty item.eventPlayerTwo}"/>
                             </rich:column>
-                            <rich:column rendered="#{tourneyCreation.doubleGame}">
+                            <rich:column rendered="#{tourneyRegistration.doubleGame}">
                                 <f:facet name="header">
                                     <h:outputText value="Fee" />
                                 </f:facet>
-                                <h:outputText value="#{item.members[1].fee}" rendered="#{not empty item.members[1]}"/>
-                                <h:outputText value="-" rendered="#{empty item.members[1]}"/>
+                                <h:outputText value="#{item.eventPlayerTwo.fee}" rendered="#{not empty item.eventPlayerTwo}"/>
+                                <h:outputText value="-" rendered="#{empty item.eventPlayerTwo}"/>
                             </rich:column>                            
                             <rich:column>
                                 <f:facet name="header">
                                     <h:outputText value="Actions" />
                                 </f:facet>
-                                <a4j:commandLink id="clRemoveTeam" actionListener="#{tourneyCreation.removeTeam}" render="pgpTeamsInner">
+                                <a4j:commandLink id="clRemoveTeam" actionListener="#{tourneyRegistration.removeTeam}" render="pgpTeamsInner">
                                     <f:attribute name="name" value="#{item.name}"/>
                                     Remove
                                 </a4j:commandLink>
@@ -157,23 +157,18 @@
 
                     <h:panelGroup id="pgpSeeding" layout="block" style="margin-bottom: 24px;">
                         <h:outputLabel id="lblSeeding" value="Seeding">
-                            <rich:select id="selSeeding" value="#{tourneyCreation.seedingType}" defaultLabel="Select...">
-                                <f:selectItems value="#{tourneyCreation.seedingSuggestions}" />
+                            <rich:select id="selSeeding" value="#{tourneyRegistration.seedingType}" defaultLabel="Select...">
+                                <f:selectItems value="#{tourneyRegistration.seedingSuggestions}" />
                             </rich:select>
                         </h:outputLabel>
                     </h:panelGroup>
 
-                    <h:panelGroup id="pgpOthers" layout="block" style="margin-bottom: 24px;">
-                        <h:outputLabel id="lblTourneyName" value="Tourney name">
-                            <h:inputText id="itTourneyName" value="#{tourneyCreation.tourneyName}"/>
-                        </h:outputLabel>
-                    </h:panelGroup>
 
                     <a4j:commandButton id="btnReorderPopup" value="Reorder teams">
                         <a4j:ajax render="pgpPopupReorderTeams"></a4j:ajax>
                         <rich:componentControl target="popupReorder" operation="show" />
                     </a4j:commandButton>
-                    <a4j:commandButton id="btnCreateTourney" value="Create tourney" action="#{tourneyCreation.createTourney}" />
+                    <a4j:commandButton id="btnRegisterTeams" value="Register teams" action="#{tourneyRegistration.registerTeams}" />
 
                 </h:form>
 
@@ -190,7 +185,7 @@
                 </f:facet>
                 <h:form id="frmPopupReorder">
                     <h:panelGroup id="pgpPopupReorderTeams" layout="block" style="margin-bottom: 24px;">
-                        <rich:orderingList value="#{tourneyCreation.teams}" var="item" itemValue="#{item}" listHeight="450px" maxListHeight="450px" >
+                        <rich:orderingList value="#{tourneyRegistration.teams}" var="item" itemValue="#{item}" listHeight="450px" maxListHeight="450px" >
                             <f:converter converterId="teamConverter"/>
                             <rich:column>
                                 <f:facet name="header">
@@ -206,57 +201,11 @@
                             </rich:column>
                         </rich:orderingList>
 
-                        <a4j:commandButton id="btnReorder" value="Reorder" actionListener="#{tourneyCreation.reorderTeams}" 
+                        <a4j:commandButton id="btnReorder" value="Reorder" actionListener="#{tourneyRegistration.reorderTeams}" 
                                            render="pgpTeamsInner" oncomplete="#{rich:component('popupReorder')}.hide()"/>
                     </h:panelGroup>
                 </h:form> 
             </rich:popupPanel>
-
-            <rich:popupPanel id="popupCategory" modal="true" autosized="true" show="true">
-                <f:facet name="header">
-                    <h:outputText value="Choose tourney category" />
-                </f:facet>
-                <f:facet name="controls">
-                    <h:graphicImage value="/pages/close.png" style="cursor:pointer" onclick="#{rich:component('popupCategory')}.hide()" />
-                </f:facet>
-                <h:form id="frmPopupCategory">
-                    <h:panelGroup id="pgpPopupCategory" layout="block">
-                        <h:panelGroup id="pgpPopupCategoryAma" layout="block">
-                            <a4j:commandButton id="btnAs" value="Amateur Singles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                                <f:attribute name="cat" value="as"/>
-                            </a4j:commandButton>
-                            <a4j:commandButton id="btnAd" value="Amateur Doubles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                                <f:attribute name="cat" value="ad"/>
-                            </a4j:commandButton>
-                        </h:panelGroup>
-
-                        <h:panelGroup id="pgpPopupCategoryOpen" layout="block">
-                            <a4j:commandButton id="btnOs" value="Open Singles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                                <f:attribute name="cat" value="os"/>
-                            </a4j:commandButton>
-                            <a4j:commandButton id="btnOd" value="Open Doubles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                                <f:attribute name="cat" value="od"/>
-                            </a4j:commandButton>
-                        </h:panelGroup>                            
-
-                        <h:panelGroup id="pgpPopupCategoryWomen" layout="block">
-                            <a4j:commandButton id="btnWs" value="Women Singles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                                <f:attribute name="cat" value="ws"/>
-                            </a4j:commandButton>
-                            <a4j:commandButton id="btnWd" value="Women Doubles" actionListener="#{tourneyCreation.chooseCategory}" 
-                                               render="pgpNewTeamInner, pgpTeamsInner" oncomplete="#{rich:component('popupCategory')}.hide()">
-                                <f:attribute name="cat" value="wd"/>
-                            </a4j:commandButton>
-                        </h:panelGroup>
-                    </h:panelGroup>
-                </h:form> 
-            </rich:popupPanel>
-
 
         </ui:define>
     </ui:composition>

@@ -1,7 +1,7 @@
 package com.pduda.tourney.domain.fixture.twoko;
 
 import com.pduda.tourney.domain.GameCode;
-import com.pduda.tourney.domain.ObjectMother;
+import com.pduda.tourney.domain.TourneyObjectMother;
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.TourneyEvent;
 import org.junit.*;
@@ -22,7 +22,7 @@ public class Fixture2KOTest {
     @Test
     public void threeTeams() {
         TourneyEvent event = new TourneyEvent();
-        Set<Team> teams = ObjectMother.createSeededTeams(3);
+        Set<Team> teams = TourneyObjectMother.createSeededTeams(3);
         for (Team team : teams) {
             event.addTeam(team);
         }
@@ -39,7 +39,7 @@ public class Fixture2KOTest {
     @Test
     public void fourTeams() {
 
-        Set<Team> teams = ObjectMother.createSeededTeams(4);
+        Set<Team> teams = TourneyObjectMother.createSeededTeams(4);
         for (Team team : teams) {
             tourney.addTeam(team);
         }
@@ -52,7 +52,7 @@ public class Fixture2KOTest {
     @Test
     public void fiveTeams() {
         TourneyEvent tourney = new TourneyEvent();
-        Set<Team> teams = ObjectMother.createSeededTeams(5);
+        Set<Team> teams = TourneyObjectMother.createSeededTeams(5);
         for (Team team : teams) {
             tourney.addTeam(team);
         }

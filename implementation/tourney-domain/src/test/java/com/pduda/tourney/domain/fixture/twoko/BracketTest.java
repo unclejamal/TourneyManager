@@ -11,7 +11,7 @@ public class BracketTest {
 
     @Before
     public void setUp() {
-        cut = new Bracket(FinalOneBracket.FIN1, 1, 1);
+        cut = new Bracket(null, FinalOneBracket.FIN1, 1, 1);
     }
 
     @Test
@@ -34,11 +34,11 @@ public class BracketTest {
         Team awayHomeTeam = new Team(new EventPlayer("awayhome"));
         Team awayAwayTeam = new Team(new EventPlayer("awayaway"));
 
-        Bracket homeBracket = new Bracket(NumberedWbrFactory.PREFIX, 2, 1);
+        Bracket homeBracket = new Bracket(null, NumberedWbrFactory.PREFIX, 2, 1);
         homeBracket.getGame().setTeamHome(homeTeam);
         cut.setHomeBracket(homeBracket);
 
-        Bracket awayBracket = new Bracket(NumberedWbrFactory.PREFIX, 2, 2);
+        Bracket awayBracket = new Bracket(null, NumberedWbrFactory.PREFIX, 2, 2);
         awayBracket.getGame().setTeamHome(awayHomeTeam);
         awayBracket.getGame().setTeamAway(awayAwayTeam);
         cut.setAwayBracket(awayBracket);

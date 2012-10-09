@@ -2,7 +2,7 @@ package com.pduda.tourney.web.ranking;
 
 import com.pduda.tourney.domain.RankingPlayer;
 import com.pduda.tourney.domain.ranking.Ranking;
-import com.pduda.tourney.domain.service.RankingHandler;
+import com.pduda.tourney.domain.service.ranking.RankingHandler;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

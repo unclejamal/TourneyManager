@@ -1,8 +1,7 @@
 package com.pduda.tourney.web.tourneycreation;
 
-import com.pduda.tourney.web.tourneycreation.TeamStringifier;
-import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.EventPlayer;
+import com.pduda.tourney.domain.Team;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -31,18 +30,18 @@ public class TeamStringifierTest {
     public void stringToObject_full() {
         Team team = cut.stringToObject("Pawel:::WKPS69:::Tomek:::WKPS13");
 
-        assertEquals("Pawel", team.getMembers().get(0).getFullName());
-        assertEquals("WKPS69", team.getMembers().get(0).getCode());
-        assertEquals("Tomek", team.getMembers().get(1).getFullName());
-        assertEquals("WKPS13", team.getMembers().get(1).getCode());
+        assertEquals("Pawel", team.getEventPlayerOne().getFullName());
+        assertEquals("WKPS69", team.getEventPlayerOne().getCode());
+        assertEquals("Tomek", team.getEventPlayerTwo().getFullName());
+        assertEquals("WKPS13", team.getEventPlayerTwo().getCode());
     }
 
     @Test
     public void stringToObject_onlyOneMember() {
         Team team = cut.stringToObject("Pawel:::WKPS69");
 
-        assertEquals("Pawel", team.getMembers().get(0).getFullName());
-        assertEquals("WKPS69", team.getMembers().get(0).getCode());
-        assertEquals(1, team.getMembers().size());
+        assertEquals("Pawel", team.getEventPlayerOne().getFullName());
+        assertEquals("WKPS69", team.getEventPlayerOne().getCode());
+        assertEquals(1, team.getSize());
     }
 }

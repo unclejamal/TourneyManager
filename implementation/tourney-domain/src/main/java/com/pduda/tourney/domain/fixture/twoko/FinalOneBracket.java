@@ -3,6 +3,7 @@ package com.pduda.tourney.domain.fixture.twoko;
 import com.pduda.tourney.domain.Game;
 import com.pduda.tourney.domain.GameCode;
 import com.pduda.tourney.domain.Team;
+import com.pduda.tourney.domain.TourneyEvent;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -43,8 +44,8 @@ public class FinalOneBracket implements Serializable {
     public FinalOneBracket() {
     }
 
-    public FinalOneBracket(FinalTwoBracket finalTwoBracket) {
-        this.head = new Bracket(FIN1, 1, 1);
+    public FinalOneBracket(TourneyEvent tourneyEvent, FinalTwoBracket finalTwoBracket) {
+        this.head = new Bracket(tourneyEvent, FIN1, 1, 1);
         this.finalTwoBracket = finalTwoBracket;
     }
 

@@ -2,7 +2,6 @@ package com.pduda.tourney.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -36,7 +35,7 @@ public class Tourney implements Serializable {
     private Set<FoosballTable> tables = new HashSet<FoosballTable>();
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
-    private Set<TourneyEvent> events = new HashSet<TourneyEvent>();
+    private Set<TourneyEvent> tourneyEvents = new HashSet<TourneyEvent>();
 
     public Tourney(String name) {
         super();
@@ -66,7 +65,7 @@ public class Tourney implements Serializable {
     }
 
     public void addEvent(TourneyEvent event) {
-        events.add(event);
+        tourneyEvents.add(event);
     }
 
     @Override
@@ -80,13 +79,23 @@ public class Tourney implements Serializable {
         return builder.toString();
     }
 
-    public Set<TourneyEvent> getEvents() {
-        return events;
+    public Set<TourneyEvent> getTourneyEvents() {
+        return tourneyEvents;
+    }
+
+    public TourneyEvent getTourneyEvent(long eventId) {
+        for (TourneyEvent tourneyEvent : tourneyEvents) {
+            if (eventId == tourneyEvent.getId()) {
+                return tourneyEvent;
+            }
+        }
+
+        throw new RuntimeException();
     }
 
     public List<Game> getWaitingGames() {
         List<Game> waitingGames = new ArrayList<Game>();
-        for (TourneyEvent event : events) {
+        for (TourneyEvent event : tourneyEvents) {
             waitingGames.addAll(event.getWaitingGames());
         }
 
@@ -95,7 +104,7 @@ public class Tourney implements Serializable {
 
     public List<Game> getOngoingGames() {
         List<Game> ongoingGames = new ArrayList<Game>();
-        for (TourneyEvent event : events) {
+        for (TourneyEvent event : tourneyEvents) {
             ongoingGames.addAll(event.getOngoingGames());
         }
 
@@ -104,6 +113,10 @@ public class Tourney implements Serializable {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {

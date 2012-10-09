@@ -1,5 +1,6 @@
 package com.pduda.tourney.domain.service;
 
+import com.pduda.tourney.domain.service.payments.PersistentPaymentsHandler;
 import java.util.Date;
 import javax.inject.Inject;
 import org.junit.Test;

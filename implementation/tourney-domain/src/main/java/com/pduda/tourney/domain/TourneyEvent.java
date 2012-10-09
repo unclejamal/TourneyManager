@@ -71,21 +71,6 @@ public class TourneyEvent implements Serializable {
         }
     }
 
-    public void reportWinner(GameCode gameCode, long winnerTeamCode) {
-        Team winner = findTeam(winnerTeamCode);
-        fixture.reportWinner(gameCode, winner);
-        log.log(Level.INFO, "{0} has reported winner of game {1} - team {2}", new Object[]{this, gameCode, winner});
-
-        if (!fixture.anyGameLeft()) {
-            endEvent();
-        }
-    }
-
-    private void endEvent() {
-        this.endDate = new Date();
-        log.log(Level.INFO, "{0} has ended", this);
-    }
-
     public void startGame(GameCode gameCode) {
         this.fixture.startGame(gameCode, tourney.findFreeTable());
         log.log(Level.INFO, "{0} has started the game {1}", new Object[]{this, gameCode});
@@ -99,6 +84,21 @@ public class TourneyEvent implements Serializable {
         }
 
         throw new RuntimeException("team not found");
+    }
+
+    public void reportWinner(GameCode gameCode, long winnerTeamCode) {
+        Team winner = findTeam(winnerTeamCode);
+        fixture.reportWinner(gameCode, winner);
+        log.log(Level.INFO, "{0} has reported winner of game {1} - team {2}", new Object[]{this, gameCode, winner});
+
+        if (!fixture.anyGameLeft()) {
+            endEvent();
+        }
+    }
+
+    private void endEvent() {
+        this.endDate = new Date();
+        log.log(Level.INFO, "{0} has ended", this);
     }
 
     public boolean isStarted() {
@@ -184,5 +184,16 @@ public class TourneyEvent implements Serializable {
     @Override
     public String toString() {
         return "Event{" + "id=" + id + ", eventCategory=" + eventCategory + '}';
+    }
+
+    public void updateTeams(Set<Team> updatedTeams) {
+        teams.clear();
+        for (Team team : updatedTeams) {
+            teams.addAll(updatedTeams);
+        }
+    }
+
+    public Tourney getTourney() {
+        return tourney;
     }
 }

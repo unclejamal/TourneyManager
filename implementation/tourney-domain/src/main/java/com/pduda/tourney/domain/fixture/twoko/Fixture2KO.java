@@ -8,6 +8,7 @@ import com.pduda.tourney.domain.GameState;
 import com.pduda.tourney.domain.Team;
 import com.pduda.tourney.domain.TourneyEvent;
 import com.pduda.tourney.domain.report.FullGamesReport;
+import com.pduda.tourney.domain.report.GamesReportFactory;
 import com.pduda.tourney.domain.report.Standings;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,8 @@ public class Fixture2KO implements Fixture {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "BRACKET_FIN2")
     private FinalTwoBracket finalTwoBracket;
+    @OneToOne(mappedBy = "fixture")
+    private TourneyEvent tourneyEvent;
     @Transient
     private TeamAssigner teamAssigner;
     @Transient
@@ -47,30 +50,28 @@ public class Fixture2KO implements Fixture {
     private GamesReportFactory gamesReportFactory;
     @Transient
     private StandingsCollector standingsCollector;
-    @OneToOne(mappedBy = "fixture")
-    private TourneyEvent event;
 
-    public Fixture2KO(TourneyEvent event) {
-        init();
-        this.event = event;
-        this.finalTwoBracket = new FinalTwoBracket();
-        this.finalOneBracket = new FinalOneBracket(finalTwoBracket);
-        this.loserBracket = loserBracketFactory.createLoserBracket(event.getTeams().size(), finalOneBracket);
-        this.winnerBracket = winnerBracketFactory.createWinnerBracket(event.getTeams().size(), finalOneBracket, loserBracket);
+    public Fixture2KO(TourneyEvent tourneyEvent) {
+        init(tourneyEvent);
+        this.finalTwoBracket = new FinalTwoBracket(tourneyEvent);
+        this.finalOneBracket = new FinalOneBracket(tourneyEvent, finalTwoBracket);
+        this.loserBracket = loserBracketFactory.createLoserBracket(tourneyEvent.getTeams().size(), finalOneBracket);
+        this.winnerBracket = winnerBracketFactory.createWinnerBracket(tourneyEvent.getTeams().size(), finalOneBracket, loserBracket);
 
-        teamAssigner.assignTeams(winnerBracket.getHead(), event.getTeams());
+        teamAssigner.assignTeams(winnerBracket.getHead(), tourneyEvent.getTeams());
         processByes(winnerBracket);
     }
 
     public Fixture2KO() {
         // JPA
-        init();
+        init(tourneyEvent);
     }
 
-    private void init() {
+    private void init(TourneyEvent tourneyEvent) {
+        this.tourneyEvent = tourneyEvent;
+        winnerBracketFactory = new WinnerBracketFactory(tourneyEvent);
+        loserBracketFactory = new LoserBracketFactory(tourneyEvent);
         teamAssigner = new PartiallySeededTeamAssigner();
-        winnerBracketFactory = new WinnerBracketFactory();
-        loserBracketFactory = new LoserBracketFactory();
         gamesReportFactory = new Fixture2KOFullGamesReportFactory();
         standingsCollector = new StandingsCollector();
     }
@@ -193,7 +194,7 @@ public class Fixture2KO implements Fixture {
 
     @Override
     public TourneyEvent getEvent() {
-        return event;
+        return tourneyEvent;
     }
 
     public WinnerBracket getWinnerBracket() {

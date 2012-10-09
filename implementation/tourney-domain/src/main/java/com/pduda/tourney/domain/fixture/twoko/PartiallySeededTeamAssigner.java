@@ -17,7 +17,6 @@ public class PartiallySeededTeamAssigner implements TeamAssigner, Serializable {
     public void assignTeams(Bracket wbr, Collection<Team> teams) {
         directions.createDirections((int) (Math.ceil(MyMath.log2(teams.size()))));
 
-
         List<Team> seededTeams = new ArrayList<Team>();
         List<Team> unseededTeams = new ArrayList<Team>();
         for (Team team : teams) {

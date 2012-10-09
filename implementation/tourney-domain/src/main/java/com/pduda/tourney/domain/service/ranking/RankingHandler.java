@@ -1,4 +1,4 @@
-package com.pduda.tourney.domain.service;
+package com.pduda.tourney.domain.service.ranking;
 
 import com.pduda.tourney.domain.ranking.PzfsRanking;
 

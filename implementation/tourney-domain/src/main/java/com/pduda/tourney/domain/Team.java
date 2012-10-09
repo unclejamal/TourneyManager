@@ -3,8 +3,10 @@ package com.pduda.tourney.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.*;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -25,25 +27,29 @@ public class Team implements Serializable {
     private int seed = Integer.MAX_VALUE;
     @Column(name = "NAME")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<EventPlayer> members = new ArrayList<EventPlayer>();
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private EventPlayer eventPlayerOne;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private EventPlayer eventPlayerTwo;
 
     public Team(EventPlayer... memberz) {
-        Collections.addAll(members, memberz);
-        Collections.sort(this.members, new PlayersByPointsComparator());
-        this.name = computeName(members);
+        eventPlayerOne = memberz[0];
+        if (memberz.length == 2) {
+            eventPlayerTwo = memberz[1];
+        }
+        this.name = computeName();
     }
 
     public Team() {
     }
 
-    private String computeName(List<EventPlayer> members) {
+    private String computeName() {
         StringBuilder sb = new StringBuilder();
-        sb.append(members.get(0).getShortName());
+        sb.append(eventPlayerOne.getShortName());
 
         if (isDouble()) {
             sb.append(", ");
-            sb.append(members.get(1).getShortName());
+            sb.append(eventPlayerTwo.getShortName());
         }
 
         return sb.toString();
@@ -77,10 +83,6 @@ public class Team implements Serializable {
         this.seed = seed;
     }
 
-    public List<EventPlayer> getMembers() {
-        return members;
-    }
-
     public String getName() {
         return name;
     }
@@ -89,28 +91,60 @@ public class Team implements Serializable {
         this.name = name;
     }
 
-    public int getPoints() {
-        int points1 = members.get(0).getPoints();
+    public EventPlayer getEventPlayerOne() {
+        return eventPlayerOne;
+    }
 
-        if (members.size() == 2) {
-            int points2 = members.get(1).getPoints();
-            return Math.max(points1, points2) + (int) (Math.min(points1, points2) / 2);
+    public EventPlayer getEventPlayerTwo() {
+        return eventPlayerTwo;
+    }
+
+    public int getPoints() {
+        int points1 = eventPlayerOne.getPoints();
+        int points2 = 0;
+        if (isDouble()) {
+            points2 = eventPlayerTwo.getPoints();
         }
 
-        return points1;
+        return Math.max(points1, points2) + (int) (Math.min(points1, points2) / 2);
     }
 
     public boolean isSingle() {
-        return members.size() == 1;
+        return (eventPlayerOne != null) && (eventPlayerTwo == null);
     }
 
     public boolean isDouble() {
-        return members.size() == 2;
+        return (eventPlayerOne != null) && (eventPlayerTwo != null);
+    }
+
+    public int getSize() {
+        if (isSingle()) {
+            return 1;
+        } else if (isDouble()) {
+            return 2;
+        }
+
+        throw new RuntimeException();
     }
 
     @Override
     public String toString() {
-        return "Team{" + "seed=" + seed + ", members=" + members + '}';
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Team {");
+        sb.append("id: ").append(id).append(", ");
+        sb.append("name: ").append(name).append(", ");
+        sb.append("}");
+
+        return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.eventPlayerOne);
+        hash = 37 * hash + Objects.hashCode(this.eventPlayerTwo);
+        return hash;
     }
 
     @Override
@@ -122,16 +156,12 @@ public class Team implements Serializable {
             return false;
         }
         final Team other = (Team) obj;
-        if (!Objects.equals(this.members, other.members)) {
+        if (!Objects.equals(this.eventPlayerOne, other.eventPlayerOne)) {
+            return false;
+        }
+        if (!Objects.equals(this.eventPlayerTwo, other.eventPlayerTwo)) {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.members);
-        return hash;
     }
 }

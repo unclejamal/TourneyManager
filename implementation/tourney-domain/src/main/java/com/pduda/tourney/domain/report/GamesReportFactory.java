@@ -1,6 +1,5 @@
-package com.pduda.tourney.domain.fixture.twoko;
+package com.pduda.tourney.domain.report;
 
-import com.pduda.tourney.domain.report.FullGamesReport;
 import com.pduda.tourney.domain.Fixture;
 import java.io.Serializable;
 

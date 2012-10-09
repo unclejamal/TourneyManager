@@ -14,7 +14,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <jsf.version>2.1.11</jsf.version>
+        <jsf.version>2.1.13</jsf.version>
         <org.richfaces.bom.version>4.2.2.Final</org.richfaces.bom.version>
     </properties>
 
